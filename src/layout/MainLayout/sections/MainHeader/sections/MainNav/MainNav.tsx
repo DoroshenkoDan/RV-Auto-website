@@ -3,8 +3,7 @@
 import { useTranslations } from "next-intl"
 
 import { Link, usePathname } from "@/i18n/navigation"
-
-import { isNavItemActive, NAV_ITEMS } from "../../navItems"
+import { isNavItemActive, NAV_ITEMS } from "@/layout/MainLayout/navItems"
 
 export function MainNav({ className }: { className?: string }) {
   const t = useTranslations("nav")

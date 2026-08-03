@@ -23,5 +23,15 @@
     "title": "Request a call",
     "description": "Leave your number and we'll call you back to answer questions about sourcing and delivery.",
     "close": "Close"
+  },
+  "footer": {
+    "tagline": "Cars from the USA and Europe, turnkey.",
+    "navTitle": "Navigation",
+    "contactsTitle": "Contacts",
+    "address": "10 Pryklad St., Lviv",
+    "workHours": "MON–SAT · 10:00–19:00",
+    "copyright": "© {year} Revolution Auto",
+    "privacy": "Privacy policy",
+    "offer": "Terms of offer"
   }
 }

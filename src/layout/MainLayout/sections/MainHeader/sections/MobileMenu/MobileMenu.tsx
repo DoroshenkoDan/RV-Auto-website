@@ -5,8 +5,7 @@ import { Dialog } from "@base-ui/react/dialog"
 import { useTranslations } from "next-intl"
 
 import { Link, usePathname } from "@/i18n/navigation"
-
-import { isNavItemActive, NAV_ITEMS } from "../../navItems"
+import { isNavItemActive, NAV_ITEMS } from "@/layout/MainLayout/navItems"
 
 const BAR = "absolute inset-x-0 h-0.5 rounded-full bg-current"
 const BAR_MOTION = "transition duration-300 ease-out motion-reduce:transition-none"

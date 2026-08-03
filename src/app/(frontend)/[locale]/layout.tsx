@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Jost } from "next/font/google";
+import { JetBrains_Mono, Manrope, Unbounded } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -8,9 +8,21 @@ import { routing } from "@/i18n/routing";
 import { MainLayout } from "@/layout/MainLayout";
 import "@/styles/globals.css";
 
-const jost = Jost({
+const unbounded = Unbounded({
   subsets: ["latin", "cyrillic"],
-  variable: "--font-jost",
+  variable: "--font-unbounded",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -34,8 +46,11 @@ export default async function FrontendLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className={jost.variable}>
-      <body>
+    <html
+      lang={locale}
+      className={`${unbounded.variable} ${manrope.variable} ${jetBrainsMono.variable}`}
+    >
+      <body className="flex min-h-dvh flex-col">
         <NextIntlClientProvider>
           <MainLayout>{children}</MainLayout>
         </NextIntlClientProvider>
