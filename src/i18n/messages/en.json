@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "cars": "Catalog",
+    "delivered": "Delivered cars",
+    "faq": "FAQ"
+  },
+  "localeSwitcher": {
+    "label": "Language switcher"
+  },
+  "headerActions": {
+    "contact": "Get in touch",
+    "phone": "Call us"
+  },
+  "mobileMenu": {
+    "title": "Menu",
+    "open": "Open menu",
+    "close": "Close menu"
+  },
+  "callback": {
+    "trigger": "Request a call",
+    "title": "Request a call",
+    "description": "Leave your number and we'll call you back to answer questions about sourcing and delivery.",
+    "close": "Close"
+  }
+}
