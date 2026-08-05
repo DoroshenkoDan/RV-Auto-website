@@ -1,0 +1,60 @@
+import { cn } from "@/lib/utils"
+
+import type { HeroSlide } from "../../types"
+
+export function HeroProgress({
+  slides,
+  active,
+  cycle,
+  label,
+  onSelect,
+  className,
+}: {
+  slides: Pick<HeroSlide, "key" | "label">[]
+  active: number
+  cycle: number
+  label: string
+  onSelect: (index: number) => void
+  className?: string
+}) {
+  return (
+    <nav aria-label={label} className={cn("flex gap-x-3", className)}>
+      {slides.map((slide, index) => {
+        const isActive = index === active
+        const isPast = index < active
+
+        return (
+          <button
+            key={slide.key}
+            type="button"
+            onClick={() => onSelect(index)}
+            aria-current={isActive ? "true" : undefined}
+            className="group flex cursor-pointer flex-col items-center gap-y-1.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+          >
+            <span className="block h-0.5 w-14 overflow-hidden bg-sand/18">
+              {isPast && <span className="block size-full bg-brand/45" />}
+
+              {isActive && (
+                <span
+                  key={cycle}
+                  className="animate-hero-progress block size-full origin-left bg-brand motion-reduce:animate-none"
+                />
+              )}
+            </span>
+
+            <span
+              className={cn(
+                "font-mono text-[11px] leading-normal tracking-widest uppercase transition-colors duration-300",
+                isActive && "text-sand",
+                isPast && "text-sand/60",
+                !isActive && !isPast && "text-sand/28 group-hover:text-sand/60",
+              )}
+            >
+              {slide.label}
+            </span>
+          </button>
+        )
+      })}
+    </nav>
+  )
+}

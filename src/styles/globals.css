@@ -21,6 +21,28 @@
 
   --text-body: 0.875rem;
   --text-body--line-height: 1.2;
+
+  --animate-hero-progress: hero-progress var(--hero-duration, 6s) linear
+    forwards;
+  --animate-hero-zoom: hero-zoom 7s ease-out forwards;
+
+  @keyframes hero-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes hero-zoom {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.08);
+    }
+  }
 }
 
 @media (width >= 40rem) {

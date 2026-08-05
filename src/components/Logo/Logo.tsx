@@ -26,7 +26,7 @@ export function Logo({ className }: { className?: string }) {
     >
       <span className="relative block size-10 shrink-0 overflow-hidden rounded-full  sm:size-12 lg:size-14">
         <Image
-          src="/images/shared/logo.png"
+          src="/images/shared/logo.webp"
           alt=""
           fill
           sizes="(min-width: 1024px) 56px, (min-width: 640px) 48px, 40px"

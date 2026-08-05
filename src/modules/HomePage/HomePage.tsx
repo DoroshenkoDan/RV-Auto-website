@@ -1,7 +1,9 @@
+import { Hero } from "./sections/Hero"
+
 export function HomePage() {
-  return <>
-    <p>Головна</p>
-
-
-  </>
+  return (
+    <>
+      <Hero />
+    </>
+  )
 }

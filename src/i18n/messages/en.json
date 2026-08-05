@@ -24,6 +24,35 @@
     "description": "Leave your number and we'll call you back to answer questions about sourcing and delivery.",
     "close": "Close"
   },
+  "hero": {
+    "navLabel": "Slider navigation",
+    "slides": {
+      "usEu": {
+        "label": "USA + Europe",
+        "titleLead": "Two markets.",
+        "titleAccent": "One contract.",
+        "description": "Copart, IAAI and Manheim in the USA plus European auction sites. We compare them and take whichever works out better for you.",
+        "cta": "Find a car",
+        "meta": "Copart · IAAI · Manheim · EU"
+      },
+      "catalog": {
+        "label": "Catalog",
+        "titleLead": "You pick the car.",
+        "titleAccent": "We inspect it.",
+        "description": "Live auction lots, cars already on their way and cars in stock — all in one catalog.",
+        "cta": "Browse catalog",
+        "meta": "Lots · In transit · In stock"
+      },
+      "selling": {
+        "label": "Selling a car",
+        "titleLead": "We sell your car.",
+        "titleAccent": "Hassle-free.",
+        "description": "Appraisal, prep and sale, turnkey. You get the money, we handle everything else.",
+        "cta": "Get an appraisal",
+        "meta": "Appraisal · Prep · Sale"
+      }
+    }
+  },
   "footer": {
     "tagline": "Cars from the USA and Europe, turnkey.",
     "navTitle": "Navigation",
