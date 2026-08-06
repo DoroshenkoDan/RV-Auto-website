@@ -71,6 +71,11 @@ export function HeroSlideCard({
           </div>
 
           <div className="relative hidden aspect-3/2 w-[clamp(24rem,20vw+10vh,34rem)] justify-self-end lg:block">
+            <div
+              aria-hidden
+              className="absolute -inset-10 bg-[radial-gradient(closest-side,--alpha(var(--color-night)/75%),transparent)]"
+            />
+
             <Image
               src="/images/shared/logo.webp"
               alt=""
