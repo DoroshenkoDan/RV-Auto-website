@@ -134,7 +134,7 @@
 }
 
 body {
-  background: var(--color-canvas);
+  background: var(--color-night);
   color: var(--color-ink);
   font-size: var(--text-body);
   line-height: var(--text-body--line-height);
