@@ -53,6 +53,71 @@
       }
     }
   },
+  "calculator": {
+    "title": "Get the turn-key price",
+    "idle": {
+      "label": "Fill out the form to get the final turn-key price for your car."
+    },
+    "result": {
+      "label": "Turn-key price",
+      "lines": {
+        "lotPrice": "Lot price",
+        "auctionFee": "Auction fee",
+        "usDelivery": "US delivery",
+        "oceanFreight": "Ocean freight",
+        "customs": "Duty and excise",
+        "vat": "VAT",
+        "companyFee": "Our service fee"
+      },
+      "total": "Total turn-key",
+      "disclaimer": "Preliminary estimate. The exact amount is fixed in the contract.",
+      "cta": "Get an exact quote",
+      "phone": "Or call us:"
+    },
+    "form": {
+      "fuel": {
+        "label": "Fuel type",
+        "petrol": "Petrol",
+        "diesel": "Diesel",
+        "hybrid": "Hybrid",
+        "electric": "Electric"
+      },
+      "engineVolume": {
+        "label": "Engine size, cc",
+        "placeholder": "2000"
+      },
+      "batteryCapacity": {
+        "label": "Battery capacity, kWh",
+        "placeholder": "60"
+      },
+      "year": {
+        "label": "Year",
+        "placeholder": "2021"
+      },
+      "vehicle": {
+        "label": "Vehicle type",
+        "car": "Car",
+        "suv": "Crossover / SUV",
+        "pickup": "Pickup",
+        "motorcycle": "Motorcycle"
+      },
+      "auction": {
+        "label": "Auction",
+        "copart": "Copart",
+        "iaai": "IAAI"
+      },
+      "lotPrice": {
+        "label": "Lot price, $",
+        "placeholder": "9400"
+      },
+      "submit": "Calculate",
+      "errors": {
+        "required": "This field is required",
+        "min": "Minimum {min}",
+        "max": "Maximum {max}"
+      }
+    }
+  },
   "footer": {
     "tagline": "Cars from the USA and Europe, turnkey.",
     "navTitle": "Navigation",

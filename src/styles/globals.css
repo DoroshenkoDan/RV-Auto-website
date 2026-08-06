@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 
 @theme {
+  --color-white: #fff;
   --color-canvas: #faf8f5;
   --color-surface: #f2eee8;
   --color-sand: #f1e8d8;
@@ -25,6 +26,30 @@
   --animate-hero-progress: hero-progress var(--hero-duration, 6s) linear
     forwards;
   --animate-hero-zoom: hero-zoom 7s ease-out forwards;
+
+  --animate-car-stream: car-stream 1.5s linear infinite;
+  --animate-car-spin: car-spin 0.7s linear infinite;
+  --animate-car-streak: car-streak 1s linear infinite;
+
+  @keyframes car-stream {
+    to {
+      stroke-dashoffset: 2000px;
+    }
+  }
+
+  @keyframes car-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes car-streak {
+    to {
+      d: path(
+        "m270.81 171.77 58.288 94.061h24.17l-68.056-94.061zm21.698 0 64.579 94.061h6.1955l-68.058-94.061z"
+      );
+    }
+  }
 
   @keyframes hero-progress {
     from {
