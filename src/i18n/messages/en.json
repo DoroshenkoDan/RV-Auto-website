@@ -24,6 +24,38 @@
     "description": "Leave your number and we'll call you back to answer questions about sourcing and delivery.",
     "close": "Close"
   },
+  "toast": {
+    "close": "Close"
+  },
+  "contactForm": {
+    "name": {
+      "label": "Your name",
+      "placeholder": "Name",
+      "required": "Enter your name",
+      "invalid": "Invalid name"
+    },
+    "phone": {
+      "label": "Phone number",
+      "placeholder": "+380",
+      "required": "Enter your phone",
+      "invalid": "Invalid phone number"
+    },
+    "messenger": {
+      "label": "Preferred messenger"
+    },
+    "submit": "Send",
+    "consent": "By clicking the button, you agree to the <link>privacy policy</link>.",
+    "toast": {
+      "success": {
+        "title": "Request sent",
+        "description": "A manager will get in touch within 15 minutes."
+      },
+      "error": {
+        "title": "Could not send",
+        "description": "Please try again or give us a call."
+      }
+    }
+  },
   "hero": {
     "navLabel": "Slider navigation",
     "slides": {
@@ -117,6 +149,10 @@
         "max": "Maximum {max}"
       }
     }
+  },
+  "ctaHome": {
+    "title": "Let's price your car today",
+    "description": "Leave your contacts, manager will get in touch within 15 minutes."
   },
   "footer": {
     "tagline": "Cars from the USA and Europe, turnkey.",

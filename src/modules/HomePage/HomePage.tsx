@@ -1,4 +1,5 @@
 import { Calculator } from "./sections/Calculator"
+import { CtaHome } from "./sections/CtaHome"
 import { Hero } from "./sections/Hero"
 
 export function HomePage() {
@@ -6,6 +7,7 @@ export function HomePage() {
     <>
       <Hero />
       <Calculator />
+      <CtaHome />
     </>
   )
 }

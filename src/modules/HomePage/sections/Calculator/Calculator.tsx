@@ -17,7 +17,7 @@ export function Calculator() {
   return (
     <section className="bg-canvas py-16 lg:py-20 2xl:py-24">
       <div className="page-shell">
-        <h2 className="text-center text-2xl leading-tight font-bold tracking-[0.08em] uppercase lg:text-3xl 2xl:text-4xl font-logo">
+        <h2 className="text-center text-2xl leading-tight font-bold lg:text-3xl 2xl:text-4xl font-logo">
           {t("title")}
         </h2>
 
