@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl"
 
 import { Link } from "@/i18n/navigation"
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contacts"
-import { cn } from "@/lib/utils"
+import { cn, formatUsd } from "@/lib/utils"
 
 import type { CalculatorEstimate } from "../../types"
 
@@ -16,16 +16,12 @@ const LINE_TONES = [
   "bg-brand/25",
 ]
 
-function formatUsd(amount: number) {
-  return `$${amount.toLocaleString("en-US")}`
-}
-
 export function CalculatorResult({
   estimate,
 }: {
   estimate: CalculatorEstimate
 }) {
-  const t = useTranslations("calculator.result")
+  const t = useTranslations("homePage.calculator.result")
 
   return (
     <div className="flex h-full flex-col gap-y-4 2xl:gap-y-6">

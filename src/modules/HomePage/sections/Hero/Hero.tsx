@@ -3,13 +3,13 @@
 import type { CSSProperties } from "react"
 import { useTranslations } from "next-intl"
 
-import { HeroProgress } from "./sections/HeroProgress"
-import { HeroSlideCard } from "./sections/HeroSlideCard"
+import { HeroProgress } from "./components/HeroProgress"
+import { HeroSlideCard } from "./components/HeroSlideCard"
 import { HERO_SLIDE_DURATION, HERO_SLIDES } from "./slides"
 import { useHeroSlideshow } from "./useHeroSlideshow"
 
 export function Hero() {
-  const t = useTranslations("hero")
+  const t = useTranslations("homePage.hero")
   const { active, cycle, goTo } = useHeroSlideshow(HERO_SLIDES.length)
 
   const slides = HERO_SLIDES.map(({ key, href, image }) => ({

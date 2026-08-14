@@ -8,6 +8,7 @@ import { uk } from "@payloadcms/translations/languages/uk";
 import { buildConfig } from "payload";
 import sharp from "sharp";
 
+import { Cars } from "@/collections/Cars";
 import { Media } from "@/collections/Media";
 import { Users } from "@/collections/Users";
 
@@ -19,7 +20,7 @@ export default buildConfig({
     user: Users.slug,
     importMap: { baseDir: path.resolve(dirname) },
   },
-  collections: [Users, Media],
+  collections: [Users, Media, Cars],
   editor: lexicalEditor(),
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URI || "" },

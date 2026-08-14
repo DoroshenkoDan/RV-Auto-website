@@ -56,103 +56,121 @@
       }
     }
   },
-  "hero": {
-    "navLabel": "Slider navigation",
-    "slides": {
-      "usEu": {
-        "label": "USA + Europe",
-        "titleLead": "Two markets.",
-        "titleAccent": "One contract.",
-        "description": "Copart, IAAI and Manheim in the USA plus European auction sites. We compare them and take whichever works out better for you.",
-        "cta": "Find a car",
-        "meta": "Copart · IAAI · Manheim · EU"
-      },
-      "catalog": {
-        "label": "Catalog",
-        "titleLead": "You pick the car.",
-        "titleAccent": "We inspect it.",
-        "description": "Live auction lots, cars already on their way and cars in stock — all in one catalog.",
-        "cta": "Browse catalog",
-        "meta": "Lots · In transit · In stock"
-      },
-      "selling": {
-        "label": "Selling a car",
-        "titleLead": "We sell your car.",
-        "titleAccent": "Hassle-free.",
-        "description": "Appraisal, prep and sale, turnkey. You get the money, we handle everything else.",
-        "cta": "Get an appraisal",
-        "meta": "Appraisal · Prep · Sale"
+  "homePage": {
+    "hero": {
+      "navLabel": "Slider navigation",
+      "slides": {
+        "usEu": {
+          "label": "USA + Europe",
+          "titleLead": "Two markets.",
+          "titleAccent": "One contract.",
+          "description": "Copart, IAAI and Manheim in the USA plus European auction sites. We compare them and take whichever works out better for you.",
+          "cta": "Find a car",
+          "meta": "Copart · IAAI · Manheim · EU"
+        },
+        "catalog": {
+          "label": "Catalog",
+          "titleLead": "You pick the car.",
+          "titleAccent": "We inspect it.",
+          "description": "Live auction lots, cars already on their way and cars in stock — all in one catalog.",
+          "cta": "Browse catalog",
+          "meta": "Lots · In transit · In stock"
+        },
+        "selling": {
+          "label": "Selling a car",
+          "titleLead": "We sell your car.",
+          "titleAccent": "Hassle-free.",
+          "description": "Appraisal, prep and sale, turnkey. You get the money, we handle everything else.",
+          "cta": "Get an appraisal",
+          "meta": "Appraisal · Prep · Sale"
+        }
       }
-    }
-  },
-  "calculator": {
-    "title": "Get the turn-key price",
-    "idle": {
-      "label": "Fill out the form to get the final turn-key price for your car."
     },
-    "result": {
-      "label": "Turn-key price",
-      "lines": {
-        "lotPrice": "Lot price",
-        "auctionFee": "Auction fee",
-        "usDelivery": "US delivery",
-        "oceanFreight": "Ocean freight",
-        "customs": "Duty and excise",
-        "vat": "VAT",
-        "companyFee": "Our service fee"
+    "calculator": {
+      "title": "Get the turn-key price",
+      "idle": {
+        "label": "Fill out the form to get the final turn-key price for your car."
       },
-      "total": "Total turn-key",
-      "disclaimer": "Preliminary estimate. The exact amount is fixed in the contract.",
-      "cta": "Get an exact quote",
-      "phone": "Or call us:"
-    },
-    "form": {
-      "fuel": {
-        "label": "Fuel type",
-        "petrol": "Petrol",
-        "diesel": "Diesel",
-        "hybrid": "Hybrid",
-        "electric": "Electric"
+      "result": {
+        "label": "Turn-key price",
+        "lines": {
+          "lotPrice": "Lot price",
+          "auctionFee": "Auction fee",
+          "usDelivery": "US delivery",
+          "oceanFreight": "Ocean freight",
+          "customs": "Duty and excise",
+          "vat": "VAT",
+          "companyFee": "Our service fee"
+        },
+        "total": "Total turn-key",
+        "disclaimer": "Preliminary estimate. The exact amount is fixed in the contract.",
+        "cta": "Get an exact quote",
+        "phone": "Or call us:"
       },
-      "engineVolume": {
-        "label": "Engine size, cc",
-        "placeholder": "2000"
-      },
-      "batteryCapacity": {
-        "label": "Battery capacity, kWh",
-        "placeholder": "60"
-      },
-      "year": {
-        "label": "Year",
-        "placeholder": "2021"
-      },
-      "vehicle": {
-        "label": "Vehicle type",
-        "car": "Car",
-        "suv": "Crossover / SUV",
-        "pickup": "Pickup",
-        "motorcycle": "Motorcycle"
-      },
-      "auction": {
-        "label": "Auction",
-        "copart": "Copart",
-        "iaai": "IAAI"
-      },
-      "lotPrice": {
-        "label": "Lot price, $",
-        "placeholder": "9400"
-      },
-      "submit": "Calculate",
-      "errors": {
-        "required": "This field is required",
-        "min": "Minimum {min}",
-        "max": "Maximum {max}"
+      "form": {
+        "fuel": {
+          "label": "Fuel type",
+          "petrol": "Petrol",
+          "diesel": "Diesel",
+          "hybrid": "Hybrid",
+          "electric": "Electric"
+        },
+        "engineVolume": {
+          "label": "Engine size, cc",
+          "placeholder": "2000"
+        },
+        "batteryCapacity": {
+          "label": "Battery capacity, kWh",
+          "placeholder": "60"
+        },
+        "year": {
+          "label": "Year",
+          "placeholder": "2021"
+        },
+        "vehicle": {
+          "label": "Vehicle type",
+          "car": "Car",
+          "suv": "Crossover / SUV",
+          "pickup": "Pickup",
+          "motorcycle": "Motorcycle"
+        },
+        "auction": {
+          "label": "Auction",
+          "copart": "Copart",
+          "iaai": "IAAI"
+        },
+        "lotPrice": {
+          "label": "Lot price, $",
+          "placeholder": "9400"
+        },
+        "submit": "Calculate",
+        "errors": {
+          "required": "This field is required",
+          "min": "Minimum {min}",
+          "max": "Maximum {max}"
+        }
       }
+    },
+    "catalog": {
+      "title": "Choose your car today",
+      "viewAll": "Browse full catalog",
+      "count": "{count} cars",
+      "tabs": {
+        "all": "All",
+        "available": "Available",
+        "inTransit": "In transit",
+        "auction": "Auction"
+      },
+      "status": {
+        "available": "Available",
+        "inTransit": "In transit",
+        "auction": "Hot lot"
+      }
+    },
+    "ctaHome": {
+      "title": "Let's price your car today",
+      "description": "Leave your contacts, manager will get in touch within 15 minutes."
     }
-  },
-  "ctaHome": {
-    "title": "Let's price your car today",
-    "description": "Leave your contacts, manager will get in touch within 15 minutes."
   },
   "footer": {
     "tagline": "Cars from the USA and Europe, turnkey.",

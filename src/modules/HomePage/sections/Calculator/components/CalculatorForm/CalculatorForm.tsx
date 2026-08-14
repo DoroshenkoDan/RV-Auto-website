@@ -18,9 +18,9 @@ import {
   getYearOptions,
 } from "../../options"
 import type { CalculatorInput } from "../../types"
-import { AmountField } from "./sections/AmountField"
-import { SegmentedField } from "./sections/SegmentedField"
-import { YearField } from "./sections/YearField"
+import { AmountField } from "./components/AmountField"
+import { SegmentedField } from "./components/SegmentedField"
+import { YearField } from "./components/YearField"
 
 const YEAR_OPTIONS = getYearOptions()
 
@@ -31,7 +31,7 @@ export function CalculatorForm({
   onCalculate?: (input: CalculatorInput) => void
   className?: string
 }) {
-  const t = useTranslations("calculator.form")
+  const t = useTranslations("homePage.calculator.form")
   const locale = useLocale()
 
   const [values, setValues] = useState<CalculatorInput>(

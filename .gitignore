@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 dev.log
+
+# superpowers docs (specs/plans) - local only, not tracked
+docs/superpowers/

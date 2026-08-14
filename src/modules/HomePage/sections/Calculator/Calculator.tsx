@@ -4,13 +4,13 @@ import { useState } from "react"
 import { useTranslations } from "next-intl"
 
 import { estimate } from "./estimate"
-import { CalculatorForm } from "./sections/CalculatorForm"
-import { CalculatorIdle } from "./sections/CalculatorIdle"
-import { CalculatorResult } from "./sections/CalculatorResult"
+import { CalculatorForm } from "./components/CalculatorForm"
+import { CalculatorIdle } from "./components/CalculatorIdle"
+import { CalculatorResult } from "./components/CalculatorResult"
 import type { CalculatorEstimate } from "./types"
 
 export function Calculator() {
-  const t = useTranslations("calculator")
+  const t = useTranslations("homePage.calculator")
 
   const [result, setResult] = useState<CalculatorEstimate | null>(null)
 

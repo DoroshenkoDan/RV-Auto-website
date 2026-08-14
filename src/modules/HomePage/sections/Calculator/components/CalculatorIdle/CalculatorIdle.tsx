@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl"
 import { CarSvg } from "@/components/CarSvg"
 
 export function CalculatorIdle() {
-  const t = useTranslations("calculator.idle")
+  const t = useTranslations("homePage.calculator.idle")
 
   return (
     <div className="flex h-full w-full flex-col justify-center items-center gap-y-6 2xl:gap-y-8">

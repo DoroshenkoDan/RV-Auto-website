@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl"
 import { ContactForm } from "@/components/ContactForm"
 
 export function CtaHome() {
-  const t = useTranslations("ctaHome")
+  const t = useTranslations("homePage.ctaHome")
 
   return (
     <section className="relative isolate overflow-hidden bg-night py-16 lg:py-20 2xl:py-24">
