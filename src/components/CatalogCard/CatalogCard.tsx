@@ -50,7 +50,7 @@ export function CatalogCard({ className = "", car }: Props) {
         <div className="mt-4 flex gap-2">
           <button
             type="button"
-            className="flex-1 cursor-pointer rounded-md bg-brand py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-brand/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand active:scale-[0.98] motion-reduce:transition-none"
+            className="flex-1 cursor-pointer rounded-md bg-brand py-2.5 text-sm font-semibold text-night-soft transition-colors duration-200 hover:bg-brand/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand active:scale-[0.98] motion-reduce:transition-none"
           >
             Замовити
           </button>

@@ -167,6 +167,25 @@
         "auction": "Hot lot"
       }
     },
+    "howItWorks": {
+      "title": "How we bring your car",
+      "steps": {
+        "selection": {
+          "title": "Selection and inspection",
+          "description": "You share your requirements: make, model, engine size, budget. We shortlist several options, check the Carfax history and send you a report for approval."
+        },
+        "auction": {
+          "title": "Bidding and purchase",
+          "description": "Once approved, we sign an official contract and bid at Copart or IAAI on your behalf. We buy the car within the agreed price and send photos from the warehouse."
+        },
+        "delivery": {
+          "title": "Delivery and handover",
+          "description": "By sea to the port of Klaipeda, then by car carrier to you. Our customs broker handles the clearance — and you pick up a ready car. Around 44 days on average."
+        }
+      },
+      "ctaLabel": "Ready to price your exact car?",
+      "cta": "Calculate turnkey price"
+    },
     "ctaHome": {
       "title": "Let's price your car today",
       "description": "Leave your contacts, manager will get in touch within 15 minutes."
