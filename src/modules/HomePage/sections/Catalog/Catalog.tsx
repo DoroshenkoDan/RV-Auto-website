@@ -1,37 +1,35 @@
-import { cn } from "@/lib/utils";
 import { getLocale, getTranslations } from "next-intl/server";
-import { CatalogTabs } from "./components/CatalogTabs";
-import { getCarsCount, getFeaturedCars } from "@/lib/payload/cars";
+
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { getCarsCount, getFeaturedCars } from "@/lib/payload/cars";
 import { buttonVariants } from "@/ui/button";
+import { Section, SectionTitle } from "@/ui/section";
 
-interface Props {
-  className?: string;
-}
+import { CatalogTabs } from "./components/CatalogTabs";
 
-export async function Catalog({ className = "" }: Props) {
+export async function Catalog() {
   const t = await getTranslations("homePage.catalog");
   const locale = (await getLocale()) as Locale;
-  const cars = await getFeaturedCars(locale);
-  const totalCars = await getCarsCount();
+  const [cars, totalCars] = await Promise.all([
+    getFeaturedCars(locale),
+    getCarsCount(),
+  ]);
 
   return (
-    <section className={cn("bg-canvas py-16 lg:py-20 2xl:py-24", className)}>
-      <div className="page-shell">
-        <h2 className="mb-8 text-center font-logo text-2xl leading-tight font-bold lg:mb-10 lg:text-3xl 2xl:mb-12 2xl:text-4xl">
-          {t("title")}
-        </h2>
-        <CatalogTabs cars={cars} />
-        <div className="m-6 flex flex-row items-center justify-center gap-2">
-          <Link href="/cars" className={buttonVariants({ variant: "outline" })}>
-            {t("viewAll")}
-          </Link>
-          <span className="font-mono text-[13px] text-ink-muted">
-            {t("count", { count: totalCars })}
-          </span>
-        </div>
+    <Section>
+      <SectionTitle align="center">{t("title")}</SectionTitle>
+
+      <CatalogTabs cars={cars} />
+
+      <div className="m-6 flex flex-row items-center justify-center gap-2">
+        <Link href="/cars" className={buttonVariants({ variant: "outline" })}>
+          {t("viewAll")}
+        </Link>
+        <span className="font-mono text-[13px] text-ink-muted">
+          {t("count", { count: totalCars })}
+        </span>
       </div>
-    </section>
+    </Section>
   );
 }
