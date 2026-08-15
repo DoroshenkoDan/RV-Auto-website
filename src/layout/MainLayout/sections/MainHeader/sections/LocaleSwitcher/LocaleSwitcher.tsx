@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
+import { cn } from "@/lib/utils";
 
 const LOCALE_LABELS: Record<Locale, string> = {
   uk: "UA",
@@ -19,7 +20,7 @@ export function LocaleSwitcher({ className }: { className?: string }) {
   return (
     <nav
       aria-label={t("label")}
-      className={`flex items-center gap-x-1.5 ${className ?? ""}`}
+      className={cn("flex items-center gap-x-1.5", className)}
     >
       {routing.locales.map((locale, index) => {
         const isActive = locale === activeLocale;
@@ -37,9 +38,10 @@ export function LocaleSwitcher({ className }: { className?: string }) {
               locale={locale}
               hrefLang={locale}
               aria-current={isActive ? "true" : undefined}
-              className={`text-sm uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${
-                isActive ? "text-brand" : "text-canvas hover:text-brand/70"
-              }`}
+              className={cn(
+                "text-sm uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
+                isActive ? "text-brand" : "text-canvas hover:text-brand/70",
+              )}
             >
               {LOCALE_LABELS[locale]}
             </Link>

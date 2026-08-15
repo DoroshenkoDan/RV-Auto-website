@@ -6,6 +6,7 @@ import { setRequestLocale } from "next-intl/server";
 
 import { routing } from "@/i18n/routing";
 import { MainLayout } from "@/layout/MainLayout";
+import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
 const unbounded = Unbounded({
@@ -48,7 +49,11 @@ export default async function FrontendLayout({
   return (
     <html
       lang={locale}
-      className={`${unbounded.variable} ${manrope.variable} ${jetBrainsMono.variable}`}
+      className={cn(
+        unbounded.variable,
+        manrope.variable,
+        jetBrainsMono.variable,
+      )}
     >
       <body className="flex min-h-dvh flex-col">
         <NextIntlClientProvider>

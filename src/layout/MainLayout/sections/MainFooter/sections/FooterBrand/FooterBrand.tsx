@@ -4,12 +4,13 @@ import { useTranslations } from "next-intl";
 import { Logo } from "@/components/Logo";
 import { SocialIcon } from "@/components/SocialIcon";
 import { SOCIAL_LINKS } from "@/lib/contacts";
+import { cn } from "@/lib/utils";
 
 export function FooterBrand({ className }: { className?: string }) {
   const t = useTranslations("footer");
 
   return (
-    <div className={`flex flex-col items-start gap-y-3 ${className ?? ""}`}>
+    <div className={cn("flex flex-col items-start gap-y-3", className)}>
       <Logo />
 
       <p className="text-sm leading-[1.6] text-sand/55">{t("tagline")}</p>

@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 
 import { LEGAL_ITEMS } from "../../legalItems";
 
@@ -9,7 +10,10 @@ export function FooterBottom({ className }: { className?: string }) {
 
   return (
     <div
-      className={`flex flex-col items-center gap-y-4 border-t border-sand/12 pt-6 sm:flex-row sm:justify-between ${className ?? ""}`}
+      className={cn(
+        "flex flex-col items-center gap-y-4 border-t border-sand/12 pt-6 sm:flex-row sm:justify-between",
+        className,
+      )}
     >
       <p className="font-mono text-xs leading-[1.5] text-sand/45">
         {t("copyright", { year: new Date().getFullYear().toString() })}

@@ -4,6 +4,7 @@ import type { MouseEvent } from "react";
 import Image from "next/image";
 
 import { Link, usePathname } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 
 export function Logo({ className }: { className?: string }) {
   const pathname = usePathname();
@@ -24,7 +25,10 @@ export function Logo({ className }: { className?: string }) {
     <Link
       href="/"
       onClick={handleClick}
-      className={`inline-flex items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:gap-3 ${className ?? ""}`}
+      className={cn(
+        "inline-flex items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:gap-3",
+        className,
+      )}
     >
       <span className="relative block size-11 shrink-0 overflow-hidden rounded-full sm:size-12 lg:size-14">
         <Image

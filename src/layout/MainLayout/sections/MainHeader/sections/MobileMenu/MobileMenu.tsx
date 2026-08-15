@@ -7,10 +7,10 @@ import { useTranslations } from "next-intl";
 import { ContactCta } from "@/components/ContactCta";
 import { Link, usePathname } from "@/i18n/navigation";
 import { isNavItemActive, NAV_ITEMS } from "@/layout/MainLayout/navItems";
+import { cn } from "@/lib/utils";
 
-const BAR = "absolute inset-x-0 h-0.5 rounded-full bg-current";
-const BAR_MOTION =
-  "transition duration-300 ease-out motion-reduce:transition-none";
+const BAR =
+  "absolute inset-x-0 h-0.5 rounded-full bg-current transition duration-300 ease-out motion-reduce:transition-none";
 
 export function MobileMenu({ className }: { className?: string }) {
   const t = useTranslations("nav");
@@ -22,17 +22,29 @@ export function MobileMenu({ className }: { className?: string }) {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         aria-label={open ? tMenu("close") : tMenu("open")}
-        className={`group inline-flex size-11 items-center justify-center text-canvas transition-colors duration-300 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${className ?? ""}`}
+        className={cn(
+          "group inline-flex size-11 items-center justify-center text-canvas transition-colors duration-300 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
+          className,
+        )}
       >
         <span aria-hidden className="relative block h-4 w-7">
           <span
-            className={`${BAR} ${BAR_MOTION} top-0 group-data-popup-open:translate-y-1.75 group-data-popup-open:rotate-45`}
+            className={cn(
+              BAR,
+              "top-0 group-data-popup-open:translate-y-1.75 group-data-popup-open:rotate-45",
+            )}
           />
           <span
-            className={`${BAR} ${BAR_MOTION} top-1/2 -translate-y-1/2 group-data-popup-open:scale-x-0 group-data-popup-open:opacity-0`}
+            className={cn(
+              BAR,
+              "top-1/2 -translate-y-1/2 group-data-popup-open:scale-x-0 group-data-popup-open:opacity-0",
+            )}
           />
           <span
-            className={`${BAR} ${BAR_MOTION} bottom-0 group-data-popup-open:-translate-y-1.75 group-data-popup-open:-rotate-45`}
+            className={cn(
+              BAR,
+              "bottom-0 group-data-popup-open:-translate-y-1.75 group-data-popup-open:-rotate-45",
+            )}
           />
         </span>
       </Dialog.Trigger>
@@ -54,11 +66,12 @@ export function MobileMenu({ className }: { className?: string }) {
                       href={href}
                       onClick={() => setOpen(false)}
                       aria-current={isActive ? "page" : undefined}
-                      className={`block py-3 text-2xl tracking-[0.16em] uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${
+                      className={cn(
+                        "block py-3 text-2xl tracking-[0.16em] uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
                         isActive
                           ? "text-brand"
-                          : "text-canvas hover:text-brand/70"
-                      }`}
+                          : "text-canvas hover:text-brand/70",
+                      )}
                     >
                       {t(key)}
                     </Link>
