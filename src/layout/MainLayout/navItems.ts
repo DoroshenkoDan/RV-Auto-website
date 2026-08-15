@@ -4,8 +4,8 @@ export const NAV_ITEMS = [
   { href: "/cars", key: "cars" },
   { href: "/delivered", key: "delivered" },
   { href: "/faq", key: "faq" },
-] as const
+] as const;
 
 export function isNavItemActive(pathname: string, href: string) {
-  return pathname === href || pathname.startsWith(`${href}/`)
+  return pathname === href || pathname.startsWith(`${href}/`);
 }

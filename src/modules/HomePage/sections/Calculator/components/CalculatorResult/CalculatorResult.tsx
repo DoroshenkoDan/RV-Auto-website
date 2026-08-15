@@ -1,10 +1,10 @@
-import { useTranslations } from "next-intl"
+import { useTranslations } from "next-intl";
 
-import { Link } from "@/i18n/navigation"
-import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contacts"
-import { cn, formatUsd } from "@/lib/utils"
+import { Link } from "@/i18n/navigation";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contacts";
+import { cn, formatUsd } from "@/lib/utils";
 
-import type { CalculatorEstimate } from "../../types"
+import type { CalculatorEstimate } from "../../types";
 
 const LINE_TONES = [
   "bg-brand",
@@ -14,14 +14,14 @@ const LINE_TONES = [
   "bg-brand/45",
   "bg-brand/35",
   "bg-brand/25",
-]
+];
 
 export function CalculatorResult({
   estimate,
 }: {
-  estimate: CalculatorEstimate
+  estimate: CalculatorEstimate;
 }) {
-  const t = useTranslations("homePage.calculator.result")
+  const t = useTranslations("homePage.calculator.result");
 
   return (
     <div className="flex h-full flex-col gap-y-4 2xl:gap-y-6">
@@ -95,5 +95,5 @@ export function CalculatorResult({
         </a>
       </p>
     </div>
-  )
+  );
 }

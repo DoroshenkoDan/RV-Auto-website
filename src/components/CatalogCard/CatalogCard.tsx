@@ -1,14 +1,14 @@
-import { useTranslations } from "next-intl"
+import { useTranslations } from "next-intl";
 
-import { cn } from "@/lib/utils"
-import type { Car } from "@/payload-types"
-import { Link } from "@/i18n/navigation"
-import { formatUsd } from "@/lib/utils"
-import { CarPhotoCarousel } from "@/components/CarPhotoCarousel"
+import { cn } from "@/lib/utils";
+import type { Car } from "@/payload-types";
+import { Link } from "@/i18n/navigation";
+import { formatUsd } from "@/lib/utils";
+import { CarPhotoCarousel } from "@/components/CarPhotoCarousel";
 
 interface Props {
-  car: Car
-  className?: string
+  car: Car;
+  className?: string;
 }
 // Todo: add func to btn to open the form
 
@@ -16,16 +16,26 @@ const STATUS_BADGE_CLASS: Record<Car["status"], string> = {
   available: "bg-brand",
   inTransit: "bg-night-soft",
   auction: "bg-ink",
-}
+};
 
 export function CatalogCard({ className = "", car }: Props) {
-  const t = useTranslations("homePage.catalog.status")
-  const note = car.locationNote ?? car.etaNote ?? car.auctionNote
+  const t = useTranslations("homePage.catalog.status");
+  const note = car.locationNote ?? car.etaNote ?? car.auctionNote;
 
   return (
-    <article className={cn("overflow-hidden rounded-3xl border border-line bg-white", className)}>
+    <article
+      className={cn(
+        "overflow-hidden rounded-3xl border border-line bg-white",
+        className,
+      )}
+    >
       <div className="relative aspect-4/3">
-        <CarPhotoCarousel gallery={car.gallery} alt={car.title} fill revealControlsOnHover />
+        <CarPhotoCarousel
+          gallery={car.gallery}
+          alt={car.title}
+          fill
+          revealControlsOnHover
+        />
         <span
           className={cn(
             "absolute top-3 left-3 rounded-full px-3 py-1 text-xs font-semibold tracking-wide text-white uppercase",
@@ -41,11 +51,14 @@ export function CatalogCard({ className = "", car }: Props) {
           <span className="text-sm text-ink-muted">{car.year}</span>
         </div>
         <p className="mt-1 text-sm text-ink-muted">
-          {car.mileageKm.toLocaleString("en-US")} km · {car.engine} · {car.drivetrain}
+          {car.mileageKm.toLocaleString("en-US")} km · {car.engine} ·{" "}
+          {car.drivetrain}
         </p>
         {note && <p className="mt-1 text-sm text-ink-muted">{note}</p>}
         <hr className="my-4 border-line" />
-        <p className="text-xs tracking-wide text-ink-muted uppercase">Ціна під ключ</p>
+        <p className="text-xs tracking-wide text-ink-muted uppercase">
+          Ціна під ключ
+        </p>
         <p className="text-2xl font-bold text-ink">{formatUsd(car.price)}</p>
         <div className="mt-4 flex gap-2">
           <button
@@ -63,5 +76,5 @@ export function CatalogCard({ className = "", car }: Props) {
         </div>
       </div>
     </article>
-  )
+  );
 }

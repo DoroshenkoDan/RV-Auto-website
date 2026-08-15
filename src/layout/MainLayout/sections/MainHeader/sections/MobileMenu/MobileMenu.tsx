@@ -1,21 +1,22 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Dialog } from "@base-ui/react/dialog"
-import { useTranslations } from "next-intl"
+import { useState } from "react";
+import { Dialog } from "@base-ui/react/dialog";
+import { useTranslations } from "next-intl";
 
-import { Link, usePathname } from "@/i18n/navigation"
-import { isNavItemActive, NAV_ITEMS } from "@/layout/MainLayout/navItems"
+import { Link, usePathname } from "@/i18n/navigation";
+import { isNavItemActive, NAV_ITEMS } from "@/layout/MainLayout/navItems";
 
-const BAR = "absolute inset-x-0 h-0.5 rounded-full bg-current"
-const BAR_MOTION = "transition duration-300 ease-out motion-reduce:transition-none"
+const BAR = "absolute inset-x-0 h-0.5 rounded-full bg-current";
+const BAR_MOTION =
+  "transition duration-300 ease-out motion-reduce:transition-none";
 
 export function MobileMenu({ className }: { className?: string }) {
-  const t = useTranslations("nav")
-  const tMenu = useTranslations("mobileMenu")
-  const tActions = useTranslations("headerActions")
-  const pathname = usePathname()
-  const [open, setOpen] = useState(false)
+  const t = useTranslations("nav");
+  const tMenu = useTranslations("mobileMenu");
+  const tActions = useTranslations("headerActions");
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -45,7 +46,7 @@ export function MobileMenu({ className }: { className?: string }) {
           <nav className="page-shell flex flex-1 flex-col justify-center py-8">
             <ul className="flex flex-col gap-y-2">
               {NAV_ITEMS.map(({ href, key }) => {
-                const isActive = isNavItemActive(pathname, href)
+                const isActive = isNavItemActive(pathname, href);
 
                 return (
                   <li key={href}>
@@ -53,13 +54,16 @@ export function MobileMenu({ className }: { className?: string }) {
                       href={href}
                       onClick={() => setOpen(false)}
                       aria-current={isActive ? "page" : undefined}
-                      className={`block py-3 text-2xl uppercase tracking-[0.16em] transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${isActive ? "text-brand" : "text-canvas hover:text-brand/70"
-                        }`}
+                      className={`block py-3 text-2xl tracking-[0.16em] uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${
+                        isActive
+                          ? "text-brand"
+                          : "text-canvas hover:text-brand/70"
+                      }`}
                     >
                       {t(key)}
                     </Link>
                   </li>
-                )
+                );
               })}
             </ul>
           </nav>
@@ -68,7 +72,7 @@ export function MobileMenu({ className }: { className?: string }) {
             <Link
               href="/contacts"
               onClick={() => setOpen(false)}
-              className="block rounded-md bg-brand px-5 py-4 text-center uppercase tracking-[0.16em] text-base text-night shadow-[0_0_16px_--alpha(var(--color-neon)/30%)] transition duration-300 hover:bg-brand/70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+              className="block rounded-md bg-brand px-5 py-4 text-center text-base tracking-[0.16em] text-night uppercase shadow-[0_0_16px_--alpha(var(--color-neon)/30%)] transition duration-300 hover:bg-brand/70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
             >
               {tActions("contact")}
             </Link>
@@ -76,5 +80,5 @@ export function MobileMenu({ className }: { className?: string }) {
         </Dialog.Popup>
       </Dialog.Portal>
     </Dialog.Root>
-  )
+  );
 }

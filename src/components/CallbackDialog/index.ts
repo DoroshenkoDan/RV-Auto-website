@@ -1,1 +1,1 @@
-export { CallbackDialog } from "./CallbackDialog"
+export { CallbackDialog } from "./CallbackDialog";

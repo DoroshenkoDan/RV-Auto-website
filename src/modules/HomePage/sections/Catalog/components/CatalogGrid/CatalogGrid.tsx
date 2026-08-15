@@ -17,8 +17,8 @@ export function CatalogGrid({ className = "", cars }: Props) {
   return (
     <div
       className={cn(
-        "flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-4 p-4",
-        "lg:grid lg:grid-cols-3 lg:overflow-visible lg:mx-0",
+        "-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto p-4",
+        "lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible",
         className,
       )}
     >
@@ -26,7 +26,7 @@ export function CatalogGrid({ className = "", cars }: Props) {
         <CatalogCard
           key={car.id}
           car={car}
-          className="snap-center shrink-0 w-[85%] lg:w-auto"
+          className="w-[85%] shrink-0 snap-center lg:w-auto"
         />
       ))}
     </div>

@@ -1,1 +1,1 @@
-export { CatalogTabSwitcher } from './CatalogTabSwitcher';
+export { CatalogTabSwitcher } from "./CatalogTabSwitcher";

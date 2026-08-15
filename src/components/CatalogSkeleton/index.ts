@@ -1,1 +1,1 @@
-export { CatalogSkeleton } from "./CatalogSkeleton"
+export { CatalogSkeleton } from "./CatalogSkeleton";

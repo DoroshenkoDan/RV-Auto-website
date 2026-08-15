@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { Field } from "@base-ui/react/field"
-import { Form } from "@base-ui/react/form"
-import { useLocale, useTranslations } from "next-intl"
+import { useEffect, useRef, useState } from "react";
+import { Field } from "@base-ui/react/field";
+import { Form } from "@base-ui/react/form";
+import { useLocale, useTranslations } from "next-intl";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 import {
   AUCTION_TYPES,
@@ -16,44 +16,44 @@ import {
   LOT_PRICE_LIMITS,
   VEHICLE_TYPES,
   getYearOptions,
-} from "../../options"
-import type { CalculatorInput } from "../../types"
-import { AmountField } from "./components/AmountField"
-import { SegmentedField } from "./components/SegmentedField"
-import { YearField } from "./components/YearField"
+} from "../../options";
+import type { CalculatorInput } from "../../types";
+import { AmountField } from "./components/AmountField";
+import { SegmentedField } from "./components/SegmentedField";
+import { YearField } from "./components/YearField";
 
-const YEAR_OPTIONS = getYearOptions()
+const YEAR_OPTIONS = getYearOptions();
 
 export function CalculatorForm({
   onCalculate,
   className,
 }: {
-  onCalculate?: (input: CalculatorInput) => void
-  className?: string
+  onCalculate?: (input: CalculatorInput) => void;
+  className?: string;
 }) {
-  const t = useTranslations("homePage.calculator.form")
-  const locale = useLocale()
+  const t = useTranslations("homePage.calculator.form");
+  const locale = useLocale();
 
   const [values, setValues] = useState<CalculatorInput>(
     DEFAULT_CALCULATOR_INPUT,
-  )
+  );
 
-  const engineVolumeActions = useRef<Field.Root.Actions | null>(null)
-  const previousVehicle = useRef(values.vehicle)
+  const engineVolumeActions = useRef<Field.Root.Actions | null>(null);
+  const previousVehicle = useRef(values.vehicle);
 
-  const engineVolumeLimits = ENGINE_VOLUME_LIMITS[values.vehicle]
+  const engineVolumeLimits = ENGINE_VOLUME_LIMITS[values.vehicle];
 
   useEffect(() => {
     if (previousVehicle.current === values.vehicle) {
-      return
+      return;
     }
 
-    previousVehicle.current = values.vehicle
+    previousVehicle.current = values.vehicle;
 
     if (values.engineVolume !== null) {
-      engineVolumeActions.current?.validate()
+      engineVolumeActions.current?.validate();
     }
-  }, [values.vehicle, values.engineVolume])
+  }, [values.vehicle, values.engineVolume]);
 
   return (
     <Form
@@ -190,5 +190,5 @@ export function CalculatorForm({
         {t("submit")}
       </button>
     </Form>
-  )
+  );
 }

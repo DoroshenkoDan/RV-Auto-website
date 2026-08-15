@@ -16,7 +16,12 @@ export async function CarPage({ slug }: { slug: string }) {
   return (
     <div>
       <h1>{car.title}</h1>
-      <CarPhotoCarousel gallery={car.gallery} alt={car.title} imageWidth={600} imageHeight={400} />
+      <CarPhotoCarousel
+        gallery={car.gallery}
+        alt={car.title}
+        imageWidth={600}
+        imageHeight={400}
+      />
       {car.description && <p>{car.description}</p>}
       {car.vin && <p>VIN: {car.vin}</p>}
       <ul>

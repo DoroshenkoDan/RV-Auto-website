@@ -1,11 +1,11 @@
-import { useTranslations } from "next-intl"
+import { useTranslations } from "next-intl";
 
-import { Link } from "@/i18n/navigation"
+import { Link } from "@/i18n/navigation";
 
-import { LEGAL_ITEMS } from "../../legalItems"
+import { LEGAL_ITEMS } from "../../legalItems";
 
 export function FooterBottom({ className }: { className?: string }) {
-  const t = useTranslations("footer")
+  const t = useTranslations("footer");
 
   return (
     <div
@@ -28,5 +28,5 @@ export function FooterBottom({ className }: { className?: string }) {
         ))}
       </ul>
     </div>
-  )
+  );
 }

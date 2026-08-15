@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion"
-import { ArrowDown } from "lucide-react"
+import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
+import { ArrowDown } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
   return (
@@ -12,7 +12,7 @@ function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
       className={cn("flex w-full flex-col", className)}
       {...props}
     />
-  )
+  );
 }
 
 function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
@@ -22,7 +22,7 @@ function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
       className={cn("not-last:border-b", className)}
       {...props}
     />
-  )
+  );
 }
 
 function AccordionTrigger({
@@ -35,8 +35,8 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group/accordion-trigger flex flex-1 cursor-pointer items-center justify-between gap-4 rounded-sm py-2.5 text-left text-sm font-medium outline-none transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand aria-disabled:pointer-events-none aria-disabled:opacity-50 motion-reduce:transition-none",
-          className
+          "group/accordion-trigger flex flex-1 cursor-pointer items-center justify-between gap-4 rounded-sm py-2.5 text-left text-sm font-medium transition-colors duration-200 outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand aria-disabled:pointer-events-none aria-disabled:opacity-50 motion-reduce:transition-none",
+          className,
         )}
         {...props}
       >
@@ -51,7 +51,7 @@ function AccordionTrigger({
         </span>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
-  )
+  );
 }
 
 function AccordionContent({
@@ -68,13 +68,13 @@ function AccordionContent({
       <div
         className={cn(
           "pt-0 pb-2.5 [&_a]:underline [&_a]:underline-offset-3 [&_p:not(:last-child)]:mb-4",
-          className
+          className,
         )}
       >
         {children}
       </div>
     </AccordionPrimitive.Panel>
-  )
+  );
 }
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };

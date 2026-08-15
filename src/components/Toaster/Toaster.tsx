@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import type { ReactNode } from "react"
-import { Toast } from "@base-ui/react/toast"
-import { CircleAlert, CircleCheck, X } from "lucide-react"
-import { useTranslations } from "next-intl"
+import type { ReactNode } from "react";
+import { Toast } from "@base-ui/react/toast";
+import { CircleAlert, CircleCheck, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 // TODO: redesign toaster component
 export function Toaster({ children }: { children: ReactNode }) {
   return (
@@ -11,18 +11,18 @@ export function Toaster({ children }: { children: ReactNode }) {
       {children}
 
       <Toast.Portal>
-        <Toast.Viewport className="fixed bottom-5 left-5 right-20 z-70 sm:bottom-8 sm:left-8 sm:right-auto sm:w-90">
+        <Toast.Viewport className="fixed right-20 bottom-5 left-5 z-70 sm:right-auto sm:bottom-8 sm:left-8 sm:w-90">
           <ToastList />
         </Toast.Viewport>
       </Toast.Portal>
     </Toast.Provider>
-  )
+  );
 }
 
 function ToastList() {
-  const t = useTranslations("toast")
+  const t = useTranslations("toast");
 
-  const { toasts } = Toast.useToastManager()
+  const { toasts } = Toast.useToastManager();
 
   return toasts.map((toast) => (
     <Toast.Root
@@ -38,7 +38,10 @@ function ToastList() {
             className="mt-0.5 size-5 shrink-0 text-destructive"
           />
         ) : (
-          <CircleCheck aria-hidden className="mt-0.5 size-5 shrink-0 text-brand" />
+          <CircleCheck
+            aria-hidden
+            className="mt-0.5 size-5 shrink-0 text-brand"
+          />
         )}
 
         <div className="flex min-w-0 flex-1 flex-col gap-y-1">
@@ -54,5 +57,5 @@ function ToastList() {
         </Toast.Close>
       </Toast.Content>
     </Toast.Root>
-  ))
+  ));
 }

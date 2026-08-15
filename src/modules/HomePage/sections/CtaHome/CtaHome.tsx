@@ -1,14 +1,14 @@
-import { useTranslations } from "next-intl"
+import { useTranslations } from "next-intl";
 
-import { ContactForm } from "@/components/ContactForm"
+import { ContactForm } from "@/components/ContactForm";
 
 export function CtaHome() {
-  const t = useTranslations("homePage.ctaHome")
+  const t = useTranslations("homePage.ctaHome");
 
   return (
     <section className="relative isolate overflow-hidden bg-night py-16 lg:py-20 2xl:py-24">
       <div className="page-shell">
-        <h2 className="mx-auto max-w-2xl text-center text-2xl leading-tight font-bold text-canvas lg:text-3xl 2xl:text-4xl font-logo">
+        <h2 className="mx-auto max-w-2xl text-center font-logo text-2xl leading-tight font-bold text-canvas lg:text-3xl 2xl:text-4xl">
           {t("title")}
         </h2>
 
@@ -24,5 +24,5 @@ export function CtaHome() {
         className="pointer-events-none absolute -top-1/2 left-20 -z-10 size-120 -translate-x-1/2 rounded-full bg-brand/12 blur-2xl"
       />
     </section>
-  )
+  );
 }

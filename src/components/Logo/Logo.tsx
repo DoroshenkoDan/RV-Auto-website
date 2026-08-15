@@ -1,21 +1,23 @@
-"use client"
+"use client";
 
-import type { MouseEvent } from "react"
-import Image from "next/image"
+import type { MouseEvent } from "react";
+import Image from "next/image";
 
-import { Link, usePathname } from "@/i18n/navigation"
+import { Link, usePathname } from "@/i18n/navigation";
 
 export function Logo({ className }: { className?: string }) {
-  const pathname = usePathname()
-  const isHome = pathname === "/"
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
-    if (!isHome) return
+    if (!isHome) return;
 
-    event.preventDefault()
+    event.preventDefault();
 
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" })
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
   }
 
   return (
@@ -36,18 +38,18 @@ export function Logo({ className }: { className?: string }) {
       </span>
 
       <span className="inline-flex flex-col font-logo text-brand [text-shadow:0_0_10px_currentColor]">
-        <span className="me-[-0.2em] text-sm font-bold uppercase leading-none tracking-[0.2em] sm:me-[-0.25em] sm:text-base sm:tracking-[0.25em]">
+        <span className="me-[-0.2em] text-sm leading-none font-bold tracking-[0.2em] uppercase sm:me-[-0.25em] sm:text-base sm:tracking-[0.25em]">
           Revolution
         </span>
 
         <span className="mt-1 flex items-center sm:mt-1.5">
           <span className="h-px flex-1 bg-current shadow-[0_0_6px_currentColor]" />
-          <span className="me-[-0.55em] text-[8px] font-bold uppercase leading-none tracking-[0.45em] px-1 sm:text-[9px] lg:text-[10px]">
+          <span className="me-[-0.55em] px-1 text-[8px] leading-none font-bold tracking-[0.45em] uppercase sm:text-[9px] lg:text-[10px]">
             Auto
           </span>
           <span className="h-px flex-1 bg-current shadow-[0_0_6px_currentColor]" />
         </span>
       </span>
     </Link>
-  )
+  );
 }

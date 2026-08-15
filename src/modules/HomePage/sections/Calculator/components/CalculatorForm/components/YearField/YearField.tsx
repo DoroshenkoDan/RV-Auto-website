@@ -1,12 +1,17 @@
-"use client"
+"use client";
 
-import { Field } from "@base-ui/react/field"
-import { Select } from "@base-ui/react/select"
-import { Check, ChevronDown } from "lucide-react"
+import { Field } from "@base-ui/react/field";
+import { Select } from "@base-ui/react/select";
+import { Check, ChevronDown } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-import { FIELD_CONTROL, FIELD_ERROR, FIELD_LABEL, FIELD_ROOT } from "../../styles"
+import {
+  FIELD_CONTROL,
+  FIELD_ERROR,
+  FIELD_LABEL,
+  FIELD_ROOT,
+} from "../../styles";
 
 export function YearField({
   name,
@@ -18,14 +23,14 @@ export function YearField({
   error,
   className,
 }: {
-  name: string
-  label: string
-  placeholder: string
-  years: number[]
-  value: number | null
-  onValueChange: (value: number | null) => void
-  error: string
-  className?: string
+  name: string;
+  label: string;
+  placeholder: string;
+  years: number[];
+  value: number | null;
+  onValueChange: (value: number | null) => void;
+  error: string;
+  className?: string;
 }) {
   return (
     <Field.Root name={name} className={className}>
@@ -85,5 +90,5 @@ export function YearField({
         {error}
       </Field.Error>
     </Field.Root>
-  )
+  );
 }

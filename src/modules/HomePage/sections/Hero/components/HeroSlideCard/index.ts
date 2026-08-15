@@ -1,1 +1,1 @@
-export { HeroSlideCard } from "./HeroSlideCard"
+export { HeroSlideCard } from "./HeroSlideCard";

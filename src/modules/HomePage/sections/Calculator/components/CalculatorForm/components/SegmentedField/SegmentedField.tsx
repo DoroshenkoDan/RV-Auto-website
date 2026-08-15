@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { Field } from "@base-ui/react/field"
-import { Fieldset } from "@base-ui/react/fieldset"
-import { Radio } from "@base-ui/react/radio"
-import { RadioGroup } from "@base-ui/react/radio-group"
+import { Field } from "@base-ui/react/field";
+import { Fieldset } from "@base-ui/react/fieldset";
+import { Radio } from "@base-ui/react/radio";
+import { RadioGroup } from "@base-ui/react/radio-group";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-import { FIELD_LABEL, FIELD_ROOT } from "../../styles"
+import { FIELD_LABEL, FIELD_ROOT } from "../../styles";
 
 export function SegmentedField<Value extends string>({
   name,
@@ -17,12 +17,12 @@ export function SegmentedField<Value extends string>({
   onValueChange,
   className,
 }: {
-  name: string
-  label: string
-  options: { value: Value; label: string }[]
-  value: Value
-  onValueChange: (value: Value) => void
-  className?: string
+  name: string;
+  label: string;
+  options: { value: Value; label: string }[];
+  value: Value;
+  onValueChange: (value: Value) => void;
+  className?: string;
 }) {
   return (
     <Field.Root name={name} className={className}>
@@ -55,5 +55,5 @@ export function SegmentedField<Value extends string>({
         </div>
       </Fieldset.Root>
     </Field.Root>
-  )
+  );
 }

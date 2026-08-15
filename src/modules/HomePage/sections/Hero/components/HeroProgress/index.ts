@@ -1,1 +1,1 @@
-export { HeroProgress } from "./HeroProgress"
+export { HeroProgress } from "./HeroProgress";

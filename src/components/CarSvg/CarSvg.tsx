@@ -1,9 +1,9 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const FRONT_WHEEL_TRANSFORM =
-  "matrix(.70711 .70711 -.70711 .70711 965.88 -145.14)"
+  "matrix(.70711 .70711 -.70711 .70711 965.88 -145.14)";
 
-const STREAK_CLIP_ID = "car-svg-streak-clip"
+const STREAK_CLIP_ID = "car-svg-streak-clip";
 
 function CarWheel({ transform }: { transform?: string }) {
   return (
@@ -17,11 +17,11 @@ function CarWheel({ transform }: { transform?: string }) {
       <path d="m418.13 386.35a52.712 52.711 0 0 1 -52.712 52.711 52.712 52.711 0 0 1 -52.712 -52.711 52.712 52.711 0 0 1 52.712 -52.711 52.712 52.711 0 0 1 52.712 52.711z" />
       <path d="m405.38 386.35a39.963 39.961 0 0 1 -39.963 39.961 39.963 39.961 0 0 1 -39.963 -39.961 39.963 39.961 0 0 1 39.963 -39.961 39.963 39.961 0 0 1 39.963 39.961z" />
       <path
-        className="animate-car-spin origin-center [transform-box:fill-box] motion-reduce:animate-none"
+        className="origin-center animate-car-spin [transform-box:fill-box] motion-reduce:animate-none"
         d="m378.52 410.77c-4.0293 1.641-8.437 2.5451-13.056 2.5451-4.6976 0-9.1768-0.93522-13.145-2.5867 8.8148-12.202 16.289-12.202 26.174 0.043zm11.318-37.523c1.641 4.0291 2.5452 8.4368 2.5452 13.056 0 4.6974-0.93528 9.1766-2.5869 13.145-12.202-8.8146-12.202-16.289 0.0432-26.173zm-37.523-11.311c4.0293-1.641 8.437-2.5451 13.056-2.5451 4.6976 0 9.1768 0.93522 13.145 2.5867-8.8148 12.202-16.289 12.202-26.174-0.043zm-11.318 37.513c-1.641-4.0291-2.5452-8.4368-2.5452-13.056 0-4.6974 0.93528-9.1766 2.5869-13.145 12.202 8.8146 12.202 16.289-0.0432 26.173zm27.085-13.096a2.6642 2.6641 0 0 1 -2.6642 2.6642 2.6642 2.6641 0 0 1 -2.6642 -2.6642 2.6642 2.6641 0 0 1 2.6642 -2.664 2.6642 2.6641 0 0 1 2.6642 2.664z"
       />
     </g>
-  )
+  );
 }
 
 export function CarSvg({ className }: { className?: string }) {
@@ -134,5 +134,5 @@ export function CarSvg({ className }: { className?: string }) {
         />
       </g>
     </svg>
-  )
+  );
 }

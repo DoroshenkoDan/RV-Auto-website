@@ -1,17 +1,17 @@
-import { useTranslations } from "next-intl"
+import { useTranslations } from "next-intl";
 
-import { Link } from "@/i18n/navigation"
-import { NAV_ITEMS } from "@/layout/MainLayout/navItems"
+import { Link } from "@/i18n/navigation";
+import { NAV_ITEMS } from "@/layout/MainLayout/navItems";
 
 export function FooterNav({ className }: { className?: string }) {
-  const t = useTranslations("nav")
-  const tFooter = useTranslations("footer")
+  const t = useTranslations("nav");
+  const tFooter = useTranslations("footer");
 
   return (
     <nav aria-labelledby="footer-nav-title" className={className}>
       <h2
         id="footer-nav-title"
-        className="font-mono text-[11px] uppercase leading-[1.5] tracking-[0.1em] text-sand/45"
+        className="font-mono text-[11px] leading-[1.5] tracking-[0.1em] text-sand/45 uppercase"
       >
         {tFooter("navTitle")}
       </h2>
@@ -29,5 +29,5 @@ export function FooterNav({ className }: { className?: string }) {
         ))}
       </ul>
     </nav>
-  )
+  );
 }

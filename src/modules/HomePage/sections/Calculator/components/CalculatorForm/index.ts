@@ -1,1 +1,1 @@
-export { CalculatorForm } from "./CalculatorForm"
+export { CalculatorForm } from "./CalculatorForm";

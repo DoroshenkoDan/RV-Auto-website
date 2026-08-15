@@ -22,7 +22,8 @@ export async function CatalogPage({ status, page }: Props) {
   const t = await getTranslations("homePage.catalog.tabs");
   const activeStatus = isCarStatus(status) ? status : undefined;
   const parsedPage = Number(page);
-  const currentPage = Number.isFinite(parsedPage) && parsedPage > 0 ? parsedPage : 1;
+  const currentPage =
+    Number.isFinite(parsedPage) && parsedPage > 0 ? parsedPage : 1;
 
   const result = await getCars({
     locale,
@@ -48,17 +49,21 @@ export async function CatalogPage({ status, page }: Props) {
       </div>
       {result.totalPages > 1 && (
         <nav>
-          {Array.from({ length: result.totalPages }, (_, i) => i + 1).map((p) => (
-            <Link
-              key={p}
-              href={{
-                pathname: "/cars",
-                query: activeStatus ? { status: activeStatus, page: p } : { page: p },
-              }}
-            >
-              {p}
-            </Link>
-          ))}
+          {Array.from({ length: result.totalPages }, (_, i) => i + 1).map(
+            (p) => (
+              <Link
+                key={p}
+                href={{
+                  pathname: "/cars",
+                  query: activeStatus
+                    ? { status: activeStatus, page: p }
+                    : { page: p },
+                }}
+              >
+                {p}
+              </Link>
+            ),
+          )}
         </nav>
       )}
     </div>

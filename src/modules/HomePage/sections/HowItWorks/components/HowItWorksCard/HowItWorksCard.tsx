@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Step } from "../../HowItWorks";
 
-
 interface Props {
   className?: string;
   step: Step;

@@ -1,13 +1,9 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 export function CatalogSkeleton({ className = "" }: Props) {
-  return (
-    <div aria-hidden="true" className={cn("", className)}>
-
-    </div>
-  )
+  return <div aria-hidden="true" className={cn("", className)}></div>;
 }

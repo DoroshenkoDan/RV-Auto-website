@@ -1,1 +1,1 @@
-export { CarSvg } from "./CarSvg"
+export { CarSvg } from "./CarSvg";

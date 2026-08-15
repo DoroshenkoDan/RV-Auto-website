@@ -1,1 +1,1 @@
-export { default } from './HowItWorksCard';
+export { default } from "./HowItWorksCard";

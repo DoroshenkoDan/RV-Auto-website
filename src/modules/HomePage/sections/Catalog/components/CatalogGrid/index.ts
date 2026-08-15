@@ -1,1 +1,1 @@
-export { CatalogGrid } from './CatalogGrid';
+export { CatalogGrid } from "./CatalogGrid";

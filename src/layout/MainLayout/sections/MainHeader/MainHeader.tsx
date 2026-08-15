@@ -1,37 +1,37 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
 
-import { Logo } from "@/components/Logo"
-import { usePathname } from "@/i18n/navigation"
-import { cn } from "@/lib/utils"
+import { Logo } from "@/components/Logo";
+import { usePathname } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 
-import { HeaderActions } from "./sections/HeaderActions"
-import { LocaleSwitcher } from "./sections/LocaleSwitcher"
-import { MainNav } from "./sections/MainNav"
-import { MobileMenu } from "./sections/MobileMenu"
+import { HeaderActions } from "./sections/HeaderActions";
+import { LocaleSwitcher } from "./sections/LocaleSwitcher";
+import { MainNav } from "./sections/MainNav";
+import { MobileMenu } from "./sections/MobileMenu";
 
 export function MainHeader() {
-  const pathname = usePathname()
-  const hasHero = pathname === "/"
+  const pathname = usePathname();
+  const hasHero = pathname === "/";
 
-  const sentinelRef = useRef<HTMLDivElement>(null)
-  const [atTop, setAtTop] = useState(true)
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const [atTop, setAtTop] = useState(true);
 
   useEffect(() => {
-    const sentinel = sentinelRef.current
-    if (!sentinel) return
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
 
     const observer = new IntersectionObserver(([entry]) =>
       setAtTop(entry.isIntersecting),
-    )
+    );
 
-    observer.observe(sentinel)
+    observer.observe(sentinel);
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
-  const transparent = hasHero && atTop
+  const transparent = hasHero && atTop;
 
   return (
     <>
@@ -67,5 +67,5 @@ export function MainHeader() {
         </div>
       </header>
     </>
-  )
+  );
 }

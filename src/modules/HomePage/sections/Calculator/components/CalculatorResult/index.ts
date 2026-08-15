@@ -1,1 +1,1 @@
-export { CalculatorResult } from "./CalculatorResult"
+export { CalculatorResult } from "./CalculatorResult";

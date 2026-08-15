@@ -1,7 +1,7 @@
-import { FooterBottom } from "./sections/FooterBottom"
-import { FooterBrand } from "./sections/FooterBrand"
-import { FooterContacts } from "./sections/FooterContacts"
-import { FooterNav } from "./sections/FooterNav"
+import { FooterBottom } from "./sections/FooterBottom";
+import { FooterBrand } from "./sections/FooterBrand";
+import { FooterContacts } from "./sections/FooterContacts";
+import { FooterNav } from "./sections/FooterNav";
 
 export function MainFooter() {
   return (
@@ -18,5 +18,5 @@ export function MainFooter() {
         <FooterBottom className="mt-12" />
       </div>
     </footer>
-  )
+  );
 }

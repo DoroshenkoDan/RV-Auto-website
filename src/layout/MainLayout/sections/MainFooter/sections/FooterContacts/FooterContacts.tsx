@@ -1,15 +1,15 @@
-import { useTranslations } from "next-intl"
+import { useTranslations } from "next-intl";
 
-import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contacts"
+import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contacts";
 
 export function FooterContacts({ className }: { className?: string }) {
-  const t = useTranslations("footer")
+  const t = useTranslations("footer");
 
   return (
     <section aria-labelledby="footer-contacts-title" className={className}>
       <h2
         id="footer-contacts-title"
-        className="font-mono text-[11px] uppercase leading-[1.5] tracking-[0.1em] text-sand/45"
+        className="font-mono text-[11px] leading-[1.5] tracking-[0.1em] text-sand/45 uppercase"
       >
         {t("contactsTitle")}
       </h2>
@@ -27,5 +27,5 @@ export function FooterContacts({ className }: { className?: string }) {
         {t("workHours")}
       </p>
     </section>
-  )
+  );
 }

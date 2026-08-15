@@ -1,1 +1,1 @@
-export { CalculatorIdle } from "./CalculatorIdle"
+export { CalculatorIdle } from "./CalculatorIdle";

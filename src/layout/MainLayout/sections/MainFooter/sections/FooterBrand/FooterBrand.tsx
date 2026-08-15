@@ -1,12 +1,12 @@
-import { Tooltip } from "@base-ui/react/tooltip"
-import { useTranslations } from "next-intl"
+import { Tooltip } from "@base-ui/react/tooltip";
+import { useTranslations } from "next-intl";
 
-import { Logo } from "@/components/Logo"
-import { SocialIcon } from "@/components/SocialIcon"
-import { SOCIAL_LINKS } from "@/lib/contacts"
+import { Logo } from "@/components/Logo";
+import { SocialIcon } from "@/components/SocialIcon";
+import { SOCIAL_LINKS } from "@/lib/contacts";
 
 export function FooterBrand({ className }: { className?: string }) {
-  const t = useTranslations("footer")
+  const t = useTranslations("footer");
 
   return (
     <div className={`flex flex-col items-start gap-y-3 ${className ?? ""}`}>
@@ -30,7 +30,7 @@ export function FooterBrand({ className }: { className?: string }) {
 
                 <Tooltip.Portal>
                   <Tooltip.Positioner sideOffset={10}>
-                    <Tooltip.Popup className="origin-[var(--transform-origin)] rounded-sm bg-sand px-2 py-1 font-mono text-[11px] uppercase leading-[1.5] tracking-[0.1em] text-night transition-[transform,opacity] duration-150 ease-out data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-instant:transition-none data-starting-style:scale-[0.98] data-starting-style:opacity-0 motion-reduce:transition-none">
+                    <Tooltip.Popup className="origin-[var(--transform-origin)] rounded-sm bg-sand px-2 py-1 font-mono text-[11px] leading-[1.5] tracking-[0.1em] text-night uppercase transition-[transform,opacity] duration-150 ease-out data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-instant:transition-none data-starting-style:scale-[0.98] data-starting-style:opacity-0 motion-reduce:transition-none">
                       {name}
                     </Tooltip.Popup>
                   </Tooltip.Positioner>
@@ -41,5 +41,5 @@ export function FooterBrand({ className }: { className?: string }) {
         </ul>
       </Tooltip.Provider>
     </div>
-  )
+  );
 }

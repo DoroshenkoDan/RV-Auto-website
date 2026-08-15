@@ -1,0 +1,13 @@
+# Keep LF everywhere so Prettier's endOfLine:lf matches the working tree on Windows
+* text=auto eol=lf
+
+# Binary assets — never convert
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.svg text eol=lf
+*.woff binary
+*.woff2 binary

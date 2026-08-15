@@ -1,7 +1,7 @@
-export type Messenger = "telegram" | "viber" | "whatsapp"
+export type Messenger = "telegram" | "viber" | "whatsapp";
 
 export type ContactFormValues = {
-  name: string
-  phone: string
-  messenger: Messenger
-}
+  name: string;
+  phone: string;
+  messenger: Messenger;
+};

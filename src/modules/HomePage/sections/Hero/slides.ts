@@ -1,4 +1,4 @@
-export const HERO_SLIDE_DURATION = 6000
+export const HERO_SLIDE_DURATION = 6000;
 
 export const HERO_SLIDES = [
   {
@@ -16,4 +16,4 @@ export const HERO_SLIDES = [
     href: "/contacts",
     image: "/images/HomePage/Hero/deal.webp",
   },
-] as const
+] as const;

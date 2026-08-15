@@ -1,1 +1,1 @@
-export { SegmentedField } from "./SegmentedField"
+export { SegmentedField } from "./SegmentedField";

@@ -1,1 +1,1 @@
-export { CatalogCard } from "./CatalogCard"
+export { CatalogCard } from "./CatalogCard";

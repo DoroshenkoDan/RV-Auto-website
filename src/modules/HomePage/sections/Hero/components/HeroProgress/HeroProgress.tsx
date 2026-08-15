@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-import type { HeroSlide } from "../../types"
+import type { HeroSlide } from "../../types";
 
 export function HeroProgress({
   slides,
@@ -10,18 +10,18 @@ export function HeroProgress({
   onSelect,
   className,
 }: {
-  slides: Pick<HeroSlide, "key" | "label">[]
-  active: number
-  cycle: number
-  label: string
-  onSelect: (index: number) => void
-  className?: string
+  slides: Pick<HeroSlide, "key" | "label">[];
+  active: number;
+  cycle: number;
+  label: string;
+  onSelect: (index: number) => void;
+  className?: string;
 }) {
   return (
     <nav aria-label={label} className={cn("flex gap-x-3", className)}>
       {slides.map((slide, index) => {
-        const isActive = index === active
-        const isPast = index < active
+        const isActive = index === active;
+        const isPast = index < active;
 
         return (
           <button
@@ -37,7 +37,7 @@ export function HeroProgress({
               {isActive && (
                 <span
                   key={cycle}
-                  className="animate-hero-progress block size-full origin-left bg-brand motion-reduce:animate-none"
+                  className="block size-full origin-left animate-hero-progress bg-brand motion-reduce:animate-none"
                 />
               )}
             </span>
@@ -53,8 +53,8 @@ export function HeroProgress({
               {slide.label}
             </span>
           </button>
-        )
+        );
       })}
     </nav>
-  )
+  );
 }

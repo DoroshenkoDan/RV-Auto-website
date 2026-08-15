@@ -1,0 +1,19 @@
+# build output
+.next/
+out/
+build/
+coverage/
+
+# generated — regenerating would fight the formatter
+src/payload-types.ts
+src/app/(payload)/admin/importMap.js
+next-env.d.ts
+package-lock.json
+
+# data / assets
+db-dump.sql
+media/
+public/
+
+# local-only docs
+docs/superpowers/

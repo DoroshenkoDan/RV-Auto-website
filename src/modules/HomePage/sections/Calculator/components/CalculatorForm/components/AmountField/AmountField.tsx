@@ -1,10 +1,15 @@
-"use client"
+"use client";
 
-import type { RefObject } from "react"
-import { Field } from "@base-ui/react/field"
-import { NumberField } from "@base-ui/react/number-field"
+import type { RefObject } from "react";
+import { Field } from "@base-ui/react/field";
+import { NumberField } from "@base-ui/react/number-field";
 
-import { FIELD_CONTROL, FIELD_ERROR, FIELD_LABEL, FIELD_ROOT } from "../../styles"
+import {
+  FIELD_CONTROL,
+  FIELD_ERROR,
+  FIELD_LABEL,
+  FIELD_ROOT,
+} from "../../styles";
 
 export function AmountField({
   name,
@@ -20,18 +25,22 @@ export function AmountField({
   actionsRef,
   className,
 }: {
-  name: string
-  label: string
-  placeholder: string
-  value: number | null
-  onValueChange: (value: number | null) => void
-  min: number
-  max: number
-  locale: string
-  format?: Intl.NumberFormatOptions
-  errors: { valueMissing: string; rangeUnderflow: string; rangeOverflow: string }
-  actionsRef?: RefObject<Field.Root.Actions | null>
-  className?: string
+  name: string;
+  label: string;
+  placeholder: string;
+  value: number | null;
+  onValueChange: (value: number | null) => void;
+  min: number;
+  max: number;
+  locale: string;
+  format?: Intl.NumberFormatOptions;
+  errors: {
+    valueMissing: string;
+    rangeUnderflow: string;
+    rangeOverflow: string;
+  };
+  actionsRef?: RefObject<Field.Root.Actions | null>;
+  className?: string;
 }) {
   return (
     <Field.Root name={name} actionsRef={actionsRef} className={className}>
@@ -47,7 +56,10 @@ export function AmountField({
         className={FIELD_ROOT}
       >
         <Field.Label className={FIELD_LABEL}>{label}</Field.Label>
-        <NumberField.Input placeholder={placeholder} className={FIELD_CONTROL} />
+        <NumberField.Input
+          placeholder={placeholder}
+          className={FIELD_CONTROL}
+        />
       </NumberField.Root>
 
       <Field.Error match="valueMissing" className={FIELD_ERROR}>
@@ -60,5 +72,5 @@ export function AmountField({
         {errors.rangeOverflow}
       </Field.Error>
     </Field.Root>
-  )
+  );
 }

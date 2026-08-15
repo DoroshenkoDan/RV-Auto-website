@@ -1,1 +1,1 @@
-export { CtaHome } from "./CtaHome"
+export { CtaHome } from "./CtaHome";

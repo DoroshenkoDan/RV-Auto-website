@@ -29,7 +29,7 @@ export default function FAQ({ className = "" }: Props) {
   return (
     <section className={cn("bg-canvas py-16 lg:py-20 2xl:py-24", className)}>
       <div className="page-shell">
-        <h2 className="mb-8 text-2xl leading-tight font-bold text-ink lg:mb-10 lg:text-3xl 2xl:mb-12 2xl:text-4xl font-logo">
+        <h2 className="mb-8 font-logo text-2xl leading-tight font-bold text-ink lg:mb-10 lg:text-3xl 2xl:mb-12 2xl:text-4xl">
           {t("title")}
         </h2>
 

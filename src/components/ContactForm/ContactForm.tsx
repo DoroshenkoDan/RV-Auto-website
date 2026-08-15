@@ -1,61 +1,61 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Field } from "@base-ui/react/field"
-import { Form } from "@base-ui/react/form"
-import { Radio } from "@base-ui/react/radio"
-import { RadioGroup } from "@base-ui/react/radio-group"
-import { Toast } from "@base-ui/react/toast"
-import { useTranslations } from "next-intl"
+import { useState } from "react";
+import { Field } from "@base-ui/react/field";
+import { Form } from "@base-ui/react/form";
+import { Radio } from "@base-ui/react/radio";
+import { RadioGroup } from "@base-ui/react/radio-group";
+import { Toast } from "@base-ui/react/toast";
+import { useTranslations } from "next-intl";
 
-import { Link } from "@/i18n/navigation"
-import { cn } from "@/lib/utils"
+import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 
-import { submitLead } from "./submitLead"
-import type { ContactFormValues, Messenger } from "./types"
+import { submitLead } from "./submitLead";
+import type { ContactFormValues, Messenger } from "./types";
 
 const MESSENGERS: { value: Messenger; label: string }[] = [
   { value: "telegram", label: "Telegram" },
   { value: "viber", label: "Viber" },
   { value: "whatsapp", label: "WhatsApp" },
-]
+];
 
-const NAME_PATTERN = /^\p{L}[\p{L}\s'’-]*$/u
-const PHONE_PATTERN = /^\+?\d{10,15}$/
+const NAME_PATTERN = /^\p{L}[\p{L}\s'’-]*$/u;
+const PHONE_PATTERN = /^\+?\d{10,15}$/;
 
 const CONTROL =
-  "h-12 w-full rounded-sm border border-sand/12 bg-night-soft px-4 font-mono text-[15px] leading-normal text-sand transition-colors duration-200 placeholder:text-sand/40 focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-brand data-invalid:border-destructive 2xl:h-13"
+  "h-12 w-full rounded-sm border border-sand/12 bg-night-soft px-4 font-mono text-[15px] leading-normal text-sand transition-colors duration-200 placeholder:text-sand/40 focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-brand data-invalid:border-destructive 2xl:h-13";
 
-const ERROR_SLOT = "h-6 pt-1"
+const ERROR_SLOT = "h-6 pt-1";
 
-const ERROR_TEXT = "text-[13px] leading-normal text-destructive"
+const ERROR_TEXT = "text-[13px] leading-normal text-destructive";
 
 export function ContactForm({
   layout = "stack",
   className,
 }: {
-  layout?: "stack" | "row"
-  className?: string
+  layout?: "stack" | "row";
+  className?: string;
 }) {
-  const t = useTranslations("contactForm")
-  const toastManager = Toast.useToastManager()
-  const [formKey, setFormKey] = useState(0)
-  const [submitting, setSubmitting] = useState(false)
+  const t = useTranslations("contactForm");
+  const toastManager = Toast.useToastManager();
+  const [formKey, setFormKey] = useState(0);
+  const [submitting, setSubmitting] = useState(false);
 
-  const inRow = layout === "row"
+  const inRow = layout === "row";
 
   async function handleSubmit(formValues: Record<string, unknown>) {
-    setSubmitting(true)
+    setSubmitting(true);
 
     const values: ContactFormValues = {
       name: String(formValues.name ?? "").trim(),
       phone: String(formValues.phone ?? "").trim(),
       messenger: formValues.messenger as Messenger,
-    }
+    };
 
-    const ok = await submitLead(values)
+    const ok = await submitLead(values);
 
-    setSubmitting(false)
+    setSubmitting(false);
 
     toastManager.add({
       type: ok ? "success" : "error",
@@ -64,10 +64,10 @@ export function ContactForm({
       description: ok
         ? t("toast.success.description")
         : t("toast.error.description"),
-    })
+    });
 
     if (ok) {
-      setFormKey((previous) => previous + 1)
+      setFormKey((previous) => previous + 1);
     }
   }
 
@@ -78,20 +78,23 @@ export function ContactForm({
       className={cn("flex flex-col gap-y-3", className)}
     >
       <div
-        className={cn("flex flex-col gap-3", inRow && "lg:flex-row lg:items-start")}
+        className={cn(
+          "flex flex-col gap-3",
+          inRow && "lg:flex-row lg:items-start",
+        )}
       >
         <Field.Root
           name="name"
           validate={(value) => {
-            const raw = String(value ?? "").trim()
+            const raw = String(value ?? "").trim();
 
             if (!raw) {
-              return null
+              return null;
             }
 
             return raw.length >= 2 && NAME_PATTERN.test(raw)
               ? null
-              : t("name.invalid")
+              : t("name.invalid");
           }}
           className={cn("flex flex-col", inRow && "lg:min-w-0 lg:flex-1")}
         >
@@ -116,13 +119,13 @@ export function ContactForm({
         <Field.Root
           name="phone"
           validate={(value) => {
-            const raw = String(value ?? "").replace(/[\s()-]/g, "")
+            const raw = String(value ?? "").replace(/[\s()-]/g, "");
 
             if (!raw) {
-              return null
+              return null;
             }
 
-            return PHONE_PATTERN.test(raw) ? null : t("phone.invalid")
+            return PHONE_PATTERN.test(raw) ? null : t("phone.invalid");
           }}
           className={cn("flex flex-col", inRow && "lg:min-w-0 lg:flex-1")}
         >
@@ -192,5 +195,5 @@ export function ContactForm({
         })}
       </p>
     </Form>
-  )
+  );
 }

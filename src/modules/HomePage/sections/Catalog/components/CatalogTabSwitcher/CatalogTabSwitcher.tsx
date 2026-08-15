@@ -16,17 +16,17 @@ interface Props {
  */
 
 export function CatalogTabSwitcher({ activeTab, onTabChange }: Props) {
-const t = useTranslations("homePage.catalog.tabs");
+  const t = useTranslations("homePage.catalog.tabs");
 
   return (
     <div className="flex gap-2">
       {TABS.map((tab) => (
-        <button 
-        key={tab} 
-        type="button" 
-        aria-pressed={activeTab === tab} 
-        onClick={() => onTabChange(tab)}
-        className={`font-sans text-sm md:text-[16px] rounded-[20px] px-2 py-1 md:px-4 md:py-2 border-2 ease-in-out duration-200  ${activeTab === tab ? 'bg-brand border-brand cursor-default' : 'cursor-pointer hover:bg-brand/10 hover:border-brand/30'}`}
+        <button
+          key={tab}
+          type="button"
+          aria-pressed={activeTab === tab}
+          onClick={() => onTabChange(tab)}
+          className={`rounded-[20px] border-2 px-2 py-1 font-sans text-sm duration-200 ease-in-out md:px-4 md:py-2 md:text-[16px] ${activeTab === tab ? "cursor-default border-brand bg-brand" : "cursor-pointer hover:border-brand/30 hover:bg-brand/10"}`}
         >
           {t(tab)}
         </button>

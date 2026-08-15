@@ -18,15 +18,18 @@ export async function Catalog({ className = "" }: Props) {
   return (
     <section className={cn("bg-canvas py-16 lg:py-20 2xl:py-24", className)}>
       <div className="page-shell">
-        <h2 className="text-center text-2xl leading-tight font-bold lg:text-3xl 2xl:text-4xl font-logo mb-8 lg:mb-10 2xl:mb-12">
+        <h2 className="mb-8 text-center font-logo text-2xl leading-tight font-bold lg:mb-10 lg:text-3xl 2xl:mb-12 2xl:text-4xl">
           {t("title")}
         </h2>
         <CatalogTabs cars={cars} />
-        <div className="m-6 flex flex-row gap-2 justify-center items-center">
-          <Link href="/cars" className="text-[15px] text-night-soft font-semibold font-sans px-8 py-3 rounded-sm border-night-soft border-2 hover:bg-night-soft/10 hover:border-night-soft/30 ease-in-out duration-200">
+        <div className="m-6 flex flex-row items-center justify-center gap-2">
+          <Link
+            href="/cars"
+            className="rounded-sm border-2 border-night-soft px-8 py-3 font-sans text-[15px] font-semibold text-night-soft duration-200 ease-in-out hover:border-night-soft/30 hover:bg-night-soft/10"
+          >
             {t("viewAll")}
           </Link>
-          <span className="text-[13px] font-mono text-ink-muted">
+          <span className="font-mono text-[13px] text-ink-muted">
             {t("count", { count: totalCars })}
           </span>
         </div>
