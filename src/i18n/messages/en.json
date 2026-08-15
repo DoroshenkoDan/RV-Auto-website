@@ -186,6 +186,42 @@
       "ctaLabel": "Ready to price your exact car?",
       "cta": "Calculate turnkey price"
     },
+    "faq": {
+      "title": "Questions we hear most often",
+      "ctaLabel": "Didn't find your answer?",
+      "ctaContact": "Get in touch",
+      "ctaAll": "See all questions",
+      "questions": {
+        "customs": {
+          "question": "How much does customs clearance cost?",
+          "answer": "It depends on fuel type, engine size, model year and the price of the car. The total is made up of import duty (10%), excise and VAT (20%). Excise is calculated from engine size and vehicle age. Our calculator or a manager will give you the exact figure."
+        },
+        "turnkey": {
+          "question": "What is included in the turnkey price?",
+          "answer": "The lot price with the Copart or IAAI auction fee, delivery to the US port, ocean freight with insurance, forwarding, customs clearance with broker fees, car carrier to your city and our $200 fee. No charges beyond the agreed estimate."
+        },
+        "damage": {
+          "question": "What if the car is damaged during shipping?",
+          "answer": "Every car is insured for the entire route. We photograph its condition at the US warehouse, at container loading and at handover. If damage occurs in transit, we file the insurance claim and cover the repair — you don't."
+        },
+        "inspection": {
+          "question": "Can the car be inspected before purchase?",
+          "answer": "Yes. Before bidding you receive a Carfax or AutoCheck report, the full auction photo set and our assessment of the damage. If needed, we send an expert to the lot for extra photos and video, plus an engine and body alignment check."
+        },
+        "lostBid": {
+          "question": "What if we don't win the auction?",
+          "answer": "You lose nothing. The deposit carries over to the next lot in full or is refunded. We keep bidding on other options within the agreed budget until we buy your car."
+        },
+        "delivery": {
+          "question": "How long does delivery take?",
+          "answer": "On average 44 days from winning the bid to handover: 7–10 days for US inland logistics, 25–30 at sea to the port of Klaipeda, the rest for the car carrier and customs. The exact term depends on the state and the shipping line's load."
+        },
+        "payments": {
+          "question": "What is the down payment and when is the rest due?",
+          "answer": "The bidding deposit starts at $500 and counts toward the price of the car. After winning, you pay the lot and the auction fee within 2 business days. Logistics and customs are paid before handover. Every amount is fixed in the contract before the first bid."
+        }
+      }
+    },
     "ctaHome": {
       "title": "Let's price your car today",
       "description": "Leave your contacts, manager will get in touch within 15 minutes."
