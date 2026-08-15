@@ -4,12 +4,7 @@ import type { RefObject } from "react";
 import { Field } from "@base-ui/react/field";
 import { NumberField } from "@base-ui/react/number-field";
 
-import {
-  FIELD_CONTROL,
-  FIELD_ERROR,
-  FIELD_LABEL,
-  FIELD_ROOT,
-} from "../../styles";
+import { FIELD_ERROR, FIELD_ROOT, fieldControl, fieldLabel } from "@/ui/field";
 
 export function AmountField({
   name,
@@ -55,10 +50,10 @@ export function AmountField({
         required
         className={FIELD_ROOT}
       >
-        <Field.Label className={FIELD_LABEL}>{label}</Field.Label>
+        <Field.Label className={fieldLabel()}>{label}</Field.Label>
         <NumberField.Input
           placeholder={placeholder}
-          className={FIELD_CONTROL}
+          className={fieldControl()}
         />
       </NumberField.Root>
 

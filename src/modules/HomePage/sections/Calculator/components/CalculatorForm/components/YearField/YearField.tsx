@@ -4,14 +4,7 @@ import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
 import { Check, ChevronDown } from "lucide-react";
 
-import { cn } from "@/lib/utils";
-
-import {
-  FIELD_CONTROL,
-  FIELD_ERROR,
-  FIELD_LABEL,
-  FIELD_ROOT,
-} from "../../styles";
+import { FIELD_ERROR, FIELD_ROOT, fieldControl, fieldLabel } from "@/ui/field";
 
 export function YearField({
   name,
@@ -42,14 +35,14 @@ export function YearField({
         required
       >
         <div className={FIELD_ROOT}>
-          <Select.Label className={FIELD_LABEL}>{label}</Select.Label>
+          <Select.Label className={fieldLabel()}>{label}</Select.Label>
 
           <div className="relative">
             <Select.Trigger
-              className={cn(
-                FIELD_CONTROL,
-                "flex cursor-pointer items-center justify-between gap-x-3 text-left data-popup-open:border-brand",
-              )}
+              className={fieldControl({
+                className:
+                  "flex cursor-pointer items-center justify-between gap-x-3 text-left data-popup-open:border-brand",
+              })}
             >
               <Select.Value
                 placeholder={placeholder}

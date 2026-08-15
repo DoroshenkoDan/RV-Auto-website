@@ -5,9 +5,12 @@ import { Fieldset } from "@base-ui/react/fieldset";
 import { Radio } from "@base-ui/react/radio";
 import { RadioGroup } from "@base-ui/react/radio-group";
 
-import { cn } from "@/lib/utils";
-
-import { FIELD_LABEL, FIELD_ROOT } from "../../styles";
+import {
+  FIELD_ROOT,
+  fieldLabel,
+  segmentedGroup,
+  segmentedItem,
+} from "@/ui/field";
 
 export function SegmentedField<Value extends string>({
   name,
@@ -35,19 +38,20 @@ export function SegmentedField<Value extends string>({
           />
         }
       >
-        <Fieldset.Legend className={FIELD_LABEL}>{label}</Fieldset.Legend>
+        <Fieldset.Legend className={fieldLabel()}>{label}</Fieldset.Legend>
 
-        <div className="grid grid-cols-2 gap-1 rounded-sm border border-line bg-surface p-1.25 lg:flex">
+        <div
+          className={segmentedGroup({
+            className: "grid grid-cols-2 lg:flex",
+          })}
+        >
           {options.map((option) => (
             <Radio.Root
               key={option.value}
               value={option.value}
-              className={cn(
-                "flex cursor-pointer items-center justify-center rounded-[4px] py-2 text-center text-sm leading-normal text-ink-muted transition-colors duration-200 2xl:py-[10.5px]",
-                "hover:text-ink data-checked:bg-brand data-checked:font-semibold data-checked:text-night-soft data-checked:hover:text-night-soft",
-                "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand",
-                "lg:flex-1",
-              )}
+              className={segmentedItem({
+                className: "py-2 lg:flex-1 2xl:py-[10.5px]",
+              })}
             >
               {option.label}
             </Radio.Root>

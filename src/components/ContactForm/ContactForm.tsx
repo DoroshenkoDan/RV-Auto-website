@@ -11,6 +11,13 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/ui/button";
+import {
+  FIELD_ERROR,
+  FIELD_ERROR_SLOT,
+  fieldControl,
+  segmentedGroup,
+  segmentedItem,
+} from "@/ui/field";
 
 import { submitLead } from "./submitLead";
 import type { ContactFormValues, Messenger } from "./types";
@@ -24,12 +31,7 @@ const MESSENGERS: { value: Messenger; label: string }[] = [
 const NAME_PATTERN = /^\p{L}[\p{L}\s'’-]*$/u;
 const PHONE_PATTERN = /^\+?\d{10,15}$/;
 
-const CONTROL =
-  "h-12 w-full rounded-sm border border-sand/12 bg-night-soft px-4 font-mono text-[15px] leading-normal text-sand transition-colors duration-200 placeholder:text-sand/40 focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-brand data-invalid:border-destructive 2xl:h-13";
-
-const ERROR_SLOT = "h-6 pt-1";
-
-const ERROR_TEXT = "text-[13px] leading-normal text-destructive";
+const CONTROL = fieldControl({ tone: "dark" });
 
 export function ContactForm({
   layout = "stack",
@@ -109,11 +111,11 @@ export function ContactForm({
             className={CONTROL}
           />
 
-          <div className={ERROR_SLOT}>
-            <Field.Error match="valueMissing" className={ERROR_TEXT}>
+          <div className={FIELD_ERROR_SLOT}>
+            <Field.Error match="valueMissing" className={FIELD_ERROR}>
               {t("name.required")}
             </Field.Error>
-            <Field.Error match="customError" className={ERROR_TEXT} />
+            <Field.Error match="customError" className={FIELD_ERROR} />
           </div>
         </Field.Root>
 
@@ -140,11 +142,11 @@ export function ContactForm({
             className={CONTROL}
           />
 
-          <div className={ERROR_SLOT}>
-            <Field.Error match="valueMissing" className={ERROR_TEXT}>
+          <div className={FIELD_ERROR_SLOT}>
+            <Field.Error match="valueMissing" className={FIELD_ERROR}>
               {t("phone.required")}
             </Field.Error>
-            <Field.Error match="customError" className={ERROR_TEXT} />
+            <Field.Error match="customError" className={FIELD_ERROR} />
           </div>
         </Field.Root>
 
@@ -152,18 +154,22 @@ export function ContactForm({
           <RadioGroup
             defaultValue={MESSENGERS[0].value}
             aria-label={t("messenger.label")}
-            className="flex h-12 gap-1 rounded-sm border border-sand/12 bg-night-soft p-1.25 2xl:h-13"
+            className={segmentedGroup({
+              tone: "dark",
+              className: "flex h-12 2xl:h-13",
+            })}
           >
             {MESSENGERS.map((messenger) => (
               <Radio.Root
                 key={messenger.value}
                 value={messenger.value}
-                className={cn(
-                  "flex flex-1 cursor-pointer items-center justify-center rounded-[4px] px-3 text-center text-sm leading-normal text-sand/60 transition-colors duration-200",
-                  "hover:text-sand data-checked:bg-brand data-checked:font-semibold data-checked:text-night-soft data-checked:hover:text-night-soft",
-                  "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand",
-                  inRow && "lg:flex-initial lg:px-5",
-                )}
+                className={segmentedItem({
+                  tone: "dark",
+                  className: cn(
+                    "flex-1 px-3",
+                    inRow && "lg:flex-initial lg:px-5",
+                  ),
+                })}
               >
                 {messenger.label}
               </Radio.Root>
