@@ -6,8 +6,11 @@ import useEmblaCarousel, {
 } from "embla-carousel-react";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/ui/button";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+
+// Media controls, not design-system buttons — callers restyle them per surface.
+const ARROW =
+  "inline-flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-full border border-line bg-canvas text-ink transition-colors duration-200 hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -173,19 +176,17 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
 
 function CarouselPrevious({
   className,
-  variant = "outline",
-  size = "icon-sm",
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<"button">) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
-    <Button
+    <button
+      type="button"
       data-slot="carousel-previous"
-      variant={variant}
-      size={size}
       className={cn(
-        "absolute touch-manipulation rounded-full",
+        ARROW,
+        "absolute touch-manipulation",
         orientation === "horizontal"
           ? "inset-y-0 -left-12 my-auto"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -197,25 +198,20 @@ function CarouselPrevious({
     >
       <ChevronLeftIcon />
       <span className="sr-only">Previous slide</span>
-    </Button>
+    </button>
   );
 }
 
-function CarouselNext({
-  className,
-  variant = "outline",
-  size = "icon-sm",
-  ...props
-}: React.ComponentProps<typeof Button>) {
+function CarouselNext({ className, ...props }: React.ComponentProps<"button">) {
   const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
-    <Button
+    <button
+      type="button"
       data-slot="carousel-next"
-      variant={variant}
-      size={size}
       className={cn(
-        "absolute touch-manipulation rounded-full",
+        ARROW,
+        "absolute touch-manipulation",
         orientation === "horizontal"
           ? "inset-y-0 -right-12 my-auto"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -227,7 +223,7 @@ function CarouselNext({
     >
       <ChevronRightIcon />
       <span className="sr-only">Next slide</span>
-    </Button>
+    </button>
   );
 }
 

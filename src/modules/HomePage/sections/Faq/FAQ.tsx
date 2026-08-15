@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/ui/accordion";
+import { buttonVariants } from "@/ui/button";
 
 interface Props {
   className?: string;
@@ -56,16 +57,13 @@ export default function FAQ({ className = "" }: Props) {
           </span>
 
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4">
-            <Link
-              href="/contacts"
-              className="inline-flex h-12 items-center justify-center rounded-sm bg-brand px-8 text-base leading-normal font-semibold text-night-soft transition-colors duration-200 hover:bg-brand/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand active:scale-[0.98] motion-reduce:transition-none 2xl:h-14"
-            >
+            <Link href="/contacts" className={buttonVariants()}>
               {t("ctaContact")}
             </Link>
 
             <Link
               href="/faq"
-              className="inline-flex h-12 items-center justify-center rounded-sm border-2 border-night-soft px-8 text-base leading-normal font-semibold text-night-soft transition-colors duration-200 hover:border-night-soft/30 hover:bg-night-soft/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand active:scale-[0.98] motion-reduce:transition-none 2xl:h-14"
+              className={buttonVariants({ variant: "outline" })}
             >
               {t("ctaAll")}
             </Link>

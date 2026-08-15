@@ -10,6 +10,7 @@ import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
+import { Button } from "@/ui/button";
 
 import { submitLead } from "./submitLead";
 import type { ContactFormValues, Messenger } from "./types";
@@ -170,16 +171,13 @@ export function ContactForm({
           </RadioGroup>
         </Field.Root>
 
-        <button
+        <Button
           type="submit"
           disabled={submitting}
-          className={cn(
-            "h-12 w-full cursor-pointer rounded-sm bg-brand px-8 text-base leading-normal font-semibold text-night-soft transition-colors duration-200 hover:bg-brand/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-60 2xl:h-13",
-            inRow && "lg:w-auto lg:shrink-0",
-          )}
+          className={cn("w-full 2xl:h-13", inRow && "lg:w-auto lg:shrink-0")}
         >
           {t("submit")}
-        </button>
+        </Button>
       </div>
 
       <p className="text-center text-[13px] leading-normal text-sand/45">

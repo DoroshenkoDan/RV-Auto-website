@@ -4,6 +4,7 @@ import { CatalogTabs } from "./components/CatalogTabs";
 import { getCarsCount, getFeaturedCars } from "@/lib/payload/cars";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { buttonVariants } from "@/ui/button";
 
 interface Props {
   className?: string;
@@ -23,10 +24,7 @@ export async function Catalog({ className = "" }: Props) {
         </h2>
         <CatalogTabs cars={cars} />
         <div className="m-6 flex flex-row items-center justify-center gap-2">
-          <Link
-            href="/cars"
-            className="rounded-sm border-2 border-night-soft px-8 py-3 font-sans text-[15px] font-semibold text-night-soft duration-200 ease-in-out hover:border-night-soft/30 hover:bg-night-soft/10"
-          >
+          <Link href="/cars" className={buttonVariants({ variant: "outline" })}>
             {t("viewAll")}
           </Link>
           <span className="font-mono text-[13px] text-ink-muted">

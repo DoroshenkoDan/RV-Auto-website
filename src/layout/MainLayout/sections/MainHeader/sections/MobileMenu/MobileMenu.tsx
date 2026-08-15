@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Dialog } from "@base-ui/react/dialog";
 import { useTranslations } from "next-intl";
 
+import { ContactCta } from "@/components/ContactCta";
 import { Link, usePathname } from "@/i18n/navigation";
 import { isNavItemActive, NAV_ITEMS } from "@/layout/MainLayout/navItems";
 
@@ -14,7 +15,6 @@ const BAR_MOTION =
 export function MobileMenu({ className }: { className?: string }) {
   const t = useTranslations("nav");
   const tMenu = useTranslations("mobileMenu");
-  const tActions = useTranslations("headerActions");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -69,13 +69,11 @@ export function MobileMenu({ className }: { className?: string }) {
           </nav>
 
           <div className="page-shell border-t border-canvas/10 py-6">
-            <Link
-              href="/contacts"
+            <ContactCta
+              size="md"
+              className="w-full"
               onClick={() => setOpen(false)}
-              className="block rounded-md bg-brand px-5 py-4 text-center text-base tracking-[0.16em] text-night uppercase shadow-[0_0_16px_--alpha(var(--color-neon)/30%)] transition duration-300 hover:bg-brand/70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
-            >
-              {tActions("contact")}
-            </Link>
+            />
           </div>
         </Dialog.Popup>
       </Dialog.Portal>

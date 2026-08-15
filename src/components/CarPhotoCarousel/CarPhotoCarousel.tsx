@@ -44,9 +44,9 @@ export function CarPhotoCarousel({
   if (photos.length === 0) return null;
 
   const controlsClassName = cn(
-    "size-9 rounded-full border-0 bg-night/45 text-white ring-0 backdrop-blur-sm",
-    "hover:bg-night/75 hover:text-white focus-visible:ring-2 focus-visible:ring-white/70",
-    "cursor-pointer disabled:opacity-0 [&_svg]:size-5",
+    "border-0 bg-night/45 text-white backdrop-blur-sm",
+    "hover:bg-night/75 focus-visible:outline-white",
+    "disabled:opacity-0 [&_svg]:size-5",
     revealControlsOnHover &&
       "opacity-0 transition-opacity duration-200 group-hover/carousel:opacity-100 focus-visible:opacity-100 motion-reduce:transition-none",
   );
@@ -82,14 +82,8 @@ export function CarPhotoCarousel({
       </CarouselContent>
       {photos.length > 1 && (
         <>
-          <CarouselPrevious
-            variant="ghost"
-            className={cn("left-3", controlsClassName)}
-          />
-          <CarouselNext
-            variant="ghost"
-            className={cn("right-3", controlsClassName)}
-          />
+          <CarouselPrevious className={cn("left-3", controlsClassName)} />
+          <CarouselNext className={cn("right-3", controlsClassName)} />
         </>
       )}
     </Carousel>

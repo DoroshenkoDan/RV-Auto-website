@@ -5,6 +5,7 @@ import type { Car } from "@/payload-types";
 import { Link } from "@/i18n/navigation";
 import { formatUsd } from "@/lib/utils";
 import { CarPhotoCarousel } from "@/components/CarPhotoCarousel";
+import { Button, buttonVariants } from "@/ui/button";
 
 interface Props {
   car: Car;
@@ -61,15 +62,16 @@ export function CatalogCard({ className = "", car }: Props) {
         </p>
         <p className="text-2xl font-bold text-ink">{formatUsd(car.price)}</p>
         <div className="mt-4 flex gap-2">
-          <button
-            type="button"
-            className="flex-1 cursor-pointer rounded-md bg-brand py-2.5 text-sm font-semibold text-night-soft transition-colors duration-200 hover:bg-brand/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand active:scale-[0.98] motion-reduce:transition-none"
-          >
+          <Button type="button" size="sm" className="flex-1">
             Замовити
-          </button>
+          </Button>
           <Link
             href={`/cars/${car.slug}`}
-            className="flex-1 rounded-md border border-line py-2.5 text-center text-sm font-semibold text-ink transition-colors duration-200 hover:border-night-soft/30 hover:bg-night-soft/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand motion-reduce:transition-none"
+            className={buttonVariants({
+              variant: "outline",
+              size: "sm",
+              className: "flex-1",
+            })}
           >
             Детальніше
           </Link>

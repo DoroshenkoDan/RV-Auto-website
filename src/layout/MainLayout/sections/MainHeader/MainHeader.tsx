@@ -2,11 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import { ContactCta } from "@/components/ContactCta";
 import { Logo } from "@/components/Logo";
 import { usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
-import { HeaderActions } from "./sections/HeaderActions";
 import { LocaleSwitcher } from "./sections/LocaleSwitcher";
 import { MainNav } from "./sections/MainNav";
 import { MobileMenu } from "./sections/MobileMenu";
@@ -61,7 +61,7 @@ export function MainHeader() {
 
           <div className="flex items-center gap-x-6 justify-self-end">
             <LocaleSwitcher />
-            <HeaderActions className="hidden lg:flex" />
+            <ContactCta className="hidden lg:inline-flex" />
             <MobileMenu className="lg:hidden" />
           </div>
         </div>

@@ -6,6 +6,7 @@ import { Form } from "@base-ui/react/form";
 import { useLocale, useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils";
+import { Button } from "@/ui/button";
 
 import {
   AUCTION_TYPES,
@@ -183,12 +184,9 @@ export function CalculatorForm({
         />
       </div>
 
-      <button
-        type="submit"
-        className="h-12 w-full cursor-pointer rounded-sm bg-brand text-base leading-normal font-semibold text-night-soft transition-colors duration-200 hover:bg-brand/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand 2xl:h-14"
-      >
+      <Button type="submit" className="w-full">
         {t("submit")}
-      </button>
+      </Button>
     </Form>
   );
 }

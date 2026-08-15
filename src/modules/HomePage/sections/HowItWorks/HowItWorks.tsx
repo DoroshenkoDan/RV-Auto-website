@@ -1,6 +1,7 @@
 import { Scale, Search, Truck, type LucideIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
+import { Button } from "@/ui/button";
 import HowItWorksCard from "./components/HowItWorksCard";
 
 export type Step = {
@@ -46,12 +47,9 @@ export default function HowItWorks({ className = "" }: Props) {
 
         <div className="mt-10 flex flex-col items-center gap-4 lg:mt-12 lg:flex-row">
           <span className="font-bold text-sand">{t("ctaLabel")}</span>
-          <button
-            type="button"
-            className="h-12 w-full cursor-pointer rounded-sm bg-brand px-8 text-base leading-normal font-semibold text-night-soft transition-colors duration-200 hover:bg-brand/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand active:scale-[0.98] motion-reduce:transition-none lg:w-fit 2xl:h-14"
-          >
+          <Button type="button" className="w-full lg:w-fit">
             {t("cta")}
-          </button>
+          </Button>
         </div>
       </div>
     </section>

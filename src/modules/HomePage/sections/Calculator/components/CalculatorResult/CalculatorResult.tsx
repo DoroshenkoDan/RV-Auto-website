@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contacts";
 import { cn, formatUsd } from "@/lib/utils";
+import { buttonVariants } from "@/ui/button";
 
 import type { CalculatorEstimate } from "../../types";
 
@@ -80,7 +81,7 @@ export function CalculatorResult({
 
       <Link
         href="/contacts"
-        className="mt-auto flex h-12 items-center justify-center rounded-sm bg-brand text-base leading-normal font-semibold text-night-soft transition-colors duration-200 hover:bg-brand/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand 2xl:h-14"
+        className={buttonVariants({ className: "mt-auto w-full" })}
       >
         {t("cta")}
       </Link>

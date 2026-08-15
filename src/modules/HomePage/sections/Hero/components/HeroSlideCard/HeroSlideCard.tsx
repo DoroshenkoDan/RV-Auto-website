@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/ui/button";
 
 import type { HeroSlide } from "../../types";
 
@@ -60,7 +61,10 @@ export function HeroSlideCard({
 
             <Link
               href={slide.href}
-              className="inline-flex items-center justify-center rounded-[0.25rem] bg-brand px-8 py-4 text-[15px] leading-normal font-semibold text-night transition-colors duration-300 hover:bg-neon focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand xl:px-10 xl:py-4.5 xl:text-base"
+              className={buttonVariants({
+                size: "lg",
+                className: "focus-visible:outline-offset-4",
+              })}
             >
               {slide.cta}
             </Link>
