@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 
 import { ContactCta } from "@/components/ContactCta";
 import { Link, usePathname } from "@/i18n/navigation";
-import { isNavItemActive, NAV_ITEMS } from "@/layout/MainLayout/navItems";
+import { isNavItemActive, NAV_LINKS } from "@/layout/MainLayout/navItems";
 import { cn } from "@/lib/utils";
 
 const BAR =
@@ -55,9 +55,9 @@ export function MobileMenu({ className }: { className?: string }) {
 
           <Dialog.Title className="sr-only">{tMenu("title")}</Dialog.Title>
 
-          <nav className="page-shell flex flex-1 flex-col justify-center py-8">
-            <ul className="flex flex-col gap-y-2">
-              {NAV_ITEMS.map(({ href, key }) => {
+          <nav className="page-shell flex flex-1 flex-col justify-center py-4 sm:py-8">
+            <ul className="flex flex-col gap-y-1">
+              {NAV_LINKS.map(({ href, key }) => {
                 const isActive = isNavItemActive(pathname, href);
 
                 return (
@@ -67,7 +67,7 @@ export function MobileMenu({ className }: { className?: string }) {
                       onClick={() => setOpen(false)}
                       aria-current={isActive ? "page" : undefined}
                       className={cn(
-                        "block py-3 text-2xl tracking-[0.16em] uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
+                        "block py-2 text-lg tracking-[0.16em] uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
                         isActive
                           ? "text-brand"
                           : "text-canvas hover:text-brand/70",

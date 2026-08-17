@@ -2,6 +2,13 @@
   "nav": {
     "home": "Головна",
     "about": "Про нас",
+    "services": "Послуги",
+    "servicesUsa": "Пригон авто з США",
+    "servicesEurope": "Пригон авто з Європи",
+    "servicesChina": "Пригон авто з Китаю",
+    "servicesKorea": "Пригон авто з Кореї",
+    "servicesBuyout": "Викуп авто",
+    "servicesTradeIn": "Trade-In",
     "cars": "Каталог",
     "delivered": "Привезені авто",
     "faq": "Питання"
@@ -230,6 +237,7 @@
   "footer": {
     "tagline": "Авто зі США та Європи під ключ.",
     "navTitle": "Навігація",
+    "servicesTitle": "Послуги",
     "contactsTitle": "Контакти",
     "address": "м. Львів, вул. Приклад, 10",
     "workHours": "ПН–СБ · 10:00–19:00",
