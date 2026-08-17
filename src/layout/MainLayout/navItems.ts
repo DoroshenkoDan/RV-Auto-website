@@ -19,7 +19,7 @@ export const NAV_ITEMS: readonly NavItem[] = [
   { href: "/about", key: "about" },
   NAV_SERVICES,
   { href: "/cars", key: "cars" },
-  { href: "/delivered", key: "delivered" },
+  { href: "/reviews", key: "reviews" },
   { href: "/faq", key: "faq" },
 ];
 

@@ -1,1 +1,0 @@
-export { DeliveredPage } from "./DeliveredPage";
