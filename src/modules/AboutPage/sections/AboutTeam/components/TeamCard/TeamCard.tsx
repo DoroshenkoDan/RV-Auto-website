@@ -23,7 +23,6 @@ export function TeamCard({
   const t = useTranslations("aboutPage.team");
 
   const rows = [
-    { label: t("stats.age"), value: t("values.years", { count: member.age }) },
     {
       label: t("stats.experience"),
       value: t("values.years", { count: member.yearsInField }),
@@ -41,7 +40,7 @@ export function TeamCard({
         className,
       )}
     >
-      <div className="relative aspect-3/4 bg-night-soft">
+      <div className="relative aspect-4/3 bg-night-soft">
         {member.photo ? (
           <Image
             src={member.photo}

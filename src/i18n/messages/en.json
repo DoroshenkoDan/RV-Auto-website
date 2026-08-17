@@ -291,9 +291,8 @@
     },
     "team": {
       "title": "The managers who take your car from auction to registration",
-      "description": "Every order is handled by a specific person, not an abstract department. Below is the Revolution Auto team: age, years in car import, and the number of cars each manager has personally taken from the auction to handover.",
+      "description": "Every order is handled by a specific person, not an abstract department. Below is the Revolution Auto team: years in car import and the number of cars each manager has personally taken from the auction to handover.",
       "stats": {
-        "age": "Age",
         "experience": "Years in the field",
         "cars": "Cars delivered"
       },
