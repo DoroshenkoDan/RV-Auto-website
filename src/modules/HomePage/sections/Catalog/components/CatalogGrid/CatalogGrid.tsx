@@ -7,18 +7,12 @@ interface Props {
   cars: Car[];
 }
 
-/**
- *  CatalogGrid
- *  @param className
- *  @param cars
- */
-
 export function CatalogGrid({ className = "", cars }: Props) {
   return (
     <div
       className={cn(
         "-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto p-4",
-        "lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible",
+        "lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-stack lg:overflow-visible lg:p-0",
         className,
       )}
     >

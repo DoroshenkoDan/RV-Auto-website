@@ -46,7 +46,7 @@ function ToastList() {
 
         <div className="flex min-w-0 flex-1 flex-col gap-y-1">
           <Toast.Title className="font-semibold" />
-          <Toast.Description className="text-[13px] leading-normal text-ink-muted" />
+          <Toast.Description className="text-label text-ink-muted" />
         </div>
 
         <Toast.Close

@@ -19,7 +19,7 @@ export function MainNav({ className }: { className?: string }) {
 
   return (
     <NavigationMenu.Root className={className}>
-      <NavigationMenu.List className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+      <NavigationMenu.List className="flex items-center justify-center gap-x-nav">
         {NAV_ITEMS.map((item) => {
           if (isNavGroup(item)) {
             return <ServicesMenu key={item.key} group={item} />;
@@ -48,7 +48,6 @@ export function MainNav({ className }: { className?: string }) {
           sideOffset={14}
           collisionPadding={{ left: 24, right: 24 }}
           collisionAvoidance={{ side: "none" }}
-          /* The `before` strip bridges the gap to the trigger so hover survives the trip. */
           className="z-50 h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)] transition-[top,left,right,bottom] duration-300 ease-out before:absolute before:inset-x-0 before:-top-3.5 before:h-3.5 before:content-[''] data-instant:transition-none motion-reduce:transition-none"
         >
           <NavigationMenu.Popup className="relative h-[var(--popup-height)] w-[var(--popup-width)] origin-[var(--transform-origin)] overflow-hidden rounded-sm border border-canvas/10 bg-night/95 text-canvas shadow-[0_16px_40px_--alpha(var(--color-night)/60%)] backdrop-blur-md transition-[opacity,transform,width,height] duration-300 ease-out data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0 motion-reduce:transition-none">

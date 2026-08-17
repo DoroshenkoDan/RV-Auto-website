@@ -27,7 +27,7 @@ export function Hero() {
   return (
     <section
       style={{ "--hero-duration": `${HERO_SLIDE_DURATION}ms` } as CSSProperties}
-      className="relative isolate h-svh min-h-[36rem] overflow-hidden bg-night"
+      className="relative isolate h-svh overflow-hidden bg-night"
     >
       {slides.map((slide, index) => (
         <HeroSlideCard
@@ -44,7 +44,7 @@ export function Hero() {
         cycle={cycle}
         label={t("navLabel")}
         onSelect={goTo}
-        className="absolute inset-x-0 bottom-0 page-shell justify-start pb-8 sm:justify-center lg:pb-12"
+        className="absolute inset-x-0 bottom-0 page-shell justify-start pb-block sm:justify-center"
       />
     </section>
   );

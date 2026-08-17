@@ -44,10 +44,10 @@ export function HeroSlideCard({
       <div className="absolute inset-0 bg-linear-to-r from-night/85 via-night/35 to-transparent" />
       <div className="absolute inset-0 bg-linear-to-tr from-brand/15 via-brand/5 to-transparent" />
 
-      <div className="relative page-shell flex h-full flex-col justify-center py-24 lg:px-12 lg:py-28 xl:px-20">
-        <div className="grid gap-y-6 transition-transform duration-700 ease-out group-data-[active=false]:translate-y-2 motion-reduce:transition-none lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-x-16 lg:gap-y-8">
-          <div className="flex max-w-152 flex-col items-start gap-y-5 lg:gap-y-6">
-            <Title className="font-logo text-[clamp(1.75rem,2.7vw+2.7vh,4rem)] leading-[1.05] font-bold tracking-[-0.02em] text-sand">
+      <div className="relative page-shell flex h-full flex-col justify-center py-section lg:px-12 xl:px-20">
+        <div className="grid gap-y-stack transition-transform duration-700 ease-out group-data-[active=false]:translate-y-2 motion-reduce:transition-none lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-x-16">
+          <div className="flex max-w-152 flex-col items-start gap-y-stack">
+            <Title className="font-logo text-hero font-bold text-sand">
               {slide.titleLead}
               <br />
               <span className="text-brand underline decoration-[0.05em] underline-offset-[0.14em]">
@@ -55,7 +55,7 @@ export function HeroSlideCard({
               </span>
             </Title>
 
-            <p className="max-w-[24.375rem] text-[15px] leading-[1.58] text-sand/75 xl:text-[17px]">
+            <p className="max-w-[24.375rem] text-lead text-sand/75">
               {slide.description}
             </p>
 
@@ -69,7 +69,7 @@ export function HeroSlideCard({
               {slide.cta}
             </Link>
 
-            <p className="font-mono text-xs leading-[1.5] tracking-[0.08em] text-brand/70 uppercase">
+            <p className="font-mono text-caption tracking-[0.08em] text-brand/70 uppercase">
               {slide.meta}
             </p>
           </div>

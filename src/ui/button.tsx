@@ -13,9 +13,9 @@ const buttonStyles = cva(
           "border-night-soft text-night-soft hover:border-night-soft/30 hover:bg-night-soft/10",
       },
       size: {
-        sm: "h-10 px-5 text-sm",
-        md: "h-12 px-8 text-base 2xl:h-14",
-        lg: "px-8 py-4 text-[15px] leading-normal xl:px-10 xl:py-4.5 xl:text-base",
+        sm: "h-control-sm px-4 text-control",
+        md: "h-control px-6 text-control",
+        lg: "h-control-lg px-7 text-control xl:px-8",
       },
     },
     compoundVariants: [
@@ -33,7 +33,6 @@ type ButtonVariants = VariantProps<typeof buttonStyles> & {
   className?: string;
 };
 
-// cva concatenates without resolving conflicts, so every caller goes through cn().
 function buttonVariants({ className, ...variants }: ButtonVariants = {}) {
   return cn(buttonStyles(variants), className);
 }

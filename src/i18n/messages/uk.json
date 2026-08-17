@@ -63,6 +63,16 @@
       }
     }
   },
+  "carCard": {
+    "price": "Ціна під ключ",
+    "order": "Замовити",
+    "details": "Детальніше",
+    "status": {
+      "available": "В наявності",
+      "inTransit": "В дорозі",
+      "auction": "Цікавий лот"
+    }
+  },
   "homePage": {
     "hero": {
       "navLabel": "Навігація слайдера",
@@ -137,7 +147,7 @@
         "vehicle": {
           "label": "Тип транспорту",
           "car": "Легковий",
-          "suv": "Кросовер / SUV",
+          "suv": "Кросовер",
           "pickup": "Пікап",
           "motorcycle": "Мотоцикл"
         },
@@ -167,11 +177,6 @@
         "available": "В наявності",
         "inTransit": "В дорозі",
         "auction": "Лоти"
-      },
-      "status": {
-        "available": "В наявності",
-        "inTransit": "В дорозі",
-        "auction": "Цікавий лот"
       }
     },
     "howItWorks": {

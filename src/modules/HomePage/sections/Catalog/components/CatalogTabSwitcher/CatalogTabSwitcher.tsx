@@ -11,12 +11,6 @@ interface Props {
   onTabChange: (tab: Tab) => void;
 }
 
-/**
- *  CatalogTabSwitcher
- *  @param activeTab
- *  @param onTabChange
- */
-
 export function CatalogTabSwitcher({ activeTab, onTabChange }: Props) {
   const t = useTranslations("homePage.catalog.tabs");
 
@@ -29,7 +23,7 @@ export function CatalogTabSwitcher({ activeTab, onTabChange }: Props) {
           aria-pressed={activeTab === tab}
           onClick={() => onTabChange(tab)}
           className={cn(
-            "rounded-[20px] border-2 px-2 py-1 font-sans text-sm duration-200 ease-in-out md:px-4 md:py-2 md:text-[16px]",
+            "rounded-full border-2 px-4 py-2 font-sans text-label duration-200 ease-in-out",
             activeTab === tab
               ? "cursor-default border-brand bg-brand"
               : "cursor-pointer hover:border-brand/30 hover:bg-brand/10",

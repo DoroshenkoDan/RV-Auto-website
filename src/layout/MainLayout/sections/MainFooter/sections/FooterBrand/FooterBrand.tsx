@@ -13,7 +13,7 @@ export function FooterBrand({ className }: { className?: string }) {
     <div className={cn("flex flex-col items-start gap-y-3", className)}>
       <Logo />
 
-      <p className="text-sm leading-[1.6] text-sand/55">{t("tagline")}</p>
+      <p className="text-label text-sand/55">{t("tagline")}</p>
 
       <Tooltip.Provider>
         <ul className="flex items-center gap-x-4 pt-3">
@@ -31,7 +31,7 @@ export function FooterBrand({ className }: { className?: string }) {
 
                 <Tooltip.Portal>
                   <Tooltip.Positioner sideOffset={10}>
-                    <Tooltip.Popup className="origin-[var(--transform-origin)] rounded-sm bg-sand px-2 py-1 font-mono text-[11px] leading-[1.5] tracking-[0.1em] text-night uppercase transition-[transform,opacity] duration-150 ease-out data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-instant:transition-none data-starting-style:scale-[0.98] data-starting-style:opacity-0 motion-reduce:transition-none">
+                    <Tooltip.Popup className="origin-[var(--transform-origin)] rounded-sm bg-sand px-2 py-1 font-mono text-micro tracking-[0.1em] text-night uppercase transition-[transform,opacity] duration-150 ease-out data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-instant:transition-none data-starting-style:scale-[0.98] data-starting-style:opacity-0 motion-reduce:transition-none">
                       {name}
                     </Tooltip.Popup>
                   </Tooltip.Positioner>

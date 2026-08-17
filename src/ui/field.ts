@@ -4,12 +4,11 @@ import { cn } from "@/lib/utils";
 
 const FIELD_ROOT = "flex flex-col gap-y-2";
 
-const FIELD_ERROR = "text-[13px] leading-normal text-destructive";
+const FIELD_ERROR = "text-label text-destructive";
 
-// Reserves the error line so the layout does not shift when a message appears.
-const FIELD_ERROR_SLOT = "h-6 pt-1";
+const FIELD_ERROR_SLOT = "min-h-7 pt-1";
 
-const labelStyles = cva("text-[13px] leading-normal font-medium", {
+const labelStyles = cva("text-label font-medium", {
   variants: {
     tone: { light: "text-ink-muted", dark: "text-sand/60" },
   },
@@ -17,7 +16,7 @@ const labelStyles = cva("text-[13px] leading-normal font-medium", {
 });
 
 const controlStyles = cva(
-  "h-12 w-full rounded-sm border px-4 font-mono text-[15px] leading-normal transition-colors duration-200 focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-brand data-invalid:border-destructive 2xl:h-13",
+  "h-control w-full rounded-sm border px-4 font-mono text-body transition-colors duration-200 focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-brand data-invalid:border-destructive",
   {
     variants: {
       tone: {
@@ -29,8 +28,6 @@ const controlStyles = cva(
   },
 );
 
-// Layout stays with the caller: the group is a wrapping grid in one place and a
-// single row in the other.
 const segmentedGroupStyles = cva("gap-1 rounded-sm border p-1.25", {
   variants: {
     tone: {
@@ -42,7 +39,7 @@ const segmentedGroupStyles = cva("gap-1 rounded-sm border p-1.25", {
 });
 
 const segmentedItemStyles = cva(
-  "flex cursor-pointer items-center justify-center rounded-[4px] text-center text-sm leading-normal transition-colors duration-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand data-checked:bg-brand data-checked:font-semibold data-checked:text-night-soft data-checked:hover:text-night-soft",
+  "flex cursor-pointer items-center justify-center rounded-[4px] text-center text-body transition-colors duration-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand data-checked:bg-brand data-checked:font-semibold data-checked:text-night-soft data-checked:hover:text-night-soft",
   {
     variants: {
       tone: {
@@ -56,7 +53,6 @@ const segmentedItemStyles = cva(
 
 type FieldStyle = { tone?: "light" | "dark"; className?: string };
 
-// cva concatenates without resolving conflicts, so every caller goes through cn().
 function fieldLabel({ className, ...variants }: FieldStyle = {}) {
   return cn(labelStyles(variants), className);
 }

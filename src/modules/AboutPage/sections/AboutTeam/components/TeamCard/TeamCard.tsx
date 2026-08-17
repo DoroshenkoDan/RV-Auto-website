@@ -54,7 +54,7 @@ export function TeamCard({
           <>
             <span
               aria-hidden
-              className="absolute inset-0 grid place-items-center font-logo text-6xl font-bold text-brand/30"
+              className="absolute inset-0 grid place-items-center font-logo text-display font-bold text-brand/30"
             >
               {initialsOf(member.name)}
             </span>
@@ -66,20 +66,20 @@ export function TeamCard({
         )}
       </div>
 
-      <div className="p-5 lg:p-6">
-        <h3 className="text-lg font-bold text-ink">{member.name}</h3>
-        <p className="mt-1 text-sm text-ink-muted">{member.role}</p>
+      <div className="p-block">
+        <h3 className="text-h3 font-bold text-ink">{member.name}</h3>
+        <p className="mt-1 text-label text-ink-muted">{member.role}</p>
 
-        <dl className="mt-4 border-t border-line">
+        <dl className="mt-title-tight border-t border-line">
           {rows.map((row) => (
             <div
               key={row.label}
               className="flex items-baseline justify-between gap-2 border-b border-line py-2.5"
             >
-              <dt className="text-xs tracking-wide text-ink-muted uppercase">
+              <dt className="text-caption tracking-wide text-ink-muted uppercase">
                 {row.label}
               </dt>
-              <dd className="font-mono text-sm font-bold text-ink">
+              <dd className="font-mono text-label font-bold text-ink">
                 {row.value}
               </dd>
             </div>

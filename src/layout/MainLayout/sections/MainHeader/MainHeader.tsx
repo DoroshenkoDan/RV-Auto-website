@@ -54,18 +54,20 @@ export function MainHeader() {
           )}
         />
 
-        <div className="page-shell flex items-center justify-between py-3 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-x-8">
+        <div className="page-shell flex items-center justify-between py-3 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-x-6 xl:gap-x-8">
           <Logo className="justify-self-start" />
 
           <MainNav className="hidden justify-self-center lg:block" />
 
-          <div className="flex items-center gap-x-6 justify-self-end">
+          <div className="flex items-center gap-x-4 justify-self-end xl:gap-x-6">
             <LocaleSwitcher />
             <ContactCta className="hidden lg:inline-flex" />
             <MobileMenu className="lg:hidden" />
           </div>
         </div>
       </header>
+
+      {!hasHero && <div aria-hidden className="h-(--header-h) shrink-0" />}
     </>
   );
 }

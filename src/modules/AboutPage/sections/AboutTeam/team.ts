@@ -2,14 +2,12 @@ export type TeamMember = {
   id: string;
   name: string;
   role: string;
-  /** Optional until the Payload collection supplies real photos. */
   photo?: string;
   age: number;
   yearsInField: number;
   carsDelivered: number;
 };
 
-// Placeholder data — to be replaced by the Payload `team` collection.
 export const TEAM: TeamMember[] = [
   {
     id: "founder",

@@ -14,23 +14,23 @@ interface Props {
 // Todo: add func to btn to open the form
 
 const STATUS_BADGE_CLASS: Record<Car["status"], string> = {
-  available: "bg-brand",
-  inTransit: "bg-night-soft",
-  auction: "bg-ink",
+  available: "bg-brand/85",
+  inTransit: "bg-night-soft/85",
+  auction: "bg-ink/85",
 };
 
 export function CatalogCard({ className = "", car }: Props) {
-  const t = useTranslations("homePage.catalog.status");
+  const t = useTranslations("carCard");
   const note = car.locationNote ?? car.etaNote ?? car.auctionNote;
 
   return (
     <article
       className={cn(
-        "overflow-hidden rounded-3xl border border-line bg-white",
+        "flex flex-col overflow-hidden rounded-lg border border-line bg-white",
         className,
       )}
     >
-      <div className="relative aspect-4/3">
+      <div className="relative aspect-16/10 shrink-0">
         <CarPhotoCarousel
           gallery={car.gallery}
           alt={car.title}
@@ -39,42 +39,47 @@ export function CatalogCard({ className = "", car }: Props) {
         />
         <span
           className={cn(
-            "absolute top-3 left-3 rounded-full px-3 py-1 text-xs font-semibold tracking-wide text-white uppercase",
+            "absolute top-2 left-2 rounded-full px-2 py-0.5 text-[clamp(0.600rem,0.53rem+0.12vw,0.725rem)] leading-[1.3] font-semibold tracking-wide text-white uppercase backdrop-blur-sm",
             STATUS_BADGE_CLASS[car.status],
           )}
         >
-          {t(car.status)}
+          {t(`status.${car.status}`)}
         </span>
       </div>
-      <div className="p-5">
+      <div className="flex flex-1 flex-col p-stack">
         <div className="flex items-baseline justify-between gap-2">
-          <h3 className="text-lg font-bold text-ink">{car.title}</h3>
-          <span className="text-sm text-ink-muted">{car.year}</span>
+          <h3 className="text-h3 font-bold text-ink">{car.title}</h3>
+          <span className="text-label text-ink-muted">{car.year}</span>
         </div>
-        <p className="mt-1 text-sm text-ink-muted">
+        <p className="mt-1 text-label text-ink-muted">
           {car.mileageKm.toLocaleString("en-US")} km · {car.engine} ·{" "}
           {car.drivetrain}
         </p>
-        {note && <p className="mt-1 text-sm text-ink-muted">{note}</p>}
-        <hr className="my-4 border-line" />
-        <p className="text-xs tracking-wide text-ink-muted uppercase">
-          Ціна під ключ
-        </p>
-        <p className="text-2xl font-bold text-ink">{formatUsd(car.price)}</p>
-        <div className="mt-4 flex gap-2">
-          <Button type="button" size="sm" className="flex-1">
-            Замовити
-          </Button>
-          <Link
-            href={`/cars/${car.slug}`}
-            className={buttonVariants({
-              variant: "outline",
-              size: "sm",
-              className: "flex-1",
-            })}
-          >
-            Детальніше
-          </Link>
+        {note && <p className="mt-1 text-label text-ink-muted">{note}</p>}
+
+        <div className="mt-auto pt-title-tight">
+          <hr className="mb-title-tight border-line" />
+
+          <p className="text-caption tracking-wide text-ink-muted uppercase">
+            {t("price")}
+          </p>
+          <p className="text-stat font-bold text-ink">{formatUsd(car.price)}</p>
+
+          <div className="mt-title-tight flex gap-2">
+            <Button type="button" size="sm" className="flex-1">
+              {t("order")}
+            </Button>
+            <Link
+              href={`/cars/${car.slug}`}
+              className={buttonVariants({
+                variant: "outline",
+                size: "sm",
+                className: "flex-1",
+              })}
+            >
+              {t("details")}
+            </Link>
+          </div>
         </div>
       </div>
     </article>

@@ -1,19 +1,9 @@
 /* tslint:disable */
 /* eslint-disable */
-/**
- * TEMPORARY HAND-WRITTEN STAND-IN.
- *
- * `payload generate:types` currently fails with ERR_REQUIRE_ASYNC_MODULE due
- * to an upstream incompatibility between Payload 3.86-3.88's CLI (synchronous
- * require() of payload.config.ts) and @payloadcms/richtext-lexical (which
- * transitively contains top-level await). Confirmed to reproduce identically
- * on Node 22 LTS and inside a clean Linux container, not Windows-specific.
- * See https://github.com/payloadcms/payload/issues/16378.
- *
- * This file is hand-maintained to match src/collections/*.ts until that's
- * fixed upstream. When it is, delete this file and run:
- *   npm run generate:types
- */
+
+// TODO: hand-written stand-in — `payload generate:types` fails with
+// ERR_REQUIRE_ASYNC_MODULE (payloadcms/payload#16378). When fixed upstream,
+// delete this file and run `npm run generate:types`.
 
 export interface UserAuthOperations {
   forgotPassword: {

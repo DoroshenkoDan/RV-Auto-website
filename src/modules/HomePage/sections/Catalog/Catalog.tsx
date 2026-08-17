@@ -22,11 +22,11 @@ export async function Catalog() {
 
       <CatalogTabs cars={cars} />
 
-      <div className="m-6 flex flex-row items-center justify-center gap-2">
+      <div className="mt-section-title flex flex-row items-center justify-center gap-2">
         <Link href="/cars" className={buttonVariants({ variant: "outline" })}>
           {t("viewAll")}
         </Link>
-        <span className="font-mono text-[13px] text-ink-muted">
+        <span className="font-mono text-label text-ink-muted">
           {t("count", { count: totalCars })}
         </span>
       </div>

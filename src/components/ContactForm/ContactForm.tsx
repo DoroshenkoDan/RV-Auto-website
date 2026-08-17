@@ -156,7 +156,7 @@ export function ContactForm({
             aria-label={t("messenger.label")}
             className={segmentedGroup({
               tone: "dark",
-              className: "flex h-12 2xl:h-13",
+              className: "flex h-control",
             })}
           >
             {MESSENGERS.map((messenger) => (
@@ -180,13 +180,13 @@ export function ContactForm({
         <Button
           type="submit"
           disabled={submitting}
-          className={cn("w-full 2xl:h-13", inRow && "lg:w-auto lg:shrink-0")}
+          className={cn("w-full", inRow && "lg:w-auto lg:shrink-0")}
         >
           {t("submit")}
         </Button>
       </div>
 
-      <p className="text-center text-[13px] leading-normal text-sand/45">
+      <p className="text-center text-label text-sand/45">
         {t.rich("consent", {
           link: (chunks) => (
             <Link

@@ -50,7 +50,7 @@ export function MobileMenu({ className }: { className?: string }) {
       </Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Popup className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-night pt-16 text-canvas transition-opacity duration-300 ease-out data-ending-style:opacity-0 data-starting-style:opacity-0 motion-reduce:transition-none sm:pt-18">
+        <Dialog.Popup className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-night pt-(--header-h) text-canvas transition-opacity duration-300 ease-out data-ending-style:opacity-0 data-starting-style:opacity-0 motion-reduce:transition-none">
           <Dialog.Close className="sr-only">{tMenu("close")}</Dialog.Close>
 
           <Dialog.Title className="sr-only">{tMenu("title")}</Dialog.Title>
@@ -67,7 +67,7 @@ export function MobileMenu({ className }: { className?: string }) {
                       onClick={() => setOpen(false)}
                       aria-current={isActive ? "page" : undefined}
                       className={cn(
-                        "block py-2 text-lg tracking-[0.16em] uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
+                        "block py-2 text-h3 tracking-[0.16em] uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
                         isActive
                           ? "text-brand"
                           : "text-canvas hover:text-brand/70",
@@ -82,11 +82,7 @@ export function MobileMenu({ className }: { className?: string }) {
           </nav>
 
           <div className="page-shell border-t border-canvas/10 py-6">
-            <ContactCta
-              size="md"
-              className="w-full"
-              onClick={() => setOpen(false)}
-            />
+            <ContactCta className="w-full" onClick={() => setOpen(false)} />
           </div>
         </Dialog.Popup>
       </Dialog.Portal>

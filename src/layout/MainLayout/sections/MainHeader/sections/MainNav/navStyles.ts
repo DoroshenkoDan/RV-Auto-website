@@ -1,9 +1,8 @@
 import { cn } from "@/lib/utils";
 
-/** Chrome shared by every top-level nav entry — plain links and the dropdown trigger. */
 export function navEntryClass(isActive: boolean, className?: string) {
   return cn(
-    "group relative inline-flex items-center gap-x-1.5 tracking-[0.16em] uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
+    "group relative inline-flex items-center gap-x-1.5 text-nav tracking-nav whitespace-nowrap uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
     isActive ? "text-brand" : "text-canvas hover:text-brand/70",
     className,
   );

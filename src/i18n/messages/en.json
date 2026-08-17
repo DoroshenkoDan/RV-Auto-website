@@ -63,6 +63,16 @@
       }
     }
   },
+  "carCard": {
+    "price": "Turnkey price",
+    "order": "Request this car",
+    "details": "View details",
+    "status": {
+      "available": "Available",
+      "inTransit": "In transit",
+      "auction": "Hot lot"
+    }
+  },
   "homePage": {
     "hero": {
       "navLabel": "Slider navigation",
@@ -137,7 +147,7 @@
         "vehicle": {
           "label": "Vehicle type",
           "car": "Car",
-          "suv": "Crossover / SUV",
+          "suv": "Crossover",
           "pickup": "Pickup",
           "motorcycle": "Motorcycle"
         },
@@ -167,11 +177,6 @@
         "available": "Available",
         "inTransit": "In transit",
         "auction": "Auction"
-      },
-      "status": {
-        "available": "Available",
-        "inTransit": "In transit",
-        "auction": "Hot lot"
       }
     },
     "howItWorks": {

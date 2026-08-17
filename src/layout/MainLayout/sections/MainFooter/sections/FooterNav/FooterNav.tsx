@@ -11,7 +11,7 @@ export function FooterNav({ className }: { className?: string }) {
     <nav aria-labelledby="footer-nav-title" className={className}>
       <h2
         id="footer-nav-title"
-        className="font-mono text-[11px] leading-[1.5] tracking-[0.1em] text-sand/45 uppercase"
+        className="font-mono text-micro tracking-widest text-sand/45 uppercase"
       >
         {tFooter("navTitle")}
       </h2>
@@ -21,7 +21,7 @@ export function FooterNav({ className }: { className?: string }) {
           <li key={href}>
             <Link
               href={href}
-              className="text-sm leading-[1.5] text-sand/75 transition-colors duration-300 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+              className="text-label text-sand/75 transition-colors duration-300 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
             >
               {t(key)}
             </Link>

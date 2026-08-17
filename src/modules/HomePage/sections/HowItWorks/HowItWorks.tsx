@@ -24,7 +24,7 @@ export default function HowItWorks() {
     <Section tone="dark">
       <SectionTitle>{t("title")}</SectionTitle>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+      <div className="grid grid-cols-1 gap-stack sm:grid-cols-2 lg:grid-cols-3">
         {stepIcons.map(({ key, icon }, index) => (
           <HowItWorksCard
             key={key}
@@ -38,7 +38,7 @@ export default function HowItWorks() {
         ))}
       </div>
 
-      <div className="mt-10 flex flex-col items-center gap-4 lg:mt-12 lg:flex-row">
+      <div className="mt-section-title flex flex-col items-center gap-stack lg:flex-row">
         <span className="font-bold">{t("ctaLabel")}</span>
         <Button type="button" className="w-full lg:w-fit">
           {t("cta")}

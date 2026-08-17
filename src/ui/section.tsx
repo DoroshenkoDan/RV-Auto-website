@@ -14,7 +14,7 @@ function Section({
   return (
     <section
       className={cn(
-        "py-16 lg:py-20 2xl:py-24",
+        "py-section",
         tone === "dark" ? "bg-night text-sand" : "bg-canvas text-ink",
         className,
       )}
@@ -38,9 +38,9 @@ function SectionTitle({
   return (
     <h2
       className={cn(
-        "font-logo text-2xl leading-tight font-bold lg:text-3xl 2xl:text-4xl",
+        "font-logo text-h2 font-bold",
         align === "center" && "text-center",
-        spacing === "tight" ? "mb-4 lg:mb-5" : "mb-8 lg:mb-10 2xl:mb-12",
+        spacing === "tight" ? "mb-title-tight" : "mb-section-title",
         className,
       )}
     >

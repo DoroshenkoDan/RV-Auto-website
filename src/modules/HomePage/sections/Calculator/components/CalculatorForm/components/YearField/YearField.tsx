@@ -63,7 +63,7 @@ export function YearField({
                   <Select.Item
                     key={year}
                     value={year}
-                    className="grid cursor-pointer grid-cols-[1rem_1fr] items-center gap-x-2 px-4 py-2 font-mono text-[15px] leading-normal text-ink outline-none data-highlighted:bg-surface"
+                    className="grid cursor-pointer grid-cols-[1rem_1fr] items-center gap-x-2 px-4 py-2 font-mono text-body text-ink outline-none data-highlighted:bg-surface"
                   >
                     <Select.ItemIndicator className="col-start-1 flex text-brand">
                       <Check aria-hidden className="size-4" />

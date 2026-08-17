@@ -33,21 +33,19 @@ export default function FAQ() {
       >
         {questionIds.map((id) => (
           <AccordionItem key={id} value={id} className="border-b border-line">
-            <AccordionTrigger className="py-5 text-[15px] leading-normal font-semibold text-ink transition-colors duration-200 hover:text-ink/65 lg:py-6 lg:text-base">
+            <AccordionTrigger className="py-stack text-lead font-semibold text-ink transition-colors duration-200 hover:text-ink/65">
               {t(`questions.${id}.question`)}
             </AccordionTrigger>
 
-            <AccordionContent className="max-w-3xl pb-6 text-[15px] leading-normal text-ink-muted lg:pb-7">
+            <AccordionContent className="max-w-3xl pb-stack text-body text-ink-muted">
               {t(`questions.${id}.answer`)}
             </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
 
-      <div className="mx-auto mt-10 flex max-w-4xl flex-col items-center gap-5 lg:mt-12">
-        <span className="text-[15px] leading-normal text-ink-muted">
-          {t("ctaLabel")}
-        </span>
+      <div className="mx-auto mt-section-title flex max-w-4xl flex-col items-center gap-stack">
+        <span className="text-body text-ink-muted">{t("ctaLabel")}</span>
 
         <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4">
           <Link href="/contacts" className={buttonVariants()}>

@@ -60,11 +60,11 @@ export function CalculatorForm({
     <Form
       onFormSubmit={() => onCalculate?.(values)}
       className={cn(
-        "flex flex-col gap-y-6 rounded-l-md bg-white p-6 lg:p-8 2xl:gap-y-8 2xl:p-12",
+        "flex flex-col gap-y-stack rounded-l-md bg-white p-block",
         className,
       )}
     >
-      <div className="grid gap-x-5 gap-y-5 lg:grid-cols-2 2xl:gap-y-7">
+      <div className="grid gap-x-stack gap-y-stack lg:grid-cols-2">
         <SegmentedField
           name="fuel"
           label={t("fuel.label")}

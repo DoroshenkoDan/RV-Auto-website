@@ -8,7 +8,6 @@ import useEmblaCarousel, {
 import { cn } from "@/lib/utils";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
-// Media controls, not design-system buttons — callers restyle them per surface.
 const ARROW =
   "inline-flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-full border border-line bg-canvas text-ink transition-colors duration-200 hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0";
 

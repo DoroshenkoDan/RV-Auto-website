@@ -42,7 +42,7 @@ export function Logo({ className }: { className?: string }) {
       </span>
 
       <span className="inline-flex flex-col font-logo text-brand [text-shadow:0_0_10px_currentColor]">
-        <span className="me-[-0.2em] text-sm leading-none font-bold tracking-[0.2em] uppercase sm:me-[-0.25em] sm:text-base sm:tracking-[0.25em]">
+        <span className="me-[-0.25em] text-label leading-none font-bold tracking-[0.25em] uppercase">
           Revolution
         </span>
 

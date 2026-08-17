@@ -25,12 +25,12 @@ export function CalculatorResult({
   const t = useTranslations("homePage.calculator.result");
 
   return (
-    <div className="flex h-full flex-col gap-y-4 2xl:gap-y-6">
+    <div className="flex h-full flex-col gap-y-stack">
       <div>
-        <p className="font-mono text-[11px] tracking-[0.25em] text-sand/50 uppercase">
+        <p className="font-mono text-micro tracking-[0.25em] text-sand/50 uppercase">
           {t("label")}
         </p>
-        <p className="mt-2 font-mono text-4xl font-bold text-brand lg:text-5xl 2xl:text-6xl">
+        <p className="mt-2 font-mono text-display font-bold text-brand">
           {formatUsd(estimate.total)}
         </p>
       </div>
@@ -52,7 +52,7 @@ export function CalculatorResult({
         {estimate.lines.map((line, index) => (
           <li
             key={line.key}
-            className="flex items-center justify-between gap-x-4 border-b border-sand/10 py-2.5 2xl:py-3"
+            className="flex items-center justify-between gap-x-4 border-b border-sand/10 py-2.5"
           >
             <span className="flex items-center gap-x-3">
               <span
@@ -70,14 +70,12 @@ export function CalculatorResult({
 
       <div className="flex items-center justify-between gap-x-4">
         <span className="font-semibold text-canvas">{t("total")}</span>
-        <span className="font-mono text-lg font-semibold whitespace-nowrap text-brand 2xl:text-xl">
+        <span className="font-mono text-h3 font-semibold whitespace-nowrap text-brand">
           {formatUsd(estimate.total)}
         </span>
       </div>
 
-      <p className="text-[13px] leading-normal text-sand/50">
-        {t("disclaimer")}
-      </p>
+      <p className="text-label text-sand/50">{t("disclaimer")}</p>
 
       <Link
         href="/contacts"
@@ -86,7 +84,7 @@ export function CalculatorResult({
         {t("cta")}
       </Link>
 
-      <p className="text-center text-[13px] leading-normal text-sand/50">
+      <p className="text-center text-label text-sand/50">
         {t("phone")}{" "}
         <a
           href={PHONE_HREF}

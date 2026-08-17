@@ -30,7 +30,7 @@ export function CallbackDialog() {
               <X aria-hidden className="size-5" />
             </Dialog.Close>
 
-            <Dialog.Title className="pe-10 text-lg font-bold tracking-[0.12em] uppercase">
+            <Dialog.Title className="pe-10 text-h3 font-bold tracking-[0.12em] uppercase">
               {t("title")}
             </Dialog.Title>
 

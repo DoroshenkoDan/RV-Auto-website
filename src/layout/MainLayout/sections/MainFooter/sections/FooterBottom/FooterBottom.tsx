@@ -15,7 +15,7 @@ export function FooterBottom({ className }: { className?: string }) {
         className,
       )}
     >
-      <p className="font-mono text-xs leading-[1.5] text-sand/45">
+      <p className="font-mono text-caption text-sand/45">
         {t("copyright", { year: new Date().getFullYear().toString() })}
       </p>
 
@@ -24,7 +24,7 @@ export function FooterBottom({ className }: { className?: string }) {
           <li key={href}>
             <Link
               href={href}
-              className="text-xs leading-[1.5] text-sand/45 transition-colors duration-300 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+              className="text-caption text-sand/45 transition-colors duration-300 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
             >
               {t(key)}
             </Link>

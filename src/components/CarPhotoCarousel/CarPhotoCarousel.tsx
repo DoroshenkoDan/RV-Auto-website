@@ -19,7 +19,6 @@ interface Props {
   imageHeight?: number;
   fill?: boolean;
   sizes?: string;
-  /** Show the prev/next arrows only while the carousel is hovered or focused. */
   revealControlsOnHover?: boolean;
 }
 
@@ -31,7 +30,7 @@ export function CarPhotoCarousel({
   imageWidth = 300,
   imageHeight = 200,
   fill = false,
-  sizes = "(min-width: 1024px) 33vw, 100vw",
+  sizes = "(min-width: 1152px) 384px, (min-width: 1024px) 33vw, 100vw",
   revealControlsOnHover = false,
 }: Props) {
   const photos = gallery

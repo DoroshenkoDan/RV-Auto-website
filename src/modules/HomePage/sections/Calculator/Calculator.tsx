@@ -23,7 +23,7 @@ export function Calculator() {
       <div className="grid rounded-md border border-line lg:grid-cols-2">
         <CalculatorForm onCalculate={(input) => setResult(estimate(input))} />
 
-        <div className="relative isolate overflow-hidden rounded-br-md rounded-bl-md bg-ink p-6 lg:rounded-tr-md lg:rounded-bl-none lg:p-8 2xl:p-12">
+        <div className="relative isolate overflow-hidden rounded-br-md rounded-bl-md bg-ink p-block lg:rounded-tr-md lg:rounded-bl-none">
           {result ? <CalculatorResult estimate={result} /> : <CalculatorIdle />}
 
           <div

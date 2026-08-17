@@ -39,7 +39,7 @@ export function LocaleSwitcher({ className }: { className?: string }) {
               hrefLang={locale}
               aria-current={isActive ? "true" : undefined}
               className={cn(
-                "text-sm uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
+                "text-nav uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
                 isActive ? "text-brand" : "text-canvas hover:text-brand/70",
               )}
             >

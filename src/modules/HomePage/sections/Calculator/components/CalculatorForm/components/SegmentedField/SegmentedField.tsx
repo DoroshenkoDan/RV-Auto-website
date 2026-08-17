@@ -50,7 +50,7 @@ export function SegmentedField<Value extends string>({
               key={option.value}
               value={option.value}
               className={segmentedItem({
-                className: "py-2 lg:flex-1 2xl:py-[10.5px]",
+                className: "py-2.5 lg:flex-1",
               })}
             >
               {option.label}

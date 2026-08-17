@@ -14,11 +14,11 @@ export function AboutTeam() {
         {t("title")}
       </SectionTitle>
 
-      <p className="mb-8 max-w-2xl text-[15px] leading-normal text-ink-muted lg:mb-10">
+      <p className="mb-section-title max-w-2xl text-body text-ink-muted">
         {t("description")}
       </p>
 
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+      <div className="grid gap-stack sm:grid-cols-2 lg:grid-cols-3">
         {TEAM.map((member) => (
           <TeamCard key={member.id} member={member} />
         ))}

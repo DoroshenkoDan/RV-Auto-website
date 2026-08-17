@@ -19,7 +19,7 @@ export function CatalogTabs({ cars }: Props) {
   ).slice(0, MAX_CARDS);
 
   return (
-    <div>
+    <div className="mx-auto flex max-w-6xl flex-col gap-y-stack">
       <CatalogTabSwitcher activeTab={activeTab} onTabChange={setActiveTab} />
       <CatalogGrid cars={filteredCars} />
     </div>

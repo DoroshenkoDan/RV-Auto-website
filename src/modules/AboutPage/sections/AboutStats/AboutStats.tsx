@@ -11,19 +11,19 @@ export function AboutStats() {
     <Section tone="dark">
       <SectionTitle>{t("title")}</SectionTitle>
 
-      <ul className="grid grid-cols-2 gap-5 lg:grid-cols-4 lg:gap-6">
+      <ul className="grid grid-cols-2 gap-stack lg:grid-cols-4">
         {STATS.map((stat) => (
           <li
             key={stat}
-            className="rounded-lg border border-brand/12 bg-brand/10 p-6 lg:p-8"
+            className="rounded-lg border border-brand/12 bg-brand/10 p-block"
           >
-            <p className="font-logo text-3xl leading-none font-bold text-brand lg:text-4xl">
+            <p className="font-logo text-stat font-bold text-brand">
               {t(`items.${stat}.value`)}
             </p>
-            <p className="mt-4 text-[15px] font-bold text-sand">
+            <p className="mt-title-tight text-body font-bold text-sand">
               {t(`items.${stat}.label`)}
             </p>
-            <p className="mt-2 text-sm leading-normal text-sand/60">
+            <p className="mt-1.5 text-label text-sand/60">
               {t(`items.${stat}.note`)}
             </p>
           </li>

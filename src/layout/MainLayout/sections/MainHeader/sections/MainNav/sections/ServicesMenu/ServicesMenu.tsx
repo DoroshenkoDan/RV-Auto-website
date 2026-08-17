@@ -39,7 +39,6 @@ export function ServicesMenu({ group }: { group: NavGroup }) {
         />
       </NavigationMenu.Trigger>
 
-      {/* Kept mounted so the service links stay in the markup for crawlers. */}
       <NavigationMenu.Content
         keepMounted
         className="w-max py-2 transition-opacity duration-300 ease-out data-ending-style:opacity-0 data-starting-style:opacity-0 motion-reduce:transition-none"
@@ -54,7 +53,7 @@ export function ServicesMenu({ group }: { group: NavGroup }) {
                   render={<Link href={href} />}
                   aria-current={isChildActive ? "page" : undefined}
                   className={cn(
-                    "block px-5 py-3 tracking-[0.14em] whitespace-nowrap uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand",
+                    "block px-5 py-3 text-nav tracking-nav whitespace-nowrap uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand",
                     isChildActive
                       ? "text-brand"
                       : "text-canvas/75 hover:bg-canvas/5 hover:text-brand",

@@ -31,10 +31,8 @@ export function isNavLink(item: NavItem): item is NavLink {
   return !isNavGroup(item);
 }
 
-/** Top-level entries only — groups are dropped, not flattened. */
 export const NAV_TOP_LEVEL: readonly NavLink[] = NAV_ITEMS.filter(isNavLink);
 
-/** NAV_ITEMS flattened — for navigations that render groups inline. */
 export const NAV_LINKS: readonly NavLink[] = NAV_ITEMS.flatMap((item) =>
   isNavGroup(item) ? [...item.children] : [item],
 );

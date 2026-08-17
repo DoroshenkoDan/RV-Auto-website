@@ -11,19 +11,17 @@ export function AboutStory() {
     <Section>
       <SectionTitle className="max-w-3xl">{t("title")}</SectionTitle>
 
-      <div className="grid gap-10 lg:grid-cols-2 lg:gap-12 2xl:gap-16">
+      <div className="grid gap-section-title lg:grid-cols-2">
         {CHAPTERS.map((chapter) => (
           <article key={chapter}>
-            <h3 className="font-logo text-lg font-bold text-ink lg:text-xl">
+            <h3 className="font-logo text-h3 font-bold text-ink">
               {t(`${chapter}.title`)}
             </h3>
 
-            <hr className="my-5 border-line" />
+            <hr className="my-stack border-line" />
 
-            <p className="text-[15px] leading-[1.65] text-ink-muted">
-              {t(`${chapter}.body1`)}
-            </p>
-            <p className="mt-4 text-[15px] leading-[1.65] text-ink-muted">
+            <p className="text-body text-ink-muted">{t(`${chapter}.body1`)}</p>
+            <p className="mt-title-tight text-body text-ink-muted">
               {t(`${chapter}.body2`)}
             </p>
           </article>
