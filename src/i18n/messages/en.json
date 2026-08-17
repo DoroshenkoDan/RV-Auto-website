@@ -234,6 +234,75 @@
       "description": "Leave your contacts, manager will get in touch within 15 minutes."
     }
   },
+  "aboutPage": {
+    "meta": {
+      "title": "About us — Revolution Auto: car import from the USA and Europe",
+      "description": "Revolution Auto is a team with 8+ years of experience importing cars from the USA, Europe, China and Korea. 600+ cars delivered turnkey: sourcing, bidding at Copart and IAAI, shipping and customs clearance. Based in Lviv, working across Ukraine."
+    },
+    "intro": {
+      "eyebrow": "About the company",
+      "titleLead": "8 years in car import.",
+      "titleAccent": "Our own team since 2021.",
+      "description": "Revolution Auto is a Ukrainian company that brings cars from the USA, Europe, China and Korea turnkey. We went from being hired managers at other people's import companies to running our own team, one that walks each client from the first bid at Copart to the finished registration papers.",
+      "meta": "USA · Europe · China · Korea"
+    },
+    "story": {
+      "title": "Our path: from managers at other companies to a team of our own",
+      "past": {
+        "title": "How it started",
+        "body1": "In 2016 we started out as hired managers at companies importing cars from the USA. Hundreds of Copart and IAAI lots every day, Carfax reports, negotiations with brokers and container lines. That is where we learned to read auction photos, tell cosmetic damage from structural damage, and calculate customs clearance down to the last hryvnia.",
+        "body2": "It is also where we saw the core problem of this market: clients were sold a car, not a result. Fees appeared only after the lot was won, delivery times from the USA kept slipping, and questions about the real state of the body got vague answers. We decided to build a service where every figure is known before the first bid."
+      },
+      "present": {
+        "title": "Where we are now",
+        "body1": "Since 2021 Revolution Auto has been our own team under one roof: sourcing and inspection, bidding at US auctions, ocean logistics, a customs broker and pre-sale preparation. Every area has a specific person accountable for it, so no client waits while a manager checks with the logistics guy.",
+        "body2": "Today we import cars from the USA, Europe, China and Korea turnkey and have handed over more than 600 vehicles to their owners. The turnkey price is fixed in the contract before the first bid, every car is insured for the entire route, and clients get photo reports from the US warehouse, at container loading and before handover."
+      }
+    },
+    "stats": {
+      "title": "Revolution Auto by the numbers",
+      "items": {
+        "experience": {
+          "value": "8+",
+          "label": "years in the field",
+          "note": "importing cars since 2016"
+        },
+        "cars": {
+          "value": "600+",
+          "label": "cars delivered",
+          "note": "USA, Europe, China, Korea"
+        },
+        "markets": {
+          "value": "4",
+          "label": "sourcing markets",
+          "note": "Copart · IAAI · Manheim · EU"
+        },
+        "term": {
+          "value": "44",
+          "label": "days on average",
+          "note": "from bidding to handover"
+        }
+      }
+    },
+    "team": {
+      "title": "The managers who take your car from auction to registration",
+      "description": "Every order is handled by a specific person, not an abstract department. Below is the Revolution Auto team: age, years in car import, and the number of cars each manager has personally taken from the auction to handover.",
+      "stats": {
+        "age": "Age",
+        "experience": "Years in the field",
+        "cars": "Cars delivered"
+      },
+      "values": {
+        "years": "{count, plural, one {# year} other {# years}}",
+        "cars": "{count, number}"
+      },
+      "photoAlt": "{name} — {role} at Revolution Auto"
+    },
+    "cta": {
+      "title": "Let's price the turnkey import of your car",
+      "description": "Leave your contacts — a manager will get in touch within 15 minutes and quote a car from the USA, Europe, China or Korea."
+    }
+  },
   "footer": {
     "tagline": "Cars from the USA and Europe, turnkey.",
     "navTitle": "Navigation",
