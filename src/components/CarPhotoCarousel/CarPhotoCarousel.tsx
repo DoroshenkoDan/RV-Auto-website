@@ -33,7 +33,7 @@ export function CarPhotoCarousel({
   sizes = "(min-width: 1152px) 384px, (min-width: 1024px) 33vw, 100vw",
   revealControlsOnHover = false,
 }: Props) {
-  const photos = gallery
+  const photos = (gallery ?? [])
     .map((item) => item.image)
     .filter(
       (image): image is Media =>

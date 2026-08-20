@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict MOpVq1m5gg7uJrb13pLKB0hEuSnSwn1THOwRydO0qWOpe2pwxHNH5NFzzLTpIGX
+\restrict QS0OY0IaDHhUL9MLM2we2muoGkGxNQSwYiChIsZ7HlpfGCTZ4xcAdJQPmbivYx7
 
 -- Dumped from database version 16.14
 -- Dumped by pg_dump version 16.14
@@ -345,7 +345,8 @@ CREATE TABLE public.payload_locked_documents_rels (
     path character varying NOT NULL,
     users_id integer,
     media_id integer,
-    cars_id integer
+    cars_id integer,
+    team_id integer
 );
 
 
@@ -466,6 +467,74 @@ CREATE SEQUENCE public.payload_preferences_rels_id_seq
 --
 
 ALTER SEQUENCE public.payload_preferences_rels_id_seq OWNED BY public.payload_preferences_rels.id;
+
+
+--
+-- Name: team; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.team (
+    id integer NOT NULL,
+    photo_id integer,
+    start_year numeric NOT NULL,
+    cars_delivered numeric NOT NULL,
+    "order" numeric DEFAULT 0,
+    updated_at timestamp(3) with time zone DEFAULT now() NOT NULL,
+    created_at timestamp(3) with time zone DEFAULT now() NOT NULL
+);
+
+
+--
+-- Name: team_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.team_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: team_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.team_id_seq OWNED BY public.team.id;
+
+
+--
+-- Name: team_locales; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.team_locales (
+    name character varying NOT NULL,
+    role character varying NOT NULL,
+    id integer NOT NULL,
+    _locale public._locales NOT NULL,
+    _parent_id integer NOT NULL
+);
+
+
+--
+-- Name: team_locales_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.team_locales_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: team_locales_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.team_locales_id_seq OWNED BY public.team_locales.id;
 
 
 --
@@ -597,6 +666,20 @@ ALTER TABLE ONLY public.payload_preferences_rels ALTER COLUMN id SET DEFAULT nex
 
 
 --
+-- Name: team id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.team ALTER COLUMN id SET DEFAULT nextval('public.team_id_seq'::regclass);
+
+
+--
+-- Name: team_locales id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.team_locales ALTER COLUMN id SET DEFAULT nextval('public.team_locales_id_seq'::regclass);
+
+
+--
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -616,6 +699,7 @@ COPY public.cars (id, slug, title, status, year, mileage_km, engine, drivetrain,
 7	tesla-model-3-long-range	Tesla Model 3 Long Range	inTransit	2022	30964	Електро	AWD	automatic	\N	19600	2026-08-13 17:00:24.711+00	2026-08-13 17:00:24.711+00	5YJ3E1EA1NF123456	t
 8	chevrolet-tahoe-lt	Chevrolet Tahoe LT	auction	2019	94806	5.3L	4WD	automatic	9400	14800	2026-08-13 17:00:24.718+00	2026-08-13 17:00:24.718+00	\N	f
 9	honda-crv-ex	Honda CR-V EX	auction	2020	71326	1.5T	AWD	automatic	7800	12200	2026-08-13 17:00:24.725+00	2026-08-13 17:00:24.725+00	\N	t
+10	FordMondeo343	Ford Mondeo	auction	2016	150000	2000	AWD	manual	\N	9000	2026-08-17 11:38:54.911+00	2026-08-17 11:38:54.911+00	\N	f
 \.
 
 
@@ -706,9 +790,9 @@ COPY public.payload_locked_documents (id, global_slug, updated_at, created_at) F
 -- Data for Name: payload_locked_documents_rels; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.payload_locked_documents_rels (id, "order", parent_id, path, users_id, media_id, cars_id) FROM stdin;
-5	\N	3	document	\N	\N	3
-6	\N	3	user	1	\N	\N
+COPY public.payload_locked_documents_rels (id, "order", parent_id, path, users_id, media_id, cars_id, team_id) FROM stdin;
+5	\N	3	document	\N	\N	3	\N
+6	\N	3	user	1	\N	\N	\N
 \.
 
 
@@ -717,7 +801,8 @@ COPY public.payload_locked_documents_rels (id, "order", parent_id, path, users_i
 --
 
 COPY public.payload_migrations (id, name, batch, updated_at, created_at) FROM stdin;
-1	dev	-1	2026-08-14 12:13:06.906+00	2026-08-13 13:07:51.324+00
+2	20260820_154406_initial	1	2026-08-20 15:44:47.114+00	2026-08-20 15:44:47.114+00
+4	20260820_154550_add_team	2	2026-08-20 15:51:49.082+00	2026-08-20 15:51:49.082+00
 \.
 
 
@@ -746,6 +831,31 @@ COPY public.payload_preferences_rels (id, "order", parent_id, path, users_id) FR
 
 
 --
+-- Data for Name: team; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.team (id, photo_id, start_year, cars_delivered, "order", updated_at, created_at) FROM stdin;
+1	\N	2017	260	0	2026-08-20 15:54:58.271+00	2026-08-20 15:54:58.244+00
+2	\N	2019	180	1	2026-08-20 15:54:58.286+00	2026-08-20 15:54:58.278+00
+3	\N	2021	160	2	2026-08-20 15:54:58.3+00	2026-08-20 15:54:58.292+00
+\.
+
+
+--
+-- Data for Name: team_locales; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.team_locales (name, role, id, _locale, _parent_id) FROM stdin;
+Андрій Ковальчук	Засновник · підбір і торги	2	uk	1
+Andrii Kovalchuk	Founder · sourcing & auctions	3	en	1
+Ігор Мельник	Логістика та розмитнення	5	uk	2
+Ihor Melnyk	Logistics & customs clearance	6	en	2
+Олена Гриценко	Менеджер супроводу клієнтів	8	uk	3
+Olena Hrytsenko	Client support manager	9	en	3
+\.
+
+
+--
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
@@ -759,7 +869,7 @@ COPY public.users (id, updated_at, created_at, email, reset_password_token, rese
 --
 
 COPY public.users_sessions (_order, _parent_id, id, created_at, expires_at) FROM stdin;
-1	1	2ec09654-fd36-479f-9507-e3b8bbed574f	2026-08-13 17:11:43.573+00	2026-08-13 19:11:43.573+00
+1	1	dc62a2bb-4a97-406b-b2b1-e4437826e25f	2026-08-17 11:35:25.03+00	2026-08-17 13:35:25.03+00
 \.
 
 
@@ -774,7 +884,7 @@ SELECT pg_catalog.setval('public.cars_features_locales_id_seq', 1, false);
 -- Name: cars_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.cars_id_seq', 9, true);
+SELECT pg_catalog.setval('public.cars_id_seq', 10, true);
 
 
 --
@@ -823,7 +933,7 @@ SELECT pg_catalog.setval('public.payload_locked_documents_rels_id_seq', 10, true
 -- Name: payload_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.payload_migrations_id_seq', 1, true);
+SELECT pg_catalog.setval('public.payload_migrations_id_seq', 5, true);
 
 
 --
@@ -838,6 +948,20 @@ SELECT pg_catalog.setval('public.payload_preferences_id_seq', 4, true);
 --
 
 SELECT pg_catalog.setval('public.payload_preferences_rels_id_seq', 11, true);
+
+
+--
+-- Name: team_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.team_id_seq', 3, true);
+
+
+--
+-- Name: team_locales_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.team_locales_id_seq', 9, true);
 
 
 --
@@ -949,6 +1073,22 @@ ALTER TABLE ONLY public.payload_preferences
 
 ALTER TABLE ONLY public.payload_preferences_rels
     ADD CONSTRAINT payload_preferences_rels_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: team_locales team_locales_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.team_locales
+    ADD CONSTRAINT team_locales_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: team team_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.team
+    ADD CONSTRAINT team_pkey PRIMARY KEY (id);
 
 
 --
@@ -1122,6 +1262,13 @@ CREATE INDEX payload_locked_documents_rels_path_idx ON public.payload_locked_doc
 
 
 --
+-- Name: payload_locked_documents_rels_team_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX payload_locked_documents_rels_team_id_idx ON public.payload_locked_documents_rels USING btree (team_id);
+
+
+--
 -- Name: payload_locked_documents_rels_users_id_idx; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1196,6 +1343,34 @@ CREATE INDEX payload_preferences_rels_users_id_idx ON public.payload_preferences
 --
 
 CREATE INDEX payload_preferences_updated_at_idx ON public.payload_preferences USING btree (updated_at);
+
+
+--
+-- Name: team_created_at_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX team_created_at_idx ON public.team USING btree (created_at);
+
+
+--
+-- Name: team_locales_locale_parent_id_unique; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX team_locales_locale_parent_id_unique ON public.team_locales USING btree (_locale, _parent_id);
+
+
+--
+-- Name: team_photo_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX team_photo_idx ON public.team USING btree (photo_id);
+
+
+--
+-- Name: team_updated_at_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX team_updated_at_idx ON public.team USING btree (updated_at);
 
 
 --
@@ -1306,6 +1481,14 @@ ALTER TABLE ONLY public.payload_locked_documents_rels
 
 
 --
+-- Name: payload_locked_documents_rels payload_locked_documents_rels_team_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.payload_locked_documents_rels
+    ADD CONSTRAINT payload_locked_documents_rels_team_fk FOREIGN KEY (team_id) REFERENCES public.team(id) ON DELETE CASCADE;
+
+
+--
 -- Name: payload_locked_documents_rels payload_locked_documents_rels_users_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1330,6 +1513,22 @@ ALTER TABLE ONLY public.payload_preferences_rels
 
 
 --
+-- Name: team_locales team_locales_parent_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.team_locales
+    ADD CONSTRAINT team_locales_parent_id_fk FOREIGN KEY (_parent_id) REFERENCES public.team(id) ON DELETE CASCADE;
+
+
+--
+-- Name: team team_photo_id_media_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.team
+    ADD CONSTRAINT team_photo_id_media_id_fk FOREIGN KEY (photo_id) REFERENCES public.media(id) ON DELETE SET NULL;
+
+
+--
 -- Name: users_sessions users_sessions_parent_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1341,5 +1540,5 @@ ALTER TABLE ONLY public.users_sessions
 -- PostgreSQL database dump complete
 --
 
-\unrestrict MOpVq1m5gg7uJrb13pLKB0hEuSnSwn1THOwRydO0qWOpe2pwxHNH5NFzzLTpIGX
+\unrestrict QS0OY0IaDHhUL9MLM2we2muoGkGxNQSwYiChIsZ7HlpfGCTZ4xcAdJQPmbivYx7
 

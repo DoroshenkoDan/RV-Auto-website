@@ -10,6 +10,7 @@ import sharp from "sharp";
 
 import { Cars } from "@/collections/Cars";
 import { Media } from "@/collections/Media";
+import { Team } from "@/collections/Team";
 import { Users } from "@/collections/Users";
 
 const filename = fileURLToPath(import.meta.url);
@@ -20,7 +21,7 @@ export default buildConfig({
     user: Users.slug,
     importMap: { baseDir: path.resolve(dirname) },
   },
-  collections: [Users, Media, Cars],
+  collections: [Users, Media, Cars, Team],
   editor: lexicalEditor(),
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URI || "" },

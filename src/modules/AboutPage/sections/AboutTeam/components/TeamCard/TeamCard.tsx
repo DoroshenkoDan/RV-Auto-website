@@ -2,8 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils";
-
-import type { TeamMember } from "../../team";
+import type { Team } from "@/payload-types";
 
 function initialsOf(name: string) {
   return name
@@ -13,19 +12,26 @@ function initialsOf(name: string) {
     .join("");
 }
 
+function photoUrlOf(photo: Team["photo"]) {
+  return typeof photo === "object" && photo?.url ? photo.url : null;
+}
+
 export function TeamCard({
   member,
   className = "",
 }: {
-  member: TeamMember;
+  member: Team;
   className?: string;
 }) {
   const t = useTranslations("aboutPage.team");
+  const photoUrl = photoUrlOf(member.photo);
 
   const rows = [
     {
       label: t("stats.experience"),
-      value: t("values.years", { count: member.yearsInField }),
+      value: t("values.years", {
+        count: new Date().getFullYear() - member.startYear,
+      }),
     },
     {
       label: t("stats.cars"),
@@ -41,9 +47,9 @@ export function TeamCard({
       )}
     >
       <div className="relative aspect-4/3 bg-night-soft">
-        {member.photo ? (
+        {photoUrl ? (
           <Image
-            src={member.photo}
+            src={photoUrl}
             alt={t("photoAlt", { name: member.name, role: member.role })}
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
