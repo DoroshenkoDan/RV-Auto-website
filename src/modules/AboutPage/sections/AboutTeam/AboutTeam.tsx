@@ -1,5 +1,6 @@
 import { getLocale, getTranslations } from "next-intl/server";
 
+import { CardCarousel } from "@/components/CardCarousel";
 import type { Locale } from "@/i18n/routing";
 import { getTeamMembers } from "@/lib/payload/team";
 import { Section, SectionTitle } from "@/ui/section";
@@ -23,11 +24,11 @@ export async function AboutTeam() {
         {t("description")}
       </p>
 
-      <div className="grid gap-stack sm:grid-cols-2 lg:grid-cols-3">
+      <CardCarousel itemClassName="basis-[85%] sm:basis-1/2 lg:basis-1/3">
         {members.map((member) => (
-          <TeamCard key={member.id} member={member} />
+          <TeamCard key={member.id} member={member} className="h-full" />
         ))}
-      </div>
+      </CardCarousel>
     </Section>
   );
 }
