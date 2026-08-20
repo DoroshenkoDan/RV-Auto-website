@@ -6,7 +6,11 @@ export function AboutIntro() {
   const t = useTranslations("aboutPage.intro");
 
   return (
-    <Section tone="dark" className="relative isolate overflow-hidden">
+    <Section
+      data-page-hero
+      tone="dark"
+      className="relative isolate overflow-hidden pt-[calc(var(--header-h)+var(--spacing-section))]"
+    >
       <p className="font-mono text-caption font-bold tracking-[0.18em] text-brand uppercase">
         [{t("eyebrow")}]
       </p>

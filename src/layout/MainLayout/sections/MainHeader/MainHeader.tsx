@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 
 import { ContactCta } from "@/components/ContactCta";
 import { Logo } from "@/components/Logo";
-import { usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 import { LocaleSwitcher } from "./sections/LocaleSwitcher";
@@ -12,9 +11,6 @@ import { MainNav } from "./sections/MainNav";
 import { MobileMenu } from "./sections/MobileMenu";
 
 export function MainHeader() {
-  const pathname = usePathname();
-  const hasHero = pathname === "/";
-
   const sentinelRef = useRef<HTMLDivElement>(null);
   const [atTop, setAtTop] = useState(true);
 
@@ -22,35 +18,40 @@ export function MainHeader() {
     const sentinel = sentinelRef.current;
     if (!sentinel) return;
 
-    const observer = new IntersectionObserver(([entry]) =>
-      setAtTop(entry.isIntersecting),
-    );
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries.at(-1);
+      if (entry) setAtTop(entry.isIntersecting);
+    });
 
     observer.observe(sentinel);
 
     return () => observer.disconnect();
   }, []);
 
-  const transparent = hasHero && atTop;
+  const layer =
+    "absolute inset-0 -z-10 transition-opacity duration-300 ease-out motion-reduce:transition-none";
 
   return (
     <>
       <div ref={sentinelRef} aria-hidden className="absolute top-0 h-24 w-px" />
 
-      <header className="fixed top-0 z-50 w-full">
+      <header
+        data-at-top={atTop || undefined}
+        className="group/header fixed top-0 z-50 w-full"
+      >
         <div
           aria-hidden
           className={cn(
-            "absolute inset-0 -z-10 bg-night/90 transition-opacity duration-300 ease-out motion-reduce:transition-none",
-            transparent ? "opacity-0" : "backdrop-blur-md",
+            layer,
+            "bg-night/90 backdrop-blur-md page-hero:group-data-at-top/header:opacity-0",
           )}
         />
 
         <div
           aria-hidden
           className={cn(
-            "absolute inset-0 -z-10 bg-linear-to-b from-night/70 to-transparent transition-opacity duration-300 ease-out motion-reduce:transition-none",
-            !transparent && "opacity-0",
+            layer,
+            "bg-linear-to-b from-night/70 to-transparent opacity-0 page-hero:group-data-at-top/header:opacity-100",
           )}
         />
 
@@ -67,7 +68,7 @@ export function MainHeader() {
         </div>
       </header>
 
-      {!hasHero && <div aria-hidden className="h-(--header-h) shrink-0" />}
+      <div aria-hidden className="h-(--header-h) shrink-0 page-hero:hidden" />
     </>
   );
 }

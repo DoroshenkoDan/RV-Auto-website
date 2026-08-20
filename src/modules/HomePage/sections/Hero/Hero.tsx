@@ -27,6 +27,7 @@ export function Hero() {
   return (
     <section
       style={{ "--hero-duration": `${HERO_SLIDE_DURATION}ms` } as CSSProperties}
+      data-page-hero
       className="relative isolate h-svh overflow-hidden bg-night"
     >
       {slides.map((slide, index) => (

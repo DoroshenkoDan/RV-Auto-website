@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -6,13 +6,14 @@ function Section({
   tone = "light",
   className,
   children,
-}: {
+  ...props
+}: ComponentProps<"section"> & {
   tone?: "light" | "dark";
-  className?: string;
   children: ReactNode;
 }) {
   return (
     <section
+      {...props}
       className={cn(
         "py-section",
         tone === "dark" ? "bg-night text-sand" : "bg-canvas text-ink",

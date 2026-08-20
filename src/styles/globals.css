@@ -144,6 +144,8 @@
   padding-inline: --spacing(6);
 }
 
+@custom-variant page-hero (body:has([data-page-hero]) &);
+
 @theme inline {
   --font-logo: var(--font-unbounded);
   --font-sans: var(--font-manrope);
