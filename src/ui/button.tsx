@@ -11,6 +11,8 @@ const buttonStyles = cva(
         primary: "bg-brand/90 text-night-soft hover:bg-brand",
         outline:
           "border-night-soft text-night-soft hover:border-night-soft/30 hover:bg-night-soft/10",
+        outlineOnDark:
+          "border-sand/30 text-sand hover:border-sand/50 hover:bg-sand/10",
       },
       size: {
         sm: "h-control-sm px-4 text-control",
@@ -19,8 +21,16 @@ const buttonStyles = cva(
       },
     },
     compoundVariants: [
-      { variant: "outline", size: "sm", className: "border" },
-      { variant: "outline", size: ["md", "lg"], className: "border-2" },
+      {
+        variant: ["outline", "outlineOnDark"],
+        size: "sm",
+        className: "border",
+      },
+      {
+        variant: ["outline", "outlineOnDark"],
+        size: ["md", "lg"],
+        className: "border-2",
+      },
     ],
     defaultVariants: {
       variant: "primary",

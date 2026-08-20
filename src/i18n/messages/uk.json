@@ -317,5 +317,16 @@
     "copyright": "© {year} Revolution Auto",
     "privacy": "Політика конфіденційності",
     "offer": "Договір оферти"
+  },
+  "errorPages": {
+    "eyebrowNotFound": "404",
+    "eyebrowError": "Помилка",
+    "titleLead": "Ця сторінка",
+    "titleAccent": "не доїхала.",
+    "home": "На головну",
+    "catalog": "До каталогу",
+    "retry": "Спробувати ще раз",
+    "descriptionNotFound": "Перевірте адресу або поверніться на головну.",
+    "descriptionError": "Сторінка не завантажилася. Спробуйте ще раз або поверніться на головну."
   }
 }

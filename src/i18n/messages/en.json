@@ -317,5 +317,16 @@
     "copyright": "© {year} Revolution Auto",
     "privacy": "Privacy policy",
     "offer": "Terms of offer"
+  },
+  "errorPages": {
+    "eyebrowNotFound": "404",
+    "eyebrowError": "Error",
+    "titleLead": "This page",
+    "titleAccent": "never arrived.",
+    "home": "Back home",
+    "catalog": "Browse catalog",
+    "retry": "Try again",
+    "descriptionNotFound": "Check the address or head back home.",
+    "descriptionError": "The page failed to load. Try again or head back home."
   }
 }

@@ -10,7 +10,6 @@ import HowItWorks from "./sections/HowItWorks";
 
 export function HomePage() {
   const t = useTranslations("homePage.ctaHome");
-
   return (
     <>
       <Hero />
