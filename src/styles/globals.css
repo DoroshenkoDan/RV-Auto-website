@@ -78,9 +78,28 @@
     forwards;
   --animate-hero-zoom: hero-zoom 7s ease-out forwards;
 
+  --animate-lamp: lamp-flicker 6s linear infinite;
+
   --animate-car-stream: car-stream 1.5s linear infinite;
   --animate-car-spin: car-spin 0.7s linear infinite;
   --animate-car-streak: car-streak 1s linear infinite;
+
+  @keyframes lamp-flicker {
+    0%,
+    86%,
+    89%,
+    93%,
+    100% {
+      opacity: 1;
+    }
+    87%,
+    88% {
+      opacity: 0.3;
+    }
+    91% {
+      opacity: 0.55;
+    }
+  }
 
   @keyframes car-stream {
     to {

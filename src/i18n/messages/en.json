@@ -73,6 +73,11 @@
       "auction": "Hot lot"
     }
   },
+  "sectionFallback": {
+    "eyebrow": "Check engine",
+    "title": "Something came loose here",
+    "description": "Our mechanic is already hunting for that one bolt. Check back a bit later, it should fire up."
+  },
   "homePage": {
     "hero": {
       "navLabel": "Slider navigation",
