@@ -7,6 +7,7 @@ import { Catalog } from "./sections/Catalog";
 import FAQ from "./sections/Faq";
 import { Hero } from "./sections/Hero";
 import HowItWorks from "./sections/HowItWorks";
+import { Reviews } from "./sections/Reviews";
 
 export function HomePage() {
   const t = useTranslations("homePage.ctaHome");
@@ -16,6 +17,7 @@ export function HomePage() {
       <Calculator />
       <Catalog />
       <HowItWorks />
+      <Reviews />
       <FAQ />
       <CtaSection title={t("title")} description={t("description")} />
     </>

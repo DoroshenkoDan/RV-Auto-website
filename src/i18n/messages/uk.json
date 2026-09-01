@@ -73,6 +73,11 @@
       "auction": "Цікавий лот"
     }
   },
+  "reviewCard": {
+    "quote": "«{quote}»",
+    "deliveryDays": "{count, plural, one {# день від торгів до видачі} few {# дні від торгів до видачі} many {# днів від торгів до видачі} other {# дня від торгів до видачі}}",
+    "photoAlt": "{name} з авто {car}, привезеним Revolution Auto"
+  },
   "sectionFallback": {
     "eyebrow": "Check engine",
     "title": "Тут щось відкрутилось",
@@ -202,6 +207,11 @@
       },
       "ctaLabel": "Готові порахувати вартість саме вашого авто?",
       "cta": "Порахувати під ключ"
+    },
+    "reviews": {
+      "title": "Машини, які ми привезли",
+      "viewAll": "Усі відгуки",
+      "count": "{count, plural, one {# відгук} few {# відгуки} many {# відгуків} other {# відгуку}}"
     },
     "faq": {
       "title": "Питання, які виникають найчастіше",

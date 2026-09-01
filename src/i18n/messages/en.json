@@ -73,6 +73,11 @@
       "auction": "Hot lot"
     }
   },
+  "reviewCard": {
+    "quote": "“{quote}”",
+    "deliveryDays": "{count, plural, one {# day from auction to handover} other {# days from auction to handover}}",
+    "photoAlt": "{name} with the {car} delivered by Revolution Auto"
+  },
   "sectionFallback": {
     "eyebrow": "Check engine",
     "title": "Something came loose here",
@@ -202,6 +207,11 @@
       },
       "ctaLabel": "Ready to price your exact car?",
       "cta": "Calculate turnkey price"
+    },
+    "reviews": {
+      "title": "Cars we have delivered",
+      "viewAll": "All reviews",
+      "count": "{count, plural, one {# review} other {# reviews}}"
     },
     "faq": {
       "title": "Questions we hear most often",

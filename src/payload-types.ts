@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     cars: Car;
     team: Team;
+    reviews: Review;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +83,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     cars: CarsSelect<false> | CarsSelect<true>;
     team: TeamSelect<false> | TeamSelect<true>;
+    reviews: ReviewsSelect<false> | ReviewsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -229,6 +231,42 @@ export interface Team {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reviews".
+ */
+export interface Review {
+  id: number;
+  authorName: string;
+  city?: string | null;
+  quote: string;
+  /**
+   * Photo of the client with the delivered car
+   */
+  photo: number | Media;
+  /**
+   * Car the review is about, e.g. "Toyota RAV4 XLE, 2019"
+   */
+  carLabel: string;
+  /**
+   * Days from the auction bid to the handover
+   */
+  deliveryDays?: number | null;
+  /**
+   * Month the car was handed over
+   */
+  date?: string | null;
+  /**
+   * Show this review in the homepage slider
+   */
+  featured?: boolean | null;
+  /**
+   * Lower numbers come first
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -266,6 +304,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'team';
         value: number | Team;
+      } | null)
+    | ({
+        relationTo: 'reviews';
+        value: number | Review;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -396,6 +438,23 @@ export interface TeamSelect<T extends boolean = true> {
   photo?: T;
   startYear?: T;
   carsDelivered?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reviews_select".
+ */
+export interface ReviewsSelect<T extends boolean = true> {
+  authorName?: T;
+  city?: T;
+  quote?: T;
+  photo?: T;
+  carLabel?: T;
+  deliveryDays?: T;
+  date?: T;
+  featured?: T;
   order?: T;
   updatedAt?: T;
   createdAt?: T;
