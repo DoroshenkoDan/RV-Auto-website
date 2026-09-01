@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Step } from "../../HowItWorks";
 
@@ -8,8 +9,6 @@ interface Props {
 }
 
 export default function HowItWorksCard({ className = "", step, index }: Props) {
-  const Icon = step.icon;
-
   return (
     <div
       className={cn(
@@ -18,7 +17,14 @@ export default function HowItWorksCard({ className = "", step, index }: Props) {
       )}
     >
       <div className="w-fit rounded-lg bg-brand/12 p-3">
-        <Icon aria-hidden className="text-brand" />
+        <Image
+          src={step.icon}
+          alt=""
+          width={1536}
+          height={1024}
+          sizes="96px"
+          className="size-24 object-contain"
+        />
       </div>
 
       <div className="mt-stack mb-title-tight flex items-center gap-2">

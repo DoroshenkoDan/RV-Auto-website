@@ -30,29 +30,15 @@ export function Logo({ className }: { className?: string }) {
         className,
       )}
     >
-      <span className="relative block size-11 shrink-0 overflow-hidden rounded-full sm:size-12 lg:size-14">
+      <span className="relative block aspect-2172/724 h-11 shrink-0 sm:h-12 lg:h-24">
         <Image
-          src="/images/shared/RVLogo.png"
-          alt=""
+          src="/images/shared/RVLogoBrand.webp"
+          alt="Revolution Auto"
           fill
-          sizes="(min-width: 1024px) 56px, (min-width: 640px) 48px, 44px"
+          sizes="(min-width: 1024px) 288px, (min-width: 640px) 144px, 132px"
           priority
-          className="object-cover"
+          className="object-contain"
         />
-      </span>
-
-      <span className="inline-flex flex-col font-logo text-brand [text-shadow:0_0_10px_currentColor]">
-        <span className="me-[-0.25em] text-label leading-none font-bold tracking-[0.25em] uppercase">
-          Revolution
-        </span>
-
-        <span className="mt-1 flex items-center sm:mt-1.5">
-          <span className="h-px flex-1 bg-current shadow-[0_0_6px_currentColor]" />
-          <span className="me-[-0.55em] px-1 text-[8px] leading-none font-bold tracking-[0.45em] uppercase sm:text-[9px] lg:text-[10px]">
-            Auto
-          </span>
-          <span className="h-px flex-1 bg-current shadow-[0_0_6px_currentColor]" />
-        </span>
       </span>
     </Link>
   );

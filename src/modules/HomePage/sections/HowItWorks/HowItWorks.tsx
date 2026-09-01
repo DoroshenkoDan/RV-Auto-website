@@ -1,4 +1,3 @@
-import { Scale, Search, Truck, type LucideIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/ui/button";
 import { Section, SectionTitle } from "@/ui/section";
@@ -7,13 +6,13 @@ import HowItWorksCard from "./components/HowItWorksCard";
 export type Step = {
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: string;
 };
 
 const stepIcons = [
-  { key: "selection", icon: Search },
-  { key: "auction", icon: Scale },
-  { key: "delivery", icon: Truck },
+  { key: "selection", icon: "/images/HomePage/HowItWorks/Search.webp" },
+  { key: "auction", icon: "/images/HomePage/HowItWorks/Bidding.webp" },
+  { key: "delivery", icon: "/images/HomePage/HowItWorks/Delivery.webp" },
 ] as const;
 
 // TODO: add func to btn to open form modal

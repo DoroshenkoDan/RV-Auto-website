@@ -55,7 +55,7 @@ export function MainHeader() {
           )}
         />
 
-        <div className="page-shell flex items-center justify-between py-3 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-x-6 xl:gap-x-8">
+        <div className="page-shell flex items-center justify-between  lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-x-6 xl:gap-x-8">
           <Logo className="justify-self-start" />
 
           <MainNav className="hidden justify-self-center lg:block" />
