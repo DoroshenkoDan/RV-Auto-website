@@ -9,7 +9,7 @@ import { buildConfig } from "payload";
 import sharp from "sharp";
 
 import { Cars } from "@/collections/Cars";
-import { Media } from "@/collections/Media";
+import { CarMedia, ReviewMedia, TeamMedia } from "@/collections/media";
 import { Reviews } from "@/collections/Reviews";
 import { Team } from "@/collections/Team";
 import { Users } from "@/collections/Users";
@@ -22,7 +22,7 @@ export default buildConfig({
     user: Users.slug,
     importMap: { baseDir: path.resolve(dirname) },
   },
-  collections: [Users, Media, Cars, Team, Reviews],
+  collections: [Users, CarMedia, TeamMedia, ReviewMedia, Cars, Team, Reviews],
   editor: lexicalEditor(),
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URI || "" },

@@ -68,23 +68,33 @@ export interface Config {
   blocks: {};
   collections: {
     users: User;
-    media: Media;
+    'car-media': CarMedia;
+    'team-media': TeamMedia;
+    'review-media': ReviewMedia;
     cars: Car;
     team: Team;
     reviews: Review;
     'payload-kv': PayloadKv;
+    'payload-folders': FolderInterface;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  collectionsJoins: {};
+  collectionsJoins: {
+    'payload-folders': {
+      documentsAndFolders: 'payload-folders' | 'car-media' | 'review-media';
+    };
+  };
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
-    media: MediaSelect<false> | MediaSelect<true>;
+    'car-media': CarMediaSelect<false> | CarMediaSelect<true>;
+    'team-media': TeamMediaSelect<false> | TeamMediaSelect<true>;
+    'review-media': ReviewMediaSelect<false> | ReviewMediaSelect<true>;
     cars: CarsSelect<false> | CarsSelect<true>;
     team: TeamSelect<false> | TeamSelect<true>;
     reviews: ReviewsSelect<false> | ReviewsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
+    'payload-folders': PayloadFoldersSelect<false> | PayloadFoldersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -150,9 +160,79 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
+ * via the `definition` "car-media".
  */
-export interface Media {
+export interface CarMedia {
+  id: number;
+  alt?: string | null;
+  folder?: (number | null) | FolderInterface;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-folders".
+ */
+export interface FolderInterface {
+  id: number;
+  name: string;
+  folder?: (number | null) | FolderInterface;
+  documentsAndFolders?: {
+    docs?: (
+      | {
+          relationTo?: 'payload-folders';
+          value: number | FolderInterface;
+        }
+      | {
+          relationTo?: 'car-media';
+          value: number | CarMedia;
+        }
+      | {
+          relationTo?: 'review-media';
+          value: number | ReviewMedia;
+        }
+    )[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  folderType?: ('car-media' | 'review-media')[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "review-media".
+ */
+export interface ReviewMedia {
+  id: number;
+  alt?: string | null;
+  folder?: (number | null) | FolderInterface;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "team-media".
+ */
+export interface TeamMedia {
   id: number;
   alt?: string | null;
   updatedAt: string;
@@ -188,12 +268,11 @@ export interface Car {
    * Show this car in the homepage preview
    */
   featured?: boolean | null;
-  gallery?:
-    | {
-        image: number | Media;
-        id?: string | null;
-      }[]
-    | null;
+  /**
+   * Folder with this car's photos. On save every photo from it is added to the gallery.
+   */
+  photoFolder?: (number | null) | FolderInterface;
+  gallery: (number | CarMedia)[];
   year: number;
   mileageKm: number;
   engine: string;
@@ -216,7 +295,7 @@ export interface Team {
   id: number;
   name: string;
   role: string;
-  photo?: (number | null) | Media;
+  photo?: (number | null) | TeamMedia;
   /**
    * Year the person started working in car import
    */
@@ -241,7 +320,7 @@ export interface Review {
   /**
    * Photo of the client with the delivered car
    */
-  photo: number | Media;
+  photo: number | ReviewMedia;
   /**
    * Car the review is about, e.g. "Toyota RAV4 XLE, 2019"
    */
@@ -294,8 +373,16 @@ export interface PayloadLockedDocument {
         value: number | User;
       } | null)
     | ({
-        relationTo: 'media';
-        value: number | Media;
+        relationTo: 'car-media';
+        value: number | CarMedia;
+      } | null)
+    | ({
+        relationTo: 'team-media';
+        value: number | TeamMedia;
+      } | null)
+    | ({
+        relationTo: 'review-media';
+        value: number | ReviewMedia;
       } | null)
     | ({
         relationTo: 'cars';
@@ -308,6 +395,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'reviews';
         value: number | Review;
+      } | null)
+    | ({
+        relationTo: 'payload-folders';
+        value: number | FolderInterface;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -375,10 +466,48 @@ export interface UsersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media_select".
+ * via the `definition` "car-media_select".
  */
-export interface MediaSelect<T extends boolean = true> {
+export interface CarMediaSelect<T extends boolean = true> {
   alt?: T;
+  folder?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "team-media_select".
+ */
+export interface TeamMediaSelect<T extends boolean = true> {
+  alt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "review-media_select".
+ */
+export interface ReviewMediaSelect<T extends boolean = true> {
+  alt?: T;
+  folder?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -408,12 +537,8 @@ export interface CarsSelect<T extends boolean = true> {
       };
   status?: T;
   featured?: T;
-  gallery?:
-    | T
-    | {
-        image?: T;
-        id?: T;
-      };
+  photoFolder?: T;
+  gallery?: T;
   year?: T;
   mileageKm?: T;
   engine?: T;
@@ -466,6 +591,18 @@ export interface ReviewsSelect<T extends boolean = true> {
 export interface PayloadKvSelect<T extends boolean = true> {
   key?: T;
   data?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-folders_select".
+ */
+export interface PayloadFoldersSelect<T extends boolean = true> {
+  name?: T;
+  folder?: T;
+  documentsAndFolders?: T;
+  folderType?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

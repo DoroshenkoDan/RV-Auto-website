@@ -43,3 +43,9 @@ dev.log
 
 # superpowers docs (specs/plans) - local only, not tracked
 docs/superpowers/
+
+# Payload media uploads (runtime data, not source)
+/media/
+
+# local database dumps and backups
+/db-*.sql

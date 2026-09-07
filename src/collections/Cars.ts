@@ -1,9 +1,14 @@
 import type { CollectionConfig } from "payload";
 
+import { pullCarPhotosFromFolder } from "@/collections/hooks/pullCarPhotosFromFolder";
+
 export const Cars: CollectionConfig = {
   slug: "cars",
   access: { read: () => true },
   admin: { useAsTitle: "title" },
+  hooks: {
+    beforeValidate: [pullCarPhotosFromFolder],
+  },
   fields: [
     {
       name: "slug",
@@ -72,18 +77,21 @@ export const Cars: CollectionConfig = {
       },
     },
     {
+      name: "photoFolder",
+      type: "relationship",
+      relationTo: "payload-folders",
+      admin: {
+        description:
+          "Folder with this car's photos. On save every photo from it is added to the gallery.",
+      },
+    },
+    {
       name: "gallery",
-      type: "array",
-      labels: { singular: "Photo", plural: "Photos" },
+      type: "upload",
+      relationTo: "car-media",
+      hasMany: true,
+      required: true,
       minRows: 1,
-      fields: [
-        {
-          name: "image",
-          type: "upload",
-          relationTo: "media",
-          required: true,
-        },
-      ],
     },
     {
       name: "year",

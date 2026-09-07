@@ -25,7 +25,7 @@ export const Team: CollectionConfig = {
     {
       name: "photo",
       type: "upload",
-      relationTo: "media",
+      relationTo: "team-media",
     },
     {
       name: "startYear",
