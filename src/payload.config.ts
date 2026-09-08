@@ -1,7 +1,7 @@
 import path from "path";
 import { fileURLToPath } from "url";
 
-import { postgresAdapter } from "@payloadcms/db-postgres";
+import { sqliteAdapter } from "@payloadcms/db-sqlite";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { en } from "@payloadcms/translations/languages/en";
 import { uk } from "@payloadcms/translations/languages/uk";
@@ -24,8 +24,10 @@ export default buildConfig({
   },
   collections: [Users, CarMedia, TeamMedia, ReviewMedia, Cars, Team, Reviews],
   editor: lexicalEditor(),
-  db: postgresAdapter({
-    pool: { connectionString: process.env.DATABASE_URI || "" },
+  db: sqliteAdapter({
+    client: { url: process.env.DATABASE_URI || "" },
+    busyTimeout: 5000,
+    wal: true,
   }),
   sharp,
   secret: process.env.PAYLOAD_SECRET || "",

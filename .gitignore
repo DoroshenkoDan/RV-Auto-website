@@ -50,6 +50,11 @@ docs/superpowers/
 # local database dumps and backups
 /db-*.sql
 
+# sqlite database files
+/*.db
+/*.db-shm
+/*.db-wal
+
 # editor state
 .idea/
 .vscode/
