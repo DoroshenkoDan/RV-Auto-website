@@ -43,3 +43,32 @@ dev.log
 
 # superpowers docs (specs/plans) - local only, not tracked
 docs/superpowers/
+
+# Payload media uploads (runtime data, not source)
+/media/
+
+# local database dumps and backups
+/db-*.sql
+
+# sqlite database files
+/*.db
+/*.db-shm
+/*.db-wal
+
+# editor state
+.idea/
+.vscode/
+
+# OS junk (Windows counterparts of .DS_Store)
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ad-hoc logs
+*.log
+
+# Claude Code local overrides (a shared settings.json stays tracked)
+.claude/settings.local.json
+
+# keep the onboarding template readable despite .env*
+!.env.example

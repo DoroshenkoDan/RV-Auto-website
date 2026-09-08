@@ -37,7 +37,7 @@ export const Reviews: CollectionConfig = {
     {
       name: "photo",
       type: "upload",
-      relationTo: "media",
+      relationTo: "review-media",
       required: true,
       admin: {
         description: "Photo of the client with the delivered car",

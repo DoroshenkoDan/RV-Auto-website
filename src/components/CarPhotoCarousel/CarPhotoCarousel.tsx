@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-import type { Car, Media } from "@/payload-types";
+import type { Car, CarMedia } from "@/payload-types";
 import {
   Carousel,
   CarouselContent,
@@ -33,12 +33,10 @@ export function CarPhotoCarousel({
   sizes = "(min-width: 1152px) 384px, (min-width: 1024px) 33vw, 100vw",
   revealControlsOnHover = false,
 }: Props) {
-  const photos = (gallery ?? [])
-    .map((item) => item.image)
-    .filter(
-      (image): image is Media =>
-        typeof image === "object" && Boolean(image?.url),
-    );
+  const photos = (gallery ?? []).filter(
+    (image): image is CarMedia =>
+      typeof image === "object" && Boolean(image?.url),
+  );
 
   if (photos.length === 0) return null;
 

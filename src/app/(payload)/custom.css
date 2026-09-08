@@ -1,0 +1,34 @@
+/* Bulk upload drawer hugs its content instead of filling the viewport. */
+
+.payload__modal-item[class*="bulk-upload-drawer"] {
+  inset: 0 0 auto 0;
+  height: auto;
+  max-height: 100%;
+}
+
+.payload__modal-item[class*="bulk-upload-drawer"] .drawer__content,
+.payload__modal-item[class*="bulk-upload-drawer"] .drawer__content-children {
+  height: auto;
+  max-height: 100%;
+}
+
+.payload__modal-item[class*="bulk-upload-drawer"] .bulk-upload--file-manager,
+.payload__modal-item[class*="bulk-upload-drawer"]
+  .bulk-upload--file-manager__editView,
+.payload__modal-item[class*="bulk-upload-drawer"] .file-selections {
+  height: auto;
+  max-height: 100%;
+}
+
+.payload__modal-item[class*="bulk-upload-drawer"] .bulk-upload--add-files,
+.payload__modal-item[class*="bulk-upload-drawer"]
+  .bulk-upload--add-files__dropArea {
+  height: auto;
+}
+
+.payload__modal-item[class*="bulk-upload-drawer"]
+  .bulk-upload--add-files
+  .dropzone {
+  height: auto;
+  min-height: calc(var(--base) * 10);
+}
