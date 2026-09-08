@@ -13,6 +13,7 @@ import { CarMedia, ReviewMedia, TeamMedia } from "@/collections/media";
 import { Reviews } from "@/collections/Reviews";
 import { Team } from "@/collections/Team";
 import { Users } from "@/collections/Users";
+import { migrations } from "@/migrations";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -27,6 +28,7 @@ export default buildConfig({
   db: sqliteAdapter({
     client: { url: process.env.DATABASE_URI || "" },
     busyTimeout: 5000,
+    prodMigrations: migrations,
     wal: true,
   }),
   sharp,
