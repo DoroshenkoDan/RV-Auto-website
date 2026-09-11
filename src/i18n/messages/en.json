@@ -322,6 +322,29 @@
       "description": "Leave your contacts — a manager will get in touch within 15 minutes and quote a car from the USA, Europe, China or Korea."
     }
   },
+  "catalogPage": {
+    "empty": {
+      "eyebrow": "Empty garage",
+      "title": "Nothing parked here yet",
+      "description": "New cars are already on their way to the catalog. Leave a request and we will find the right one for your budget before it shows up here.",
+      "action": "Leave a request"
+    },
+    "emptyFilter": {
+      "eyebrow": "Empty shelf",
+      "title": "No cars in this category",
+      "description": "Looks like everything here has already been driven away. Try another category or browse the full catalog.",
+      "action": "Browse full catalog"
+    }
+  },
+  "reviewsPage": {
+    "title": "Client reviews",
+    "empty": {
+      "eyebrow": "Radio silence",
+      "title": "No reviews yet",
+      "description": "We have just opened this page. The first stories about delivered cars will show up here soon.",
+      "action": "Browse the catalog"
+    }
+  },
   "contactsPage": {
     "title": "Contacts",
     "lede": "Send a request or call us directly. We reply the same working day.",

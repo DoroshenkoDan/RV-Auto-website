@@ -23,3 +23,15 @@ export async function getReviewsCount(): Promise<number> {
   const result = await payload.count({ collection: "reviews" });
   return result.totalDocs;
 }
+
+export async function getReviews(locale: Locale): Promise<Review[]> {
+  const payload = await getPayloadClient();
+  const result = await payload.find({
+    collection: "reviews",
+    locale,
+    sort: "order",
+    depth: 1,
+    limit: 0,
+  });
+  return result.docs;
+}
