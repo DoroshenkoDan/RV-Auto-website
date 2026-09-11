@@ -6,8 +6,14 @@ import { useTranslations } from "next-intl";
 
 import { ContactCta } from "@/components/ContactCta";
 import { Link, usePathname } from "@/i18n/navigation";
-import { isNavItemActive, NAV_LINKS } from "@/layout/MainLayout/navItems";
+import {
+  isNavGroup,
+  isNavItemActive,
+  NAV_ITEMS,
+} from "@/layout/MainLayout/navItems";
 import { cn } from "@/lib/utils";
+
+import { MobileServicesGroup } from "./sections/MobileServicesGroup";
 
 const BAR =
   "absolute inset-x-0 h-0.5 rounded-full bg-current transition duration-300 ease-out motion-reduce:transition-none";
@@ -23,15 +29,15 @@ export function MobileMenu({ className }: { className?: string }) {
       <Dialog.Trigger
         aria-label={open ? tMenu("close") : tMenu("open")}
         className={cn(
-          "group inline-flex size-11 items-center justify-center text-canvas transition-colors duration-300 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
+          "group inline-flex size-12 items-center justify-center text-canvas transition-colors duration-300 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
           className,
         )}
       >
-        <span aria-hidden className="relative block h-4 w-7">
+        <span aria-hidden className="relative block h-4.5 w-8">
           <span
             className={cn(
               BAR,
-              "top-0 group-data-popup-open:translate-y-1.75 group-data-popup-open:rotate-45",
+              "top-0 group-data-popup-open:translate-y-2 group-data-popup-open:rotate-45",
             )}
           />
           <span
@@ -43,7 +49,7 @@ export function MobileMenu({ className }: { className?: string }) {
           <span
             className={cn(
               BAR,
-              "bottom-0 group-data-popup-open:-translate-y-1.75 group-data-popup-open:-rotate-45",
+              "bottom-0 group-data-popup-open:-translate-y-2 group-data-popup-open:-rotate-45",
             )}
           />
         </span>
@@ -57,13 +63,24 @@ export function MobileMenu({ className }: { className?: string }) {
 
           <nav className="page-shell flex flex-1 flex-col justify-center py-4 sm:py-8">
             <ul className="flex flex-col gap-y-1">
-              {NAV_LINKS.map(({ href, key }) => {
-                const isActive = isNavItemActive(pathname, href);
+              {NAV_ITEMS.map((item) => {
+                if (isNavGroup(item)) {
+                  return (
+                    <li key={item.key}>
+                      <MobileServicesGroup
+                        group={item}
+                        onNavigate={() => setOpen(false)}
+                      />
+                    </li>
+                  );
+                }
+
+                const isActive = isNavItemActive(pathname, item.href);
 
                 return (
-                  <li key={href}>
+                  <li key={item.href}>
                     <Link
-                      href={href}
+                      href={item.href}
                       onClick={() => setOpen(false)}
                       aria-current={isActive ? "page" : undefined}
                       className={cn(
@@ -73,7 +90,7 @@ export function MobileMenu({ className }: { className?: string }) {
                           : "text-canvas hover:text-brand/70",
                       )}
                     >
-                      {t(key)}
+                      {t(item.key)}
                     </Link>
                   </li>
                 );

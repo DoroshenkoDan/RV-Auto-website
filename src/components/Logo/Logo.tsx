@@ -30,12 +30,12 @@ export function Logo({ className }: { className?: string }) {
         className,
       )}
     >
-      <span className="relative block aspect-2172/724 h-11 shrink-0 sm:h-12 lg:h-24">
+      <span className="relative block aspect-2172/724 h-13 shrink-0 sm:h-14 lg:h-19">
         <Image
           src="/images/shared/RVLogoBrand.webp"
           alt="Revolution Auto"
           fill
-          sizes="(min-width: 1024px) 288px, (min-width: 640px) 144px, 132px"
+          sizes="(min-width: 1024px) 228px, (min-width: 640px) 168px, 156px"
           priority
           className="object-contain"
         />

@@ -20,7 +20,10 @@ export function LocaleSwitcher({ className }: { className?: string }) {
   return (
     <nav
       aria-label={t("label")}
-      className={cn("flex items-center gap-x-1.5", className)}
+      className={cn(
+        "flex items-center gap-x-2 text-[0.8125rem] uppercase lg:gap-x-1.5 lg:text-nav",
+        className,
+      )}
     >
       {routing.locales.map((locale, index) => {
         const isActive = locale === activeLocale;
@@ -39,7 +42,7 @@ export function LocaleSwitcher({ className }: { className?: string }) {
               hrefLang={locale}
               aria-current={isActive ? "true" : undefined}
               className={cn(
-                "text-nav uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
+                "py-1 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
                 isActive ? "text-brand" : "text-canvas hover:text-brand/70",
               )}
             >
