@@ -1,11 +1,14 @@
 import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
+import { toCalculatorParams } from "@/lib/calculator/params";
+import type {
+  CalculatorEstimate,
+  CalculatorInput,
+} from "@/lib/calculator/types";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contacts";
 import { cn, formatUsd } from "@/lib/utils";
 import { buttonVariants } from "@/ui/button";
-
-import type { CalculatorEstimate } from "../../types";
 
 const LINE_TONES = [
   "bg-brand",
@@ -18,8 +21,10 @@ const LINE_TONES = [
 ];
 
 export function CalculatorResult({
+  input,
   estimate,
 }: {
+  input: CalculatorInput;
   estimate: CalculatorEstimate;
 }) {
   const t = useTranslations("homePage.calculator.result");
@@ -78,7 +83,7 @@ export function CalculatorResult({
       <p className="text-label text-sand/50">{t("disclaimer")}</p>
 
       <Link
-        href="/contacts"
+        href={{ pathname: "/contacts", query: toCalculatorParams(input) }}
         className={buttonVariants({ className: "mt-auto w-full" })}
       >
         {t("cta")}

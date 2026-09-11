@@ -5,9 +5,6 @@ import { Field } from "@base-ui/react/field";
 import { Form } from "@base-ui/react/form";
 import { useLocale, useTranslations } from "next-intl";
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/ui/button";
-
 import {
   AUCTION_TYPES,
   BATTERY_CAPACITY_LIMITS,
@@ -17,8 +14,11 @@ import {
   LOT_PRICE_LIMITS,
   VEHICLE_TYPES,
   getYearOptions,
-} from "../../options";
-import type { CalculatorInput } from "../../types";
+} from "@/lib/calculator/options";
+import type { CalculatorInput } from "@/lib/calculator/types";
+import { cn } from "@/lib/utils";
+import { Button } from "@/ui/button";
+
 import { AmountField } from "./components/AmountField";
 import { SegmentedField } from "./components/SegmentedField";
 import { YearField } from "./components/YearField";

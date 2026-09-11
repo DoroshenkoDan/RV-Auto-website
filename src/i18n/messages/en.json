@@ -322,6 +322,93 @@
       "description": "Leave your contacts — a manager will get in touch within 15 minutes and quote a car from the USA, Europe, China or Korea."
     }
   },
+  "contactsPage": {
+    "title": "Contacts",
+    "lede": "Send a request or call us directly. We reply the same working day.",
+    "leadSection": {
+      "mode": {
+        "label": "Request type",
+        "simple": "Short form",
+        "detailed": "Detailed request"
+      },
+      "name": {
+        "label": "Your name",
+        "placeholder": "Name",
+        "required": "Enter your name",
+        "invalid": "Invalid name"
+      },
+      "phone": {
+        "label": "Phone number",
+        "placeholder": "+380",
+        "required": "Enter your number",
+        "invalid": "Invalid number"
+      },
+      "messenger": {
+        "label": "Preferred messenger"
+      },
+      "car": {
+        "title": "Car details",
+        "hint": "Optional. Helps the manager prepare an exact quote.",
+        "fuel": {
+          "label": "Fuel type",
+          "petrol": "Petrol",
+          "diesel": "Diesel",
+          "hybrid": "Hybrid",
+          "electric": "Electric"
+        },
+        "vehicle": {
+          "label": "Vehicle type",
+          "car": "Car",
+          "suv": "SUV",
+          "pickup": "Pickup",
+          "motorcycle": "Motorcycle"
+        },
+        "auction": {
+          "label": "Auction",
+          "copart": "Copart",
+          "iaai": "IAAI"
+        },
+        "engineVolume": {
+          "label": "Engine volume, cc",
+          "placeholder": "2000"
+        },
+        "batteryCapacity": {
+          "label": "Battery capacity, kWh",
+          "placeholder": "60"
+        },
+        "year": {
+          "label": "Year",
+          "placeholder": "2021"
+        },
+        "lotPrice": {
+          "label": "Lot price, $",
+          "placeholder": "9400"
+        }
+      },
+      "comment": {
+        "label": "Comment",
+        "placeholder": "Make, model, trim, any preferences"
+      },
+      "submit": "Send request",
+      "consent": "By submitting the form you agree to our <link>privacy policy</link>.",
+      "toast": {
+        "success": {
+          "title": "Request sent",
+          "description": "A manager will contact you within 15 minutes."
+        }
+      },
+      "panel": {
+        "total": "Turnkey price",
+        "empty": "Fill in the car details and the price will show up here.",
+        "litres": "{value} L",
+        "kwh": "{value} kWh",
+        "hoursLabel": "Opening hours",
+        "addressLabel": "Address",
+        "hours": "Mon–Sat, 10:00–19:00",
+        "address": "Lviv, Prykladna St. 10"
+      }
+    }
+  },
   "footer": {
     "tagline": "Cars from the USA and Europe, turnkey.",
     "navTitle": "Navigation",
