@@ -1,0 +1,185 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Unbounded:wght@600;700&display=swap");
+
+  .rv { --canvas:#faf8f5; --surface:#f2eee8; --sand:#f1e8d8; --line:#e2dcd2; --ink:#0c0a07; --muted:#6e675e; --night:#0c0a07; --night-soft:#1a1815; --brand:#f2a33c;
+    font-family: Manrope, system-ui, sans-serif; color: var(--ink); background: var(--canvas); border-radius: 10px; overflow: hidden; text-align: left; }
+  .rv * { box-sizing: border-box; }
+  .rv .logo { font-family: Unbounded, system-ui, sans-serif; }
+  .rv .hdr { height: 44px; background: var(--night); color: var(--sand); display:flex; align-items:center; justify-content:space-between; padding: 0 20px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+  .rv .hdr b { color: var(--brand); font-family: Unbounded, sans-serif; letter-spacing: 0; font-size: 13px; }
+  .rv .shell { padding: 22px 24px 26px; }
+  .rv h1 { font-family: Unbounded, sans-serif; font-size: 30px; line-height: 1.1; margin: 0; letter-spacing: -.02em; }
+  .rv .lede { color: var(--muted); font-size: 13px; margin: 8px 0 0; max-width: 460px; }
+  .rv .eyebrow { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .rv .crumbs { font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+  .rv .crumbs span { color: var(--ink); }
+
+  .rv .tabs { display:inline-flex; gap: 2px; padding: 3px; background: var(--surface); border-radius: 8px; }
+  .rv .tab { font-size: 12px; font-weight: 600; padding: 7px 12px; border-radius: 6px; color: var(--muted); display:flex; gap:6px; align-items:center; white-space: nowrap; }
+  .rv .tab.on { background: #fff; color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+  .rv .tab i { font-style: normal; font-size: 10px; background: var(--line); color: var(--ink); border-radius: 999px; padding: 1px 6px; }
+  .rv .tab.on i { background: var(--brand); }
+
+  .rv .pills { display:flex; gap: 8px; flex-wrap: wrap; }
+  .rv .pill { font-size: 12px; padding: 7px 14px; border-radius: 999px; border: 2px solid var(--line); display:flex; gap:6px; align-items:center; }
+  .rv .pill.on { border-color: var(--brand); background: var(--brand); }
+  .rv .pill i { font-style: normal; font-size: 10px; opacity: .7; }
+
+  .rv .select { font-size: 12px; border: 1px solid var(--line); background:#fff; border-radius: 6px; padding: 7px 10px; display:flex; gap: 18px; align-items:center; white-space: nowrap; }
+  .rv .select:after { content: "⌄"; color: var(--muted); }
+  .rv .count { font-family: ui-monospace, "JetBrains Mono", monospace; font-size: 11px; color: var(--muted); }
+
+  .rv .grid { display:grid; gap: 14px; }
+  .rv .card { background:#fff; border:1px solid var(--line); border-radius: 8px; overflow:hidden; display:flex; flex-direction:column; }
+  .rv .ph { position:relative; aspect-ratio: 16/10; background: var(--surface) center/cover no-repeat; }
+  .rv .badge { position:absolute; top:6px; left:6px; font-size: 8px; font-weight: 700; letter-spacing:.06em; text-transform: uppercase; color:#fff; padding: 2px 7px; border-radius: 999px; }
+  .rv .cb { padding: 10px 11px 11px; display:flex; flex-direction:column; flex:1; }
+  .rv .ct { display:flex; justify-content:space-between; align-items:baseline; gap: 6px; }
+  .rv .ct b { font-size: 13px; }
+  .rv .ct span, .rv .spec { font-size: 10px; color: var(--muted); }
+  .rv .spec { margin-top: 3px; }
+  .rv .price { margin-top: auto; padding-top: 8px; border-top: 1px solid var(--line); }
+  .rv .price small { display:block; font-size: 8px; letter-spacing:.08em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+  .rv .price b { font-size: 17px; }
+  .rv .btns { display:flex; gap: 6px; margin-top: 8px; }
+  .rv .btns div { flex:1; text-align:center; font-size: 10px; font-weight: 700; padding: 6px 0; border-radius: 4px; }
+  .rv .btns .p { background: var(--brand); }
+  .rv .btns .o { border: 1px solid var(--night-soft); }
+
+  .rv .pager { display:flex; justify-content:center; gap: 4px; margin-top: 20px; font-size: 12px; }
+  .rv .pager div { min-width: 30px; height: 30px; display:flex; align-items:center; justify-content:center; border-radius: 6px; padding: 0 8px; color: var(--muted); }
+  .rv .pager .on { border: 1px solid var(--line); background: #fff; color: var(--ink); font-weight: 700; }
+
+  .rv .dark { background: var(--night); color: var(--sand); }
+  .rv .dark .lede { color: rgba(241,232,216,.65); }
+  .rv .dark .seg { display:inline-flex; border:1px solid rgba(241,232,216,.2); border-radius: 8px; overflow:hidden; margin-top: 18px; }
+  .rv .dark .seg div { font-size: 12px; font-weight:600; padding: 9px 16px; border-right:1px solid rgba(241,232,216,.2); display:flex; gap:8px; align-items:center; }
+  .rv .dark .seg div:last-child { border-right: 0; }
+  .rv .dark .seg .on { background: var(--brand); color: var(--night); }
+  .rv .dark .seg i { font-style: normal; font-family: ui-monospace, monospace; font-size: 10px; opacity: .7; }
+
+  .rv .side { background:#fff; border: 1px solid var(--line); border-radius: 8px; padding: 14px; align-self: start; }
+  .rv .side h4 { font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+  .rv .radio { display:flex; justify-content:space-between; align-items:center; font-size: 12px; padding: 6px 8px; border-radius: 6px; }
+  .rv .radio.on { background: var(--sand); font-weight: 700; }
+  .rv .radio span { display:flex; gap: 8px; align-items:center; }
+  .rv .radio span:before { content:""; width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid var(--muted); }
+  .rv .radio.on span:before { border: 3.5px solid var(--brand); }
+  .rv .radio i { font-style: normal; font-family: ui-monospace, monospace; font-size: 10px; color: var(--muted); }
+  .rv .sep { height:1px; background: var(--line); margin: 12px 0; }
+  .rv .cta { background: var(--night); color: var(--sand); border-radius: 8px; padding: 12px; margin-top: 12px; font-size: 11px; }
+  .rv .cta b { display:block; font-family: Unbounded, sans-serif; font-size: 12px; margin-bottom: 4px; }
+  .rv .cta div { margin-top: 10px; background: var(--brand); color: var(--night); text-align:center; font-weight:700; padding: 6px; border-radius: 4px; }
+
+  .variant-note { font-size: 13px; color: var(--text-secondary); margin: 10px 2px 0; }
+  .variant-note b { color: var(--text-primary); }
+</style>
+
+<h2>Каталог: яка компоновка сторінки?</h2>
+<p class="subtitle">Три напрями для /cars. Картка авто поки та сама, що вже є на сайті. Далі окремо оберемо деталі: картку, сортування, пагінацію. Клікни на варіант, який ближчий.</p>
+
+<div class="options" style="gap:28px">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)" style="display:block;padding:14px">
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px"><div class="letter">A</div><h3 style="margin:0">Світлий заголовок + панель інструментів</h3></div>
+    <div class="rv">
+      <div class="hdr"><b>RV AUTO</b><span>Каталог · Послуги · Про нас · Контакти</span></div>
+      <div class="shell">
+        <div class="crumbs">Головна / <span>Каталог</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+          <div><h1>Каталог авто</h1><p class="lede">Авто в наявності у Львові, в дорозі та лоти з аукціонів під ключ.</p></div>
+          <div class="count">4 авто</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin:18px 0 16px;padding:10px 0;border-block:1px solid var(--line);flex-wrap:wrap">
+          <div class="tabs"><div class="tab on">Всі <i>4</i></div><div class="tab">В наявності <i>2</i></div><div class="tab">В дорозі <i>1</i></div><div class="tab">Лоти <i>1</i></div></div>
+          <div class="select">Новинки</div>
+        </div>
+        <div class="grid" data-cars data-cols="4"></div>
+        <div class="pager"><div>‹ Назад</div><div class="on">1</div><div>2</div><div>Далі ›</div></div>
+      </div>
+    </div>
+    <p class="variant-note"><b>shadcn:</b> Breadcrumb, Tabs (статуси з лічильниками), Select (сортування), Pagination, Badge. Спокійно, як інтернет-магазин. Панель може прилипати при скролі.</p>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)" style="display:block;padding:14px">
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px"><div class="letter">B</div><h3 style="margin:0">Темний банер, як на головній</h3></div>
+    <div class="rv">
+      <div class="dark">
+        <div class="hdr" style="background:transparent"><b>RV AUTO</b><span>Каталог · Послуги · Про нас · Контакти</span></div>
+        <div class="shell" style="padding-top:26px;padding-bottom:28px">
+          <div class="eyebrow" style="color:var(--brand)">Каталог</div>
+          <h1 style="font-size:38px">Оберіть авто<br>вже сьогодні</h1>
+          <p class="lede">4 авто: у шоурумі у Львові, в дорозі та на аукціонах.</p>
+          <div class="seg"><div class="on">Всі <i>4</i></div><div>В наявності <i>2</i></div><div>В дорозі <i>1</i></div><div>Лоти <i>1</i></div></div>
+        </div>
+      </div>
+      <div class="shell">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+          <div class="count">Показано 4 з 4</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted)">Сортування <div class="select" style="color:var(--ink)">Новинки</div></div>
+        </div>
+        <div class="grid" data-cars data-cols="4"></div>
+        <div class="pager"><div>‹</div><div class="on">1</div><div>2</div><div>›</div></div>
+      </div>
+    </div>
+    <p class="variant-note"><b>shadcn:</b> ToggleGroup (статуси), Select, Pagination, Badge. Виразніше, продовжує темні секції сайту. Статуси стають головною навігацією сторінки.</p>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)" style="display:block;padding:14px">
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px"><div class="letter">C</div><h3 style="margin:0">Бокова панель</h3></div>
+    <div class="rv">
+      <div class="hdr"><b>RV AUTO</b><span>Каталог · Послуги · Про нас · Контакти</span></div>
+      <div class="shell">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px">
+          <h1>Каталог авто</h1><div class="count">4 авто</div>
+        </div>
+        <div style="display:grid;grid-template-columns:190px 1fr;gap:18px">
+          <div>
+            <div class="side">
+              <h4>Статус</h4>
+              <div class="radio on"><span>Всі</span><i>4</i></div>
+              <div class="radio"><span>В наявності</span><i>2</i></div>
+              <div class="radio"><span>В дорозі</span><i>1</i></div>
+              <div class="radio"><span>Лоти</span><i>1</i></div>
+              <div class="sep"></div>
+              <h4>Сортування</h4>
+              <div class="radio on"><span>Новинки</span></div>
+              <div class="radio"><span>Дешевші</span></div>
+              <div class="radio"><span>Дорожчі</span></div>
+              <div class="radio"><span>Новіші за роком</span></div>
+            </div>
+            <div class="cta"><b>Не знайшли авто?</b>Підберемо під ваш бюджет з аукціонів США та Європи.<div>Залишити заявку</div></div>
+          </div>
+          <div>
+            <div class="grid" data-cars data-cols="3"></div>
+            <div class="pager"><div>‹</div><div class="on">1</div><div>2</div><div>›</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="variant-note"><b>shadcn:</b> RadioGroup, Separator, Card, Pagination, Badge, на мобільному Sheet. Готово до фільтрів у майбутньому, є місце для CTA на заявку. На 4 авто панель виглядає порожнувато.</p>
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    var API = "http://localhost:3000/api/car-media/file/";
+    var cars = [
+      { t: "Toyota RAV4 Hybrid", y: 2018, km: "94,000", e: "2.5 Hybrid", s: "В наявності", c: "rgba(242,163,60,.9)", p: "$23,700", img: "rav4.2.avif" },
+      { t: "Audi A5 Sportback S line", y: 2018, km: "112,000", e: "2.0 TFSI", s: "Цікавий лот", c: "rgba(12,10,7,.85)", p: "$21,500", img: "audi-a5-red.webp" },
+      { t: "Audi A5", y: 2025, km: "12,000", e: "2.0 TFSI", s: "В дорозі", c: "rgba(26,24,21,.85)", p: "$58,500", img: "Audi_A5-white.jpg" },
+      { t: "Audi A5 Sportback", y: 2021, km: "68,000", e: "2.0 TFSI", s: "В наявності", c: "rgba(242,163,60,.9)", p: "$33,900", img: "Audi-a5-black.webp" }
+    ];
+    document.querySelectorAll("[data-cars]").forEach(function (grid) {
+      grid.style.gridTemplateColumns = "repeat(" + grid.dataset.cols + ", minmax(0,1fr))";
+      grid.innerHTML = cars.slice(0, Number(grid.dataset.cols) === 3 ? 3 : 4).map(function (car) {
+        return '<div class="card"><div class="ph" style="background-image:url(\'' + API + car.img + '\')"><span class="badge" style="background:' + car.c + '">' + car.s + '</span></div>' +
+          '<div class="cb"><div class="ct"><b>' + car.t + '</b><span>' + car.y + '</span></div>' +
+          '<div class="spec">' + car.km + ' km · ' + car.e + ' · AWD</div>' +
+          '<div class="price"><small>Ціна під ключ</small><b>' + car.p + '</b></div>' +
+          '<div class="btns"><div class="p">Замовити</div><div class="o">Детальніше</div></div></div></div>';
+      }).join("");
+    });
+  })();
+</script>

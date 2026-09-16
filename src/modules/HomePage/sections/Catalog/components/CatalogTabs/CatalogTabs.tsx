@@ -7,6 +7,7 @@ import { CatalogGrid } from "../CatalogGrid";
 
 type Tab = "all" | CarStatus;
 const MAX_CARDS = 6;
+// TODO: add empty state for tabs with no featured cars of the selected status
 
 interface Props {
   cars: Car[];

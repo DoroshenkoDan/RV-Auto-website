@@ -279,9 +279,6 @@ export interface Car {
   drivetrain: 'AWD' | '4WD' | 'FWD' | 'RWD';
   transmission: 'automatic' | 'manual';
   damageTag?: string | null;
-  locationNote?: string | null;
-  etaNote?: string | null;
-  auctionNote?: string | null;
   currentBid?: number | null;
   price: number;
   updatedAt: string;
@@ -545,9 +542,6 @@ export interface CarsSelect<T extends boolean = true> {
   drivetrain?: T;
   transmission?: T;
   damageTag?: T;
-  locationNote?: T;
-  etaNote?: T;
-  auctionNote?: T;
   currentBid?: T;
   price?: T;
   updatedAt?: T;

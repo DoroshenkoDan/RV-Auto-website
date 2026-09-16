@@ -13,6 +13,7 @@ const buttonStyles = cva(
           "border-night-soft text-night-soft hover:border-night-soft/30 hover:bg-night-soft/10",
         outlineOnDark:
           "border-sand/30 text-sand hover:border-sand/50 hover:bg-sand/10",
+        ghost: "text-night-soft hover:bg-night-soft/10",
       },
       size: {
         sm: "h-control-sm px-4 text-control",

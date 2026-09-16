@@ -323,6 +323,15 @@
     }
   },
   "catalogPage": {
+    "title": "Choose your car today",
+    "status": "Car status",
+    "sort": {
+      "label": "Sorting",
+      "newest": "Newest",
+      "price-asc": "Price: low to high",
+      "price-desc": "Price: high to low",
+      "year-desc": "Year: newest first"
+    },
     "empty": {
       "eyebrow": "Empty garage",
       "title": "Nothing parked here yet",
@@ -334,6 +343,13 @@
       "title": "No cars in this category",
       "description": "Looks like everything here has already been driven away. Try another category or browse the full catalog.",
       "action": "Browse full catalog"
+    },
+    "pagination": {
+      "label": "Catalog pages",
+      "previous": "Previous",
+      "next": "Next",
+      "previousLabel": "Previous page",
+      "nextLabel": "Next page"
     }
   },
   "reviewsPage": {
@@ -349,6 +365,7 @@
     "title": "Contacts",
     "lede": "Send a request or call us directly. We reply the same working day.",
     "leadSection": {
+      "selectedCar": "Car: {title}",
       "mode": {
         "label": "Request type",
         "simple": "Short form",

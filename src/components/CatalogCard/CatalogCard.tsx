@@ -5,13 +5,12 @@ import type { Car } from "@/payload-types";
 import { Link } from "@/i18n/navigation";
 import { formatUsd } from "@/lib/utils";
 import { CarPhotoCarousel } from "@/components/CarPhotoCarousel";
-import { Button, buttonVariants } from "@/ui/button";
+import { buttonVariants } from "@/ui/button";
 
 interface Props {
   car: Car;
   className?: string;
 }
-// Todo: add func to btn to open the form
 
 const STATUS_BADGE_CLASS: Record<Car["status"], string> = {
   available: "bg-brand/85",
@@ -21,7 +20,6 @@ const STATUS_BADGE_CLASS: Record<Car["status"], string> = {
 
 export function CatalogCard({ className = "", car }: Props) {
   const t = useTranslations("carCard");
-  const note = car.locationNote ?? car.etaNote ?? car.auctionNote;
 
   return (
     <article
@@ -55,7 +53,6 @@ export function CatalogCard({ className = "", car }: Props) {
           {car.mileageKm.toLocaleString("en-US")} km · {car.engine} ·{" "}
           {car.drivetrain}
         </p>
-        {note && <p className="mt-1 text-label text-ink-muted">{note}</p>}
 
         <div className="mt-auto pt-title-tight">
           <hr className="mb-title-tight border-line" />
@@ -66,9 +63,12 @@ export function CatalogCard({ className = "", car }: Props) {
           <p className="text-stat font-bold text-ink">{formatUsd(car.price)}</p>
 
           <div className="mt-title-tight flex gap-2">
-            <Button type="button" size="sm" className="flex-1">
+            <Link
+              href={{ pathname: "/contacts", query: { car: car.slug } }}
+              className={buttonVariants({ size: "sm", className: "flex-1" })}
+            >
               {t("order")}
-            </Button>
+            </Link>
             <Link
               href={`/cars/${car.slug}`}
               className={buttonVariants({

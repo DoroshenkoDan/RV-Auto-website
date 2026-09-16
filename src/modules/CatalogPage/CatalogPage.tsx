@@ -4,9 +4,29 @@ import { CatalogCard } from "@/components/CatalogCard";
 import { EmptyState } from "@/components/EmptyState";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
-import { getCars, getCarsCount, type CarStatus } from "@/lib/payload/cars";
+import {
+  getPageItems,
+  parseCarSort,
+  toCatalogQuery,
+} from "@/lib/catalog/params";
+import {
+  getCars,
+  getCarStatusCounts,
+  type CarStatus,
+} from "@/lib/payload/cars";
 import { buttonVariants } from "@/ui/button";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/ui/pagination";
 import { Section } from "@/ui/section";
+
+import { CatalogToolbar } from "./components/CatalogToolbar";
 
 const STATUSES: CarStatus[] = ["available", "inTransit", "auction"];
 const PAGE_SIZE = 12;
@@ -17,91 +37,130 @@ function isCarStatus(value: string | undefined): value is CarStatus {
 
 interface Props {
   status?: string;
+  sort?: string;
   page?: string;
 }
 
-export async function CatalogPage({ status, page }: Props) {
+export async function CatalogPage({ status, sort, page }: Props) {
   const locale = (await getLocale()) as Locale;
-  const t = await getTranslations("homePage.catalog.tabs");
-  const tEmpty = await getTranslations("catalogPage");
+  const t = await getTranslations("catalogPage");
   const activeStatus = isCarStatus(status) ? status : undefined;
+  const activeSort = parseCarSort(sort);
   const parsedPage = Number(page);
   const currentPage =
-    Number.isFinite(parsedPage) && parsedPage > 0 ? parsedPage : 1;
+    Number.isInteger(parsedPage) && parsedPage > 0 ? parsedPage : 1;
 
-  const result = await getCars({
-    locale,
-    status: activeStatus,
-    page: currentPage,
-    limit: PAGE_SIZE,
+  const [result, counts] = await Promise.all([
+    getCars({
+      locale,
+      status: activeStatus,
+      sort: activeSort,
+      page: currentPage,
+      limit: PAGE_SIZE,
+    }),
+    getCarStatusCounts(),
+  ]);
+
+  const hasCars = counts.all > 0;
+  const pageHref = (p: number) => ({
+    pathname: "/cars",
+    query: toCatalogQuery({ status: activeStatus, sort: activeSort, page: p }),
   });
 
-  const isEmpty = result.docs.length === 0;
-  const hasNoCars = isEmpty && (await getCarsCount()) === 0;
+  return (
+    <>
+      <Section
+        data-page-hero
+        tone="dark"
+        className="relative isolate overflow-hidden pt-[calc(var(--header-h)+var(--spacing-section))]"
+      >
+        <h1 className="max-w-4xl font-logo text-h1 font-bold text-sand">
+          {t("title")}
+        </h1>
 
-  if (hasNoCars) {
-    return (
-      <Section>
-        <EmptyState
-          eyebrow={tEmpty("empty.eyebrow")}
-          title={tEmpty("empty.title")}
-          description={tEmpty("empty.description")}
+        {hasCars && (
+          <CatalogToolbar
+            status={activeStatus}
+            sort={activeSort}
+            counts={counts}
+            className="mt-section-title"
+          />
+        )}
+
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-1/3 right-0 -z-10 size-120 translate-x-1/3 rounded-full bg-brand/12 blur-2xl"
         />
       </Section>
-    );
-  }
 
-  return (
-    <Section>
-      <nav>
-        <Link href="/cars">{t("all")}</Link>
-        {STATUSES.map((s) => (
-          <Link key={s} href={{ pathname: "/cars", query: { status: s } }}>
-            {t(s)}
-          </Link>
-        ))}
-      </nav>
-      {isEmpty ? (
-        <EmptyState
-          className="mt-section-title"
-          eyebrow={tEmpty("emptyFilter.eyebrow")}
-          title={tEmpty("emptyFilter.title")}
-          description={tEmpty("emptyFilter.description")}
-          action={
-            <Link
-              href="/cars"
-              className={buttonVariants({ variant: "outline" })}
-            >
-              {tEmpty("emptyFilter.action")}
-            </Link>
-          }
-        />
-      ) : (
-        <div>
-          {result.docs.map((car) => (
-            <CatalogCard key={car.id} car={car} />
-          ))}
-        </div>
-      )}
-      {result.totalPages > 1 && (
-        <nav>
-          {Array.from({ length: result.totalPages }, (_, i) => i + 1).map(
-            (p) => (
+      <Section>
+        {!hasCars ? (
+          <EmptyState
+            eyebrow={t("empty.eyebrow")}
+            title={t("empty.title")}
+            description={t("empty.description")}
+          />
+        ) : result.docs.length === 0 ? (
+          <EmptyState
+            eyebrow={t("emptyFilter.eyebrow")}
+            title={t("emptyFilter.title")}
+            description={t("emptyFilter.description")}
+            action={
               <Link
-                key={p}
-                href={{
-                  pathname: "/cars",
-                  query: activeStatus
-                    ? { status: activeStatus, page: p }
-                    : { page: p },
-                }}
+                href="/cars"
+                className={buttonVariants({ variant: "outline" })}
               >
-                {p}
+                {t("emptyFilter.action")}
               </Link>
-            ),
-          )}
-        </nav>
-      )}
-    </Section>
+            }
+          />
+        ) : (
+          <div className="grid gap-stack sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+            {result.docs.map((car) => (
+              <CatalogCard key={car.id} car={car} className="h-full" />
+            ))}
+          </div>
+        )}
+
+        {result.totalPages > 1 && (
+          <Pagination aria-label={t("pagination.label")} className="mt-block">
+            <PaginationContent>
+              {result.prevPage && (
+                <PaginationItem>
+                  <PaginationPrevious
+                    href={pageHref(result.prevPage)}
+                    text={t("pagination.previous")}
+                    aria-label={t("pagination.previousLabel")}
+                  />
+                </PaginationItem>
+              )}
+              {getPageItems(currentPage, result.totalPages).map((item, i) => (
+                <PaginationItem key={`${item}-${i}`}>
+                  {item === "ellipsis" ? (
+                    <PaginationEllipsis />
+                  ) : (
+                    <PaginationLink
+                      href={pageHref(item)}
+                      isActive={item === currentPage}
+                    >
+                      {item}
+                    </PaginationLink>
+                  )}
+                </PaginationItem>
+              ))}
+              {result.nextPage && (
+                <PaginationItem>
+                  <PaginationNext
+                    href={pageHref(result.nextPage)}
+                    text={t("pagination.next")}
+                    aria-label={t("pagination.nextLabel")}
+                  />
+                </PaginationItem>
+              )}
+            </PaginationContent>
+          </Pagination>
+        )}
+      </Section>
+    </>
   );
 }

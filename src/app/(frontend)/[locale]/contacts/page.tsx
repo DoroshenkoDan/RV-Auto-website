@@ -8,5 +8,10 @@ export default async function Page({
 }) {
   const params = await searchParams;
 
-  return <ContactsPage initialInput={parseCalculatorParams(params)} />;
+  return (
+    <ContactsPage
+      initialInput={parseCalculatorParams(params)}
+      carSlug={typeof params.car === "string" ? params.car : undefined}
+    />
+  );
 }

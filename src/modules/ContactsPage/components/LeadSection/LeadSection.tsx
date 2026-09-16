@@ -28,7 +28,7 @@ import { SectionTitle } from "@/ui/section";
 import { CarDetails } from "./components/CarDetails";
 import { ContactPanel } from "./components/ContactPanel";
 import { submitLead } from "./submitLead";
-import type { LeadMode, Messenger } from "./types";
+import type { LeadCar, LeadMode, Messenger } from "./types";
 
 const MODES: LeadMode[] = ["simple", "detailed"];
 
@@ -43,8 +43,10 @@ const PHONE_PATTERN = /^\+?\d{10,15}$/;
 
 export function LeadSection({
   initialInput,
+  selectedCar,
 }: {
   initialInput: CalculatorInput | null;
+  selectedCar: LeadCar | null;
 }) {
   const t = useTranslations("contactsPage");
   const form = useTranslations("contactsPage.leadSection");
@@ -73,6 +75,7 @@ export function LeadSection({
       comment: detailed ? comment.trim() : "",
       calculation:
         detailed && result ? { input: car, total: result.total } : null,
+      car: selectedCar,
     });
 
     setSubmitting(false);
@@ -125,6 +128,10 @@ export function LeadSection({
           onFormSubmit={handleSubmit}
           className="flex flex-col bg-white p-block"
         >
+          {selectedCar && (
+            <p>{form("selectedCar", { title: selectedCar.title })}</p>
+          )}
+
           <div className="grid gap-x-stack gap-y-stack sm:grid-cols-2">
             <Field.Root
               name="name"

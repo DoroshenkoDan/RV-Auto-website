@@ -1,6 +1,10 @@
 import type { CollectionConfig } from "payload";
 
 import { pullCarPhotosFromFolder } from "@/collections/hooks/pullCarPhotosFromFolder";
+import {
+  revalidateCatalogAfterChange,
+  revalidateCatalogAfterDelete,
+} from "@/collections/hooks/revalidateCatalog";
 
 export const Cars: CollectionConfig = {
   slug: "cars",
@@ -8,6 +12,8 @@ export const Cars: CollectionConfig = {
   admin: { useAsTitle: "title" },
   hooks: {
     beforeValidate: [pullCarPhotosFromFolder],
+    afterChange: [revalidateCatalogAfterChange],
+    afterDelete: [revalidateCatalogAfterDelete],
   },
   fields: [
     {
@@ -132,30 +138,6 @@ export const Cars: CollectionConfig = {
       name: "damageTag",
       type: "text",
       localized: true,
-    },
-    {
-      name: "locationNote",
-      type: "text",
-      localized: true,
-      admin: {
-        condition: (_, siblingData) => siblingData.status === "available",
-      },
-    },
-    {
-      name: "etaNote",
-      type: "text",
-      localized: true,
-      admin: {
-        condition: (_, siblingData) => siblingData.status === "inTransit",
-      },
-    },
-    {
-      name: "auctionNote",
-      type: "text",
-      localized: true,
-      admin: {
-        condition: (_, siblingData) => siblingData.status === "auction",
-      },
     },
     {
       name: "currentBid",

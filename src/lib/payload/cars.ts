@@ -2,6 +2,7 @@ import type { PaginatedDocs } from "payload";
 
 import type { Car } from "@/payload-types";
 import type { Locale } from "@/i18n/routing";
+import { CAR_SORT_FIELDS, type CarSort } from "@/lib/catalog/params";
 
 import { getPayloadClient } from "./client";
 
@@ -23,11 +24,13 @@ export async function getFeaturedCars(locale: Locale): Promise<Car[]> {
 export async function getCars({
   locale,
   status,
+  sort = "newest",
   page,
   limit = 12,
 }: {
   locale: Locale;
   status?: CarStatus;
+  sort?: CarSort;
   page: number;
   limit?: number;
 }): Promise<PaginatedDocs<Car>> {
@@ -36,17 +39,32 @@ export async function getCars({
     collection: "cars",
     where: status ? { status: { equals: status } } : {},
     locale,
-    sort: "-updatedAt",
+    sort: CAR_SORT_FIELDS[sort],
     depth: 1,
     page,
     limit,
   });
 }
 
-export async function getCarsCount(): Promise<number> {
+export async function getCarsCount(status?: CarStatus): Promise<number> {
   const payload = await getPayloadClient();
-  const result = await payload.count({ collection: "cars" });
+  const result = await payload.count({
+    collection: "cars",
+    where: status ? { status: { equals: status } } : {},
+  });
   return result.totalDocs;
+}
+
+export async function getCarStatusCounts(): Promise<
+  Record<"all" | CarStatus, number>
+> {
+  const [all, available, inTransit, auction] = await Promise.all([
+    getCarsCount(),
+    getCarsCount("available"),
+    getCarsCount("inTransit"),
+    getCarsCount("auction"),
+  ]);
+  return { all, available, inTransit, auction };
 }
 
 export async function getCarBySlug(

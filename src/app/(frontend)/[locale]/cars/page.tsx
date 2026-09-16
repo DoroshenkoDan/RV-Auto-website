@@ -3,9 +3,9 @@ import { CatalogPage } from "@/modules/CatalogPage";
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Promise<{ status?: string; page?: string }>;
+  searchParams: Promise<{ status?: string; sort?: string; page?: string }>;
 }) {
-  const { status, page } = await searchParams;
+  const { status, sort, page } = await searchParams;
 
-  return <CatalogPage status={status} page={page} />;
+  return <CatalogPage status={status} sort={sort} page={page} />;
 }
