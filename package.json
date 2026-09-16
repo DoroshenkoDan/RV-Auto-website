@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:server": "LOW_MEMORY_BUILD=true NODE_OPTIONS=--max-old-space-size=640 next build --webpack",
     "start": "node ./server.js",
     "lint": "eslint",
     "format": "prettier --write .",
