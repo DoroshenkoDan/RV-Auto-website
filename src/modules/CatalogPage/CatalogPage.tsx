@@ -2,28 +2,16 @@ import { getLocale, getTranslations } from "next-intl/server";
 
 import { CatalogCard } from "@/components/CatalogCard";
 import { EmptyState } from "@/components/EmptyState";
+import { PagePagination } from "@/components/PagePagination";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
-import {
-  getPageItems,
-  parseCarSort,
-  toCatalogQuery,
-} from "@/lib/catalog/params";
+import { parseCarSort, parsePage, toCatalogQuery } from "@/lib/catalog/params";
 import {
   getCars,
   getCarStatusCounts,
   type CarStatus,
 } from "@/lib/payload/cars";
 import { buttonVariants } from "@/ui/button";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/ui/pagination";
 import { Section } from "@/ui/section";
 
 import { CatalogToolbar } from "./components/CatalogToolbar";
@@ -46,9 +34,7 @@ export async function CatalogPage({ status, sort, page }: Props) {
   const t = await getTranslations("catalogPage");
   const activeStatus = isCarStatus(status) ? status : undefined;
   const activeSort = parseCarSort(sort);
-  const parsedPage = Number(page);
-  const currentPage =
-    Number.isInteger(parsedPage) && parsedPage > 0 ? parsedPage : 1;
+  const currentPage = parsePage(page);
 
   const [result, counts] = await Promise.all([
     getCars({
@@ -122,44 +108,13 @@ export async function CatalogPage({ status, sort, page }: Props) {
           </div>
         )}
 
-        {result.totalPages > 1 && (
-          <Pagination aria-label={t("pagination.label")} className="mt-block">
-            <PaginationContent>
-              {result.prevPage && (
-                <PaginationItem>
-                  <PaginationPrevious
-                    href={pageHref(result.prevPage)}
-                    text={t("pagination.previous")}
-                    aria-label={t("pagination.previousLabel")}
-                  />
-                </PaginationItem>
-              )}
-              {getPageItems(currentPage, result.totalPages).map((item, i) => (
-                <PaginationItem key={`${item}-${i}`}>
-                  {item === "ellipsis" ? (
-                    <PaginationEllipsis />
-                  ) : (
-                    <PaginationLink
-                      href={pageHref(item)}
-                      isActive={item === currentPage}
-                    >
-                      {item}
-                    </PaginationLink>
-                  )}
-                </PaginationItem>
-              ))}
-              {result.nextPage && (
-                <PaginationItem>
-                  <PaginationNext
-                    href={pageHref(result.nextPage)}
-                    text={t("pagination.next")}
-                    aria-label={t("pagination.nextLabel")}
-                  />
-                </PaginationItem>
-              )}
-            </PaginationContent>
-          </Pagination>
-        )}
+        <PagePagination
+          currentPage={currentPage}
+          totalPages={result.totalPages}
+          label={t("paginationLabel")}
+          getHref={pageHref}
+          className="mt-block"
+        />
       </Section>
     </>
   );

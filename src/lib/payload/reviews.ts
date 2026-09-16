@@ -1,9 +1,11 @@
+import type { PaginatedDocs } from "payload";
+
 import type { Review } from "@/payload-types";
 import type { Locale } from "@/i18n/routing";
 
 import { getPayloadClient } from "./client";
 
-const FEATURED_LIMIT = 8;
+const FEATURED_LIMIT = 5;
 
 export async function getFeaturedReviews(locale: Locale): Promise<Review[]> {
   const payload = await getPayloadClient();
@@ -24,14 +26,22 @@ export async function getReviewsCount(): Promise<number> {
   return result.totalDocs;
 }
 
-export async function getReviews(locale: Locale): Promise<Review[]> {
+export async function getReviews({
+  locale,
+  page,
+  limit,
+}: {
+  locale: Locale;
+  page: number;
+  limit: number;
+}): Promise<PaginatedDocs<Review>> {
   const payload = await getPayloadClient();
-  const result = await payload.find({
+  return payload.find({
     collection: "reviews",
     locale,
     sort: "order",
     depth: 1,
-    limit: 0,
+    page,
+    limit,
   });
-  return result.docs;
 }

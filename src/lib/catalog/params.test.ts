@@ -4,6 +4,7 @@ import {
   CAR_SORT_FIELDS,
   getPageItems,
   parseCarSort,
+  parsePage,
   toCatalogQuery,
 } from "./params";
 
@@ -78,5 +79,19 @@ describe("getPageItems", () => {
 
   it("does not hide a single page behind an ellipsis", () => {
     expect(getPageItems(4, 12)).toEqual([1, 2, 3, 4, 5, "ellipsis", 12]);
+  });
+});
+
+describe("parsePage", () => {
+  it("reads a positive page number", () => {
+    expect(parsePage("3")).toBe(3);
+  });
+
+  it("falls back to the first page for anything else", () => {
+    expect(parsePage(undefined)).toBe(1);
+    expect(parsePage("0")).toBe(1);
+    expect(parsePage("-2")).toBe(1);
+    expect(parsePage("1.5")).toBe(1);
+    expect(parsePage("abc")).toBe(1);
   });
 });

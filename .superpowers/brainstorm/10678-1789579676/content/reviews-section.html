@@ -1,0 +1,134 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Unbounded:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap");
+
+  .rv { --canvas:#faf8f5; --surface:#f2eee8; --sand:#f1e8d8; --line:#e2dcd2; --ink:#0c0a07; --night:#0c0a07; --night-soft:#1a1815; --muted:#6e675e; --brand:#f2a33c;
+    font-family: Manrope, system-ui, sans-serif; color: var(--ink); background: var(--canvas); border-radius: 10px; overflow: hidden; text-align: left; }
+  .rv * { box-sizing: border-box; }
+  .rv .shell { padding: 30px 26px 32px; }
+  .rv h2 { font-family: Unbounded, sans-serif; font-size: 26px; line-height: 1.15; letter-spacing: -.02em; margin: 0; }
+  .rv .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .rv .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+  .rv .ph { background: #2a2520 center/cover no-repeat; }
+  .rv .chip { font-family: "JetBrains Mono", monospace; font-size: 9px; padding: 3px 8px; border-radius: 999px; background: var(--surface); color: var(--muted); white-space: nowrap; }
+  .rv .btn-o { font-size: 11px; font-weight: 700; padding: 9px 16px; border: 2px solid var(--night-soft); border-radius: 4px; display: inline-block; }
+  .rv .arrow { width: 32px; height: 32px; border-radius: 4px; background: var(--night); color: var(--sand); display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  .rv .qmark { font-family: Unbounded, sans-serif; color: var(--brand); line-height: .6; }
+
+  .note { font-size: 13px; color: var(--text-secondary); margin: 10px 2px 0; }
+  .note b { color: var(--text-primary); }
+</style>
+
+<h2>Відгуки на головній: який напрям?</h2>
+<p class="subtitle">Дані та фото тут умовні (фото авто з каталогу замість фото клієнтів). Поля ті, що вже є в CMS: ім'я, місто, цитата, фото, авто, днів доставки, місяць.</p>
+
+<div class="options" style="gap:28px">
+
+  <!-- A -->
+  <div class="option" data-choice="a" onclick="toggleSelect(this)" style="display:block;padding:14px">
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px"><div class="letter">A</div><h3 style="margin:0">Карусель карток, акцент на цитаті</h3></div>
+    <div class="rv"><div class="shell">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:20px">
+        <div><div class="eyebrow" style="color:var(--brand)">[ Відгуки ]</div><h2 style="margin-top:8px">Машини, які ми привезли</h2></div>
+        <div style="display:flex;gap:6px"><div class="arrow">‹</div><div class="arrow">›</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px" data-cards-a></div>
+      <div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:22px"><span class="btn-o">Усі відгуки</span><span class="mono" style="font-size:11px;color:var(--muted)">12 відгуків</span></div>
+    </div></div>
+    <p class="note"><b>Еволюція поточної секції.</b> Спершу цитата з великими лапками, фото менше і збоку, під ним авто і терміни. Легко масштабується, добре на мобільному.</p>
+  </div>
+
+  <!-- B -->
+  <div class="option" data-choice="b" onclick="toggleSelect(this)" style="display:block;padding:14px">
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px"><div class="letter">B</div><h3 style="margin:0">Головний відгук + список поруч</h3></div>
+    <div class="rv"><div class="shell">
+      <h2 style="text-align:center;margin-bottom:22px">Машини, які ми привезли</h2>
+      <div style="display:grid;grid-template-columns:1.35fr 1fr;gap:16px;align-items:stretch">
+        <div style="position:relative;border-radius:14px;overflow:hidden;min-height:330px" class="ph" data-img="audi-a5-red.webp">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(12,10,7,.95) 30%, rgba(12,10,7,.2))"></div>
+          <div style="position:absolute;left:0;right:0;bottom:0;padding:22px;color:var(--sand)">
+            <div class="qmark" style="font-size:44px">“</div>
+            <p style="font-size:14px;line-height:1.55;margin:4px 0 14px;max-width:440px">Боявся брати авто з аукціону, але хлопці показали всі фото лота, звіт і тримали в курсі на кожному етапі. Машина приїхала навіть раніше, ніж обіцяли.</p>
+            <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap">
+              <div><div style="font-weight:700;font-size:14px">Андрій, Львів</div><div class="mono" style="font-size:10px;opacity:.65;margin-top:3px">Audi A5 Sportback S line, 2018</div></div>
+              <div style="display:flex;gap:6px"><span class="chip" style="background:rgba(241,232,216,.12);color:var(--sand)">42 дні</span><span class="chip" style="background:rgba(241,232,216,.12);color:var(--sand)">серпень 2026</span></div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div data-list-b style="display:flex;flex-direction:column;gap:8px"></div>
+          <div style="margin-top:auto;display:flex;align-items:center;gap:10px;padding-top:6px"><span class="btn-o">Усі відгуки</span><span class="mono" style="font-size:11px;color:var(--muted)">12 відгуків</span></div>
+        </div>
+      </div>
+    </div></div>
+    <p class="note"><b>Один відгук крупно, решта списком.</b> Клік по пункту списку міняє головний відгук. Виглядає солідно на десктопі. На мобільному список стає горизонтальною стрічкою під фото.</p>
+  </div>
+
+  <!-- C -->
+  <div class="option" data-choice="c" onclick="toggleSelect(this)" style="display:block;padding:14px">
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px"><div class="letter">C</div><h3 style="margin:0">Темний слайдер-історія</h3></div>
+    <div class="rv" style="background:var(--night);color:var(--sand)"><div class="shell">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:20px">
+        <h2>Машини, які ми привезли</h2>
+        <div class="mono" style="font-size:11px;color:rgba(241,232,216,.55)">03 / 08</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center">
+        <div class="ph" data-img="Audi-a5-black.webp" style="aspect-ratio:4/3;border-radius:10px"></div>
+        <div>
+          <div class="qmark" style="font-size:56px">“</div>
+          <p style="font-size:17px;line-height:1.5;margin:6px 0 18px">Замовляв конкретну комплектацію, і знайшли саме таку. Розмитнення, сертифікація, облік: я нічого не робив, тільки забрав ключі.</p>
+          <div style="font-weight:700;font-size:15px">Олена, Київ</div>
+          <div class="mono" style="font-size:10px;color:rgba(241,232,216,.6);margin-top:3px">Audi A5 Sportback, 2021</div>
+          <div style="display:flex;gap:6px;margin-top:12px"><span class="chip" style="background:rgba(241,232,216,.1);color:var(--sand)">38 днів</span><span class="chip" style="background:rgba(241,232,216,.1);color:var(--sand)">липень 2026</span></div>
+          <div style="display:flex;align-items:center;gap:14px;margin-top:24px">
+            <div class="arrow" style="background:var(--sand);color:var(--night)">‹</div><div class="arrow" style="background:var(--brand);color:var(--night)">›</div>
+            <div style="flex:1;display:flex;gap:4px">
+              <div style="flex:1;height:3px;background:var(--brand)"></div><div style="flex:1;height:3px;background:var(--brand)"></div><div style="flex:1;height:3px;background:var(--brand)"></div>
+              <div style="flex:1;height:3px;background:rgba(241,232,216,.15)"></div><div style="flex:1;height:3px;background:rgba(241,232,216,.15)"></div><div style="flex:1;height:3px;background:rgba(241,232,216,.15)"></div><div style="flex:1;height:3px;background:rgba(241,232,216,.15)"></div><div style="flex:1;height:3px;background:rgba(241,232,216,.15)"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;gap:10px;margin-top:26px;align-items:center"><span class="btn-o" style="border-color:rgba(241,232,216,.35);color:var(--sand)">Усі відгуки</span><span class="mono" style="font-size:11px;color:rgba(241,232,216,.5)">12 відгуків</span></div>
+    </div></div>
+    <p class="note"><b>Один відгук на екрані, як у hero.</b> Найбільш емоційно, фото і цитата крупно. Але секція стала б темною одразу після темної "Як це працює", тож їх довелося б розвести (або перефарбувати ту).</p>
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    var API = "http://localhost:3000/api/car-media/file/";
+    document.querySelectorAll("[data-img]").forEach(function (el) {
+      el.style.backgroundImage = "url('" + API + el.dataset.img + "')";
+    });
+    var reviews = [
+      { n: "Андрій", c: "Львів", car: "Audi A5 Sportback S line, 2018", q: "Боявся брати авто з аукціону, але хлопці показали всі фото лота і тримали в курсі на кожному етапі.", d: "42 дні", m: "серпень 2026", img: "audi-a5-red.webp" },
+      { n: "Олена", c: "Київ", car: "Audi A5 Sportback, 2021", q: "Знайшли саме ту комплектацію, яку хотіла. Розмитнення і облік повністю на них.", d: "38 днів", m: "липень 2026", img: "Audi-a5-black.webp" },
+      { n: "Максим", c: "Одеса", car: "Toyota RAV4 Hybrid, 2018", q: "Прозорий розрахунок до долара, жодних доплат після покупки. Рекомендую.", d: "51 день", m: "червень 2026", img: "rav4.2.avif" },
+      { n: "Ірина", c: "Дніпро", car: "Audi A5, 2025", q: "Нове покоління A5 з Німеччини майже без пробігу. Все чітко по термінах.", d: "29 днів", m: "травень 2026", img: "Audi_A5-white.jpg" }
+    ];
+    var a = document.querySelector("[data-cards-a]");
+    a.innerHTML = reviews.slice(0, 3).map(function (r) {
+      return '<div style="background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column">' +
+        '<div class="qmark" style="font-size:40px">“</div>' +
+        '<p style="font-size:13px;line-height:1.55;margin:6px 0 16px;flex:1">' + r.q + '</p>' +
+        '<div style="display:flex;gap:10px;align-items:center;padding-top:14px;border-top:1px solid var(--line)">' +
+          '<div class="ph" style="width:52px;height:52px;border-radius:10px;flex-shrink:0;background-image:url(\'' + API + r.img + '\')"></div>' +
+          '<div style="min-width:0"><div style="font-weight:700;font-size:13px">' + r.n + ' <span style="font-weight:400;color:var(--muted);font-size:11px">· ' + r.c + '</span></div>' +
+          '<div class="mono" style="font-size:9px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + r.car + '</div></div>' +
+        '</div>' +
+        '<div style="display:flex;gap:6px;margin-top:10px"><span class="chip">' + r.d + '</span><span class="chip">' + r.m + '</span></div>' +
+      '</div>';
+    }).join("");
+    var b = document.querySelector("[data-list-b]");
+    b.innerHTML = reviews.map(function (r, i) {
+      var on = i === 0;
+      return '<div style="display:flex;gap:10px;align-items:center;padding:9px;border-radius:10px;border:1px solid ' + (on ? 'var(--brand)' : 'var(--line)') + ';background:' + (on ? '#fff' : 'transparent') + '">' +
+        '<div class="ph" style="width:48px;height:48px;border-radius:8px;flex-shrink:0;background-image:url(\'' + API + r.img + '\')"></div>' +
+        '<div style="min-width:0;flex:1"><div style="font-weight:700;font-size:12px">' + r.n + ', ' + r.c + '</div>' +
+        '<div class="mono" style="font-size:9px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + r.car + '</div></div>' +
+        '<span class="chip">' + r.d + '</span>' +
+      '</div>';
+    }).join("");
+  })();
+</script>

@@ -211,7 +211,10 @@
     "reviews": {
       "title": "Cars we have delivered",
       "viewAll": "All reviews",
-      "count": "{count, plural, one {# review} other {# reviews}}"
+      "count": "{count, plural, one {# review} other {# reviews}}",
+      "days": "{count, plural, one {# day} other {# days}}",
+      "listLabel": "More reviews",
+      "quote": "<mark>“</mark>{quote}<mark>”</mark>"
     },
     "faq": {
       "title": "Questions we hear most often",
@@ -344,22 +347,18 @@
       "description": "Looks like everything here has already been driven away. Try another category or browse the full catalog.",
       "action": "Browse full catalog"
     },
-    "pagination": {
-      "label": "Catalog pages",
-      "previous": "Previous",
-      "next": "Next",
-      "previousLabel": "Previous page",
-      "nextLabel": "Next page"
-    }
+    "paginationLabel": "Catalog pages"
   },
   "reviewsPage": {
     "title": "Client reviews",
+    "lede": "Stories of people we brought cars for: from choosing the lot to the keys in hand.",
     "empty": {
       "eyebrow": "Radio silence",
       "title": "No reviews yet",
       "description": "We have just opened this page. The first stories about delivered cars will show up here soon.",
       "action": "Browse the catalog"
-    }
+    },
+    "paginationLabel": "Review pages"
   },
   "contactsPage": {
     "title": "Contacts",
@@ -472,5 +471,11 @@
     "retry": "Try again",
     "descriptionNotFound": "Check the address or head back home.",
     "descriptionError": "The page failed to load. Try again or head back home."
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "previousLabel": "Previous page",
+    "nextLabel": "Next page"
   }
 }

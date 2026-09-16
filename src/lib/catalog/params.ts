@@ -64,3 +64,8 @@ export function getPageItems(current: number, total: number): PageItem[] {
   }
   return items;
 }
+
+export function parsePage(value: string | undefined): number {
+  const page = Number(value);
+  return Number.isInteger(page) && page > 0 ? page : 1;
+}
