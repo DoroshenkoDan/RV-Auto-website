@@ -365,7 +365,6 @@
     "title": "Contacts",
     "lede": "Send a request or call us directly. We reply the same working day.",
     "leadSection": {
-      "selectedCar": "Car: {title}",
       "mode": {
         "label": "Request type",
         "simple": "Short form",
@@ -442,10 +441,13 @@
         "empty": "Fill in the car details and the price will show up here.",
         "litres": "{value} L",
         "kwh": "{value} kWh",
-        "hoursLabel": "Opening hours",
-        "addressLabel": "Address",
-        "hours": "Mon–Sat, 10:00–19:00",
-        "address": "Lviv, Prykladna St. 10"
+        "phoneLabel": "Call us directly",
+        "selectedCar": "Your choice",
+        "removeCar": "Remove car",
+        "transmission": {
+          "automatic": "automatic",
+          "manual": "manual"
+        }
       }
     }
   },

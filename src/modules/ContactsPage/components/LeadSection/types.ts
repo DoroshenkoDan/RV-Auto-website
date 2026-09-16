@@ -1,12 +1,21 @@
 import type { CalculatorInput } from "@/lib/calculator/types";
+import type { Car } from "@/payload-types";
 
 export type LeadMode = "simple" | "detailed";
 
 export type Messenger = "telegram" | "viber" | "whatsapp";
 
-export type LeadCar = {
-  slug: string;
-  title: string;
+export type LeadCar = Pick<
+  Car,
+  | "slug"
+  | "title"
+  | "year"
+  | "mileageKm"
+  | "engine"
+  | "drivetrain"
+  | "transmission"
+> & {
+  photo: { url: string; alt: string } | null;
 };
 
 export type LeadValues = {
@@ -15,5 +24,5 @@ export type LeadValues = {
   messenger: Messenger;
   comment: string;
   calculation: { input: CalculatorInput; total: number } | null;
-  car: LeadCar | null;
+  car: Pick<LeadCar, "slug" | "title"> | null;
 };

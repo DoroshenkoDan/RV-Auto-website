@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { Field } from "@base-ui/react/field";
 import { Form } from "@base-ui/react/form";
 import { Radio } from "@base-ui/react/radio";
@@ -8,7 +8,7 @@ import { RadioGroup } from "@base-ui/react/radio-group";
 import { Toast } from "@base-ui/react/toast";
 import { useTranslations } from "next-intl";
 
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { estimate } from "@/lib/calculator/estimate";
 import { DEFAULT_CALCULATOR_INPUT } from "@/lib/calculator/options";
 import type { CalculatorInput } from "@/lib/calculator/types";
@@ -25,6 +25,7 @@ import {
 } from "@/ui/field";
 import { SectionTitle } from "@/ui/section";
 
+import { clearOrderCar } from "./clearOrderCar";
 import { CarDetails } from "./components/CarDetails";
 import { ContactPanel } from "./components/ContactPanel";
 import { submitLead } from "./submitLead";
@@ -44,13 +45,17 @@ const PHONE_PATTERN = /^\+?\d{10,15}$/;
 export function LeadSection({
   initialInput,
   selectedCar,
+  hasStaleCar,
 }: {
   initialInput: CalculatorInput | null;
   selectedCar: LeadCar | null;
+  hasStaleCar: boolean;
 }) {
   const t = useTranslations("contactsPage");
   const form = useTranslations("contactsPage.leadSection");
   const toastManager = Toast.useToastManager();
+  const router = useRouter();
+  const [, startTransition] = useTransition();
 
   const [mode, setMode] = useState<LeadMode>(
     initialInput ? "detailed" : "simple",
@@ -62,8 +67,19 @@ export function LeadSection({
   const [formKey, setFormKey] = useState(0);
   const [submitting, setSubmitting] = useState(false);
 
-  const detailed = mode === "detailed";
+  const detailed = !selectedCar && mode === "detailed";
   const result = estimate(car);
+
+  useEffect(() => {
+    if (hasStaleCar) clearOrderCar();
+  }, [hasStaleCar]);
+
+  function removeSelectedCar() {
+    startTransition(async () => {
+      await clearOrderCar();
+      router.replace("/contacts", { scroll: false });
+    });
+  }
 
   async function handleSubmit(formValues: Record<string, unknown>) {
     setSubmitting(true);
@@ -72,10 +88,10 @@ export function LeadSection({
       name: String(formValues.name ?? "").trim(),
       phone: String(formValues.phone ?? "").trim(),
       messenger: formValues.messenger as Messenger,
-      comment: detailed ? comment.trim() : "",
+      comment: comment.trim(),
       calculation:
         detailed && result ? { input: car, total: result.total } : null,
-      car: selectedCar,
+      car: selectedCar && { slug: selectedCar.slug, title: selectedCar.title },
     });
 
     setSubmitting(false);
@@ -90,6 +106,8 @@ export function LeadSection({
     setCar(DEFAULT_CALCULATOR_INPUT);
     setComment("");
     setFormKey((previous) => previous + 1);
+
+    if (selectedCar) removeSelectedCar();
   }
 
   return (
@@ -100,26 +118,28 @@ export function LeadSection({
           <p className="max-w-lg text-lead text-ink-muted">{t("lede")}</p>
         </div>
 
-        <RadioGroup
-          value={mode}
-          onValueChange={(next) => setMode(next as LeadMode)}
-          aria-label={form("mode.label")}
-          className={segmentedGroup({
-            className: "flex h-control shrink-0 self-stretch lg:self-auto",
-          })}
-        >
-          {MODES.map((item) => (
-            <Radio.Root
-              key={item}
-              value={item}
-              className={segmentedItem({
-                className: "flex-1 px-5 lg:flex-initial",
-              })}
-            >
-              {form(`mode.${item}`)}
-            </Radio.Root>
-          ))}
-        </RadioGroup>
+        {!selectedCar && (
+          <RadioGroup
+            value={mode}
+            onValueChange={(next) => setMode(next as LeadMode)}
+            aria-label={form("mode.label")}
+            className={segmentedGroup({
+              className: "flex h-control shrink-0 self-stretch lg:self-auto",
+            })}
+          >
+            {MODES.map((item) => (
+              <Radio.Root
+                key={item}
+                value={item}
+                className={segmentedItem({
+                  className: "flex-1 px-5 lg:flex-initial",
+                })}
+              >
+                {form(`mode.${item}`)}
+              </Radio.Root>
+            ))}
+          </RadioGroup>
+        )}
       </div>
 
       <div className="grid overflow-hidden rounded-md border border-line lg:grid-cols-[3fr_2fr]">
@@ -128,10 +148,6 @@ export function LeadSection({
           onFormSubmit={handleSubmit}
           className="flex flex-col bg-white p-block"
         >
-          {selectedCar && (
-            <p>{form("selectedCar", { title: selectedCar.title })}</p>
-          )}
-
           <div className="grid gap-x-stack gap-y-stack sm:grid-cols-2">
             <Field.Root
               name="name"
@@ -234,23 +250,23 @@ export function LeadSection({
             <div className="overflow-hidden">
               <div className="flex flex-col gap-y-stack border-t border-line pt-block">
                 <CarDetails value={car} onValueChange={setCar} />
-
-                <Field.Root name="comment" className={FIELD_ROOT}>
-                  <Field.Label className={fieldLabel()}>
-                    {form("comment.label")}
-                  </Field.Label>
-                  <Field.Control
-                    render={<textarea rows={4} />}
-                    maxLength={600}
-                    value={comment}
-                    onChange={(event) => setComment(event.target.value)}
-                    placeholder={form("comment.placeholder")}
-                    className={fieldControl({ className: "h-auto py-3" })}
-                  />
-                </Field.Root>
               </div>
             </div>
           </div>
+
+          <Field.Root name="comment" className={cn(FIELD_ROOT, "mt-stack")}>
+            <Field.Label className={fieldLabel()}>
+              {form("comment.label")}
+            </Field.Label>
+            <Field.Control
+              render={<textarea rows={4} />}
+              maxLength={600}
+              value={comment}
+              onChange={(event) => setComment(event.target.value)}
+              placeholder={form("comment.placeholder")}
+              className={fieldControl({ className: "h-auto min-h-28 py-3" })}
+            />
+          </Field.Root>
 
           <Button
             type="submit"
@@ -274,7 +290,13 @@ export function LeadSection({
           </p>
         </Form>
 
-        <ContactPanel car={car} result={result} detailed={detailed} />
+        <ContactPanel
+          car={car}
+          result={result}
+          detailed={detailed}
+          selectedCar={selectedCar}
+          onRemoveCar={removeSelectedCar}
+        />
       </div>
     </>
   );

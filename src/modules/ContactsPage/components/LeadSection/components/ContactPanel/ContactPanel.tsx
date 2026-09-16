@@ -2,16 +2,17 @@
 
 import type { ReactNode } from "react";
 import Image from "next/image";
-import { Clock, MapPin } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
-import { SocialIcon } from "@/components/SocialIcon";
 import type {
   CalculatorEstimate,
   CalculatorInput,
 } from "@/lib/calculator/types";
-import { PHONE_DISPLAY, PHONE_HREF, SOCIAL_LINKS } from "@/lib/contacts";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contacts";
 import { cn, formatUsd } from "@/lib/utils";
+
+import type { LeadCar } from "../../types";
+import { SelectedCarPanel } from "../SelectedCarPanel";
 
 function useCarSummary(car: CalculatorInput) {
   const t = useTranslations("contactsPage.leadSection.car");
@@ -59,26 +60,35 @@ export function ContactPanel({
   car,
   result,
   detailed,
+  selectedCar,
+  onRemoveCar,
 }: {
   car: CalculatorInput;
   result: CalculatorEstimate | null;
   detailed: boolean;
+  selectedCar: LeadCar | null;
+  onRemoveCar: () => void;
 }) {
   const t = useTranslations("contactsPage.leadSection.panel");
 
   const summary = useCarSummary(car);
 
+  if (selectedCar) {
+    return <SelectedCarPanel car={selectedCar} onRemove={onRemoveCar} />;
+  }
+
   return (
     <div className="relative isolate overflow-hidden bg-ink p-block text-sand">
-      <div className="flex flex-col">
-        <Image
-          src="/images/shared/RVLogoBrand.webp"
-          alt=""
-          width={2172}
-          height={724}
-          sizes="288px"
-          className="w-72 max-w-full"
-        />
+      <div className="flex h-full flex-col justify-center text-center">
+        <span className="relative block aspect-square w-52 self-center sm:w-64">
+          <Image
+            src="/images/shared/logo.webp"
+            alt=""
+            fill
+            sizes="(min-width: 640px) 256px, 208px"
+            className="object-cover"
+          />
+        </span>
 
         <Slot open={!detailed}>
           <Divider />
@@ -98,7 +108,7 @@ export function ContactPanel({
                 <p className="mt-3 text-label text-sand/60">{summary}</p>
               </>
             ) : (
-              <p className="mt-3 max-w-xs text-body text-sand/50">
+              <p className="mx-auto mt-3 max-w-xs text-body text-sand/50">
                 {t("empty")}
               </p>
             )}
@@ -107,45 +117,15 @@ export function ContactPanel({
           <Divider />
         </Slot>
 
-        <div className="mt-block flex flex-col gap-y-stack">
-          <a
-            href={PHONE_HREF}
-            className="font-mono text-h3 font-semibold text-sand transition-colors duration-200 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
-          >
-            {PHONE_DISPLAY}
-          </a>
-
-          <div className="flex items-center gap-x-3">
-            {SOCIAL_LINKS.map(({ name, href }) => (
-              <a
-                key={name}
-                href={href}
-                aria-label={name}
-                className="flex size-10 items-center justify-center rounded-sm border border-sand/12 text-sand/70 transition-colors duration-200 hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
-              >
-                <SocialIcon name={name} className="size-5" />
-              </a>
-            ))}
-          </div>
-
-          <dl className="flex flex-col gap-y-3 text-body text-sand/70">
-            <div className="flex items-start gap-x-3">
-              <dt className="flex size-5 shrink-0 items-center justify-center">
-                <Clock aria-hidden className="size-4 text-sand/40" />
-                <span className="sr-only">{t("hoursLabel")}</span>
-              </dt>
-              <dd>{t("hours")}</dd>
-            </div>
-
-            <div className="flex items-start gap-x-3">
-              <dt className="flex size-5 shrink-0 items-center justify-center">
-                <MapPin aria-hidden className="size-4 text-sand/40" />
-                <span className="sr-only">{t("addressLabel")}</span>
-              </dt>
-              <dd>{t("address")}</dd>
-            </div>
-          </dl>
-        </div>
+        <p className="mt-block font-mono text-micro tracking-[0.25em] text-sand/50 uppercase">
+          {t("phoneLabel")}
+        </p>
+        <a
+          href={PHONE_HREF}
+          className="mt-3 self-center font-mono text-body font-semibold text-sand transition-colors duration-200 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+        >
+          {PHONE_DISPLAY}
+        </a>
       </div>
 
       <div

@@ -1,0 +1,138 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Unbounded:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap");
+
+  .rv { --canvas:#faf8f5; --surface:#f2eee8; --sand:#f1e8d8; --line:#e2dcd2; --ink:#0c0a07; --muted:#6e675e; --brand:#f2a33c;
+    font-family: Manrope, system-ui, sans-serif; color: var(--ink); background: var(--canvas); border-radius: 10px; padding: 22px; text-align: left; }
+  .rv * { box-sizing: border-box; }
+  .rv h1 { font-family: Unbounded, sans-serif; font-size: 26px; margin: 0; letter-spacing: -.02em; }
+  .rv .lede { color: var(--muted); font-size: 12px; margin: 6px 0 16px; }
+  .rv .box { display: grid; grid-template-columns: 3fr 2fr; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; min-height: 400px; }
+  .rv .form { background: #fff; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .rv .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .rv label { font-size: 10px; color: var(--muted); display: block; margin-bottom: 4px; }
+  .rv .in { height: 32px; border: 1px solid var(--line); border-radius: 4px; }
+  .rv .ta { height: 64px; border: 1px solid var(--line); border-radius: 4px; }
+  .rv .seg { display: flex; gap: 3px; padding: 3px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; width: 60%; }
+  .rv .seg div { flex: 1; font-size: 10px; text-align: center; padding: 6px 0; border-radius: 3px; color: var(--muted); }
+  .rv .seg .on { background: var(--brand); color: var(--ink); font-weight: 700; }
+  .rv .submit { align-self: flex-start; background: var(--brand); font-size: 11px; font-weight: 700; padding: 9px 16px; border-radius: 4px; margin-top: 4px; }
+
+  .rv .panel { position: relative; isolation: isolate; overflow: hidden; background: var(--ink); color: var(--sand); }
+  .rv .glow { position: absolute; right: -60px; bottom: -60px; width: 220px; height: 220px; border-radius: 50%; background: rgba(242,163,60,.3); filter: blur(40px); z-index: -1; }
+  .rv .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .rv .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 8px; letter-spacing: .25em; text-transform: uppercase; color: rgba(241,232,216,.5); }
+  .rv .badge { display: inline-block; font-size: 8px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; background: rgba(12,10,7,.85); color: #fff; border: 1px solid rgba(241,232,216,.2); }
+  .rv .x { position: absolute; top: 10px; right: 10px; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; background: rgba(12,10,7,.6); color: var(--sand); border: 1px solid rgba(241,232,216,.25); }
+  .rv .title { font-family: Unbounded, sans-serif; font-size: 16px; line-height: 1.2; }
+  .rv .specs { font-size: 10px; color: rgba(241,232,216,.65); }
+  .rv .chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .rv .chips span { font-size: 9px; padding: 3px 7px; border-radius: 3px; border: 1px solid rgba(241,232,216,.14); color: rgba(241,232,216,.8); }
+  .rv .price { font-family: "JetBrains Mono", monospace; font-weight: 700; color: var(--brand); }
+  .rv .divider { height: 1px; background: rgba(241,232,216,.12); }
+  .rv .phone { font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700; }
+  .rv .img { background: url("http://localhost:3000/api/car-media/file/audi-a5-red.webp") center/cover no-repeat, #2a2520; }
+
+  .note { font-size: 13px; color: var(--text-secondary); margin: 10px 2px 0; }
+  .note b { color: var(--text-primary); }
+</style>
+
+<h2>Панель заявки з вибраним авто</h2>
+<p class="subtitle">Людина натиснула "Замовити". Перемикача режимів немає, у простій формі з'явився коментар, у темній панелі замість лого вибране авто. Кнопка × прибирає авто і повертає звичайну форму.</p>
+
+<div class="options" style="gap:28px">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)" style="display:block;padding:14px">
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px"><div class="letter">A</div><h3 style="margin:0">Фото зверху, деталі під ним</h3></div>
+    <div class="rv">
+      <h1>Контакти</h1><p class="lede">Залиште заявку або зателефонуйте напряму.</p>
+      <div class="box">
+        <div class="form">
+          <div class="row"><div><label>Ваше ім'я</label><div class="in"></div></div><div><label>Номер телефону</label><div class="in"></div></div></div>
+          <div><label>Зручний месенджер</label><div class="seg"><div class="on">Telegram</div><div>Viber</div><div>WhatsApp</div></div></div>
+          <div><label>Коментар</label><div class="ta"></div></div>
+          <div class="submit">Надіслати заявку</div>
+        </div>
+        <div class="panel" style="display:flex;flex-direction:column">
+          <div class="img" style="position:relative;aspect-ratio:16/10">
+            <span class="badge" style="position:absolute;top:10px;left:10px">Цікавий лот</span>
+            <div class="x">×</div>
+          </div>
+          <div style="padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><div class="title">Audi A5 Sportback S line</div><div class="specs">2018</div></div>
+            <div class="specs">112,000 km · 2.0 TFSI · AWD · автомат</div>
+            <div><div class="eyebrow">Ціна під ключ</div><div class="price" style="font-size:24px;margin-top:3px">$21,500</div></div>
+            <div class="divider" style="margin-top:auto"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center"><span class="eyebrow">Телефонуйте напряму</span><span class="phone">+38 000 000 00 00</span></div>
+          </div>
+          <div class="glow"></div>
+        </div>
+      </div>
+    </div>
+    <p class="note"><b>Як картка в каталозі, тільки на темному.</b> Велике фото одразу показує, яке авто замовляють. Найближче до того, що людина щойно бачила в каталозі.</p>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)" style="display:block;padding:14px">
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px"><div class="letter">B</div><h3 style="margin:0">Фото на весь фон панелі</h3></div>
+    <div class="rv">
+      <h1>Контакти</h1><p class="lede">Залиште заявку або зателефонуйте напряму.</p>
+      <div class="box">
+        <div class="form">
+          <div class="row"><div><label>Ваше ім'я</label><div class="in"></div></div><div><label>Номер телефону</label><div class="in"></div></div></div>
+          <div><label>Зручний месенджер</label><div class="seg"><div class="on">Telegram</div><div>Viber</div><div>WhatsApp</div></div></div>
+          <div><label>Коментар</label><div class="ta"></div></div>
+          <div class="submit">Надіслати заявку</div>
+        </div>
+        <div class="panel img" style="display:flex;flex-direction:column;justify-content:flex-end">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(12,10,7,.97) 38%, rgba(12,10,7,.55) 70%, rgba(12,10,7,.15));z-index:0"></div>
+          <span class="badge" style="position:absolute;top:12px;left:12px;z-index:1">Цікавий лот</span>
+          <div class="x" style="z-index:1">×</div>
+          <div style="position:relative;z-index:1;padding:18px;display:flex;flex-direction:column;gap:10px">
+            <div class="eyebrow" style="color:var(--brand)">Ви обрали</div>
+            <div class="title" style="font-size:20px">Audi A5 Sportback S line</div>
+            <div class="chips"><span>2018</span><span>112,000 km</span><span>2.0 TFSI</span><span>AWD</span><span>автомат</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:4px">
+              <div><div class="eyebrow">Ціна під ключ</div><div class="price" style="font-size:26px;margin-top:3px">$21,500</div></div>
+            </div>
+            <div class="divider"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center"><span class="eyebrow">Телефонуйте напряму</span><span class="phone">+38 000 000 00 00</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="note"><b>Найбільш емоційний.</b> Авто займає всю панель, текст на темному градієнті знизу. Залежить від фото: на світлих або з деталями знизу текст читатиметься гірше.</p>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)" style="display:block;padding:14px">
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px"><div class="letter">C</div><h3 style="margin:0">Компактна картка по центру</h3></div>
+    <div class="rv">
+      <h1>Контакти</h1><p class="lede">Залиште заявку або зателефонуйте напряму.</p>
+      <div class="box">
+        <div class="form">
+          <div class="row"><div><label>Ваше ім'я</label><div class="in"></div></div><div><label>Номер телефону</label><div class="in"></div></div></div>
+          <div><label>Зручний месенджер</label><div class="seg"><div class="on">Telegram</div><div>Viber</div><div>WhatsApp</div></div></div>
+          <div><label>Коментар</label><div class="ta"></div></div>
+          <div class="submit">Надіслати заявку</div>
+        </div>
+        <div class="panel" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:22px;gap:14px">
+          <div class="eyebrow">Ви обрали</div>
+          <div style="position:relative;width:100%;border:1px solid rgba(241,232,216,.12);border-radius:6px;padding:10px;display:flex;gap:12px;align-items:center;text-align:left;background:rgba(241,232,216,.03)">
+            <div class="img" style="width:92px;aspect-ratio:4/3;border-radius:4px;flex-shrink:0"></div>
+            <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <span class="badge" style="align-self:flex-start">Цікавий лот</span>
+              <div class="title" style="font-size:13px">Audi A5 Sportback S line</div>
+              <div class="specs">2018 · 112,000 km · 2.0 TFSI</div>
+            </div>
+            <div class="x" style="top:-10px;right:-10px;width:22px;height:22px;font-size:11px;background:#1a1815">×</div>
+          </div>
+          <div><div class="eyebrow">Ціна під ключ</div><div class="price" style="font-size:30px;margin-top:4px">$21,500</div></div>
+          <div class="divider" style="width:100%"></div>
+          <div class="eyebrow">Телефонуйте напряму</div>
+          <div class="phone" style="margin-top:-8px">+38 000 000 00 00</div>
+          <div class="glow"></div>
+        </div>
+      </div>
+    </div>
+    <p class="note"><b>Продовжує поточну центровану композицію.</b> Невелике фото, акцент на ціні. Спокійніше за A і B, але авто менш помітне.</p>
+  </div>
+
+</div>
