@@ -5,21 +5,23 @@ export type NavItem = NavLink | NavGroup;
 export const NAV_SERVICES: NavGroup = {
   key: "services",
   children: [
-    { href: "/services/usa", key: "servicesUsa" },
-    { href: "/services/europe", key: "servicesEurope" },
     { href: "/services/china", key: "servicesChina" },
     { href: "/services/korea", key: "servicesKorea" },
+    { href: "/services/usa", key: "servicesUsa" },
+    { href: "/services/canada", key: "servicesCanada" },
+    { href: "/services/europe", key: "servicesEurope" },
+    { href: "/services/norway", key: "servicesNorway" },
+    { href: "/cars?status=available", key: "servicesInStock" },
     { href: "/services/buyout", key: "servicesBuyout" },
-    { href: "/services/trade-in", key: "servicesTradeIn" },
   ],
 };
 
 export const NAV_ITEMS: readonly NavItem[] = [
   { href: "/", key: "home" },
-  { href: "/about", key: "about" },
-  NAV_SERVICES,
   { href: "/cars", key: "cars" },
+  { href: "/about", key: "about" },
   { href: "/reviews", key: "reviews" },
+  NAV_SERVICES,
   { href: "/faq", key: "faq" },
 ];
 

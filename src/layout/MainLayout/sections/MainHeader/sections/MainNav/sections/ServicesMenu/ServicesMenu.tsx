@@ -14,7 +14,13 @@ import { cn } from "@/lib/utils";
 
 import { navEntryClass, navUnderlineClass } from "../../navStyles";
 
-export function ServicesMenu({ group }: { group: NavGroup }) {
+export function ServicesMenu({
+  group,
+  closesInstantly,
+}: {
+  group: NavGroup;
+  closesInstantly: boolean;
+}) {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const isActive = isNavGroupActive(pathname, group);
@@ -26,7 +32,12 @@ export function ServicesMenu({ group }: { group: NavGroup }) {
       >
         {t(group.key)}
 
-        <NavigationMenu.Icon className="transition-transform duration-300 ease-out data-popup-open:rotate-180 motion-reduce:transition-none">
+        <NavigationMenu.Icon
+          className={cn(
+            "transition-transform duration-300 ease-out data-popup-open:rotate-180 motion-reduce:transition-none",
+            closesInstantly && "transition-none",
+          )}
+        >
           <ChevronDown aria-hidden className="size-3.5" />
         </NavigationMenu.Icon>
 
@@ -41,7 +52,10 @@ export function ServicesMenu({ group }: { group: NavGroup }) {
 
       <NavigationMenu.Content
         keepMounted
-        className="w-max py-2 transition-opacity duration-300 ease-out data-ending-style:opacity-0 data-starting-style:opacity-0 motion-reduce:transition-none"
+        className={cn(
+          "w-max py-2 transition-opacity duration-300 ease-out data-ending-style:opacity-0 data-starting-style:opacity-0 motion-reduce:transition-none",
+          closesInstantly && "data-ending-style:transition-none",
+        )}
       >
         <ul className="flex min-w-56 flex-col">
           {group.children.map(({ href, key }) => {
@@ -53,7 +67,7 @@ export function ServicesMenu({ group }: { group: NavGroup }) {
                   render={<Link href={href} />}
                   aria-current={isChildActive ? "page" : undefined}
                   className={cn(
-                    "block px-5 py-3 text-nav tracking-nav whitespace-nowrap uppercase transition-colors duration-300 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand",
+                    "block px-5 py-3 text-nav tracking-nav whitespace-nowrap uppercase transition-colors duration-150 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand",
                     isChildActive
                       ? "text-brand"
                       : "text-canvas/75 hover:bg-canvas/5 hover:text-brand",

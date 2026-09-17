@@ -27,7 +27,11 @@ export async function ReviewsPage({ page }: { page?: string }) {
         tone="dark"
         className="relative isolate overflow-hidden pt-[calc(var(--header-h)+var(--spacing-section))]"
       >
-        <h1 className="max-w-4xl font-logo text-h1 font-bold text-sand">
+        <p className="font-mono text-caption font-bold tracking-[0.18em] text-brand uppercase">
+          [{t("eyebrow")}]
+        </p>
+
+        <h1 className="mt-stack max-w-4xl font-logo text-h1 font-bold text-sand">
           {t("title")}
         </h1>
 

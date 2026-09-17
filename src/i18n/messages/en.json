@@ -7,8 +7,10 @@
     "servicesEurope": "Car import from Europe",
     "servicesChina": "Car import from China",
     "servicesKorea": "Car import from Korea",
+    "servicesCanada": "Car import from Canada",
+    "servicesNorway": "Car import from Norway",
+    "servicesInStock": "Cars in stock",
     "servicesBuyout": "Car buyout",
-    "servicesTradeIn": "Trade-In",
     "cars": "Catalog",
     "reviews": "Reviews",
     "faq": "FAQ"
@@ -326,7 +328,9 @@
     }
   },
   "catalogPage": {
+    "eyebrow": "Catalog",
     "title": "Choose your car today",
+    "lede": "Cars in stock in Ukraine, cars on the way and current auction lots. Pick a car and we will prepare a turnkey cost estimate.",
     "status": "Car status",
     "sort": {
       "label": "Sorting",
@@ -350,6 +354,7 @@
     "paginationLabel": "Catalog pages"
   },
   "reviewsPage": {
+    "eyebrow": "Reviews",
     "title": "Client reviews",
     "lede": "Stories of people we brought cars for: from choosing the lot to the keys in hand.",
     "empty": {

@@ -109,8 +109,7 @@ export function CatalogToolbar({ status, sort, counts, className }: Props) {
         spacing={1}
         className={segmentedGroup({
           tone: "dark",
-          className:
-            "flex w-full [scrollbar-width:none] overflow-x-auto sm:w-fit",
+          className: "grid w-full grid-cols-2 sm:flex sm:w-fit",
         })}
       >
         {STATUS_TABS.map((tab) => (
@@ -120,11 +119,11 @@ export function CatalogToolbar({ status, sort, counts, className }: Props) {
             className={segmentedItem({
               tone: "dark",
               className:
-                "h-control-sm flex-1 gap-2 px-4 hover:bg-transparent aria-pressed:bg-brand aria-pressed:font-semibold aria-pressed:text-night-soft aria-pressed:hover:text-night-soft sm:flex-initial",
+                "group/tab h-control-sm w-full min-w-0 gap-2 px-3 hover:bg-transparent aria-pressed:bg-brand aria-pressed:font-semibold aria-pressed:text-night-soft aria-pressed:hover:text-night-soft sm:w-auto sm:px-4",
             })}
           >
-            {tTabs(tab)}
-            <span className="font-mono text-caption opacity-60">
+            <span className="truncate">{tTabs(tab)}</span>
+            <span className="inline-flex h-5 min-w-5 shrink-0 items-center justify-center rounded-full bg-sand/10 px-1.5 text-caption leading-none font-medium tabular-nums group-aria-pressed/tab:bg-night-soft/15">
               {counts[tab]}
             </span>
           </ToggleGroupItem>
@@ -132,7 +131,9 @@ export function CatalogToolbar({ status, sort, counts, className }: Props) {
       </ToggleGroup>
 
       <div className="flex items-center gap-3">
-        <span className="text-label text-sand/60">{t("sort.label")}</span>
+        <span className="shrink-0 text-label text-sand/60">
+          {t("sort.label")}
+        </span>
         <Select
           items={sortItems}
           modal={false}
@@ -145,7 +146,7 @@ export function CatalogToolbar({ status, sort, counts, className }: Props) {
         >
           <SelectTrigger
             aria-label={t("sort.label")}
-            className="min-w-52 cursor-pointer rounded-sm border-sand/12 bg-night-soft px-4 text-control text-sand hover:border-sand/30 focus-visible:border-brand focus-visible:ring-brand/30 data-[size=default]:h-control-sm sm:min-w-60 [&_svg]:text-sand/60"
+            className="min-w-0 flex-1 cursor-pointer rounded-sm border-sand/12 bg-night-soft px-4 text-control text-sand hover:border-sand/30 focus-visible:border-brand focus-visible:ring-brand/30 data-[size=default]:h-control-sm sm:min-w-60 sm:flex-initial [&_svg]:text-sand/60"
           >
             <SelectValue />
           </SelectTrigger>
