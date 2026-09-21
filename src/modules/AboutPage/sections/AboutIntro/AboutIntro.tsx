@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { Section } from "@/ui/section";
@@ -29,6 +30,16 @@ export function AboutIntro() {
       <p className="mt-section-title font-mono text-caption tracking-[0.08em] text-brand/70 uppercase">
         {t("meta")}
       </p>
+
+      <Image
+        src="/images/AboutUs/AboutHeroBg.webp"
+        alt=""
+        width={1274}
+        height={1234}
+        preload
+        sizes="(min-width: 1024px) 50vw, 90vw"
+        className="pointer-events-none absolute top-1/2 right-0 -z-10 h-[130%] w-auto max-w-none translate-x-[15%] translate-y-[-40%] opacity-[0.07] select-none lg:translate-x-[0%] lg:opacity-[0.12]"
+      />
 
       <div
         aria-hidden
