@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import type { Locale } from "@/i18n/routing";
-import { ImportServicePage } from "@/modules/ImportServicePage";
+import { SellServicePage } from "@/modules/SellServicePage";
 import { getServiceMetadata } from "@/modules/ServicesShared/getServiceMetadata";
 
 export async function generateMetadata({
@@ -11,9 +11,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
 
-  return getServiceMetadata(locale, "europe");
+  return getServiceMetadata(locale, "consignment");
 }
 
 export default function Page() {
-  return <ImportServicePage country="europe" />;
+  return <SellServicePage service="consignment" />;
 }

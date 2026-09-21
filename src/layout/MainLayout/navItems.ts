@@ -11,7 +11,7 @@ export const NAV_SERVICES: NavGroup = {
     { href: "/services/canada", key: "servicesCanada" },
     { href: "/services/europe", key: "servicesEurope" },
     { href: "/services/norway", key: "servicesNorway" },
-    { href: "/cars?status=available", key: "servicesInStock" },
+    { href: "/services/consignment", key: "servicesInStock" },
     { href: "/services/buyout", key: "servicesBuyout" },
   ],
 };

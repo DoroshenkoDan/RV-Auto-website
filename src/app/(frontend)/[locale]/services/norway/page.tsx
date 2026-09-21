@@ -1,5 +1,19 @@
-import { ServicesNorwayPage } from "@/modules/ServicesNorwayPage";
+import type { Metadata } from "next";
+
+import type { Locale } from "@/i18n/routing";
+import { ImportServicePage } from "@/modules/ImportServicePage";
+import { getServiceMetadata } from "@/modules/ServicesShared/getServiceMetadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  return getServiceMetadata(locale, "norway");
+}
 
 export default function Page() {
-  return <ServicesNorwayPage />;
+  return <ImportServicePage country="norway" />;
 }

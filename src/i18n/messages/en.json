@@ -455,6 +455,666 @@
       }
     }
   },
+  "services": {
+    "hero": {
+      "request": "Send a request",
+      "catalog": "Car catalog",
+      "compare": "Buyout or consignment?"
+    },
+    "platformsSection": {
+      "title": "Where we source cars"
+    },
+    "platforms": {
+      "che168": {
+        "name": "Che168",
+        "description": "China's largest used car marketplace, run by Autohome. Hundreds of thousands of dealer listings, including EVs and hybrids."
+      },
+      "encar": {
+        "name": "Encar",
+        "description": "Korea's number one car marketplace. Most cars come with an inspection report covering accidents and insurance claims."
+      },
+      "kbChaChaCha": {
+        "name": "KB ChaChaCha",
+        "description": "Korea's second largest marketplace, backed by KB Financial Group. Widens the choice when Encar lacks the right trim."
+      },
+      "copart": {
+        "name": "Copart",
+        "description": "The largest online car auction in the US. Insurance, repo and lease cars, with thousands of new lots every day."
+      },
+      "iaai": {
+        "name": "IAAI",
+        "description": "Insurance Auto Auctions, the other US salvage auction giant. Often lower prices on the same models as Copart."
+      },
+      "iaaCanada": {
+        "name": "IAA Canada",
+        "description": "The Canadian branch of IAA, formerly Impact Auto Auctions. Insurance and repo cars from all over Canada."
+      },
+      "manheim": {
+        "name": "Manheim",
+        "description": "North America's largest dealer auction. Off-lease and trade-in cars, mostly undamaged."
+      },
+      "auto1": {
+        "name": "AUTO1",
+        "description": "Europe's largest B2B used car platform with tens of thousands of inspected cars from over 30 countries. Dealers only."
+      },
+      "bca": {
+        "name": "BCA",
+        "description": "Europe's remarketing leader: cars from leasing companies, fleets and dealers across 10 European countries."
+      },
+      "exLeasing": {
+        "name": "Ex-leasing",
+        "description": "Cars returned at the end of a lease, with full dealer service history and moderate mileage."
+      },
+      "finn": {
+        "name": "FINN.no",
+        "description": "Norway's main marketplace. A huge choice of used EVs and well-kept cars from owners and dealers."
+      }
+    },
+    "importStages": {
+      "title": "How we bring your car",
+      "payment": "Payment",
+      "search": {
+        "title": "Search and delivery",
+        "description": "From the first call to the car in Ukraine. You approve every key step and pay only for clear, itemized services.",
+        "items": {
+          "consultation": "Consultation: budget, model and requirements",
+          "contract": "We sign a contract",
+          "serviceFee": "Payment for search and selection",
+          "selection": "We shortlist and reserve lots, check the history",
+          "approval": "We agree every option with you",
+          "purchase": "Purchase and payment for the lot",
+          "delivery": "{transport, select, sea {Shipping by sea and car carrier to Ukraine} other {Delivery by car carrier to Ukraine}}"
+        }
+      },
+      "customs": {
+        "title": "Customs clearance",
+        "description": "Our customs broker handles the paperwork and calculates the fees. You pay duty, excise and VAT at cost, with no hidden markups."
+      },
+      "repair": {
+        "title": "Repair and preparation",
+        "description": "If needed, we restore the car at trusted workshops and help with certification and registration. You get a ready-to-drive car."
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "all": "All questions"
+    },
+    "sellCompare": {
+      "title": "Buyout or consignment?",
+      "current": "This service",
+      "services": {
+        "buyout": "Car buyout",
+        "consignment": "Sell through us"
+      },
+      "rows": {
+        "speed": {
+          "label": "Speed",
+          "buyout": "Money on the day of inspection",
+          "consignment": "Until a buyer is found, usually a few weeks"
+        },
+        "price": {
+          "label": "Price",
+          "buyout": "Slightly below market",
+          "consignment": "Market price"
+        },
+        "fee": {
+          "label": "What you pay",
+          "buyout": "Free",
+          "consignment": "Free, the buyer pays the commission"
+        },
+        "involvement": {
+          "label": "Your involvement",
+          "buyout": "One visit to our lot",
+          "consignment": "Leave the car at our lot, we handle the rest"
+        }
+      },
+      "cta": {
+        "buyout": "More about buyout",
+        "consignment": "More about consignment"
+      }
+    },
+    "china": {
+      "meta": {
+        "title": "Turnkey car import from China | Revolution Auto",
+        "description": "Turnkey car import from China: EVs, hybrids and nearly new cars from Che168. Selection, purchase, shipping, customs and repair."
+      },
+      "hero": {
+        "eyebrow": "Import · China",
+        "title": "Turnkey car import from China",
+        "lede": "EVs, hybrids and nearly new cars from China's largest marketplace. We select, inspect, ship and clear customs for you.",
+        "facts": {
+          "term": {
+            "title": "45-60",
+            "description": "days of delivery on average"
+          },
+          "platforms": {
+            "title": "1",
+            "description": "China's largest marketplace"
+          },
+          "turnkey": {
+            "title": "Turnkey",
+            "description": "from selection to registration"
+          }
+        }
+      },
+      "features": {
+        "title": "Why cars from China",
+        "items": {
+          "electric": {
+            "title": "EVs and hybrids",
+            "description": "China leads EV production: BYD, Zeekr, Li Auto and China-built European brands at the best prices."
+          },
+          "newCars": {
+            "title": "New and nearly new cars",
+            "description": "Plenty of cars under a year old with minimal mileage: a real alternative to buying new at a dealership."
+          },
+          "price": {
+            "title": "Cheaper than in Europe",
+            "description": "A huge domestic market and fierce competition make the same models noticeably cheaper in China."
+          }
+        }
+      },
+      "faq": {
+        "term": {
+          "question": "How long does delivery from China take?",
+          "answer": "45-60 days on average from purchase to arrival in Ukraine. The exact time depends on the port of departure and the shipping schedule."
+        },
+        "quality": {
+          "question": "How do you check a car's condition in China?",
+          "answer": "We work with trusted dealers, request detailed photos and videos and a technical report, and check the car's history before buying."
+        },
+        "charging": {
+          "question": "Will a Chinese EV work with chargers in Ukraine?",
+          "answer": "Yes. We pick cars with a European connector or advise on an adapter, and check whether the infotainment can be switched to Ukrainian or English."
+        },
+        "documents": {
+          "question": "What documents will I get?",
+          "answer": "Our contract, the purchase documents, export and customs papers. After customs clearance we help with certification and registration."
+        }
+      },
+      "cta": {
+        "title": "Get a quote for a car from China",
+        "description": "Leave your contacts and a manager will pick options for your budget and calculate the turnkey price."
+      }
+    },
+    "korea": {
+      "meta": {
+        "title": "Turnkey car import from Korea | Revolution Auto",
+        "description": "Turnkey car import from Korea via Encar and KB ChaChaCha. Recent cars with dealer service history: selection, purchase, shipping and customs."
+      },
+      "hero": {
+        "eyebrow": "Import · Korea",
+        "title": "Turnkey car import from Korea",
+        "lede": "Recent cars with a transparent history from Korea's two largest marketplaces. We handle selection, purchase, shipping and customs.",
+        "facts": {
+          "term": {
+            "title": "45-60",
+            "description": "days of delivery on average"
+          },
+          "platforms": {
+            "title": "2",
+            "description": "Korea's largest marketplaces"
+          },
+          "turnkey": {
+            "title": "Turnkey",
+            "description": "from selection to registration"
+          }
+        }
+      },
+      "features": {
+        "title": "Why cars from Korea",
+        "items": {
+          "service": {
+            "title": "Dealer maintenance",
+            "description": "Koreans service their cars at official dealers and rarely keep a car longer than 3-5 years."
+          },
+          "inspection": {
+            "title": "Official inspection reports",
+            "description": "Most cars on Encar come with an inspection report covering accidents, replaced parts and insurance claims."
+          },
+          "condition": {
+            "title": "Moderate mileage, good condition",
+            "description": "Short distances and good roads: cars arrive with moderate mileage and no signs of hard use."
+          }
+        }
+      },
+      "faq": {
+        "term": {
+          "question": "How long does delivery from Korea take?",
+          "answer": "45-60 days on average: by sea to a European port, then by car carrier to Ukraine."
+        },
+        "inspection": {
+          "question": "How do I know the car's real condition?",
+          "answer": "We check the Encar inspection report and insurance history, and order an independent inspection before buying if needed."
+        },
+        "steering": {
+          "question": "Are there right-hand drive cars?",
+          "answer": "No. Korea drives on the right with left-hand drive cars, just like Ukraine, so no conversion is needed."
+        },
+        "documents": {
+          "question": "What documents will I get?",
+          "answer": "Our contract, the purchase documents, export and customs papers. After customs clearance we help with certification and registration."
+        }
+      },
+      "cta": {
+        "title": "Get a quote for a car from Korea",
+        "description": "Leave your contacts and a manager will pick options for your budget and calculate the turnkey price."
+      }
+    },
+    "usa": {
+      "meta": {
+        "title": "Turnkey car import from the USA | Revolution Auto",
+        "description": "Turnkey car import from the USA via Copart, IAAI and Manheim auctions. Selection, bidding, shipping, customs and repair."
+      },
+      "hero": {
+        "eyebrow": "Import · USA",
+        "title": "Turnkey car import from the USA",
+        "lede": "We bid on Copart, IAAI and Manheim on your behalf, check the history, buy, ship, clear customs and repair.",
+        "facts": {
+          "term": {
+            "title": "40-50",
+            "description": "days of delivery on average"
+          },
+          "platforms": {
+            "title": "3",
+            "description": "US auctions"
+          },
+          "turnkey": {
+            "title": "Turnkey",
+            "description": "from selection to registration"
+          }
+        }
+      },
+      "features": {
+        "title": "Why cars from the USA",
+        "items": {
+          "choice": {
+            "title": "The biggest choice",
+            "description": "Thousands of new lots hit US auctions every day: from budget sedans to pickups and premium cars."
+          },
+          "price": {
+            "title": "Below market price",
+            "description": "Insurance and lease cars are sold at auction, so even with repairs they cost less than buying in Ukraine."
+          },
+          "history": {
+            "title": "Transparent history",
+            "description": "We check every car with Carfax and AutoCheck: mileage, accidents, number of owners and service records."
+          },
+          "specs": {
+            "title": "Rich trims",
+            "description": "Leather, cameras, adaptive cruise and powerful engines often come as standard on the US market."
+          }
+        }
+      },
+      "faq": {
+        "term": {
+          "question": "How long does delivery from the USA take?",
+          "answer": "40-50 days on average: to a US port, by sea to Klaipeda, then by car carrier to Ukraine."
+        },
+        "damage": {
+          "question": "Is a damaged car worth buying?",
+          "answer": "Often, yes: cosmetic damage brings a good discount. We tell cosmetic damage from structural and estimate the repair before bidding."
+        },
+        "history": {
+          "question": "How do you check a car's history?",
+          "answer": "With Carfax and AutoCheck, plus an analysis of the lot photos and description. You get the report before we bid."
+        },
+        "lostBid": {
+          "question": "What if we are outbid?",
+          "answer": "We keep bidding on other approved lots. The search fee covers the whole selection, not a single bid."
+        },
+        "documents": {
+          "question": "What documents will I get?",
+          "answer": "Our contract, the auction documents, export and customs papers. After customs clearance we help with certification and registration."
+        }
+      },
+      "cta": {
+        "title": "Get a quote for a car from the USA",
+        "description": "Leave your contacts and a manager will pick lots for your budget and calculate the turnkey price."
+      }
+    },
+    "canada": {
+      "meta": {
+        "title": "Turnkey car import from Canada | Revolution Auto",
+        "description": "Turnkey car import from Canada via Copart, IAA Canada and Manheim auctions. Selection, bidding, shipping, customs and repair."
+      },
+      "hero": {
+        "eyebrow": "Import · Canada",
+        "title": "Turnkey car import from Canada",
+        "lede": "The same auctions as in the US, with cars built for harsh winters. We bid on Copart, IAA Canada and Manheim.",
+        "facts": {
+          "term": {
+            "title": "50-70",
+            "description": "days of delivery on average"
+          },
+          "platforms": {
+            "title": "3",
+            "description": "Canadian auctions"
+          },
+          "turnkey": {
+            "title": "Turnkey",
+            "description": "from selection to registration"
+          }
+        }
+      },
+      "features": {
+        "title": "Why cars from Canada",
+        "items": {
+          "auctions": {
+            "title": "Familiar auctions",
+            "description": "Copart, IAA and Manheim work in Canada by the same rules as in the US, with a separate pool of lots and less competition."
+          },
+          "winter": {
+            "title": "Winter-ready trims",
+            "description": "All-wheel drive, heated seats and steering wheel, remote start: Canadian cars are ready for Ukrainian winters."
+          },
+          "mileage": {
+            "title": "Moderate mileage",
+            "description": "Canadians drive less than Americans, so cars of the same year often have lower mileage."
+          }
+        }
+      },
+      "faq": {
+        "term": {
+          "question": "How long does delivery from Canada take?",
+          "answer": "50-70 days on average: to the port, by sea to Europe, then by car carrier to Ukraine."
+        },
+        "difference": {
+          "question": "How is a Canadian car different from an American one?",
+          "answer": "A metric instrument cluster, winter options and often better condition. Auction prices are similar, but competition for lots is lower."
+        },
+        "damage": {
+          "question": "Is there a rust risk from winter roads?",
+          "answer": "Road salt can affect the body, so we pay special attention to the underbody and wheel arches in photos and reports."
+        },
+        "documents": {
+          "question": "What documents will I get?",
+          "answer": "Our contract, the auction documents, export and customs papers. After customs clearance we help with certification and registration."
+        }
+      },
+      "cta": {
+        "title": "Get a quote for a car from Canada",
+        "description": "Leave your contacts and a manager will pick lots for your budget and calculate the turnkey price."
+      }
+    },
+    "europe": {
+      "meta": {
+        "title": "Turnkey car import from Europe | Revolution Auto",
+        "description": "Turnkey car import from Europe: ex-leasing and dealer cars from AUTO1 and BCA. Selection, purchase, car carrier delivery and customs."
+      },
+      "hero": {
+        "eyebrow": "Import · Europe",
+        "title": "Turnkey car import from Europe",
+        "lede": "Ex-leasing and dealer cars from AUTO1 and BCA, closed to private buyers. Fast delivery by car carrier.",
+        "facts": {
+          "term": {
+            "title": "7-14",
+            "description": "days of delivery on average"
+          },
+          "platforms": {
+            "title": "3",
+            "description": "car sources in Europe"
+          },
+          "turnkey": {
+            "title": "Turnkey",
+            "description": "from selection to registration"
+          }
+        }
+      },
+      "features": {
+        "title": "Why cars from Europe",
+        "items": {
+          "exLeasing": {
+            "title": "Ex-leasing with history",
+            "description": "Off-lease cars were serviced at official dealers on schedule and come with service records and genuine mileage."
+          },
+          "fast": {
+            "title": "Fast delivery",
+            "description": "A car carrier from Europe reaches Ukraine in 1-2 weeks, with no sea leg or port waiting."
+          },
+          "dealerOnly": {
+            "title": "Access to dealer auctions",
+            "description": "AUTO1 and BCA work with dealers only. We buy there as a company, so you get the car at a wholesale price."
+          }
+        }
+      },
+      "faq": {
+        "term": {
+          "question": "How long does delivery from Europe take?",
+          "answer": "7-14 days on average from purchase to arrival in Ukraine by car carrier."
+        },
+        "exLeasing": {
+          "question": "What is an ex-leasing car?",
+          "answer": "A car that a company leased for 2-4 years. When the lease ends, it is sold, usually with a full service history and moderate mileage."
+        },
+        "access": {
+          "question": "Why can't I buy on AUTO1 or BCA myself?",
+          "answer": "These platforms work only with registered dealers. We have access and handle the bidding, payment and export documents."
+        },
+        "documents": {
+          "question": "What documents will I get?",
+          "answer": "Our contract, the purchase documents, export and customs papers. After customs clearance we help with certification and registration."
+        }
+      },
+      "cta": {
+        "title": "Get a quote for a car from Europe",
+        "description": "Leave your contacts and a manager will pick options for your budget and calculate the turnkey price."
+      }
+    },
+    "norway": {
+      "meta": {
+        "title": "Turnkey car import from Norway | Revolution Auto",
+        "description": "Turnkey car import from Norway via FINN.no: EVs and well-kept cars. Selection, purchase, car carrier delivery and customs."
+      },
+      "hero": {
+        "eyebrow": "Import · Norway",
+        "title": "Turnkey car import from Norway",
+        "lede": "Norway has Europe's largest used EV market. We find a well-kept car on FINN.no and deliver it by car carrier.",
+        "facts": {
+          "term": {
+            "title": "10-20",
+            "description": "days of delivery on average"
+          },
+          "platforms": {
+            "title": "1",
+            "description": "Norway's main marketplace"
+          },
+          "turnkey": {
+            "title": "Turnkey",
+            "description": "from selection to registration"
+          }
+        }
+      },
+      "features": {
+        "title": "Why cars from Norway",
+        "items": {
+          "electric": {
+            "title": "The widest choice of EVs",
+            "description": "The vast majority of new cars in Norway are electric, so the used market offers plenty of Tesla, Volkswagen ID, Audi e-tron and more."
+          },
+          "care": {
+            "title": "Careful ownership",
+            "description": "Norwegians service their cars on schedule, and strict inspections keep faulty cars off the road."
+          },
+          "fast": {
+            "title": "Fast delivery",
+            "description": "By car carrier through Europe to Ukraine in 10-20 days, with no sea leg or port waiting."
+          }
+        }
+      },
+      "faq": {
+        "term": {
+          "question": "How long does delivery from Norway take?",
+          "answer": "10-20 days on average from purchase to arrival in Ukraine."
+        },
+        "electric": {
+          "question": "How do you check an EV battery?",
+          "answer": "We request a battery health report from the seller or dealer and check the service history before buying."
+        },
+        "customs": {
+          "question": "Norway is not in the EU. Does that make it harder?",
+          "answer": "Not for you. We handle the extra export and transit documents, while the process and Ukrainian customs stay the same for you."
+        },
+        "documents": {
+          "question": "What documents will I get?",
+          "answer": "Our contract, the purchase documents, export and customs papers. After customs clearance we help with certification and registration."
+        }
+      },
+      "cta": {
+        "title": "Get a quote for a car from Norway",
+        "description": "Leave your contacts and a manager will pick options for your budget and calculate the turnkey price."
+      }
+    },
+    "buyout": {
+      "meta": {
+        "title": "Car buyout in 1 day | Revolution Auto",
+        "description": "Fast car buyout: free appraisal at our lot and payment on the day of the deal. We buy cars in any condition."
+      },
+      "hero": {
+        "eyebrow": "Car buyout",
+        "title": "We will buy your car in 1 day",
+        "lede": "Bring your car to our lot: our appraiser inspects it and makes an offer on the spot. If you agree, we sign the deal and pay the same day.",
+        "facts": {
+          "fairPrice": {
+            "title": "Price on the spot",
+            "description": "We appraise the car in front of you and name the price right away, with no phone promises that change later."
+          },
+          "anyCondition": {
+            "title": "Any condition",
+            "description": "We buy cars after accidents, with technical faults or high mileage."
+          },
+          "instantPayment": {
+            "title": "Money right away",
+            "description": "Payment on the day of the deal, with no waiting for buyers or haggling."
+          },
+          "documents": {
+            "title": "We handle the paperwork",
+            "description": "We prepare the contract and handle the re-registration. You just bring the car documents and your passport."
+          }
+        }
+      },
+      "steps": {
+        "title": "How the buyout works",
+        "items": {
+          "request": {
+            "title": "Request",
+            "description": "Leave your contacts or call us. We clarify the make, model, year and condition."
+          },
+          "inspection": {
+            "title": "Inspection at our lot",
+            "description": "We agree on a time, you bring the car to our lot, and our appraiser inspects it."
+          },
+          "offer": {
+            "title": "Appraisal and offer",
+            "description": "We inspect the car, check the documents and name the buyout price right away."
+          },
+          "deal": {
+            "title": "Contract and payment",
+            "description": "We sign the contract and pay the same day in the way that suits you."
+          }
+        }
+      },
+      "faq": {
+        "cars": {
+          "question": "What cars do you buy?",
+          "answer": "Cars, crossovers and pickups of any year, including after accidents or with faults. The final decision comes after inspection."
+        },
+        "price": {
+          "question": "How is the buyout price set?",
+          "answer": "We assess condition, trim, mileage and current market prices for similar models. You get the price right after inspection."
+        },
+        "documents": {
+          "question": "What documents are needed?",
+          "answer": "The registration certificate, passport and tax ID of the owner. If someone else sells the car, a power of attorney is required."
+        },
+        "credit": {
+          "question": "Can I sell a car that is still on credit?",
+          "answer": "In most cases, yes. We help close the loan from the buyout amount and remove the lien. A manager will clarify the details."
+        }
+      },
+      "cta": {
+        "title": "Find out what your car is worth",
+        "description": "Leave your contacts and we will arrange a time for a free inspection at our lot."
+      }
+    },
+    "consignment": {
+      "meta": {
+        "title": "Sell your car on consignment | Revolution Auto",
+        "description": "We sell your car at market price: our lot, professional photos, listings on major platforms and in our catalog. Free for the seller."
+      },
+      "hero": {
+        "eyebrow": "Sell your car",
+        "title": "We will sell your car at market price",
+        "lede": "Leave the car at our lot and we do the rest: photos, listings, buyers, negotiations and the deal. Free for you.",
+        "facts": {
+          "free": {
+            "title": "Free for you",
+            "description": "The buyer pays the sales commission. You receive the agreed price in full."
+          },
+          "parking": {
+            "title": "The car stays at our lot",
+            "description": "No need to show the car to strangers or fit your schedule around buyers."
+          },
+          "listing": {
+            "title": "Photos and listings",
+            "description": "Professional photos and strong listings on major platforms. We handle negotiations."
+          },
+          "catalog": {
+            "title": "Your car in our catalog",
+            "description": "Your car appears in the Cars in stock section of our website, where our clients see it."
+          }
+        }
+      },
+      "steps": {
+        "title": "How we sell your car",
+        "items": {
+          "request": {
+            "title": "Request",
+            "description": "Leave your contacts, and we clarify the car and your price expectations."
+          },
+          "inspection": {
+            "title": "Inspection and price",
+            "description": "We inspect the car, analyse the market and agree on the selling price together."
+          },
+          "listing": {
+            "title": "Lot and listings",
+            "description": "The car stays at our lot. We take photos and list it on platforms and in our catalog.",
+            "link": "See cars in stock"
+          },
+          "buyers": {
+            "title": "Buyers and negotiations",
+            "description": "We show the car to buyers, answer questions and negotiate."
+          },
+          "deal": {
+            "title": "Deal",
+            "description": "We close the deal and you receive the agreed amount."
+          }
+        }
+      },
+      "faq": {
+        "commission": {
+          "question": "How much does selling cost me?",
+          "answer": "Nothing: the buyer pays the commission. A manager will tell you its amount before you sign the contract."
+        },
+        "parking": {
+          "question": "Where is the car kept during the sale?",
+          "answer": "At our lot. This way we can show it to buyers at any time without bothering you."
+        },
+        "term": {
+          "question": "How long does it take to sell?",
+          "answer": "It depends on the model, condition and price. A car at market price usually finds a buyer within a few weeks."
+        },
+        "usage": {
+          "question": "Can I use the car while it is for sale?",
+          "answer": "During the sale the car stays at our lot so we can show it to buyers quickly. If you urgently need it, we will work something out."
+        }
+      },
+      "cta": {
+        "title": "List your car for sale with us",
+        "description": "Leave your contacts and we will arrange an inspection and agree on the selling price."
+      }
+    }
+  },
   "footer": {
     "tagline": "Cars from the USA and Europe, turnkey.",
     "navTitle": "Navigation",
