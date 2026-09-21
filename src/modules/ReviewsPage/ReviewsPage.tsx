@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { EmptyState } from "@/components/EmptyState";
@@ -36,6 +37,16 @@ export async function ReviewsPage({ page }: { page?: string }) {
         </h1>
 
         <p className="mt-stack max-w-2xl text-lead text-sand/70">{t("lede")}</p>
+
+        <Image
+          src="/images/Reviews/ReviewsHeroBg.webp"
+          alt=""
+          width={1345}
+          height={937}
+          preload
+          sizes="(min-width: 1024px) 40vw, 80vw"
+          className="pointer-events-none absolute top-1/2 right-0 -z-10 h-[110%] w-auto max-w-none translate-x-[25%] translate-y-[-40%] opacity-10 select-none lg:translate-x-[-10%] lg:opacity-20"
+        />
 
         <div
           aria-hidden
