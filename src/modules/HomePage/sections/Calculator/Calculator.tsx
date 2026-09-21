@@ -23,7 +23,7 @@ export function Calculator() {
   } | null>(null);
 
   return (
-    <Section>
+    <Section id="calculator" className="scroll-mt-(--header-h)">
       <SectionTitle align="center">{t("title")}</SectionTitle>
 
       <div className="grid rounded-md border border-line lg:grid-cols-2">

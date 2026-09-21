@@ -365,6 +365,238 @@
     },
     "paginationLabel": "Review pages"
   },
+  "faqPage": {
+    "meta": {
+      "title": "Car import FAQ: cost, delivery, customs | Revolution Auto",
+      "description": "Answers to common questions about importing a car from the USA, Canada, Europe, Korea and China: what the turnkey price includes, how auctions work, how long delivery takes and how customs clearance works."
+    },
+    "hero": {
+      "eyebrow": "FAQ",
+      "title": "Answers about importing a car",
+      "lede": "Everything our clients ask most often, from pricing and auctions to delivery, customs and registration. Topics follow the order in which a deal actually happens.",
+      "meta": "{questions, plural, one {# answer} other {# answers}} · {categories, plural, one {# topic} other {# topics}}"
+    },
+    "navLabel": "Topics",
+    "categories": {
+      "start": {
+        "title": "Getting started",
+        "description": "How we work and where to begin.",
+        "questions": {
+          "process": {
+            "question": "How does a turnkey car import work?",
+            "answer": "It starts with a consultation about your budget, model and requirements. Then we sign a contract, shortlist lots and agree on every option with you. After the purchase we ship the car to Ukraine, clear customs, repair it if needed and help with registration. Each stage is described on the service pages, for example <usa>import from the USA</usa>."
+          },
+          "country": {
+            "question": "Which country is best to import from?",
+            "answer": "It depends on your budget, timeline and the type of car. The USA and Canada offer the widest choice and lower prices, but delivery takes longer. Europe and Norway are faster, and cars there more often come with a full service history. Korea and China stand out for newer cars and EVs. See the short <compare>country comparison</compare> further down this page."
+          },
+          "contract": {
+            "question": "Do you work under a contract?",
+            "answer": "Always. Before the first bid we sign a contract that sets out our services, the cost and the payment schedule. Every payment after that is backed by an invoice."
+          },
+          "budget": {
+            "question": "What budget should I plan for?",
+            "answer": "Plan around the full turnkey cost, not the lot price: logistics, duty, excise and VAT add a significant amount. You can get a preliminary figure for your option in the <calculator>calculator</calculator>, and a manager will help you pick a model that fits your budget."
+          }
+        }
+      },
+      "cost": {
+        "title": "Cost and payments",
+        "description": "What the price is made of and when you pay.",
+        "questions": {
+          "turnkey": {
+            "question": "What does the turnkey price include?",
+            "answer": "The lot price, the auction fee, delivery to the port, ocean or truck shipping, customs clearance (duty, excise and VAT) and our services. Below you will find a line-by-line example, and for your own car use the <calculator>calculator</calculator>."
+          },
+          "duties": {
+            "question": "How is customs clearance calculated?",
+            "answer": "Customs clearance consists of three payments. <b>Import duty</b> is 10% of the customs value, which is the car price plus delivery. <b>Excise</b> depends on fuel type, engine size and the age of the car, or on battery capacity for EVs. <b>VAT</b> of 20% is charged on the customs value, duty and excise combined."
+          },
+          "payments": {
+            "question": "What do I pay and when?",
+            "answer": "Payments are made in stages. After signing the contract you pay for our search and selection service. After winning the auction you pay for the lot and the auction fee. Logistics and customs are paid at their respective stages. All amounts are known upfront and fixed in the contract."
+          },
+          "extra": {
+            "question": "Can there be extra charges?",
+            "answer": "No, unless the terms you agreed to change. We fix the estimate before bidding. Additional costs are only possible by your decision, for example repairs after arrival, and are always agreed with you separately."
+          },
+          "fee": {
+            "question": "How much do your services cost?",
+            "answer": "Our fee is fixed and already included in the <calculator>calculator</calculator> estimate. A manager will confirm the exact amount for your case during the consultation and put it in the contract."
+          }
+        }
+      },
+      "auction": {
+        "title": "Auctions and choosing a car",
+        "description": "How we pick lots and what to know about bidding.",
+        "questions": {
+          "inspection": {
+            "question": "Can I check the car before bidding?",
+            "answer": "Yes. Before the bid you get a history report (Carfax or AutoCheck for North American cars), the auction photos and our assessment of the damage and estimated repairs. For Korea and Europe we check inspection reports and service history."
+          },
+          "damage": {
+            "question": "Is it worth buying a car after an accident?",
+            "answer": "Often, yes: most lots at US auctions have some damage, and that is exactly where the discount comes from. The key is telling cosmetic damage from structural issues such as a bent frame, deployed airbags or flood traces. We estimate repairs before bidding so the final price stays worthwhile."
+          },
+          "titles": {
+            "question": "What do Clean, Salvage and Rebuilt titles mean?",
+            "answer": "A title is the ownership document for a car in the USA. <b>Clean</b> means the insurer never declared the car a total loss. <b>Salvage</b> is issued when repairs were deemed uneconomical, and these cars are the cheapest. <b>Rebuilt</b> is given to cars restored after a salvage title. All three can be cleared through customs and registered in Ukraine; the difference is in price and condition."
+          },
+          "lostBid": {
+            "question": "What happens if I am outbid?",
+            "answer": "Nothing to worry about. We never go above the agreed limit and keep bidding on other approved lots. The selection service covers the whole search, not a single bid."
+          },
+          "ownLot": {
+            "question": "Can I find a lot myself?",
+            "answer": "Yes. Send the link to a manager: we will check the history and damage, calculate the full turnkey cost and tell you whether it is worth bidding on. You can also browse cars already on their way or in stock in our <catalog>catalog</catalog>."
+          }
+        }
+      },
+      "delivery": {
+        "title": "Delivery",
+        "description": "Timelines, routes and keeping the car safe on the way.",
+        "questions": {
+          "term": {
+            "question": "How long does delivery take?",
+            "answer": "It depends on the country: 7-14 days from Europe, 10-20 from Norway, 40-50 from the USA, 45-60 from Korea and China, 50-70 from Canada. We count from purchase to arrival in Ukraine. All routes are side by side in the <compare>comparison below</compare>."
+          },
+          "insurance": {
+            "question": "What if the car is damaged during delivery?",
+            "answer": "The car is insured during transport. We photograph its condition at every stage: at the yard, at loading and at handover. If damage happens on the way, we file an insurance claim."
+          },
+          "tracking": {
+            "question": "How do I know where my car is right now?",
+            "answer": "A manager updates you at every stage: purchase, arrival at the port, departure, arrival in Europe and at customs. For ocean shipping we share the container number so you can track it yourself."
+          },
+          "destination": {
+            "question": "Where do you deliver the car?",
+            "answer": "After customs clearance we deliver the car by truck to your city, or you can pick it up in Lviv. The option and the cost of delivery within Ukraine are agreed in advance."
+          }
+        }
+      },
+      "customs": {
+        "title": "Customs and registration",
+        "description": "What happens to the car after it arrives in Ukraine.",
+        "questions": {
+          "electric": {
+            "question": "How are electric cars cleared through customs?",
+            "answer": "For EVs the excise is based on battery capacity: 1 euro per kWh. Duty and VAT are charged the same way as for other cars. The <calculator>calculator</calculator> shows the exact amount for a specific model."
+          },
+          "certification": {
+            "question": "Why is certification needed?",
+            "answer": "A car cannot be registered in Ukraine without a certificate of conformity. It confirms that the car meets technical and environmental requirements. We help you get certified right after customs clearance."
+          },
+          "registration": {
+            "question": "Who registers the car?",
+            "answer": "Registration takes place at a Ministry of Internal Affairs service center in your name. We prepare the document package and walk you through the steps, so one visit is usually enough."
+          },
+          "documents": {
+            "question": "Which documents will I receive?",
+            "answer": "The contract with us, the purchase documents (the auction or seller invoice and the ownership document), export and customs documents, and the certificate of conformity. That is everything you need for registration."
+          }
+        }
+      },
+      "risks": {
+        "title": "Guarantees and risks",
+        "description": "An honest look at what can go wrong and how we prevent it.",
+        "questions": {
+          "condition": {
+            "question": "What if the car is in worse condition than in the photos?",
+            "answer": "Auctions sell cars as is, so the main protection is a thorough check before bidding: history reports, photo analysis and, if needed, an on-site inspection. If something cannot be seen in the photos, we warn you and build a margin into the repair estimate."
+          },
+          "money": {
+            "question": "How is my money protected?",
+            "answer": "All terms are fixed in the contract, and every payment is backed by an invoice or receipt. You pay in stages and only for clearly defined items. You can read our clients' stories in the <reviews>reviews</reviews>."
+          },
+          "refuse": {
+            "question": "Can I back out after winning the auction?",
+            "answer": "A bid at auction is a commitment to buy, so backing out after winning means a penalty from the auction. That is why we agree on every lot and bid limit with you in advance."
+          }
+        }
+      },
+      "sell": {
+        "title": "Selling a car",
+        "description": "If you want to sell a car rather than buy one.",
+        "questions": {
+          "options": {
+            "question": "How can I sell my car through you?",
+            "answer": "There are two options. <buyout>Buyout</buyout>: we assess the car at inspection and pay on the day of the deal. <consignment>Sale from our lot</consignment>: the car stays at our parking, we find a buyer at market price, and the service is free for you."
+          },
+          "sellDocuments": {
+            "question": "Which documents do I need to sell?",
+            "answer": "The vehicle registration certificate, the owner's passport and tax ID. If the seller is not the owner, a power of attorney is required."
+          },
+          "credit": {
+            "question": "Can I sell a car that is still on credit?",
+            "answer": "In most cases, yes. We help pay off the loan from the buyout amount and remove the encumbrance. A manager will clarify the details."
+          }
+        }
+      }
+    },
+    "costExample": {
+      "eyebrow": "Example estimate",
+      "title": "What the turnkey price is made of",
+      "description": "A {year} sedan, petrol 2.0 L, lot price {lot} at Copart. Here is the total after every payment.",
+      "disclaimer": "This estimate is approximate: shipping rates and exchange rates change. The exact amount is fixed in the contract.",
+      "cta": "Estimate your car",
+      "total": "Turnkey total",
+      "lines": {
+        "lotPrice": "The winning bid at auction.",
+        "auctionFee": "The auction commission, based on the lot price.",
+        "usDelivery": "Truck from the yard to a US port.",
+        "oceanFreight": "Container from the USA to a European port.",
+        "customs": "10% duty plus excise based on engine size and age.",
+        "vat": "20% of the customs value, duty and excise.",
+        "companyFee": "Selection, bidding, logistics and deal support."
+      }
+    },
+    "compare": {
+      "eyebrow": "Country comparison",
+      "title": "Where to import from",
+      "description": "A quick overview of each route: delivery time, marketplaces and who each option suits best.",
+      "days": "days",
+      "more": "Learn more",
+      "rows": {
+        "transport": "Route",
+        "platforms": "Marketplaces",
+        "bestFor": "Best for"
+      },
+      "transport": {
+        "sea": "By sea and truck",
+        "truck": "By truck"
+      },
+      "countries": {
+        "usa": {
+          "name": "USA",
+          "bestFor": "The widest choice and lower prices if you are ready to wait and repair."
+        },
+        "canada": {
+          "name": "Canada",
+          "bestFor": "Like the USA, with less competition for lots and winter-ready trims."
+        },
+        "korea": {
+          "name": "Korea",
+          "bestFor": "Newer cars with a transparent history and inspection reports."
+        },
+        "china": {
+          "name": "China",
+          "bestFor": "EVs and new cars at an attractive price."
+        },
+        "europe": {
+          "name": "Europe",
+          "bestFor": "Fast delivery and ex-leasing cars with service history."
+        },
+        "norway": {
+          "name": "Norway",
+          "bestFor": "Well-kept EVs with moderate mileage."
+        }
+      }
+    },
+    "cta": {
+      "title": "Didn't find your answer?",
+      "description": "Leave your number and a manager will call you back to answer your question."
+    }
+  },
   "contactsPage": {
     "title": "Contacts",
     "lede": "Send a request or call us directly. We reply the same working day.",

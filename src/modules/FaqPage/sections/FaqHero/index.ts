@@ -1,0 +1,1 @@
+export { FaqHero } from "./FaqHero";
