@@ -86,6 +86,7 @@ export function ContactPanel({
             alt=""
             fill
             sizes="(min-width: 640px) 256px, 208px"
+            loading="eager"
             className="object-cover"
           />
         </span>

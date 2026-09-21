@@ -85,6 +85,7 @@ export function HeroSlideCard({
               alt=""
               fill
               sizes="(min-width: 1280px) 416px, 320px"
+              loading="eager"
               className="object-contain mix-blend-screen"
             />
           </div>
