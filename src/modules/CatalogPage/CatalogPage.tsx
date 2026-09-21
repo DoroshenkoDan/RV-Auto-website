@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { CatalogCard } from "@/components/CatalogCard";
@@ -78,6 +79,16 @@ export async function CatalogPage({ status, sort, page }: Props) {
             className="mt-section-title"
           />
         )}
+
+        <Image
+          src="/images/Catalog/CatalogHeroBg.webp"
+          alt=""
+          width={1500}
+          height={654}
+          preload
+          sizes="(min-width: 1024px) 55vw, 90vw"
+          className="pointer-events-none absolute top-1/2 right-0 -z-10 w-[90%] max-w-4xl translate-x-[10%] translate-y-[-30%] opacity-10 select-none lg:w-[55%] lg:translate-x-[-10%] lg:opacity-20"
+        />
 
         <div
           aria-hidden
