@@ -1,16 +1,13 @@
 "use client";
 
 import { Field } from "@base-ui/react/field";
-import { Fieldset } from "@base-ui/react/fieldset";
 import { NumberField } from "@base-ui/react/number-field";
-import { Radio } from "@base-ui/react/radio";
-import { RadioGroup } from "@base-ui/react/radio-group";
 import { Select } from "@base-ui/react/select";
 import { Check, ChevronDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
+import { AuctionField } from "@/components/AuctionField";
 import {
-  AUCTION_TYPES,
   BATTERY_CAPACITY_LIMITS,
   ENGINE_VOLUME_LIMITS,
   FUEL_TYPES,
@@ -19,61 +16,10 @@ import {
   getYearOptions,
 } from "@/lib/calculator/options";
 import type { CalculatorInput } from "@/lib/calculator/types";
-import {
-  FIELD_ROOT,
-  fieldControl,
-  fieldLabel,
-  segmentedGroup,
-  segmentedItem,
-} from "@/ui/field";
+import { FIELD_ROOT, fieldControl, fieldLabel } from "@/ui/field";
+import { SegmentedField } from "@/ui/segmented-control";
 
 const YEAR_OPTIONS = getYearOptions();
-
-function Segmented<Value extends string>({
-  name,
-  label,
-  options,
-  value,
-  onValueChange,
-  className,
-}: {
-  name: string;
-  label: string;
-  options: { value: Value; label: string }[];
-  value: Value;
-  onValueChange: (value: Value) => void;
-  className?: string;
-}) {
-  return (
-    <Field.Root name={name} className={className}>
-      <Fieldset.Root
-        render={
-          <RadioGroup<Value>
-            value={value}
-            onValueChange={onValueChange}
-            className={FIELD_ROOT}
-          />
-        }
-      >
-        <Fieldset.Legend className={fieldLabel()}>{label}</Fieldset.Legend>
-
-        <div
-          className={segmentedGroup({ className: "grid grid-cols-2 lg:flex" })}
-        >
-          {options.map((option) => (
-            <Radio.Root
-              key={option.value}
-              value={option.value}
-              className={segmentedItem({ className: "py-2.5 lg:flex-1" })}
-            >
-              {option.label}
-            </Radio.Root>
-          ))}
-        </div>
-      </Fieldset.Root>
-    </Field.Root>
-  );
-}
 
 export function CarDetails({
   value,
@@ -99,7 +45,7 @@ export function CarDetails({
       </div>
 
       <div className="grid gap-x-stack gap-y-stack lg:grid-cols-2">
-        <Segmented
+        <SegmentedField
           name="fuel"
           label={t("fuel.label")}
           options={FUEL_TYPES.map((item) => ({
@@ -206,7 +152,7 @@ export function CarDetails({
           </Select.Root>
         </Field.Root>
 
-        <Segmented
+        <SegmentedField
           name="vehicle"
           label={t("vehicle.label")}
           options={VEHICLE_TYPES.map((item) => ({
@@ -218,13 +164,9 @@ export function CarDetails({
           className="lg:col-span-2"
         />
 
-        <Segmented
+        <AuctionField
           name="auction"
           label={t("auction.label")}
-          options={AUCTION_TYPES.map((item) => ({
-            value: item,
-            label: t(`auction.${item}`),
-          }))}
           value={value.auction}
           onValueChange={(auction) => patch({ auction })}
           className="lg:col-span-2"

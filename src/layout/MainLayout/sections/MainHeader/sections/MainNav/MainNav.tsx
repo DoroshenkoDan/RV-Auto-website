@@ -100,7 +100,7 @@ export function MainNav({ className }: { className?: string }) {
         >
           <NavigationMenu.Popup
             className={cn(
-              "relative h-[var(--popup-height)] w-[var(--popup-width)] origin-[var(--transform-origin)] overflow-hidden rounded-sm border border-canvas/10 bg-night/95 text-canvas shadow-[0_16px_40px_--alpha(var(--color-night)/60%)] backdrop-blur-md transition-[opacity,transform,width,height] duration-300 ease-out data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0 motion-reduce:transition-none",
+              "relative h-[var(--popup-height)] w-[var(--popup-width)] origin-[var(--transform-origin)] overflow-hidden rounded-sm border border-canvas/10 bg-night/95 text-canvas shadow-[0_16px_40px_--alpha(var(--color-night)/60%)] backdrop-blur-md transition-[opacity,scale,width,height] duration-300 ease-out data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0 motion-reduce:transition-none",
               closesInstantly &&
                 "data-ending-style:invisible data-ending-style:transition-none",
             )}

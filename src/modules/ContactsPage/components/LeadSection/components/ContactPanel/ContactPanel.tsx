@@ -17,6 +17,7 @@ import { SelectedCarPanel } from "../SelectedCarPanel";
 function useCarSummary(car: CalculatorInput) {
   const t = useTranslations("contactsPage.leadSection.car");
   const panel = useTranslations("contactsPage.leadSection.panel");
+  const platforms = useTranslations("services.platforms");
   const locale = useLocale();
 
   const engine =
@@ -32,7 +33,7 @@ function useCarSummary(car: CalculatorInput) {
       .filter(Boolean)
       .join(" "),
     car.year,
-    t(`auction.${car.auction}`),
+    platforms(`${car.auction}.name`),
   ]
     .filter(Boolean)
     .join(", ");

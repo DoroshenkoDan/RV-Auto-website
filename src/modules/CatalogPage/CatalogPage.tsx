@@ -7,11 +7,7 @@ import { PagePagination } from "@/components/PagePagination";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { parseCarSort, parsePage, toCatalogQuery } from "@/lib/catalog/params";
-import {
-  getCars,
-  getCarStatusCounts,
-  type CarStatus,
-} from "@/lib/payload/cars";
+import { getCars, getCarsCount, type CarStatus } from "@/lib/payload/cars";
 import { buttonVariants } from "@/ui/button";
 import { Section } from "@/ui/section";
 
@@ -37,7 +33,7 @@ export async function CatalogPage({ status, sort, page }: Props) {
   const activeSort = parseCarSort(sort);
   const currentPage = parsePage(page);
 
-  const [result, counts] = await Promise.all([
+  const [result, totalCars] = await Promise.all([
     getCars({
       locale,
       status: activeStatus,
@@ -45,10 +41,10 @@ export async function CatalogPage({ status, sort, page }: Props) {
       page: currentPage,
       limit: PAGE_SIZE,
     }),
-    getCarStatusCounts(),
+    getCarsCount(),
   ]);
 
-  const hasCars = counts.all > 0;
+  const hasCars = totalCars > 0;
   const pageHref = (p: number) => ({
     pathname: "/cars",
     query: toCatalogQuery({ status: activeStatus, sort: activeSort, page: p }),
@@ -75,7 +71,6 @@ export async function CatalogPage({ status, sort, page }: Props) {
           <CatalogToolbar
             status={activeStatus}
             sort={activeSort}
-            counts={counts}
             className="mt-section-title"
           />
         )}

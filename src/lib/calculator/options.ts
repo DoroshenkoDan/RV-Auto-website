@@ -1,4 +1,5 @@
 import type {
+  AuctionRegion,
   AuctionType,
   CalculatorInput,
   FuelType,
@@ -19,7 +20,33 @@ export const VEHICLE_TYPES: VehicleType[] = [
   "motorcycle",
 ];
 
-export const AUCTION_TYPES: AuctionType[] = ["copart", "iaai"];
+export const AUCTION_GROUPS: {
+  region: AuctionRegion;
+  auctions: AuctionType[];
+}[] = [
+  { region: "usa", auctions: ["copart", "iaai", "manheim"] },
+  { region: "canada", auctions: ["iaaCanada"] },
+  { region: "europe", auctions: ["auto1", "bca", "exLeasing"] },
+  { region: "norway", auctions: ["finn"] },
+  { region: "korea", auctions: ["encar", "kbChaChaCha"] },
+  { region: "china", auctions: ["che168"] },
+];
+
+export const AUCTION_TYPES: AuctionType[] = AUCTION_GROUPS.flatMap(
+  ({ auctions }) => auctions,
+);
+
+export function getAuctionRegion(auction: AuctionType): AuctionRegion {
+  const group = AUCTION_GROUPS.find(({ auctions }) =>
+    auctions.includes(auction),
+  );
+
+  if (!group) {
+    throw new Error(`Unknown auction: ${auction}`);
+  }
+
+  return group.region;
+}
 
 export const ENGINE_VOLUME_LIMITS: Record<
   VehicleType,

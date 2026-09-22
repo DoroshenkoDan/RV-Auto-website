@@ -8,7 +8,7 @@ import { useRouter } from "@/i18n/navigation";
 import { CAR_SORTS, toCatalogQuery, type CarSort } from "@/lib/catalog/params";
 import type { CarStatus } from "@/lib/payload/cars";
 import { cn } from "@/lib/utils";
-import { segmentedGroup, segmentedItem } from "@/ui/field";
+import { SegmentedControl } from "@/ui/segmented-control";
 import {
   Select,
   SelectContent,
@@ -16,7 +16,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/ui/select";
-import { ToggleGroup, ToggleGroupItem } from "@/ui/toggle-group";
 
 type StatusTab = "all" | CarStatus;
 
@@ -25,11 +24,10 @@ const STATUS_TABS: StatusTab[] = ["all", "available", "inTransit", "auction"];
 interface Props {
   status?: CarStatus;
   sort: CarSort;
-  counts: Record<StatusTab, number>;
   className?: string;
 }
 
-export function CatalogToolbar({ status, sort, counts, className }: Props) {
+export function CatalogToolbar({ status, sort, className }: Props) {
   const t = useTranslations("catalogPage");
   const tTabs = useTranslations("homePage.catalog.tabs");
   const router = useRouter();
@@ -96,44 +94,21 @@ export function CatalogToolbar({ status, sort, counts, className }: Props) {
         className,
       )}
     >
-      <ToggleGroup
+      <SegmentedControl<StatusTab>
+        options={STATUS_TABS.map((tab) => ({ value: tab, label: tTabs(tab) }))}
+        value={status ?? "all"}
+        onValueChange={(next) =>
+          navigate({ status: next === "all" ? undefined : next, sort })
+        }
         aria-label={t("status")}
-        value={[status ?? "all"]}
-        onValueChange={([next]) => {
-          if (!next) return;
-          navigate({
-            status: next === "all" ? undefined : (next as CarStatus),
-            sort,
-          });
-        }}
-        spacing={1}
-        className={segmentedGroup({
-          tone: "dark",
-          className: "grid w-full grid-cols-2 sm:flex sm:w-fit",
-        })}
-      >
-        {STATUS_TABS.map((tab) => (
-          <ToggleGroupItem
-            key={tab}
-            value={tab}
-            className={segmentedItem({
-              tone: "dark",
-              className:
-                "group/tab h-control-sm w-full min-w-0 gap-2 px-3 hover:bg-transparent aria-pressed:bg-brand aria-pressed:font-semibold aria-pressed:text-night-soft aria-pressed:hover:text-night-soft sm:w-auto sm:px-4",
-            })}
-          >
-            <span className="truncate">{tTabs(tab)}</span>
-            <span className="inline-flex h-5 min-w-5 shrink-0 items-center justify-center rounded-full bg-sand/10 px-1.5 text-caption leading-none font-medium tabular-nums group-aria-pressed/tab:bg-night-soft/15">
-              {counts[tab]}
-            </span>
-          </ToggleGroupItem>
-        ))}
-      </ToggleGroup>
+        tone="dark"
+        size="sm"
+        stretch
+        className="lg:w-fit"
+      />
 
       <div className="flex items-center gap-3">
-        <span className="shrink-0 text-label text-sand/60">
-          {t("sort.label")}
-        </span>
+        <span className="shrink-0 text-label text-sand">{t("sort.label")}</span>
         <Select
           items={sortItems}
           modal={false}

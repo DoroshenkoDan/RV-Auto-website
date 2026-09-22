@@ -2,7 +2,21 @@ export type FuelType = "petrol" | "diesel" | "hybrid" | "electric";
 
 export type VehicleType = "car" | "suv" | "pickup" | "motorcycle";
 
-export type AuctionType = "copart" | "iaai";
+export type AuctionType =
+  | "copart"
+  | "iaai"
+  | "manheim"
+  | "iaaCanada"
+  | "auto1"
+  | "bca"
+  | "exLeasing"
+  | "finn"
+  | "encar"
+  | "kbChaChaCha"
+  | "che168";
+
+export type AuctionRegion =
+  "usa" | "canada" | "europe" | "norway" | "korea" | "china";
 
 export type CalculatorInput = {
   fuel: FuelType;
@@ -17,8 +31,8 @@ export type CalculatorInput = {
 export type EstimateLineKey =
   | "lotPrice"
   | "auctionFee"
-  | "usDelivery"
-  | "oceanFreight"
+  | "inlandDelivery"
+  | "freight"
   | "customs"
   | "vat"
   | "companyFee";

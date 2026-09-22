@@ -1,6 +1,8 @@
+import { getAuctionRegion } from "./options";
 import {
-  AUCTION_FEE_TIERS,
+  AUCTION_FEES,
   COMPANY_FEE_USD,
+  DUTY_FREE_REGIONS,
   EUR_TO_USD,
   EXCISE_AGE_LIMIT,
   EXCISE_ELECTRIC_EUR_PER_KWH,
@@ -8,15 +10,25 @@ import {
   EXCISE_MOTORCYCLE_EUR_PER_CC,
   EXCISE_MOTORCYCLE_FREE_VOLUME,
   EXCISE_TIERS,
+  FREIGHT_USD,
   IMPORT_DUTY_RATE,
-  OCEAN_FREIGHT_USD,
-  US_DELIVERY_USD,
+  INLAND_DELIVERY_USD,
   VAT_RATE,
 } from "./rates";
 import type { AuctionType, CalculatorEstimate, CalculatorInput } from "./types";
 
 function getAuctionFee(auction: AuctionType, lotPrice: number) {
-  const tier = AUCTION_FEE_TIERS[auction].find(
+  const rule = AUCTION_FEES[auction];
+
+  if (rule.kind === "flat") {
+    return rule.fee;
+  }
+
+  if (rule.kind === "percent") {
+    return Math.round(Math.min(lotPrice * rule.rate, rule.max) + rule.extra);
+  }
+
+  const tier = rule.tiers.find(
     ({ maxPrice }) => maxPrice === undefined || lotPrice <= maxPrice,
   );
 
@@ -80,28 +92,30 @@ export function estimate(input: CalculatorInput): CalculatorEstimate | null {
     return null;
   }
 
+  const region = getAuctionRegion(auction);
   const auctionFee = getAuctionFee(auction, lotPrice);
-  const usDelivery = US_DELIVERY_USD[vehicle];
-  const oceanFreight = OCEAN_FREIGHT_USD[vehicle];
+  const inlandDelivery = INLAND_DELIVERY_USD[region][vehicle];
+  const freight = FREIGHT_USD[region][vehicle];
 
-  const customsValue = lotPrice + auctionFee + usDelivery + oceanFreight;
+  const customsValue = lotPrice + auctionFee + inlandDelivery + freight;
 
-  const duty = customsValue * IMPORT_DUTY_RATE;
+  const dutyRate = DUTY_FREE_REGIONS.includes(region) ? 0 : IMPORT_DUTY_RATE;
+  const duty = customsValue * dutyRate;
   const excise = getExciseEur(input) * EUR_TO_USD;
   const vat = (customsValue + duty + excise) * VAT_RATE;
 
   const lines = [
     { key: "lotPrice", amount: lotPrice },
     { key: "auctionFee", amount: auctionFee },
-    { key: "usDelivery", amount: usDelivery },
-    { key: "oceanFreight", amount: oceanFreight },
+    { key: "inlandDelivery", amount: inlandDelivery },
+    { key: "freight", amount: freight },
     { key: "customs", amount: Math.round(duty + excise) },
     { key: "vat", amount: Math.round(vat) },
     { key: "companyFee", amount: COMPANY_FEE_USD },
   ] as const;
 
   return {
-    lines: [...lines],
+    lines: lines.filter((line) => line.amount > 0),
     total: lines.reduce((sum, line) => sum + line.amount, 0),
     customsValue: Math.round(customsValue),
     duty: Math.round(duty),

@@ -1,8 +1,12 @@
 import { describe, expect, it } from "vitest";
 
 import { estimate } from "./estimate";
-import { DEFAULT_CALCULATOR_INPUT } from "./options";
-import type { CalculatorInput } from "./types";
+import { AUCTION_TYPES, DEFAULT_CALCULATOR_INPUT } from "./options";
+import type {
+  CalculatorEstimate,
+  CalculatorInput,
+  EstimateLineKey,
+} from "./types";
 
 const petrolCar: CalculatorInput = {
   ...DEFAULT_CALCULATOR_INPUT,
@@ -19,6 +23,10 @@ function totalOf(input: CalculatorInput) {
   }
 
   return result;
+}
+
+function lineAmount(result: CalculatorEstimate, key: EstimateLineKey) {
+  return result.lines.find((line) => line.key === key)?.amount;
 }
 
 describe("estimate", () => {
@@ -105,11 +113,8 @@ describe("estimate", () => {
     const cheap = totalOf({ ...petrolCar, lotPrice: 500 });
     const dear = totalOf({ ...petrolCar, lotPrice: 501 });
 
-    const feeOf = (result: ReturnType<typeof totalOf>) =>
-      result.lines.find((line) => line.key === "auctionFee")?.amount;
-
-    expect(feeOf(cheap)).toBe(150);
-    expect(feeOf(dear)).toBe(225);
+    expect(lineAmount(cheap, "auctionFee")).toBe(150);
+    expect(lineAmount(dear, "auctionFee")).toBe(225);
   });
 
   it("charges a higher auction fee on iaai than on copart", () => {
@@ -117,5 +122,52 @@ describe("estimate", () => {
     const iaai = totalOf({ ...petrolCar, auction: "iaai" });
 
     expect(iaai.total).toBeGreaterThan(copart.total);
+  });
+
+  it("charges iaa canada a capped percentage plus service fees", () => {
+    const cheap = totalOf({
+      ...petrolCar,
+      auction: "iaaCanada",
+      lotPrice: 2000,
+    });
+    const dear = totalOf({
+      ...petrolCar,
+      auction: "iaaCanada",
+      lotPrice: 9400,
+    });
+
+    expect(lineAmount(cheap, "auctionFee")).toBe(340);
+    expect(lineAmount(dear, "auctionFee")).toBe(640);
+  });
+
+  it("omits the auction fee line for marketplaces", () => {
+    const result = totalOf({ ...petrolCar, auction: "encar" });
+
+    expect(lineAmount(result, "auctionFee")).toBeUndefined();
+  });
+
+  it("charges no import duty on cars from the eu", () => {
+    const result = totalOf({ ...petrolCar, auction: "bca" });
+
+    expect(result.duty).toBe(0);
+  });
+
+  it("keeps the import duty for cars from outside the eu", () => {
+    const result = totalOf({ ...petrolCar, auction: "finn" });
+
+    expect(result.duty).toBeGreaterThan(0);
+  });
+
+  it("skips inland delivery for trucked european cars", () => {
+    const result = totalOf({ ...petrolCar, auction: "auto1" });
+
+    expect(lineAmount(result, "inlandDelivery")).toBeUndefined();
+    expect(lineAmount(result, "freight")).toBeGreaterThan(0);
+  });
+
+  it("estimates every listed auction", () => {
+    for (const auction of AUCTION_TYPES) {
+      expect(estimate({ ...petrolCar, auction })).not.toBeNull();
+    }
   });
 });

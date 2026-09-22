@@ -55,18 +55,6 @@ export async function getCarsCount(status?: CarStatus): Promise<number> {
   return result.totalDocs;
 }
 
-export async function getCarStatusCounts(): Promise<
-  Record<"all" | CarStatus, number>
-> {
-  const [all, available, inTransit, auction] = await Promise.all([
-    getCarsCount(),
-    getCarsCount("available"),
-    getCarsCount("inTransit"),
-    getCarsCount("auction"),
-  ]);
-  return { all, available, inTransit, auction };
-}
-
 export async function getCarBySlug(
   slug: string,
   locale: Locale,

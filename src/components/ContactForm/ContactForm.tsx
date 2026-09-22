@@ -3,21 +3,14 @@
 import { useState } from "react";
 import { Field } from "@base-ui/react/field";
 import { Form } from "@base-ui/react/form";
-import { Radio } from "@base-ui/react/radio";
-import { RadioGroup } from "@base-ui/react/radio-group";
 import { Toast } from "@base-ui/react/toast";
 import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/ui/button";
-import {
-  FIELD_ERROR,
-  FIELD_ERROR_SLOT,
-  fieldControl,
-  segmentedGroup,
-  segmentedItem,
-} from "@/ui/field";
+import { FIELD_ERROR, FIELD_ERROR_SLOT, fieldControl } from "@/ui/field";
+import { SegmentedControl } from "@/ui/segmented-control";
 
 import { submitLead } from "./submitLead";
 import type { ContactFormValues, Messenger } from "./types";
@@ -151,30 +144,14 @@ export function ContactForm({
         </Field.Root>
 
         <Field.Root name="messenger">
-          <RadioGroup
+          <SegmentedControl
+            options={MESSENGERS}
             defaultValue={MESSENGERS[0].value}
             aria-label={t("messenger.label")}
-            className={segmentedGroup({
-              tone: "dark",
-              className: "flex h-control",
-            })}
-          >
-            {MESSENGERS.map((messenger) => (
-              <Radio.Root
-                key={messenger.value}
-                value={messenger.value}
-                className={segmentedItem({
-                  tone: "dark",
-                  className: cn(
-                    "flex-1 px-3",
-                    inRow && "lg:flex-initial lg:px-5",
-                  ),
-                })}
-              >
-                {messenger.label}
-              </Radio.Root>
-            ))}
-          </RadioGroup>
+            tone="dark"
+            stretch
+            className={cn(inRow && "lg:w-fit")}
+          />
         </Field.Root>
 
         <Button

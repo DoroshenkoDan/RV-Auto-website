@@ -3,8 +3,6 @@
 import { useEffect, useState, useTransition } from "react";
 import { Field } from "@base-ui/react/field";
 import { Form } from "@base-ui/react/form";
-import { Radio } from "@base-ui/react/radio";
-import { RadioGroup } from "@base-ui/react/radio-group";
 import { Toast } from "@base-ui/react/toast";
 import { useTranslations } from "next-intl";
 
@@ -20,10 +18,9 @@ import {
   FIELD_ROOT,
   fieldControl,
   fieldLabel,
-  segmentedGroup,
-  segmentedItem,
 } from "@/ui/field";
 import { SectionTitle } from "@/ui/section";
+import { SegmentedControl } from "@/ui/segmented-control";
 
 import { clearOrderCar } from "./clearOrderCar";
 import { CarDetails } from "./components/CarDetails";
@@ -119,26 +116,17 @@ export function LeadSection({
         </div>
 
         {!selectedCar && (
-          <RadioGroup
+          <SegmentedControl<LeadMode>
+            options={MODES.map((item) => ({
+              value: item,
+              label: form(`mode.${item}`),
+            }))}
             value={mode}
-            onValueChange={(next) => setMode(next as LeadMode)}
+            onValueChange={setMode}
             aria-label={form("mode.label")}
-            className={segmentedGroup({
-              className: "flex h-control shrink-0 self-stretch lg:self-auto",
-            })}
-          >
-            {MODES.map((item) => (
-              <Radio.Root
-                key={item}
-                value={item}
-                className={segmentedItem({
-                  className: "flex-1 px-5 lg:flex-initial",
-                })}
-              >
-                {form(`mode.${item}`)}
-              </Radio.Root>
-            ))}
-          </RadioGroup>
+            stretch
+            className="shrink-0 lg:w-fit"
+          />
         )}
       </div>
 
@@ -221,20 +209,11 @@ export function LeadSection({
               <Field.Label className={fieldLabel()}>
                 {form("messenger.label")}
               </Field.Label>
-              <RadioGroup
+              <SegmentedControl
+                options={MESSENGERS}
                 defaultValue={MESSENGERS[0].value}
-                className={segmentedGroup({ className: "flex h-control" })}
-              >
-                {MESSENGERS.map((messenger) => (
-                  <Radio.Root
-                    key={messenger.value}
-                    value={messenger.value}
-                    className={segmentedItem({ className: "flex-1 px-3" })}
-                  >
-                    {messenger.label}
-                  </Radio.Root>
-                ))}
-              </RadioGroup>
+                stretch
+              />
             </Field.Root>
           </div>
 

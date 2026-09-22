@@ -125,8 +125,8 @@
         "lines": {
           "lotPrice": "Lot price",
           "auctionFee": "Auction fee",
-          "usDelivery": "US delivery",
-          "oceanFreight": "Ocean freight",
+          "inlandDelivery": "Delivery to port",
+          "freight": "Shipping to Ukraine",
           "customs": "Duty and excise",
           "vat": "VAT",
           "companyFee": "Our service fee"
@@ -164,9 +164,15 @@
           "motorcycle": "Motorcycle"
         },
         "auction": {
-          "label": "Auction",
-          "copart": "Copart",
-          "iaai": "IAAI"
+          "label": "Auction or marketplace",
+          "regions": {
+            "usa": "USA",
+            "canada": "Canada",
+            "europe": "Europe",
+            "norway": "Norway",
+            "korea": "Korea",
+            "china": "China"
+          }
         },
         "lotPrice": {
           "label": "Lot price, $",
@@ -543,8 +549,8 @@
       "lines": {
         "lotPrice": "The winning bid at auction.",
         "auctionFee": "The auction commission, based on the lot price.",
-        "usDelivery": "Truck from the yard to a US port.",
-        "oceanFreight": "Container from the USA to a European port.",
+        "inlandDelivery": "Truck from the yard to a US port.",
+        "freight": "Container from the USA to a European port.",
         "customs": "10% duty plus excise based on engine size and age.",
         "vat": "20% of the customs value, duty and excise.",
         "companyFee": "Selection, bidding, logistics and deal support."
@@ -639,9 +645,7 @@
           "motorcycle": "Motorcycle"
         },
         "auction": {
-          "label": "Auction",
-          "copart": "Copart",
-          "iaai": "IAAI"
+          "label": "Auction or marketplace"
         },
         "engineVolume": {
           "label": "Engine volume, cc",

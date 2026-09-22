@@ -5,8 +5,8 @@ import { Field } from "@base-ui/react/field";
 import { Form } from "@base-ui/react/form";
 import { useLocale, useTranslations } from "next-intl";
 
+import { AuctionField } from "@/components/AuctionField";
 import {
-  AUCTION_TYPES,
   BATTERY_CAPACITY_LIMITS,
   DEFAULT_CALCULATOR_INPUT,
   ENGINE_VOLUME_LIMITS,
@@ -18,9 +18,9 @@ import {
 import type { CalculatorInput } from "@/lib/calculator/types";
 import { cn } from "@/lib/utils";
 import { Button } from "@/ui/button";
+import { SegmentedField } from "@/ui/segmented-control";
 
 import { AmountField } from "./components/AmountField";
-import { SegmentedField } from "./components/SegmentedField";
 import { YearField } from "./components/YearField";
 
 const YEAR_OPTIONS = getYearOptions();
@@ -150,13 +150,9 @@ export function CalculatorForm({
           className="lg:col-span-2"
         />
 
-        <SegmentedField
+        <AuctionField
           name="auction"
           label={t("auction.label")}
-          options={AUCTION_TYPES.map((value) => ({
-            value,
-            label: t(`auction.${value}`),
-          }))}
           value={values.auction}
           onValueChange={(auction) =>
             setValues((previous) => ({ ...previous, auction }))

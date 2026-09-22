@@ -28,29 +28,6 @@ const controlStyles = cva(
   },
 );
 
-const segmentedGroupStyles = cva("gap-1 rounded-sm border p-1.25", {
-  variants: {
-    tone: {
-      light: "border-line bg-surface",
-      dark: "border-sand/12 bg-night-soft",
-    },
-  },
-  defaultVariants: { tone: "light" },
-});
-
-const segmentedItemStyles = cva(
-  "flex cursor-pointer items-center justify-center rounded-[4px] text-center text-body transition-colors duration-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand data-checked:bg-brand data-checked:font-semibold data-checked:text-night-soft data-checked:hover:text-night-soft",
-  {
-    variants: {
-      tone: {
-        light: "text-ink-muted hover:text-ink",
-        dark: "text-sand/60 hover:text-sand",
-      },
-    },
-    defaultVariants: { tone: "light" },
-  },
-);
-
 type FieldStyle = { tone?: "light" | "dark"; className?: string };
 
 function fieldLabel({ className, ...variants }: FieldStyle = {}) {
@@ -61,20 +38,4 @@ function fieldControl({ className, ...variants }: FieldStyle = {}) {
   return cn(controlStyles(variants), className);
 }
 
-function segmentedGroup({ className, ...variants }: FieldStyle = {}) {
-  return cn(segmentedGroupStyles(variants), className);
-}
-
-function segmentedItem({ className, ...variants }: FieldStyle = {}) {
-  return cn(segmentedItemStyles(variants), className);
-}
-
-export {
-  FIELD_ERROR,
-  FIELD_ERROR_SLOT,
-  FIELD_ROOT,
-  fieldControl,
-  fieldLabel,
-  segmentedGroup,
-  segmentedItem,
-};
+export { FIELD_ERROR, FIELD_ERROR_SLOT, FIELD_ROOT, fieldControl, fieldLabel };
