@@ -1,16 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import { Dialog } from "@base-ui/react/dialog";
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { CallbackButton } from "@/components/CallbackButton";
+import { ContactForm } from "@/components/ContactForm";
 
 export function CallbackDialog() {
   const t = useTranslations("callback");
+  const [open, setOpen] = useState(false);
 
   return (
-    <Dialog.Root>
+    <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         aria-label={t("trigger")}
         render={
@@ -38,7 +41,11 @@ export function CallbackDialog() {
               {t("description")}
             </Dialog.Description>
 
-            <div className="mt-6 min-h-32" />
+            <ContactForm
+              tone="light"
+              className="mt-6"
+              onSuccess={() => setOpen(false)}
+            />
           </Dialog.Popup>
         </Dialog.Viewport>
       </Dialog.Portal>

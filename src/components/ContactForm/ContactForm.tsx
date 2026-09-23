@@ -24,13 +24,15 @@ const MESSENGERS: { value: Messenger; label: string }[] = [
 const NAME_PATTERN = /^\p{L}[\p{L}\s'’-]*$/u;
 const PHONE_PATTERN = /^\+?\d{10,15}$/;
 
-const CONTROL = fieldControl({ tone: "dark" });
-
 export function ContactForm({
   layout = "stack",
+  tone = "dark",
+  onSuccess,
   className,
 }: {
   layout?: "stack" | "row";
+  tone?: "light" | "dark";
+  onSuccess?: () => void;
   className?: string;
 }) {
   const t = useTranslations("contactForm");
@@ -39,6 +41,7 @@ export function ContactForm({
   const [submitting, setSubmitting] = useState(false);
 
   const inRow = layout === "row";
+  const control = fieldControl({ tone });
 
   async function handleSubmit(formValues: Record<string, unknown>) {
     setSubmitting(true);
@@ -64,6 +67,7 @@ export function ContactForm({
 
     if (ok) {
       setFormKey((previous) => previous + 1);
+      onSuccess?.();
     }
   }
 
@@ -101,7 +105,7 @@ export function ContactForm({
             autoComplete="name"
             aria-label={t("name.label")}
             placeholder={t("name.placeholder")}
-            className={CONTROL}
+            className={control}
           />
 
           <div className={FIELD_ERROR_SLOT}>
@@ -132,7 +136,7 @@ export function ContactForm({
             autoComplete="tel"
             aria-label={t("phone.label")}
             placeholder={t("phone.placeholder")}
-            className={CONTROL}
+            className={control}
           />
 
           <div className={FIELD_ERROR_SLOT}>
@@ -148,7 +152,7 @@ export function ContactForm({
             options={MESSENGERS}
             defaultValue={MESSENGERS[0].value}
             aria-label={t("messenger.label")}
-            tone="dark"
+            tone={tone}
             stretch
             className={cn(inRow && "lg:w-fit")}
           />
@@ -163,12 +167,20 @@ export function ContactForm({
         </Button>
       </div>
 
-      <p className="text-center text-label text-sand/45">
+      <p
+        className={cn(
+          "text-center text-label",
+          tone === "dark" ? "text-sand/45" : "text-ink-muted",
+        )}
+      >
         {t.rich("consent", {
           link: (chunks) => (
             <Link
               href="/privacy"
-              className="text-sand/70 transition-colors duration-200 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+              className={cn(
+                "transition-colors duration-200 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand",
+                tone === "dark" ? "text-sand/70" : "text-ink",
+              )}
             >
               {chunks}
             </Link>
