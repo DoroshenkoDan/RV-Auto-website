@@ -37,6 +37,27 @@ export function CarDetails({
     onValueChange({ ...value, ...changes });
   }
 
+  function patchFuel(fuel: CalculatorInput["fuel"]) {
+    patch(
+      fuel === "electric"
+        ? { fuel, engineVolume: null }
+        : { fuel, batteryCapacity: null },
+    );
+  }
+
+  function patchVehicle(vehicle: CalculatorInput["vehicle"]) {
+    const limits = ENGINE_VOLUME_LIMITS[vehicle];
+    const current = value.engineVolume;
+
+    patch({
+      vehicle,
+      engineVolume:
+        current === null
+          ? null
+          : Math.min(Math.max(current, limits.min), limits.max),
+    });
+  }
+
   return (
     <div className="flex flex-col gap-y-stack">
       <div>
@@ -53,7 +74,7 @@ export function CarDetails({
             label: t(`fuel.${item}`),
           }))}
           value={value.fuel}
-          onValueChange={(fuel) => patch({ fuel })}
+          onValueChange={patchFuel}
           className="lg:col-span-2"
         />
 
@@ -160,7 +181,7 @@ export function CarDetails({
             label: t(`vehicle.${item}`),
           }))}
           value={value.vehicle}
-          onValueChange={(vehicle) => patch({ vehicle })}
+          onValueChange={patchVehicle}
           className="lg:col-span-2"
         />
 

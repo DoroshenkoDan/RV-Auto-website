@@ -65,6 +65,12 @@
       }
     }
   },
+  "leads": {
+    "errors": {
+      "rateLimited": "Too many requests from your address. Please try again in a few minutes.",
+      "generic": "Please try again or give us a call."
+    }
+  },
   "carCard": {
     "price": "Turnkey price",
     "order": "Request this car",
@@ -674,6 +680,9 @@
         "success": {
           "title": "Request sent",
           "description": "A manager will contact you within 15 minutes."
+        },
+        "error": {
+          "title": "Could not send"
         }
       },
       "panel": {

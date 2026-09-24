@@ -1,7 +1,1 @@
-export type Messenger = "telegram" | "viber" | "whatsapp";
-
-export type ContactFormValues = {
-  name: string;
-  phone: string;
-  messenger: Messenger;
-};
+export type { LeadSource, Messenger } from "@/lib/leads";

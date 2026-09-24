@@ -6,77 +6,111 @@ import { Form } from "@base-ui/react/form";
 import { Toast } from "@base-ui/react/toast";
 import { useTranslations } from "next-intl";
 
+import { useLeadGuards } from "@/components/LeadGuards";
 import { Link } from "@/i18n/navigation";
+import {
+  NAME_MAX,
+  NAME_MIN,
+  NAME_PATTERN,
+  PHONE_PATTERN,
+  PHONE_RAW_MAX,
+  normalizePhone,
+  type LeadFailureReason,
+  type LeadResult,
+  type LeadSource,
+  type Messenger,
+} from "@/lib/leads";
+import { submitLead } from "@/lib/leads/submitLead";
 import { cn } from "@/lib/utils";
 import { Button } from "@/ui/button";
 import { FIELD_ERROR, FIELD_ERROR_SLOT, fieldControl } from "@/ui/field";
 import { SegmentedControl } from "@/ui/segmented-control";
 
-import { submitLead } from "./submitLead";
-import type { ContactFormValues, Messenger } from "./types";
-
-const MESSENGERS: { value: Messenger; label: string }[] = [
+const MESSENGER_OPTIONS: { value: Messenger; label: string }[] = [
   { value: "telegram", label: "Telegram" },
   { value: "viber", label: "Viber" },
   { value: "whatsapp", label: "WhatsApp" },
 ];
 
-const NAME_PATTERN = /^\p{L}[\p{L}\s'’-]*$/u;
-const PHONE_PATTERN = /^\+?\d{10,15}$/;
-
 export function ContactForm({
+  source,
   layout = "stack",
   tone = "dark",
   onSuccess,
   className,
 }: {
+  source: LeadSource;
   layout?: "stack" | "row";
   tone?: "light" | "dark";
   onSuccess?: () => void;
   className?: string;
 }) {
   const t = useTranslations("contactForm");
+  const errors = useTranslations("leads.errors");
   const toastManager = Toast.useToastManager();
   const [formKey, setFormKey] = useState(0);
   const [submitting, setSubmitting] = useState(false);
 
+  const { guards, readGuards } = useLeadGuards();
+
   const inRow = layout === "row";
   const control = fieldControl({ tone });
+
+  function showError(reason: LeadFailureReason) {
+    toastManager.add({
+      type: "error",
+      priority: "high",
+      title: t("toast.error.title"),
+      description: errors(
+        reason === "rate-limited" ? "rateLimited" : "generic",
+      ),
+    });
+  }
 
   async function handleSubmit(formValues: Record<string, unknown>) {
     setSubmitting(true);
 
-    const values: ContactFormValues = {
-      name: String(formValues.name ?? "").trim(),
-      phone: String(formValues.phone ?? "").trim(),
-      messenger: formValues.messenger as Messenger,
-    };
+    let result: LeadResult;
 
-    const ok = await submitLead(values);
+    try {
+      result = await submitLead({
+        ...formValues,
+        ...readGuards(),
+        source,
+      });
+    } catch {
+      showError("failed");
 
-    setSubmitting(false);
+      return;
+    } finally {
+      setSubmitting(false);
+    }
 
-    toastManager.add({
-      type: ok ? "success" : "error",
-      priority: ok ? "low" : "high",
-      title: ok ? t("toast.success.title") : t("toast.error.title"),
-      description: ok
-        ? t("toast.success.description")
-        : t("toast.error.description"),
-    });
+    if (result.ok) {
+      toastManager.add({
+        type: "success",
+        priority: "low",
+        title: t("toast.success.title"),
+        description: t("toast.success.description"),
+      });
 
-    if (ok) {
       setFormKey((previous) => previous + 1);
       onSuccess?.();
+
+      return;
     }
+
+    showError(result.reason);
   }
 
   return (
     <Form
       key={formKey}
       onFormSubmit={handleSubmit}
-      className={cn("flex flex-col gap-y-3", className)}
+      className={cn("relative flex flex-col gap-y-3", className)}
     >
+      {guards}
+
       <div
         className={cn(
           "flex flex-col gap-3",
@@ -92,7 +126,7 @@ export function ContactForm({
               return null;
             }
 
-            return raw.length >= 2 && NAME_PATTERN.test(raw)
+            return raw.length >= NAME_MIN && NAME_PATTERN.test(raw)
               ? null
               : t("name.invalid");
           }}
@@ -101,7 +135,7 @@ export function ContactForm({
           <Field.Control
             type="text"
             required
-            maxLength={60}
+            maxLength={NAME_MAX}
             autoComplete="name"
             aria-label={t("name.label")}
             placeholder={t("name.placeholder")}
@@ -119,7 +153,7 @@ export function ContactForm({
         <Field.Root
           name="phone"
           validate={(value) => {
-            const raw = String(value ?? "").replace(/[\s()-]/g, "");
+            const raw = normalizePhone(String(value ?? ""));
 
             if (!raw) {
               return null;
@@ -132,6 +166,7 @@ export function ContactForm({
           <Field.Control
             type="tel"
             required
+            maxLength={PHONE_RAW_MAX}
             inputMode="tel"
             autoComplete="tel"
             aria-label={t("phone.label")}
@@ -149,8 +184,8 @@ export function ContactForm({
 
         <Field.Root name="messenger">
           <SegmentedControl
-            options={MESSENGERS}
-            defaultValue={MESSENGERS[0].value}
+            options={MESSENGER_OPTIONS}
+            defaultValue={MESSENGER_OPTIONS[0].value}
             aria-label={t("messenger.label")}
             tone={tone}
             stretch

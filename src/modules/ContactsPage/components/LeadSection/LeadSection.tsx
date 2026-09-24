@@ -6,10 +6,23 @@ import { Form } from "@base-ui/react/form";
 import { Toast } from "@base-ui/react/toast";
 import { useTranslations } from "next-intl";
 
+import { useLeadGuards } from "@/components/LeadGuards";
 import { Link, useRouter } from "@/i18n/navigation";
 import { estimate } from "@/lib/calculator/estimate";
 import { DEFAULT_CALCULATOR_INPUT } from "@/lib/calculator/options";
 import type { CalculatorInput } from "@/lib/calculator/types";
+import {
+  COMMENT_MAX,
+  NAME_MAX,
+  NAME_MIN,
+  NAME_PATTERN,
+  PHONE_PATTERN,
+  PHONE_RAW_MAX,
+  normalizePhone,
+  type LeadFailureReason,
+  type LeadResult,
+} from "@/lib/leads";
+import { submitLead } from "@/lib/leads/submitLead";
 import { cn } from "@/lib/utils";
 import { Button } from "@/ui/button";
 import {
@@ -25,19 +38,15 @@ import { SegmentedControl } from "@/ui/segmented-control";
 import { clearOrderCar } from "./clearOrderCar";
 import { CarDetails } from "./components/CarDetails";
 import { ContactPanel } from "./components/ContactPanel";
-import { submitLead } from "./submitLead";
 import type { LeadCar, LeadMode, Messenger } from "./types";
 
 const MODES: LeadMode[] = ["simple", "detailed"];
 
-const MESSENGERS: { value: Messenger; label: string }[] = [
+const MESSENGER_OPTIONS: { value: Messenger; label: string }[] = [
   { value: "telegram", label: "Telegram" },
   { value: "viber", label: "Viber" },
   { value: "whatsapp", label: "WhatsApp" },
 ];
-
-const NAME_PATTERN = /^\p{L}[\p{L}\s'’-]*$/u;
-const PHONE_PATTERN = /^\+?\d{10,15}$/;
 
 export function LeadSection({
   initialInput,
@@ -50,6 +59,7 @@ export function LeadSection({
 }) {
   const t = useTranslations("contactsPage");
   const form = useTranslations("contactsPage.leadSection");
+  const errors = useTranslations("leads.errors");
   const toastManager = Toast.useToastManager();
   const router = useRouter();
   const [, startTransition] = useTransition();
@@ -63,6 +73,8 @@ export function LeadSection({
   const [comment, setComment] = useState("");
   const [formKey, setFormKey] = useState(0);
   const [submitting, setSubmitting] = useState(false);
+
+  const { guards, readGuards } = useLeadGuards();
 
   const detailed = !selectedCar && mode === "detailed";
   const result = estimate(car);
@@ -78,20 +90,44 @@ export function LeadSection({
     });
   }
 
+  function showError(reason: LeadFailureReason) {
+    toastManager.add({
+      type: "error",
+      priority: "high",
+      title: form("toast.error.title"),
+      description: errors(
+        reason === "rate-limited" ? "rateLimited" : "generic",
+      ),
+    });
+  }
+
   async function handleSubmit(formValues: Record<string, unknown>) {
     setSubmitting(true);
 
-    await submitLead({
-      name: String(formValues.name ?? "").trim(),
-      phone: String(formValues.phone ?? "").trim(),
-      messenger: formValues.messenger as Messenger,
-      comment: comment.trim(),
-      calculation:
-        detailed && result ? { input: car, total: result.total } : null,
-      car: selectedCar && { slug: selectedCar.slug, title: selectedCar.title },
-    });
+    let outcome: LeadResult;
 
-    setSubmitting(false);
+    try {
+      outcome = await submitLead({
+        ...formValues,
+        ...readGuards(),
+        source: "contacts",
+        comment,
+        calculation: detailed && result ? car : null,
+        carSlug: selectedCar?.slug ?? null,
+      });
+    } catch {
+      showError("failed");
+
+      return;
+    } finally {
+      setSubmitting(false);
+    }
+
+    if (!outcome.ok) {
+      showError(outcome.reason);
+
+      return;
+    }
 
     toastManager.add({
       type: "success",
@@ -134,8 +170,10 @@ export function LeadSection({
         <Form
           key={formKey}
           onFormSubmit={handleSubmit}
-          className="flex flex-col bg-white p-block"
+          className="relative flex flex-col bg-white p-block"
         >
+          {guards}
+
           <div className="grid gap-x-stack gap-y-stack sm:grid-cols-2">
             <Field.Root
               name="name"
@@ -146,7 +184,7 @@ export function LeadSection({
                   return null;
                 }
 
-                return raw.length >= 2 && NAME_PATTERN.test(raw)
+                return raw.length >= NAME_MIN && NAME_PATTERN.test(raw)
                   ? null
                   : form("name.invalid");
               }}
@@ -158,7 +196,7 @@ export function LeadSection({
               <Field.Control
                 type="text"
                 required
-                maxLength={60}
+                maxLength={NAME_MAX}
                 autoComplete="name"
                 placeholder={form("name.placeholder")}
                 className={fieldControl()}
@@ -175,7 +213,7 @@ export function LeadSection({
             <Field.Root
               name="phone"
               validate={(value) => {
-                const raw = String(value ?? "").replace(/[\s()-]/g, "");
+                const raw = normalizePhone(String(value ?? ""));
 
                 if (!raw) {
                   return null;
@@ -191,6 +229,7 @@ export function LeadSection({
               <Field.Control
                 type="tel"
                 required
+                maxLength={PHONE_RAW_MAX}
                 inputMode="tel"
                 autoComplete="tel"
                 placeholder={form("phone.placeholder")}
@@ -210,8 +249,8 @@ export function LeadSection({
                 {form("messenger.label")}
               </Field.Label>
               <SegmentedControl
-                options={MESSENGERS}
-                defaultValue={MESSENGERS[0].value}
+                options={MESSENGER_OPTIONS}
+                defaultValue={MESSENGER_OPTIONS[0].value}
                 stretch
               />
             </Field.Root>
@@ -239,7 +278,7 @@ export function LeadSection({
             </Field.Label>
             <Field.Control
               render={<textarea rows={4} />}
-              maxLength={600}
+              maxLength={COMMENT_MAX}
               value={comment}
               onChange={(event) => setComment(event.target.value)}
               placeholder={form("comment.placeholder")}
