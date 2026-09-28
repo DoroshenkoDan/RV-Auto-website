@@ -1,26 +1,47 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { HERO_SLIDE_DURATION } from "./slides";
+import type { CarouselApi } from "@/ui/carousel";
 
-export function useHeroSlideshow(count: number) {
+export function useHeroSlideshow(api: CarouselApi) {
   const [active, setActive] = useState(0);
+  const [previous, setPrevious] = useState(0);
   const [cycle, setCycle] = useState(0);
-
-  const goTo = useCallback((index: number) => {
-    setActive(index);
-    setCycle((current) => current + 1);
-  }, []);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!api) return;
 
-    const timeout = window.setTimeout(() => {
-      setActive((current) => (current + 1) % count);
+    const onSelect = () => {
+      setActive(api.selectedScrollSnap());
+      setPrevious(api.previousScrollSnap());
+    };
+    const onTimerSet = () => {
+      setPlaying(true);
       setCycle((current) => current + 1);
-    }, HERO_SLIDE_DURATION);
+    };
+    const onTimerStopped = () => setPlaying(false);
 
-    return () => window.clearTimeout(timeout);
-  }, [active, cycle, count]);
+    onSelect();
+    if (api.plugins().autoplay?.isPlaying()) onTimerSet();
 
-  return { active, cycle, goTo };
+    api.on("select", onSelect);
+    api.on("autoplay:timerset", onTimerSet);
+    api.on("autoplay:timerstopped", onTimerStopped);
+
+    return () => {
+      api.off("select", onSelect);
+      api.off("autoplay:timerset", onTimerSet);
+      api.off("autoplay:timerstopped", onTimerStopped);
+    };
+  }, [api]);
+
+  const goTo = useCallback(
+    (index: number) => {
+      api?.scrollTo(index);
+      api?.plugins().autoplay?.reset();
+    },
+    [api],
+  );
+
+  return { active, previous, cycle, playing, goTo };
 }

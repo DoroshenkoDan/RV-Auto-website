@@ -25,6 +25,8 @@
     "@payloadcms/ui": "3.86.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-fade": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "graphql": "^16.8.1",
     "lucide-react": "^1.28.0",

@@ -10,6 +10,7 @@ export function HeroProgress({
   slides,
   active,
   cycle,
+  playing,
   label,
   onSelect,
   className,
@@ -17,6 +18,7 @@ export function HeroProgress({
   slides: Pick<HeroSlide, "key" | "label">[];
   active: number;
   cycle: number;
+  playing: boolean;
   label: string;
   onSelect: (index: number) => void;
   className?: string;
@@ -45,7 +47,10 @@ export function HeroProgress({
               {isActive && (
                 <span
                   key={cycle}
-                  className="block size-full origin-left animate-hero-progress bg-brand motion-reduce:animate-none"
+                  className={cn(
+                    "block size-full origin-left animate-hero-progress bg-brand motion-reduce:animate-none",
+                    !playing && "[animation-play-state:paused]",
+                  )}
                 />
               )}
             </span>

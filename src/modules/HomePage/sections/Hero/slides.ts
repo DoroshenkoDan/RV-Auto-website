@@ -1,9 +1,9 @@
-export const HERO_SLIDE_DURATION = 6000;
+export const HERO_SLIDE_DURATION = 8000;
 
 export const HERO_SLIDES = [
   {
-    key: "usEu",
-    href: "/cars",
+    key: "import",
+    href: "/contacts",
     image: "/images/HomePage/Hero/delivery.webp",
   },
   {
@@ -13,7 +13,7 @@ export const HERO_SLIDES = [
   },
   {
     key: "selling",
-    href: "/contacts",
+    href: "/services/consignment",
     image: "/images/HomePage/Hero/deal.webp",
   },
 ] as const;

@@ -9,25 +9,20 @@ import type { HeroSlide } from "../../types";
 export function HeroSlideCard({
   slide,
   isActive,
+  isZooming,
   priority,
 }: {
   slide: HeroSlide;
   isActive: boolean;
+  isZooming: boolean;
   priority?: boolean;
 }) {
-  const Title = isActive ? "h1" : "p";
-
   return (
-    <article
-      data-active={isActive}
-      aria-hidden={!isActive}
-      inert={!isActive}
-      className="group absolute inset-0 transition-opacity duration-700 ease-out data-[active=false]:opacity-0"
-    >
+    <article data-active={isActive} className="group absolute inset-0">
       <div
         className={cn(
           "absolute inset-0",
-          isActive && "animate-hero-zoom motion-reduce:animate-none",
+          isZooming && "animate-hero-zoom motion-reduce:animate-none",
         )}
       >
         <Image
@@ -46,16 +41,16 @@ export function HeroSlideCard({
 
       <div className="relative page-shell flex h-full flex-col justify-center py-section lg:px-12 xl:px-20">
         <div className="grid gap-y-stack transition-transform duration-700 ease-out group-data-[active=false]:translate-y-2 motion-reduce:transition-none lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-x-16">
-          <div className="flex max-w-152 flex-col items-start gap-y-stack">
-            <Title className="font-logo text-hero font-bold text-sand">
+          <div className="flex max-w-200 flex-col items-start gap-y-stack">
+            <h2 className="font-logo text-hero font-bold text-sand">
               {slide.titleLead}
               <br />
               <span className="text-brand underline decoration-[0.05em] underline-offset-[0.14em]">
                 {slide.titleAccent}
               </span>
-            </Title>
+            </h2>
 
-            <p className="max-w-[24.375rem] text-lead text-sand/75">
+            <p className="max-w-128 text-lead text-sand/75">
               {slide.description}
             </p>
 

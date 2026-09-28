@@ -76,7 +76,7 @@
 
   --animate-hero-progress: hero-progress var(--hero-duration, 6s) linear
     forwards;
-  --animate-hero-zoom: hero-zoom 7s ease-out forwards;
+  --animate-hero-zoom: hero-zoom 9s ease-out forwards;
 
   --animate-lamp: lamp-flicker 6s linear infinite;
 

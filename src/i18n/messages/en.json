@@ -93,31 +93,33 @@
   },
   "homePage": {
     "hero": {
+      "title": "Turnkey car import from the USA, Canada, Europe, Norway, Korea and China",
+      "label": "Featured offers",
       "navLabel": "Slider navigation",
       "slides": {
-        "usEu": {
-          "label": "USA + Europe",
-          "titleLead": "Two markets.",
-          "titleAccent": "One contract.",
-          "description": "Copart, IAAI and Manheim in the USA plus European auction sites. We compare them and take whichever works out better for you.",
-          "cta": "Find a car",
-          "meta": "Copart · IAAI · Manheim · EU"
+        "import": {
+          "label": "Car import",
+          "titleLead": "Tell us the car.",
+          "titleAccent": "We handle the rest.",
+          "description": "We find it at auctions and marketplaces in six countries, check its history and deliver it turnkey.",
+          "cta": "Discuss your car",
+          "meta": "USA · Canada · Europe · Norway · Korea · China"
         },
         "catalog": {
           "label": "Catalog",
-          "titleLead": "You pick the car.",
-          "titleAccent": "We inspect it.",
-          "description": "Live auction lots, cars already on their way and cars in stock — all in one catalog.",
-          "cta": "Browse catalog",
-          "meta": "Lots · In transit · In stock"
+          "titleLead": "We have picked them.",
+          "titleAccent": "You just choose.",
+          "description": "Checked cars in stock and on their way. We found them, inspected them and brought them over, so you do not have to wait.",
+          "cta": "Choose a car",
+          "meta": "Selected · Inspected · In stock"
         },
         "selling": {
           "label": "Selling a car",
-          "titleLead": "We sell your car.",
+          "titleLead": "We sell it or buy it.",
           "titleAccent": "Hassle-free.",
-          "description": "Appraisal, prep and sale, turnkey. You get the money, we handle everything else.",
+          "description": "We sell at market price, free for you. Or we buy your car in one day and pay on the spot.",
           "cta": "Get an appraisal",
-          "meta": "Appraisal · Prep · Sale"
+          "meta": "Market price · Buyout in 1 day"
         }
       }
     },
