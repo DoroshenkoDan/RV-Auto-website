@@ -192,6 +192,7 @@ export function LeadSection({
             >
               <Field.Label className={fieldLabel()}>
                 {form("name.label")}
+                <span aria-hidden="true">*</span>
               </Field.Label>
               <Field.Control
                 type="text"
@@ -225,6 +226,7 @@ export function LeadSection({
             >
               <Field.Label className={fieldLabel()}>
                 {form("phone.label")}
+                <span aria-hidden="true">*</span>
               </Field.Label>
               <Field.Control
                 type="tel"
