@@ -1,11 +1,14 @@
-export const PHONE_HREF = "tel:+380000000000";
-export const PHONE_DISPLAY = "+38 000 000 00 00";
+export const PHONE_HREF = "tel:+380938241360";
+export const PHONE_DISPLAY = "+38 093 824 13 60";
 
 export const SOCIAL_LINKS = [
-  { name: "Instagram", href: "#" },
-  { name: "Telegram", href: "#" },
-  { name: "Facebook", href: "#" },
-  { name: "TikTok", href: "#" },
+  { name: "Instagram", href: "https://www.instagram.com/revolution.auto1/" },
+  { name: "Telegram", href: "https://t.me/RevolutionAuto1" },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61590442718988",
+  },
+  { name: "TikTok", href: "https://www.tiktok.com/@revolution_auto" },
 ] as const;
 
 export type SocialName = (typeof SOCIAL_LINKS)[number]["name"];

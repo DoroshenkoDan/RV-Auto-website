@@ -276,7 +276,7 @@
   "aboutPage": {
     "meta": {
       "title": "About us — Revolution Auto: car import from the USA and Europe",
-      "description": "Revolution Auto is a team with 8+ years of experience importing cars from the USA, Europe, China and Korea. 600+ cars delivered turnkey: sourcing, bidding at Copart and IAAI, shipping and customs clearance. Based in Lviv, working across Ukraine."
+      "description": "Revolution Auto is a team with 8+ years of experience importing cars from the USA, Europe, China and Korea. 600+ cars delivered turnkey: sourcing, bidding at Copart and IAAI, shipping and customs clearance. Based in Kyiv, working across Ukraine."
     },
     "intro": {
       "eyebrow": "About the company",
@@ -1362,16 +1362,73 @@
       }
     }
   },
+  "privacyPage": {
+    "meta": {
+      "title": "Privacy Policy | Revolution Auto",
+      "description": "What personal data Revolution Auto receives through the website, why it is needed, who it is shared with, how long it is kept and how to exercise your rights."
+    },
+    "hero": {
+      "eyebrow": "Legal information",
+      "title": "Privacy Policy",
+      "lede": "What data we receive through the website, why we need it and how we protect it.",
+      "updated": "Last updated on 9 October 2026"
+    },
+    "sections": {
+      "general": {
+        "title": "General provisions",
+        "body": "<p>This Policy explains how Sole Proprietor Dudko Dmytro Borysovych (\"Revolution Auto\", \"we\") collects, uses and protects the personal data of website visitors. We are the controller of personal data within the meaning of the Law of Ukraine \"On Personal Data Protection\".</p><p>This Policy applies only to this website. Third-party websites and services we link to (social networks, messengers, auctions) have their own data processing rules.</p>"
+      },
+      "data": {
+        "title": "What data we collect",
+        "body": "<p>We only receive the data you enter in a request form yourself:</p><ul><li>your name;</li><li>your phone number;</li><li>the messenger you prefer us to reply in (Telegram, Viber or WhatsApp);</li><li>your comment, if you left one;</li><li>the car parameters from the cost calculator and the calculated result, if the request was sent from the calculator;</li><li>the catalog car you are interested in, if the request was sent from a car page.</li></ul><p>When you submit a request, we also briefly process your IP address to protect the forms from spam. It is kept only in the server memory for up to 10 minutes and is never written to storage.</p><p>We do not collect passport, payment or other sensitive data through the website.</p>"
+      },
+      "purposes": {
+        "title": "Why we use the data",
+        "body": "<ul><li>to contact you about your request and answer your questions;</li><li>to estimate the cost, find a suitable car and offer terms of cooperation;</li><li>to prepare and sign a contract if you decide to use our services;</li><li>to protect the website from spam and abuse.</li></ul><p>We do not send marketing messages without your separate consent and we do not sell your data.</p>"
+      },
+      "legalBasis": {
+        "title": "Legal basis for processing",
+        "body": "<p>We process data based on the consent you give by pressing the request submit button, and to take steps at your request before entering into a contract. You can withdraw your consent at any time as described in the \"Your rights\" section.</p>"
+      },
+      "sharing": {
+        "title": "Who we share data with",
+        "body": "<p>Only Revolution Auto employees who handle requests have access to your data. To run the website, we use service providers that process data on our behalf:</p><ul><li><b>KeyCRM</b>: the CRM system where requests are stored;</li><li><b>the hosting provider</b> whose servers run the website;</li><li><b>Telegram, Viber or WhatsApp</b>: if we talk to you in a messenger, the conversation is processed by that platform under its own rules.</li></ul><p>If you sign a contract with us, the necessary data may be shared with partners involved in fulfilling it: auctions, carriers, forwarders and customs brokers, including outside Ukraine (in the USA, Canada, European countries, Korea or China). We share only the data without which the contract cannot be fulfilled.</p><p>We may also disclose data upon a lawful request from public authorities.</p>"
+      },
+      "retention": {
+        "title": "How long we keep data",
+        "body": "<ul><li>requests that did not lead to a contract: up to 1 year from the date received;</li><li>data of clients we signed a contract with: for the term of the contract and 3 years after it is fulfilled (the limitation period);</li><li>IP address for spam protection: up to 10 minutes.</li></ul><p>Once the period ends, the data is deleted. If you withdraw your consent earlier, we will delete your data except for what we are required to keep by law.</p>"
+      },
+      "cookies": {
+        "title": "Cookies",
+        "body": "<p>The website uses only technical cookies that some features need to work. They are not used for advertising or tracking:</p><ul><li><code>rv-order-car</code>: remembers the catalog car you chose for a request on the contacts page. Kept for 3 days.</li><li><code>NEXT_LOCALE</code>: remembers the website language you selected. Kept until you close the browser.</li></ul><p>We do not use analytics or advertising cookies. You can delete or block cookies in your browser settings, but then the selected car will not be filled into the form automatically.</p>"
+      },
+      "security": {
+        "title": "How we protect data",
+        "body": "<p>Data is transmitted over a secure connection (HTTPS). The website does not keep requests in its own database: they go straight to the CRM, which only authorized employees with personal accounts can access.</p>"
+      },
+      "rights": {
+        "title": "Your rights",
+        "body": "<p>Under Article 8 of the Law of Ukraine \"On Personal Data Protection\", you have the right to:</p><ul><li>know what data of yours we process, for what purpose and who we share it with;</li><li>access your data;</li><li>request correction of inaccurate data;</li><li>request deletion of your data or the end of its processing;</li><li>withdraw your consent to processing;</li><li>object to processing;</li><li>file a complaint with the Ukrainian Parliament Commissioner for Human Rights or a court.</li></ul>"
+      },
+      "contacts": {
+        "title": "How to contact us",
+        "body": "<p>Personal data controller: Sole Proprietor Dudko Dmytro Borysovych.</p><p>For questions about your data, email <mail>{email}</mail> or use the details on the <contacts>Contacts</contacts> page. We will reply within 30 calendar days.</p>"
+      },
+      "changes": {
+        "title": "Changes to this Policy",
+        "body": "<p>We may update this Policy when the website or the law changes. The current version is always available on this page, and the date of the last update is shown at the top.</p>"
+      }
+    }
+  },
   "footer": {
     "tagline": "Cars from the USA and Europe, turnkey.",
     "navTitle": "Navigation",
     "servicesTitle": "Services",
     "contactsTitle": "Contacts",
-    "address": "10 Pryklad St., Lviv",
-    "workHours": "MON–SAT · 10:00–19:00",
+    "address": "27-A Hlybochytska St., Kyiv",
+    "workHours": "MON–FRI · 10:00–19:00",
     "copyright": "© {year} Revolution Auto",
-    "privacy": "Privacy policy",
-    "offer": "Terms of offer"
+    "privacy": "Privacy policy"
   },
   "errorPages": {
     "eyebrowNotFound": "404",
