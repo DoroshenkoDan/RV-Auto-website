@@ -81,6 +81,47 @@
       "auction": "Цікавий лот"
     }
   },
+  "carPage": {
+    "gallery": {
+      "prev": "Попереднє фото",
+      "next": "Наступне фото",
+      "counter": "{current} / {total}",
+      "thumbnail": "Показати фото {index}",
+      "open": "Відкрити на весь екран",
+      "close": "Закрити"
+    },
+    "specs": {
+      "mileage": "Пробіг",
+      "mileageValue": "{value} км",
+      "engine": "Двигун",
+      "drivetrain": "Привід",
+      "transmission": "КПП",
+      "vin": "VIN"
+    },
+    "transmission": {
+      "automatic": "Автомат",
+      "manual": "Механіка"
+    },
+    "copyVin": "Скопіювати VIN",
+    "copied": "Скопійовано",
+    "description": {
+      "title": "Опис"
+    },
+    "features": {
+      "title": "Комплектація"
+    },
+    "similar": {
+      "title": "Схожі авто",
+      "viewAll": "Весь каталог"
+    },
+    "cta": {
+      "title": "Не знайшли те, що шукали?",
+      "description": "Залиште контакти, і менеджер підбере авто під ваш бюджет на аукціонах і маркетплейсах шести країн."
+    },
+    "meta": {
+      "description": "{title} {year} року за {price} під ключ. Фото, характеристики та замовлення в Revolution Auto."
+    }
+  },
   "reviewCard": {
     "quote": "«{quote}»",
     "deliveryDays": "{count, plural, one {# день від торгів до видачі} few {# дні від торгів до видачі} many {# днів від торгів до видачі} other {# дня від торгів до видачі}}",

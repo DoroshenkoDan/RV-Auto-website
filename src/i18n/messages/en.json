@@ -81,6 +81,47 @@
       "auction": "Hot lot"
     }
   },
+  "carPage": {
+    "gallery": {
+      "prev": "Previous photo",
+      "next": "Next photo",
+      "counter": "{current} / {total}",
+      "thumbnail": "Show photo {index}",
+      "open": "Open full screen",
+      "close": "Close"
+    },
+    "specs": {
+      "mileage": "Mileage",
+      "mileageValue": "{value} km",
+      "engine": "Engine",
+      "drivetrain": "Drivetrain",
+      "transmission": "Transmission",
+      "vin": "VIN"
+    },
+    "transmission": {
+      "automatic": "Automatic",
+      "manual": "Manual"
+    },
+    "copyVin": "Copy VIN",
+    "copied": "Copied",
+    "description": {
+      "title": "Description"
+    },
+    "features": {
+      "title": "Features"
+    },
+    "similar": {
+      "title": "Similar cars",
+      "viewAll": "Full catalog"
+    },
+    "cta": {
+      "title": "Did not find what you were looking for?",
+      "description": "Leave your contacts and a manager will find a car within your budget at auctions and marketplaces in six countries."
+    },
+    "meta": {
+      "description": "{year} {title} for {price} turnkey. Photos, specs and ordering at Revolution Auto."
+    }
+  },
   "reviewCard": {
     "quote": "“{quote}”",
     "deliveryDays": "{count, plural, one {# day from auction to handover} other {# days from auction to handover}}",

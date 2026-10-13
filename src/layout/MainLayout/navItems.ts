@@ -40,7 +40,7 @@ export const NAV_LINKS: readonly NavLink[] = NAV_ITEMS.flatMap((item) =>
 );
 
 export function isNavItemActive(pathname: string, href: string) {
-  return pathname === href || pathname.startsWith(`${href}/`);
+  return pathname === href;
 }
 
 export function isNavGroupActive(pathname: string, group: NavGroup) {

@@ -1,8 +1,13 @@
-import type { PaginatedDocs } from "payload";
+import { cache } from "react";
+import type { PaginatedDocs, Where } from "payload";
 
 import type { Car } from "@/payload-types";
 import type { Locale } from "@/i18n/routing";
 import { CAR_SORT_FIELDS, type CarSort } from "@/lib/catalog/params";
+import {
+  SIMILAR_CARS_LIMIT,
+  pickClosestByPrice,
+} from "@/lib/catalog/similarCars";
 
 import { getPayloadClient } from "./client";
 
@@ -55,7 +60,7 @@ export async function getCarsCount(status?: CarStatus): Promise<number> {
   return result.totalDocs;
 }
 
-export async function getCarBySlug(
+export const getCarBySlug = cache(async function getCarBySlug(
   slug: string,
   locale: Locale,
 ): Promise<Car | null> {
@@ -68,4 +73,53 @@ export async function getCarBySlug(
     limit: 1,
   });
   return result.docs[0] ?? null;
+});
+
+async function findNearestByPrice(
+  car: Car,
+  locale: Locale,
+  where: Where,
+): Promise<Car[]> {
+  const payload = await getPayloadClient();
+  const query = (side: Where, sort: string) =>
+    payload.find({
+      collection: "cars",
+      where: { and: [where, side] },
+      locale,
+      sort,
+      depth: 1,
+      limit: SIMILAR_CARS_LIMIT,
+    });
+
+  const [cheaper, pricier] = await Promise.all([
+    query({ price: { less_than_equal: car.price } }, "-price"),
+    query({ price: { greater_than: car.price } }, "price"),
+  ]);
+
+  return pickClosestByPrice(
+    [...cheaper.docs, ...pricier.docs],
+    car.price,
+    SIMILAR_CARS_LIMIT,
+  );
+}
+
+export async function getSimilarCars(car: Car, locale: Locale): Promise<Car[]> {
+  const sameStatus = await findNearestByPrice(car, locale, {
+    and: [{ id: { not_equals: car.id } }, { status: { equals: car.status } }],
+  });
+
+  if (sameStatus.length >= SIMILAR_CARS_LIMIT) return sameStatus;
+
+  const others = await findNearestByPrice(car, locale, {
+    id: { not_in: [car.id, ...sameStatus.map(({ id }) => id)] },
+  });
+
+  return [
+    ...sameStatus,
+    ...pickClosestByPrice(
+      others,
+      car.price,
+      SIMILAR_CARS_LIMIT - sameStatus.length,
+    ),
+  ];
 }

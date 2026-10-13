@@ -5,18 +5,13 @@ import type { Car } from "@/payload-types";
 import { Link } from "@/i18n/navigation";
 import { formatUsd } from "@/lib/utils";
 import { CarPhotoCarousel } from "@/components/CarPhotoCarousel";
+import { CarStatusBadge } from "@/components/CarStatusBadge";
 import { buttonVariants } from "@/ui/button";
 
 interface Props {
   car: Car;
   className?: string;
 }
-
-const STATUS_BADGE_CLASS: Record<Car["status"], string> = {
-  available: "bg-brand/85",
-  inTransit: "bg-night-soft/85",
-  auction: "bg-ink/85",
-};
 
 export function CatalogCard({ className = "", car }: Props) {
   const t = useTranslations("carCard");
@@ -35,14 +30,10 @@ export function CatalogCard({ className = "", car }: Props) {
           fill
           revealControlsOnHover
         />
-        <span
-          className={cn(
-            "absolute top-2 left-2 rounded-full px-2 py-0.5 text-[clamp(0.600rem,0.53rem+0.12vw,0.725rem)] leading-[1.3] font-semibold tracking-wide text-white uppercase backdrop-blur-sm",
-            STATUS_BADGE_CLASS[car.status],
-          )}
-        >
-          {t(`status.${car.status}`)}
-        </span>
+        <CarStatusBadge
+          status={car.status}
+          className="absolute top-2 left-2 backdrop-blur-sm"
+        />
       </div>
       <div className="flex flex-1 flex-col p-stack">
         <div className="flex items-baseline justify-between gap-2">

@@ -14,7 +14,20 @@ import {
 
 import { CarouselProgress } from "./CarouselProgress";
 
-const STOP_AT_LG = "(min-width: 64rem)";
+const STOP_AT = {
+  lg: {
+    query: "(min-width: 64rem)",
+    content: "lg:ml-0 lg:grid lg:grid-cols-3 lg:gap-stack",
+    item: "lg:pl-0",
+    hidden: "lg:hidden",
+  },
+  xl: {
+    query: "(min-width: 80rem)",
+    content: "xl:ml-0 xl:grid xl:grid-cols-4 xl:gap-stack",
+    item: "xl:pl-0",
+    hidden: "xl:hidden",
+  },
+} as const;
 const ARROW = [
   "hidden md:inline-flex",
   "size-(--spacing-control-sm) rounded-sm border-0 bg-night text-sand",
@@ -36,7 +49,7 @@ function watchDrag(
 
 interface Props {
   children: ReactNode;
-  stopAt?: "lg";
+  stopAt?: keyof typeof STOP_AT;
   resetKey?: string | number;
   className?: string;
   itemClassName?: string;
@@ -58,7 +71,7 @@ export function CardCarousel({
 
   if (count === 0) return null;
 
-  const stopsAtLg = stopAt === "lg";
+  const stop = stopAt ? STOP_AT[stopAt] : null;
 
   return (
     <div className={className}>
@@ -68,18 +81,14 @@ export function CardCarousel({
           align: "start",
           containScroll: "trimSnaps",
           watchDrag,
-          ...(stopsAtLg && {
-            breakpoints: { [STOP_AT_LG]: { active: false } },
+          ...(stop && {
+            breakpoints: { [stop.query]: { active: false } },
           }),
         }}
       >
-        <CarouselContent
-          className={cn(
-            stopsAtLg && "lg:ml-0 lg:grid lg:grid-cols-3 lg:gap-stack",
-          )}
-        >
+        <CarouselContent className={cn(stop?.content)}>
           {Children.map(children, (child) => (
-            <CarouselItem className={cn(stopsAtLg && "lg:pl-0", itemClassName)}>
+            <CarouselItem className={cn(stop?.item, itemClassName)}>
               {child}
             </CarouselItem>
           ))}
@@ -87,21 +96,14 @@ export function CardCarousel({
 
         {count > 1 && (
           <>
-            <CarouselPrevious
-              className={cn(ARROW, "-left-3", stopsAtLg && "lg:hidden")}
-            />
-            <CarouselNext
-              className={cn(ARROW, "-right-3", stopsAtLg && "lg:hidden")}
-            />
+            <CarouselPrevious className={cn(ARROW, "-left-3", stop?.hidden)} />
+            <CarouselNext className={cn(ARROW, "-right-3", stop?.hidden)} />
           </>
         )}
       </Carousel>
 
       {count > 1 && (
-        <CarouselProgress
-          api={api}
-          className={cn("mt-stack", stopsAtLg && "lg:hidden")}
-        />
+        <CarouselProgress api={api} className={cn("mt-stack", stop?.hidden)} />
       )}
     </div>
   );
