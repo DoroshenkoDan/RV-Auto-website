@@ -46,11 +46,9 @@ export function CarSummary({
 
         <div className="mt-2 flex flex-wrap items-center gap-2 text-label text-ink-muted">
           <span>{car.year}</span>
-          {car.damageTag && (
-            <span className="rounded-sm border border-line px-2 py-0.5 text-caption">
-              {car.damageTag}
-            </span>
-          )}
+          <span className="rounded-sm border border-line px-2 py-0.5 text-caption">
+            {t(`condition.${car.condition}`)}
+          </span>
         </div>
 
         <p className="mt-block text-caption tracking-wide text-ink-muted uppercase">

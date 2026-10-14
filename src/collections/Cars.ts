@@ -74,6 +74,23 @@ export const Cars: CollectionConfig = {
       ],
     },
     {
+      name: "condition",
+      type: "select",
+      required: true,
+      options: [
+        { label: { uk: "Без пошкоджень", en: "No damage" }, value: "noDamage" },
+        { label: { uk: "Відновлене", en: "Repaired" }, value: "repaired" },
+        {
+          label: { uk: "Легкі пошкодження", en: "Minor damage" },
+          value: "minorDamage",
+        },
+        {
+          label: { uk: "Потребує ремонту", en: "Needs repair" },
+          value: "needsRepair",
+        },
+      ],
+    },
+    {
       name: "featured",
       type: "checkbox",
       defaultValue: false,
@@ -133,11 +150,6 @@ export const Cars: CollectionConfig = {
         { label: "Automatic", value: "automatic" },
         { label: "Manual", value: "manual" },
       ],
-    },
-    {
-      name: "damageTag",
-      type: "text",
-      localized: true,
     },
     {
       name: "currentBid",

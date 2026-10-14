@@ -1,5 +1,6 @@
 import * as migration_20260908_120337_initial from './20260908_120337_initial';
 import * as migration_20260916_154037_remove_car_notes from './20260916_154037_remove_car_notes';
+import * as migration_20261014_140016_car_condition from './20261014_140016_car_condition';
 
 export const migrations = [
   {
@@ -10,6 +11,11 @@ export const migrations = [
   {
     up: migration_20260916_154037_remove_car_notes.up,
     down: migration_20260916_154037_remove_car_notes.down,
-    name: '20260916_154037_remove_car_notes'
+    name: '20260916_154037_remove_car_notes',
+  },
+  {
+    up: migration_20261014_140016_car_condition.up,
+    down: migration_20261014_140016_car_condition.down,
+    name: '20261014_140016_car_condition'
   },
 ];

@@ -120,6 +120,12 @@
     },
     "meta": {
       "description": "{title} {year} року за {price} під ключ. Фото, характеристики та замовлення в Revolution Auto."
+    },
+    "condition": {
+      "noDamage": "Без пошкоджень",
+      "repaired": "Відновлене",
+      "minorDamage": "Легкі пошкодження",
+      "needsRepair": "Потребує ремонту"
     }
   },
   "reviewCard": {

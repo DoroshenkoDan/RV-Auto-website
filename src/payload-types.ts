@@ -264,6 +264,7 @@ export interface Car {
       }[]
     | null;
   status: 'available' | 'inTransit' | 'auction';
+  condition: 'noDamage' | 'repaired' | 'minorDamage' | 'needsRepair';
   /**
    * Show this car in the homepage preview
    */
@@ -278,7 +279,6 @@ export interface Car {
   engine: string;
   drivetrain: 'AWD' | '4WD' | 'FWD' | 'RWD';
   transmission: 'automatic' | 'manual';
-  damageTag?: string | null;
   currentBid?: number | null;
   price: number;
   updatedAt: string;
@@ -533,6 +533,7 @@ export interface CarsSelect<T extends boolean = true> {
         id?: T;
       };
   status?: T;
+  condition?: T;
   featured?: T;
   photoFolder?: T;
   gallery?: T;
@@ -541,7 +542,6 @@ export interface CarsSelect<T extends boolean = true> {
   engine?: T;
   drivetrain?: T;
   transmission?: T;
-  damageTag?: T;
   currentBid?: T;
   price?: T;
   updatedAt?: T;

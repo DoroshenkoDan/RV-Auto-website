@@ -120,6 +120,12 @@
     },
     "meta": {
       "description": "{year} {title} for {price} turnkey. Photos, specs and ordering at Revolution Auto."
+    },
+    "condition": {
+      "noDamage": "No damage",
+      "repaired": "Repaired",
+      "minorDamage": "Minor damage",
+      "needsRepair": "Needs repair"
     }
   },
   "reviewCard": {
