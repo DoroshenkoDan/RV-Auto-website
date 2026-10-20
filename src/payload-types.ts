@@ -258,10 +258,81 @@ export interface Car {
   title: string;
   description?: string | null;
   features?:
-    | {
-        value: string;
-        id?: string | null;
-      }[]
+    | (
+        | 'airConditioning'
+        | 'climateControl'
+        | 'dualZoneClimate'
+        | 'multiZoneClimate'
+        | 'auxiliaryHeater'
+        | 'leatherInterior'
+        | 'sportSeats'
+        | 'heatedSeats'
+        | 'heatedRearSeats'
+        | 'ventilatedSeats'
+        | 'massageSeats'
+        | 'powerSeats'
+        | 'seatMemory'
+        | 'thirdRowSeats'
+        | 'heatedSteeringWheel'
+        | 'powerSteeringColumn'
+        | 'paddleShifters'
+        | 'heatedWindshield'
+        | 'keylessEntry'
+        | 'pushButtonStart'
+        | 'remoteStart'
+        | 'digitalKey'
+        | 'powerTailgate'
+        | 'softCloseDoors'
+        | 'rearSunshades'
+        | 'coolerBox'
+        | 'sunroof'
+        | 'panoramicRoof'
+        | 'ambientLighting'
+        | 'cruiseControl'
+        | 'adaptiveCruise'
+        | 'laneKeeping'
+        | 'blindSpot'
+        | 'emergencyBraking'
+        | 'trafficSignRecognition'
+        | 'driverAttention'
+        | 'nightVision'
+        | 'hillStartAssist'
+        | 'hillDescentControl'
+        | 'parkingSensors'
+        | 'rearCamera'
+        | 'frontCamera'
+        | 'camera360'
+        | 'parkAssist'
+        | 'headUpDisplay'
+        | 'tirePressureMonitoring'
+        | 'navigation'
+        | 'appleCarPlay'
+        | 'androidAuto'
+        | 'voiceControl'
+        | 'premiumAudio'
+        | 'rearEntertainment'
+        | 'wirelessCharging'
+        | 'wifiHotspot'
+        | 'digitalCluster'
+        | 'ledHeadlights'
+        | 'matrixHeadlights'
+        | 'autoHighBeam'
+        | 'fogLights'
+        | 'lightSensor'
+        | 'rainSensor'
+        | 'heatedMirrors'
+        | 'powerFoldingMirrors'
+        | 'tintedWindows'
+        | 'roofRails'
+        | 'powerRunningBoards'
+        | 'alloyWheels'
+        | 'winterTires'
+        | 'adaptiveSuspension'
+        | 'airSuspension'
+        | 'rearWheelSteering'
+        | 'differentialLock'
+        | 'towHitch'
+      )[]
     | null;
   status: 'available' | 'inTransit' | 'auction';
   condition: 'noDamage' | 'repaired' | 'minorDamage' | 'needsRepair';
@@ -526,12 +597,7 @@ export interface CarsSelect<T extends boolean = true> {
   vin?: T;
   title?: T;
   description?: T;
-  features?:
-    | T
-    | {
-        value?: T;
-        id?: T;
-      };
+  features?: T;
   status?: T;
   condition?: T;
   featured?: T;

@@ -1,12 +1,9 @@
-import type { ReactNode } from "react";
-
 import { cn } from "@/lib/utils";
 
 interface Props {
   eyebrow: string;
   title: string;
   description: string;
-  action?: ReactNode;
   className?: string;
 }
 
@@ -14,7 +11,6 @@ export function EmptyState({
   eyebrow,
   title,
   description,
-  action,
   className = "",
 }: Props) {
   return (
@@ -47,12 +43,6 @@ export function EmptyState({
       <p className="mt-stack max-w-lg text-lead text-pretty text-ink-muted">
         {description}
       </p>
-
-      {action ? (
-        <div className="mt-block flex flex-col items-center gap-4 sm:flex-row">
-          {action}
-        </div>
-      ) : null}
     </div>
   );
 }

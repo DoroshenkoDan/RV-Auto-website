@@ -4,11 +4,9 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { CatalogCard } from "@/components/CatalogCard";
 import { EmptyState } from "@/components/EmptyState";
 import { PagePagination } from "@/components/PagePagination";
-import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { parseCarSort, parsePage, toCatalogQuery } from "@/lib/catalog/params";
 import { getCars, getCarsCount, type CarStatus } from "@/lib/payload/cars";
-import { buttonVariants } from "@/ui/button";
 import { Section } from "@/ui/section";
 
 import { CatalogToolbar } from "./components/CatalogToolbar";
@@ -103,14 +101,6 @@ export async function CatalogPage({ status, sort, page }: Props) {
             eyebrow={t("emptyFilter.eyebrow")}
             title={t("emptyFilter.title")}
             description={t("emptyFilter.description")}
-            action={
-              <Link
-                href="/cars"
-                className={buttonVariants({ variant: "outline" })}
-              >
-                {t("emptyFilter.action")}
-              </Link>
-            }
           />
         ) : (
           <div className="grid gap-stack sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">

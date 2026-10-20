@@ -1,6 +1,9 @@
 import type { CollectionConfig } from "payload";
 
 import { pullCarPhotosFromFolder } from "@/collections/hooks/pullCarPhotosFromFolder";
+import en from "@/i18n/messages/en.json";
+import uk from "@/i18n/messages/uk.json";
+import { CAR_FEATURES } from "@/lib/catalog/carFeatures";
 import {
   revalidateCatalogAfterChange,
   revalidateCatalogAfterDelete,
@@ -52,16 +55,15 @@ export const Cars: CollectionConfig = {
     },
     {
       name: "features",
-      type: "array",
-      labels: { singular: "Feature", plural: "Features" },
-      fields: [
-        {
-          name: "value",
-          type: "text",
-          required: true,
-          localized: true,
+      type: "select",
+      hasMany: true,
+      options: CAR_FEATURES.map((value) => ({
+        value,
+        label: {
+          uk: uk.carPage.features.items[value],
+          en: en.carPage.features.items[value],
         },
-      ],
+      })),
     },
     {
       name: "status",

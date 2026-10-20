@@ -1,12 +1,12 @@
 import { useTranslations } from "next-intl";
 
-import type { Car } from "@/payload-types";
+import { sortCarFeatures, type CarFeature } from "@/lib/catalog/carFeatures";
 
 export function CarFeatures({
   features,
   className = "",
 }: {
-  features: NonNullable<Car["features"]>;
+  features: readonly CarFeature[];
   className?: string;
 }) {
   const t = useTranslations("carPage.features");
@@ -15,12 +15,12 @@ export function CarFeatures({
     <section className={className}>
       <h2 className="mb-stack font-logo text-h3 font-bold">{t("title")}</h2>
       <ul className="flex flex-wrap gap-2">
-        {features.map((feature) => (
+        {sortCarFeatures(features).map((feature) => (
           <li
-            key={feature.id}
+            key={feature}
             className="rounded-full border border-line bg-white px-3 py-1.5 text-label"
           >
-            {feature.value}
+            {t(`items.${feature}`)}
           </li>
         ))}
       </ul>

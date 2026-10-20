@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { EmptyState } from "@/components/EmptyState";
 import type { Car } from "@/payload-types";
 import type { CarStatus } from "@/lib/payload/cars";
 import { SegmentedControl } from "@/ui/segmented-control";
@@ -9,7 +10,6 @@ import { CatalogGrid } from "../CatalogGrid";
 type Tab = "all" | CarStatus;
 const TABS: Tab[] = ["all", "available", "inTransit", "auction"];
 const MAX_CARDS = 6;
-// TODO: add empty state for tabs with no featured cars of the selected status
 
 interface Props {
   cars: Car[];
@@ -32,7 +32,15 @@ export function CatalogTabs({ cars }: Props) {
         aria-label={tCatalog("status")}
         size="sm"
       />
-      <CatalogGrid cars={filteredCars} resetKey={activeTab} />
+      {filteredCars.length > 0 ? (
+        <CatalogGrid cars={filteredCars} resetKey={activeTab} />
+      ) : (
+        <EmptyState
+          eyebrow={tCatalog("emptyFilter.eyebrow")}
+          title={tCatalog("emptyFilter.title")}
+          description={tCatalog("emptyFilter.description")}
+        />
+      )}
     </div>
   );
 }
