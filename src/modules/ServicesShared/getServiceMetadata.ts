@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 import type { Locale } from "@/i18n/routing";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 import type { ServiceKey } from "./servicesConfig";
 
@@ -14,8 +15,10 @@ export async function getServiceMetadata(
     namespace: `services.${service}.meta`,
   });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: `/services/${service}`,
     title: t("title"),
     description: t("description"),
-  };
+  });
 }

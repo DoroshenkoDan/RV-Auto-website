@@ -15,22 +15,26 @@ export default function Error({
   const t = useTranslations("errorPages");
 
   return (
-    <StatusScreen
-      eyebrow={t("eyebrowError")}
-      titleLead={t("titleLead")}
-      titleAccent={t("titleAccent")}
-      description={t("descriptionError")}
-    >
-      <Button size="lg" onClick={() => unstable_retry()}>
-        {t("retry")}
-      </Button>
+    <>
+      <meta name="robots" content="noindex" />
 
-      <Link
-        href="/"
-        className={buttonVariants({ variant: "outlineOnDark", size: "lg" })}
+      <StatusScreen
+        eyebrow={t("eyebrowError")}
+        titleLead={t("titleLead")}
+        titleAccent={t("titleAccent")}
+        description={t("descriptionError")}
       >
-        {t("home")}
-      </Link>
-    </StatusScreen>
+        <Button size="lg" onClick={() => unstable_retry()}>
+          {t("retry")}
+        </Button>
+
+        <Link
+          href="/"
+          className={buttonVariants({ variant: "outlineOnDark", size: "lg" })}
+        >
+          {t("home")}
+        </Link>
+      </StatusScreen>
+    </>
   );
 }

@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import type { Locale } from "@/i18n/routing";
 import { getCarBySlug } from "@/lib/payload/cars";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { formatUsd } from "@/lib/utils";
 import { CarPage } from "@/modules/CarPage";
 
@@ -27,8 +28,10 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "carPage.meta" });
 
   // TODO: add openGraph.images from the first gallery photo once metadataBase is set in the root layout (Payload media URLs are relative)
-  return {
-    title: car.title,
+  return buildPageMetadata({
+    locale,
+    path: `/cars/${car.slug}`,
+    title: t("title", { title: car.title }),
     description: car.description
       ? truncate(car.description, META_DESCRIPTION_MAX)
       : t("description", {
@@ -36,7 +39,7 @@ export async function generateMetadata({
           year: car.year,
           price: formatUsd(car.price),
         }),
-  };
+  });
 }
 
 export default async function Page({

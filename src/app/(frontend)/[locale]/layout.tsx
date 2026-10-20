@@ -1,11 +1,15 @@
 import type { ReactNode } from "react";
+import type { Metadata } from "next";
 import { JetBrains_Mono, Manrope, Unbounded } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 
+import { JsonLd } from "@/components/JsonLd";
 import { routing } from "@/i18n/routing";
 import { MainLayout } from "@/layout/MainLayout";
+import { buildOrganizationJsonLd } from "@/lib/seo/jsonLd";
+import { SITE_URL } from "@/lib/seo/site";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
@@ -26,6 +30,10 @@ const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   display: "swap",
 });
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+};
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -56,6 +64,7 @@ export default async function FrontendLayout({
       )}
     >
       <body className="flex min-h-dvh flex-col">
+        <JsonLd data={buildOrganizationJsonLd()} />
         <NextIntlClientProvider>
           <MainLayout>{children}</MainLayout>
         </NextIntlClientProvider>

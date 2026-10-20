@@ -194,6 +194,7 @@
       "description": "Leave your contacts and a manager will find a car within your budget at auctions and marketplaces in six countries."
     },
     "meta": {
+      "title": "{title} | Revolution Auto",
       "description": "{year} {title} for {price} turnkey. Photos, specs and ordering at Revolution Auto."
     },
     "condition": {
@@ -214,6 +215,10 @@
     "description": "Our mechanic is already hunting for that one bolt. Check back a bit later, it should fire up."
   },
   "homePage": {
+    "meta": {
+      "title": "Turnkey car import from the USA, Europe, Korea and China | Revolution Auto",
+      "description": "Revolution Auto imports cars turnkey from the USA, Canada, Europe, Norway, Korea and China: selection, auction bidding, shipping and customs clearance. Online cost calculator."
+    },
     "hero": {
       "title": "Turnkey car import from the USA, Canada, Europe, Norway, Korea and China",
       "label": "Featured offers",
@@ -340,7 +345,7 @@
         },
         "delivery": {
           "title": "Delivery and handover",
-          "description": "By sea to the port of Klaipeda, then by car carrier to you. Our customs broker handles the clearance — and you pick up a ready car. Around 44 days on average."
+          "description": "By sea to the port of Klaipeda, then by car carrier to you. Our customs broker handles the clearance, and you pick up a ready car. Around 44 days on average."
         }
       },
       "ctaLabel": "Ready to price your exact car?",
@@ -370,7 +375,7 @@
         },
         "damage": {
           "question": "What if the car is damaged during shipping?",
-          "answer": "Every car is insured for the entire route. We photograph its condition at the US warehouse, at container loading and at handover. If damage occurs in transit, we file the insurance claim and cover the repair — you don't."
+          "answer": "Every car is insured for the entire route. We photograph its condition at the US warehouse, at container loading and at handover. If damage occurs in transit, we file the insurance claim and cover the repair, not you."
         },
         "inspection": {
           "question": "Can the car be inspected before purchase?",
@@ -397,7 +402,7 @@
   },
   "aboutPage": {
     "meta": {
-      "title": "About us — Revolution Auto: car import from the USA and Europe",
+      "title": "About us | Revolution Auto: car import from the USA and Europe",
       "description": "Revolution Auto is a team with 8+ years of experience importing cars from the USA, Europe, China and Korea. 600+ cars delivered turnkey: sourcing, bidding at Copart and IAAI, shipping and customs clearance. Based in Kyiv, working across Ukraine."
     },
     "intro": {
@@ -456,14 +461,18 @@
         "years": "{count, plural, one {# year} other {# years}}",
         "cars": "{count, number}"
       },
-      "photoAlt": "{name} — {role} at Revolution Auto"
+      "photoAlt": "{name}, {role} at Revolution Auto"
     },
     "cta": {
       "title": "Let's price the turnkey import of your car",
-      "description": "Leave your contacts — a manager will get in touch within 15 minutes and quote a car from the USA, Europe, China or Korea."
+      "description": "Leave your contacts and a manager will get in touch within 15 minutes and quote a car from the USA, Europe, China or Korea."
     }
   },
   "catalogPage": {
+    "meta": {
+      "title": "Car catalog: in stock, in transit and auction lots | Revolution Auto",
+      "description": "Cars in stock in Ukraine, cars in transit and current auction lots from the USA, Europe and Asia. Turnkey prices, photos and specs."
+    },
     "eyebrow": "Catalog",
     "title": "Choose your car today",
     "lede": "Cars in stock in Ukraine, cars on the way and current auction lots. Pick a car and we will prepare a turnkey cost estimate.",
@@ -488,6 +497,10 @@
     "paginationLabel": "Catalog pages"
   },
   "reviewsPage": {
+    "meta": {
+      "title": "Client reviews | Revolution Auto",
+      "description": "Revolution Auto client reviews on turnkey car import: real stories from choosing the lot to getting the keys."
+    },
     "eyebrow": "Reviews",
     "title": "Client reviews",
     "lede": "Stories of people we brought cars for: from choosing the lot to the keys in hand.",
@@ -731,6 +744,10 @@
     }
   },
   "contactsPage": {
+    "meta": {
+      "title": "Contacts | Revolution Auto",
+      "description": "Contact Revolution Auto: +38 093 824 13 60, 27-A Hlybochytska St., Kyiv. Leave a car import request and we will reply within one business day."
+    },
     "title": "Contacts",
     "lede": "Send a request or call us directly. We reply the same working day.",
     "leadSection": {

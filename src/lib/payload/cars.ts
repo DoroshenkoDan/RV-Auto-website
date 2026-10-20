@@ -4,6 +4,7 @@ import type { PaginatedDocs, Where } from "payload";
 import type { Car } from "@/payload-types";
 import type { Locale } from "@/i18n/routing";
 import { CAR_SORT_FIELDS, type CarSort } from "@/lib/catalog/params";
+import type { SitemapCar } from "@/lib/seo/sitemap";
 import {
   SIMILAR_CARS_LIMIT,
   pickClosestByPrice,
@@ -122,4 +123,15 @@ export async function getSimilarCars(car: Car, locale: Locale): Promise<Car[]> {
       SIMILAR_CARS_LIMIT - sameStatus.length,
     ),
   ];
+}
+
+export async function getSitemapCars(): Promise<SitemapCar[]> {
+  const payload = await getPayloadClient();
+  const result = await payload.find({
+    collection: "cars",
+    select: { slug: true, updatedAt: true },
+    depth: 0,
+    pagination: false,
+  });
+  return result.docs.map(({ slug, updatedAt }) => ({ slug, updatedAt }));
 }

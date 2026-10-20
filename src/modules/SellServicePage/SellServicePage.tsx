@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 
 import { CtaSection } from "@/components/CtaSection";
 import { HeroFacts } from "@/modules/ServicesShared/components/HeroFacts";
+import { ServiceBreadcrumbs } from "@/modules/ServicesShared/components/ServiceBreadcrumbs";
 import { SellCompare } from "@/modules/ServicesShared/sections/SellCompare";
 import { SellSteps } from "@/modules/ServicesShared/sections/SellSteps";
 import { ServiceFaq } from "@/modules/ServicesShared/sections/ServiceFaq";
@@ -17,6 +18,7 @@ export function SellServicePage({ service }: { service: SellService }) {
 
   return (
     <>
+      <ServiceBreadcrumbs service={service} />
       <ServiceHero service={service} secondaryAction="compare">
         <HeroFacts service={service} facts={facts} />
       </ServiceHero>

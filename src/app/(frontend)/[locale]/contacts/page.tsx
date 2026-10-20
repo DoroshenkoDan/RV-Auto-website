@@ -1,8 +1,28 @@
+import type { Metadata } from "next";
 import { cookies } from "next/headers";
+import { getTranslations } from "next-intl/server";
 
+import type { Locale } from "@/i18n/routing";
 import { parseCalculatorParams } from "@/lib/calculator/params";
 import { ORDER_CAR_COOKIE, resolveOrderCarSlug } from "@/lib/catalog/orderCar";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { ContactsPage } from "@/modules/ContactsPage";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "contactsPage.meta" });
+
+  return buildPageMetadata({
+    locale,
+    path: "/contacts",
+    title: t("title"),
+    description: t("description"),
+  });
+}
 
 export default async function Page({
   searchParams,

@@ -1,4 +1,5 @@
-export const PHONE_HREF = "tel:+380938241360";
+export const PHONE_E164 = "+380938241360";
+export const PHONE_HREF = `tel:${PHONE_E164}`;
 export const PHONE_DISPLAY = "+38 093 824 13 60";
 
 export const SOCIAL_LINKS = [

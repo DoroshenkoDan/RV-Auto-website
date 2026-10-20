@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 
 import { CtaSection } from "@/components/CtaSection";
 import { HeroStats } from "@/modules/ServicesShared/components/HeroStats";
+import { ServiceBreadcrumbs } from "@/modules/ServicesShared/components/ServiceBreadcrumbs";
 import { ImportStages } from "@/modules/ServicesShared/sections/ImportStages";
 import { ServiceFaq } from "@/modules/ServicesShared/sections/ServiceFaq";
 import { ServiceFeatures } from "@/modules/ServicesShared/sections/ServiceFeatures";
@@ -19,6 +20,7 @@ export function ImportServicePage({ country }: { country: ImportCountry }) {
 
   return (
     <>
+      <ServiceBreadcrumbs service={country} />
       <ServiceHero service={country} secondaryAction="catalog">
         <HeroStats service={country} facts={IMPORT_COUNTRY_FACTS} />
       </ServiceHero>
