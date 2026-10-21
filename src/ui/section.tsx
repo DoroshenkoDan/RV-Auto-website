@@ -26,18 +26,20 @@ function Section({
 }
 
 function SectionTitle({
+  as: Heading = "h2",
   align = "start",
   spacing = "default",
   className,
   children,
 }: {
+  as?: "h1" | "h2";
   align?: "start" | "center";
   spacing?: "default" | "tight";
   className?: string;
   children: ReactNode;
 }) {
   return (
-    <h2
+    <Heading
       className={cn(
         "font-logo text-h2 font-bold",
         align === "center" && "text-center",
@@ -46,7 +48,7 @@ function SectionTitle({
       )}
     >
       {children}
-    </h2>
+    </Heading>
   );
 }
 

@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
-import { JetBrains_Mono, Manrope, Unbounded } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -10,26 +9,8 @@ import { routing } from "@/i18n/routing";
 import { MainLayout } from "@/layout/MainLayout";
 import { buildOrganizationJsonLd } from "@/lib/seo/jsonLd";
 import { SITE_URL } from "@/lib/seo/site";
-import { cn } from "@/lib/utils";
+import { fontVariables } from "@/styles/fonts";
 import "@/styles/globals.css";
-
-const unbounded = Unbounded({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-unbounded",
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-manrope",
-  display: "swap",
-});
-
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-jetbrains-mono",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -55,14 +36,7 @@ export default async function FrontendLayout({
   setRequestLocale(locale);
 
   return (
-    <html
-      lang={locale}
-      className={cn(
-        unbounded.variable,
-        manrope.variable,
-        jetBrainsMono.variable,
-      )}
-    >
+    <html lang={locale} className={fontVariables}>
       <body className="flex min-h-dvh flex-col">
         <JsonLd data={buildOrganizationJsonLd()} />
         <NextIntlClientProvider>

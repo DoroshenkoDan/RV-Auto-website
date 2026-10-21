@@ -8,13 +8,16 @@ const lowMemoryBuild = process.env.LOW_MEMORY_BUILD === "true";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
-  ...(lowMemoryBuild && {
-    experimental: {
+  experimental: {
+    globalNotFound: true,
+    ...(lowMemoryBuild && {
       cpus: 1,
       webpackBuildWorker: true,
       webpackMemoryOptimizations: true,
       serverSourceMaps: false,
-    },
+    }),
+  },
+  ...(lowMemoryBuild && {
     typescript: {
       tsconfigPath: "tsconfig.build.json",
     },

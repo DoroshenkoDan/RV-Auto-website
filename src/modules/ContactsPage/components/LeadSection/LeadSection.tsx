@@ -147,7 +147,9 @@ export function LeadSection({
     <>
       <div className="mb-block flex flex-col gap-x-6 gap-y-stack lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <SectionTitle spacing="tight">{t("title")}</SectionTitle>
+          <SectionTitle as="h1" spacing="tight">
+            {t("title")}
+          </SectionTitle>
           <p className="max-w-lg text-lead text-ink-muted">{t("lede")}</p>
         </div>
 
