@@ -26,8 +26,10 @@ export async function generateMetadata({
   if (!car) return {};
 
   const t = await getTranslations({ locale, namespace: "carPage.meta" });
+  const photo = car.gallery.find(
+    (image) => typeof image === "object" && Boolean(image.url),
+  );
 
-  // TODO: add openGraph.images from the first gallery photo once metadataBase is set in the root layout (Payload media URLs are relative)
   return buildPageMetadata({
     locale,
     path: `/cars/${car.slug}`,
@@ -39,6 +41,15 @@ export async function generateMetadata({
           year: car.year,
           price: formatUsd(car.price),
         }),
+    image:
+      typeof photo === "object" && photo.url
+        ? {
+            url: photo.url,
+            width: photo.width ?? undefined,
+            height: photo.height ?? undefined,
+            alt: photo.alt ?? car.title,
+          }
+        : undefined,
   });
 }
 

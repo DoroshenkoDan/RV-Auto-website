@@ -2,7 +2,16 @@ import type { Metadata } from "next";
 
 import { routing, type Locale } from "@/i18n/routing";
 
-import { SITE_URL } from "./site";
+import { OG_IMAGE, SITE_NAME, SITE_URL } from "./site";
+
+export type ShareImage = {
+  url: string;
+  width?: number;
+  height?: number;
+  alt?: string;
+};
+
+const OG_LOCALES: Record<Locale, string> = { uk: "uk_UA", en: "en_US" };
 
 export function localizedPath(locale: Locale, path: string) {
   return path === "/" ? `/${locale}` : `/${locale}${path}`;
@@ -36,15 +45,35 @@ export function buildPageMetadata({
   path,
   title,
   description,
+  image = OG_IMAGE,
 }: {
   locale: Locale;
   path: string;
   title: string;
   description: string;
+  image?: ShareImage;
 }): Metadata {
   return {
     title,
     description,
     alternates: getAlternates(locale, path),
+    openGraph: {
+      type: "website",
+      siteName: SITE_NAME,
+      url: localizedPath(locale, path),
+      title,
+      description,
+      locale: OG_LOCALES[locale],
+      alternateLocale: routing.locales
+        .filter((language) => language !== locale)
+        .map((language) => OG_LOCALES[language]),
+      images: [image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
   };
 }
