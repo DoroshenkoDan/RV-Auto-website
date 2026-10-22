@@ -29,8 +29,10 @@ export function HeroSlideCard({
           src={slide.image}
           alt=""
           fill
-          priority={priority}
+          loading={priority ? "eager" : undefined}
+          fetchPriority={priority ? "high" : undefined}
           sizes="100vw"
+          quality={60}
           className="object-cover"
         />
       </div>
@@ -79,8 +81,9 @@ export function HeroSlideCard({
               src="/images/shared/logo.webp"
               alt=""
               fill
-              sizes="(min-width: 1280px) 416px, 320px"
+              sizes="(min-width: 1536px) 544px, 384px"
               loading="eager"
+              fetchPriority={priority ? "high" : undefined}
               className="object-contain mix-blend-screen"
             />
           </div>

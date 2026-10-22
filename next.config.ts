@@ -8,6 +8,10 @@ const lowMemoryBuild = process.env.LOW_MEMORY_BUILD === "true";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    qualities: [60, 75],
+  },
   experimental: {
     globalNotFound: true,
     ...(lowMemoryBuild && {
