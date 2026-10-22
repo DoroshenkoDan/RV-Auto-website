@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 
+import { PanelGlow } from "@/components/PanelGlow";
 import { estimate } from "@/lib/calculator/estimate";
 import type {
   CalculatorEstimate,
@@ -42,14 +43,7 @@ export function Calculator() {
             <CalculatorIdle />
           )}
 
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-24 -bottom-24 -z-10 size-72 rounded-full bg-brand/35 blur-3xl"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-4 -bottom-32 -z-10 size-56 rounded-full bg-neon/20 blur-3xl"
-          />
+          <PanelGlow />
         </div>
       </div>
     </Section>

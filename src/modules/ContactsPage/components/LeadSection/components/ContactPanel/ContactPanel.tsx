@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 
+import { PanelGlow } from "@/components/PanelGlow";
 import type {
   CalculatorEstimate,
   CalculatorInput,
@@ -130,14 +131,7 @@ export function ContactPanel({
         </a>
       </div>
 
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-24 -bottom-24 -z-10 size-72 rounded-full bg-brand/35 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-4 -bottom-32 -z-10 size-56 rounded-full bg-neon/20 blur-3xl"
-      />
+      <PanelGlow />
     </div>
   );
 }
