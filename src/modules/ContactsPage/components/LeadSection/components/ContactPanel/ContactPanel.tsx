@@ -84,10 +84,10 @@ export function ContactPanel({
       <div className="flex h-full flex-col justify-center text-center">
         <span className="relative block aspect-square w-52 self-center sm:w-64">
           <Image
-            src="/images/shared/logo.webp"
+            src="/images/shared/logo-1088.webp"
             alt=""
             fill
-            sizes="(min-width: 640px) 256px, 208px"
+            unoptimized
             loading="eager"
             className="object-cover"
           />

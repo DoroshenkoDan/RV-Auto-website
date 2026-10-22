@@ -32,10 +32,11 @@ export function Hero() {
   ]);
   const { active, previous, cycle, playing, goTo } = useHeroSlideshow(api);
 
-  const slides = HERO_SLIDES.map(({ key, href, image }) => ({
+  const slides = HERO_SLIDES.map(({ key, href, image, blur }) => ({
     key,
     href,
     image,
+    blur,
     label: t(`slides.${key}.label`),
     titleLead: t(`slides.${key}.titleLead`),
     titleAccent: t(`slides.${key}.titleAccent`),

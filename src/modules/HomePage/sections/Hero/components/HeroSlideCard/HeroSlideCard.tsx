@@ -33,6 +33,8 @@ export function HeroSlideCard({
           fetchPriority={priority ? "high" : undefined}
           sizes="100vw"
           quality={60}
+          placeholder="blur"
+          blurDataURL={slide.blur}
           className="object-cover"
         />
       </div>
@@ -78,12 +80,11 @@ export function HeroSlideCard({
             />
 
             <Image
-              src="/images/shared/logo.webp"
+              src="/images/shared/logo-1088.webp"
               alt=""
               fill
-              sizes="(min-width: 1536px) 544px, 384px"
-              loading="eager"
-              fetchPriority={priority ? "high" : undefined}
+              unoptimized
+              loading="lazy"
               className="object-contain mix-blend-screen"
             />
           </div>
