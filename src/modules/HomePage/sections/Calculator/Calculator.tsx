@@ -8,6 +8,7 @@ import { estimate } from "@/lib/calculator/estimate";
 import type {
   CalculatorEstimate,
   CalculatorInput,
+  ExchangeRates,
 } from "@/lib/calculator/types";
 import { Section, SectionTitle } from "@/ui/section";
 
@@ -15,7 +16,7 @@ import { CalculatorForm } from "./components/CalculatorForm";
 import { CalculatorIdle } from "./components/CalculatorIdle";
 import { CalculatorResult } from "./components/CalculatorResult";
 
-export function Calculator() {
+export function Calculator({ rates }: { rates: ExchangeRates }) {
   const t = useTranslations("homePage.calculator");
 
   const [result, setResult] = useState<{
@@ -30,7 +31,7 @@ export function Calculator() {
       <div className="grid rounded-md border border-line lg:grid-cols-2">
         <CalculatorForm
           onCalculate={(input) => {
-            const next = estimate(input);
+            const next = estimate(input, rates);
 
             setResult(next ? { input, estimate: next } : null);
           }}

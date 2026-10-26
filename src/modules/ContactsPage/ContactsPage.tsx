@@ -1,7 +1,7 @@
 import { getLocale } from "next-intl/server";
 
 import type { Locale } from "@/i18n/routing";
-import type { CalculatorInput } from "@/lib/calculator/types";
+import type { CalculatorInput, ExchangeRates } from "@/lib/calculator/types";
 import { getCarBySlug } from "@/lib/payload/cars";
 import type { Car } from "@/payload-types";
 import { Section } from "@/ui/section";
@@ -32,9 +32,11 @@ function toLeadCar(car: Car): LeadCar {
 export async function ContactsPage({
   initialInput,
   carSlug,
+  rates,
 }: {
   initialInput: CalculatorInput | null;
   carSlug: string | null;
+  rates: ExchangeRates;
 }) {
   const locale = (await getLocale()) as Locale;
   const car = carSlug ? await getCarBySlug(carSlug, locale) : null;
@@ -45,6 +47,7 @@ export async function ContactsPage({
         initialInput={initialInput}
         selectedCar={car && toLeadCar(car)}
         hasStaleCar={carSlug !== null && car === null}
+        rates={rates}
       />
     </Section>
   );

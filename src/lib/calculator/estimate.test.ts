@@ -2,10 +2,12 @@ import { describe, expect, it } from "vitest";
 
 import { estimate } from "./estimate";
 import { AUCTION_TYPES, DEFAULT_CALCULATOR_INPUT } from "./options";
+import { FALLBACK_EXCHANGE_RATES as rates } from "./rates";
 import type {
   CalculatorEstimate,
   CalculatorInput,
   EstimateLineKey,
+  ExchangeRates,
 } from "./types";
 
 const petrolCar: CalculatorInput = {
@@ -15,8 +17,8 @@ const petrolCar: CalculatorInput = {
   lotPrice: 9400,
 };
 
-function totalOf(input: CalculatorInput) {
-  const result = estimate(input);
+function totalOf(input: CalculatorInput, exchangeRates: ExchangeRates = rates) {
+  const result = estimate(input, exchangeRates);
 
   if (!result) {
     throw new Error("expected an estimate, got null");
@@ -31,30 +33,36 @@ function lineAmount(result: CalculatorEstimate, key: EstimateLineKey) {
 
 describe("estimate", () => {
   it("returns null until the year is filled in", () => {
-    expect(estimate({ ...petrolCar, year: null })).toBeNull();
+    expect(estimate({ ...petrolCar, year: null }, rates)).toBeNull();
   });
 
   it("returns null until the lot price is filled in", () => {
-    expect(estimate({ ...petrolCar, lotPrice: null })).toBeNull();
+    expect(estimate({ ...petrolCar, lotPrice: null }, rates)).toBeNull();
   });
 
   it("returns null for a combustion car without engine volume", () => {
-    expect(estimate({ ...petrolCar, engineVolume: null })).toBeNull();
+    expect(estimate({ ...petrolCar, engineVolume: null }, rates)).toBeNull();
   });
 
   it("returns null for an electric car without battery capacity", () => {
     expect(
-      estimate({ ...petrolCar, fuel: "electric", batteryCapacity: null }),
+      estimate(
+        { ...petrolCar, fuel: "electric", batteryCapacity: null },
+        rates,
+      ),
     ).toBeNull();
   });
 
   it("ignores a missing engine volume when the car is electric", () => {
-    const result = estimate({
-      ...petrolCar,
-      fuel: "electric",
-      engineVolume: null,
-      batteryCapacity: 60,
-    });
+    const result = estimate(
+      {
+        ...petrolCar,
+        fuel: "electric",
+        engineVolume: null,
+        batteryCapacity: 60,
+      },
+      rates,
+    );
 
     expect(result).not.toBeNull();
   });
@@ -99,6 +107,13 @@ describe("estimate", () => {
     });
 
     expect(result.excise).toBeGreaterThan(0);
+  });
+
+  it("converts the excise from euro with the eur to usd cross rate", () => {
+    const parity = totalOf(petrolCar, { usd: 40, eur: 40 });
+    const strongEuro = totalOf(petrolCar, { usd: 40, eur: 50 });
+
+    expect(strongEuro.excise / parity.excise).toBeCloseTo(1.25, 2);
   });
 
   it("caps the excise age coefficient at 15 years", () => {
@@ -167,7 +182,7 @@ describe("estimate", () => {
 
   it("estimates every listed auction", () => {
     for (const auction of AUCTION_TYPES) {
-      expect(estimate({ ...petrolCar, auction })).not.toBeNull();
+      expect(estimate({ ...petrolCar, auction }, rates)).not.toBeNull();
     }
   });
 });

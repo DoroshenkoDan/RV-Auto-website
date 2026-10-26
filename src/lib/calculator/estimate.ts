@@ -3,7 +3,6 @@ import {
   AUCTION_FEES,
   COMPANY_FEE_USD,
   DUTY_FREE_REGIONS,
-  EUR_TO_USD,
   EXCISE_AGE_LIMIT,
   EXCISE_ELECTRIC_EUR_PER_KWH,
   EXCISE_HYBRID_EUR,
@@ -15,7 +14,12 @@ import {
   INLAND_DELIVERY_USD,
   VAT_RATE,
 } from "./rates";
-import type { AuctionType, CalculatorEstimate, CalculatorInput } from "./types";
+import type {
+  AuctionType,
+  CalculatorEstimate,
+  CalculatorInput,
+  ExchangeRates,
+} from "./types";
 
 function getAuctionFee(auction: AuctionType, lotPrice: number) {
   const rule = AUCTION_FEES[auction];
@@ -73,7 +77,10 @@ function getExciseEur(input: CalculatorInput) {
   return (tier.eurPerLitre * engineVolume * getAgeCoefficient(year)) / 1000;
 }
 
-export function estimate(input: CalculatorInput): CalculatorEstimate | null {
+export function estimate(
+  input: CalculatorInput,
+  rates: ExchangeRates,
+): CalculatorEstimate | null {
   const {
     fuel,
     vehicle,
@@ -101,7 +108,7 @@ export function estimate(input: CalculatorInput): CalculatorEstimate | null {
 
   const dutyRate = DUTY_FREE_REGIONS.includes(region) ? 0 : IMPORT_DUTY_RATE;
   const duty = customsValue * dutyRate;
-  const excise = getExciseEur(input) * EUR_TO_USD;
+  const excise = (getExciseEur(input) * rates.eur) / rates.usd;
   const vat = (customsValue + duty + excise) * VAT_RATE;
 
   const lines = [

@@ -3,6 +3,7 @@
 import { headers } from "next/headers";
 
 import { estimate } from "@/lib/calculator/estimate";
+import { getExchangeRates } from "@/lib/calculator/nbu";
 
 import { checkAntibot } from "./antibot";
 import { HONEYPOT_FIELD, RENDERED_FIELD } from "./constants";
@@ -68,7 +69,7 @@ export async function submitLead(input: unknown): Promise<LeadResult> {
   const lead: Lead = { ...rest, calculation: null };
 
   if (calculation) {
-    const result = estimate(calculation);
+    const result = estimate(calculation, await getExchangeRates());
 
     if (result) {
       lead.calculation = { input: calculation, total: result.total };

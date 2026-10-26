@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
 
 import { CtaSection } from "@/components/CtaSection";
+import type { ExchangeRates } from "@/lib/calculator/types";
 import { Section } from "@/ui/section";
 
 import { CostExample } from "./components/CostExample";
@@ -12,13 +13,13 @@ import { FAQ_CATEGORIES, type FaqCategoryId } from "./faqConfig";
 import { faqPlainTags } from "./faqTags";
 import { FaqHero } from "./sections/FaqHero";
 
-const CATEGORY_INSERTS: Partial<Record<FaqCategoryId, ReactNode>> = {
-  cost: <CostExample />,
-  delivery: <CountryCompare />,
-};
-
-export function FaqPage() {
+export function FaqPage({ rates }: { rates: ExchangeRates }) {
   const t = useTranslations("faqPage");
+
+  const categoryInserts: Partial<Record<FaqCategoryId, ReactNode>> = {
+    cost: <CostExample rates={rates} />,
+    delivery: <CountryCompare />,
+  };
 
   const questionCount = FAQ_CATEGORIES.reduce(
     (sum, { questions }) => sum + questions.length,
@@ -71,7 +72,7 @@ export function FaqPage() {
             {FAQ_CATEGORIES.map(({ id, questions }, index) => (
               <div key={id} className="flex flex-col gap-section">
                 <FaqCategory id={id} index={index} questions={questions} />
-                {CATEGORY_INSERTS[id]}
+                {categoryInserts[id]}
               </div>
             ))}
           </div>

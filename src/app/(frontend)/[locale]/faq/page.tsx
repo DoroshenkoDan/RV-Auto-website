@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 import type { Locale } from "@/i18n/routing";
+import { getExchangeRates } from "@/lib/calculator/nbu";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { FaqPage } from "@/modules/FaqPage";
 
@@ -21,6 +22,8 @@ export async function generateMetadata({
   });
 }
 
-export default function Page() {
-  return <FaqPage />;
+export default async function Page() {
+  const rates = await getExchangeRates();
+
+  return <FaqPage rates={rates} />;
 }

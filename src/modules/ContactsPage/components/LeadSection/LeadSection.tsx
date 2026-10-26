@@ -10,7 +10,7 @@ import { useLeadGuards } from "@/components/LeadGuards";
 import { Link, useRouter } from "@/i18n/navigation";
 import { estimate } from "@/lib/calculator/estimate";
 import { DEFAULT_CALCULATOR_INPUT } from "@/lib/calculator/options";
-import type { CalculatorInput } from "@/lib/calculator/types";
+import type { CalculatorInput, ExchangeRates } from "@/lib/calculator/types";
 import {
   COMMENT_MAX,
   NAME_MAX,
@@ -52,10 +52,12 @@ export function LeadSection({
   initialInput,
   selectedCar,
   hasStaleCar,
+  rates,
 }: {
   initialInput: CalculatorInput | null;
   selectedCar: LeadCar | null;
   hasStaleCar: boolean;
+  rates: ExchangeRates;
 }) {
   const t = useTranslations("contactsPage");
   const form = useTranslations("contactsPage.leadSection");
@@ -77,7 +79,7 @@ export function LeadSection({
   const { guards, readGuards } = useLeadGuards();
 
   const detailed = !selectedCar && mode === "detailed";
-  const result = estimate(car);
+  const result = estimate(car, rates);
 
   useEffect(() => {
     if (hasStaleCar) clearOrderCar();

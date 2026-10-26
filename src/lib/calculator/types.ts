@@ -18,6 +18,11 @@ export type AuctionType =
 export type AuctionRegion =
   "usa" | "canada" | "europe" | "norway" | "korea" | "china";
 
+export type ExchangeRates = {
+  usd: number;
+  eur: number;
+};
+
 export type CalculatorInput = {
   fuel: FuelType;
   vehicle: VehicleType;

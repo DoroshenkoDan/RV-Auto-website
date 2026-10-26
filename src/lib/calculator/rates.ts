@@ -1,4 +1,9 @@
-import type { AuctionRegion, AuctionType, VehicleType } from "./types";
+import type {
+  AuctionRegion,
+  AuctionType,
+  ExchangeRates,
+  VehicleType,
+} from "./types";
 
 export type FeeTier = { maxPrice?: number; fee: number };
 
@@ -9,7 +14,10 @@ export type FeeRule =
 
 export type ExciseTier = { maxVolume?: number; eurPerLitre: number };
 
-export const EUR_TO_USD = 1.08;
+export const FALLBACK_EXCHANGE_RATES: ExchangeRates = {
+  usd: 45.5382,
+  eur: 50.9527,
+};
 
 export const IMPORT_DUTY_RATE = 0.1;
 

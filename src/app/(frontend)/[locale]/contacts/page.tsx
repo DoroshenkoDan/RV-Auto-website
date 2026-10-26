@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { getTranslations } from "next-intl/server";
 
 import type { Locale } from "@/i18n/routing";
+import { getExchangeRates } from "@/lib/calculator/nbu";
 import { parseCalculatorParams } from "@/lib/calculator/params";
 import { ORDER_CAR_COOKIE, resolveOrderCarSlug } from "@/lib/catalog/orderCar";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -39,5 +40,9 @@ export default async function Page({
     hasCalculation: initialInput !== null,
   });
 
-  return <ContactsPage initialInput={initialInput} carSlug={carSlug} />;
+  const rates = await getExchangeRates();
+
+  return (
+    <ContactsPage initialInput={initialInput} carSlug={carSlug} rates={rates} />
+  );
 }

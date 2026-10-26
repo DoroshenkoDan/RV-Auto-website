@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
 import { estimate } from "@/lib/calculator/estimate";
+import type { ExchangeRates } from "@/lib/calculator/types";
 import { cn, formatUsd } from "@/lib/utils";
 import { buttonVariants } from "@/ui/button";
 
@@ -21,20 +22,23 @@ const LINE_TONES = [
   "bg-brand/25",
 ];
 
-export function CostExample() {
+export function CostExample({ rates }: { rates: ExchangeRates }) {
   const t = useTranslations("faqPage.costExample");
   const tLines = useTranslations("homePage.calculator.result.lines");
 
   const year = new Date().getFullYear() - EXAMPLE_AGE;
-  const result = estimate({
-    fuel: "petrol",
-    vehicle: "car",
-    auction: "copart",
-    engineVolume: 2000,
-    batteryCapacity: null,
-    year,
-    lotPrice: EXAMPLE_LOT_PRICE,
-  });
+  const result = estimate(
+    {
+      fuel: "petrol",
+      vehicle: "car",
+      auction: "copart",
+      engineVolume: 2000,
+      batteryCapacity: null,
+      year,
+      lotPrice: EXAMPLE_LOT_PRICE,
+    },
+    rates,
+  );
 
   if (!result) {
     return null;
