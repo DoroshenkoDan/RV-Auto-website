@@ -25,8 +25,11 @@ function describeCalculation(input: CalculatorInput) {
       ? `батарея ${input.batteryCapacity} кВт·год`
       : `двигун ${input.engineVolume} см³`;
 
+  const location = [input.state, input.city].filter(Boolean).join(", ");
+  const auction = PLATFORM_LABELS[input.auction].name;
+
   return [
-    PLATFORM_LABELS[input.auction].name,
+    location ? `${auction} (${location})` : auction,
     VEHICLE_LABELS[input.vehicle],
     input.year,
     FUEL_LABELS[input.fuel],

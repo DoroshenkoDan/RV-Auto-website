@@ -7,6 +7,7 @@ import { Check, ChevronDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import { AuctionField } from "@/components/AuctionField";
+import { UsLocationFields } from "@/components/UsLocationFields";
 import {
   BATTERY_CAPACITY_LIMITS,
   ENGINE_VOLUME_LIMITS,
@@ -16,6 +17,7 @@ import {
   getYearOptions,
 } from "@/lib/calculator/options";
 import type { CalculatorInput } from "@/lib/calculator/types";
+import { isUsAuction } from "@/lib/calculator/usAuctions";
 import { FIELD_ROOT, fieldControl, fieldLabel } from "@/ui/field";
 import { SegmentedField } from "@/ui/segmented-control";
 
@@ -189,9 +191,20 @@ export function CarDetails({
           name="auction"
           label={t("auction.label")}
           value={value.auction}
-          onValueChange={(auction) => patch({ auction })}
+          onValueChange={(auction) =>
+            patch({ auction, state: null, city: null })
+          }
           className="lg:col-span-2"
         />
+
+        {isUsAuction(value.auction) && (
+          <UsLocationFields
+            auction={value.auction}
+            state={value.state}
+            city={value.city}
+            onValueChange={patch}
+          />
+        )}
 
         <Field.Root name="lotPrice" className="lg:col-span-2">
           <NumberField.Root

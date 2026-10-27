@@ -8,6 +8,7 @@ import {
   getYearOptions,
 } from "./options";
 import type { CalculatorInput } from "./types";
+import { resolveUsLocation } from "./usAuctions";
 
 type ParamValue = string | string[] | undefined;
 
@@ -43,6 +44,14 @@ export function toCalculatorParams(input: CalculatorInput) {
     vehicle: input.vehicle,
     auction: input.auction,
   };
+
+  if (input.state !== null) {
+    params.state = input.state;
+  }
+
+  if (input.city !== null) {
+    params.city = input.city;
+  }
 
   if (input.year !== null) {
     params.year = String(input.year);
@@ -86,6 +95,12 @@ export function parseCalculatorParams(
     return null;
   }
 
+  const location = resolveUsLocation(
+    auction,
+    single(params.state),
+    single(params.city),
+  );
+
   if (fuel === "electric") {
     const batteryCapacity = integer(
       params.battery,
@@ -101,6 +116,7 @@ export function parseCalculatorParams(
       fuel,
       vehicle,
       auction,
+      ...location,
       engineVolume: null,
       batteryCapacity,
       year,
@@ -119,6 +135,7 @@ export function parseCalculatorParams(
     fuel,
     vehicle,
     auction,
+    ...location,
     engineVolume,
     batteryCapacity: null,
     year,

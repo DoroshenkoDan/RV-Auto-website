@@ -6,6 +6,7 @@ import { Form } from "@base-ui/react/form";
 import { useLocale, useTranslations } from "next-intl";
 
 import { AuctionField } from "@/components/AuctionField";
+import { UsLocationFields } from "@/components/UsLocationFields";
 import {
   BATTERY_CAPACITY_LIMITS,
   DEFAULT_CALCULATOR_INPUT,
@@ -16,6 +17,7 @@ import {
   getYearOptions,
 } from "@/lib/calculator/options";
 import type { CalculatorInput } from "@/lib/calculator/types";
+import { isUsAuction } from "@/lib/calculator/usAuctions";
 import { cn } from "@/lib/utils";
 import { Button } from "@/ui/button";
 import { SegmentedField } from "@/ui/segmented-control";
@@ -155,10 +157,26 @@ export function CalculatorForm({
           label={t("auction.label")}
           value={values.auction}
           onValueChange={(auction) =>
-            setValues((previous) => ({ ...previous, auction }))
+            setValues((previous) => ({
+              ...previous,
+              auction,
+              state: null,
+              city: null,
+            }))
           }
           className="lg:col-span-2"
         />
+
+        {isUsAuction(values.auction) && (
+          <UsLocationFields
+            auction={values.auction}
+            state={values.state}
+            city={values.city}
+            onValueChange={(location) =>
+              setValues((previous) => ({ ...previous, ...location }))
+            }
+          />
+        )}
 
         <AmountField
           name="lotPrice"

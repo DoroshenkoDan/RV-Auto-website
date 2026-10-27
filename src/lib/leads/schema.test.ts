@@ -196,6 +196,48 @@ describe("leadSchema calculation", () => {
         : "no calculation",
     ).toBe(false);
   });
+
+  it("keeps a us location the auction lists", () => {
+    const result = leadSchema.safeParse({
+      ...base,
+      calculation: { ...petrolCar, state: "CA", city: "Los Angeles" },
+    });
+
+    expect(result.success && result.data.calculation).toMatchObject({
+      state: "CA",
+      city: "Los Angeles",
+    });
+  });
+
+  it("clears an unknown us location instead of rejecting the calculation", () => {
+    const result = leadSchema.safeParse({
+      ...base,
+      calculation: { ...petrolCar, state: "ZZ", city: "Nowhere" },
+    });
+
+    expect(result.success && result.data.calculation).toMatchObject({
+      state: null,
+      city: null,
+    });
+  });
+
+  it("treats a missing us location as not chosen", () => {
+    const withoutLocation = Object.fromEntries(
+      Object.entries(petrolCar).filter(
+        ([key]) => key !== "state" && key !== "city",
+      ),
+    );
+
+    const result = leadSchema.safeParse({
+      ...base,
+      calculation: withoutLocation,
+    });
+
+    expect(result.success && result.data.calculation).toMatchObject({
+      state: null,
+      city: null,
+    });
+  });
 });
 
 describe("parseLead", () => {

@@ -256,17 +256,16 @@
         "label": "Fill out the form to get the final turn-key price for your car."
       },
       "result": {
-        "label": "Turn-key price",
+        "label": "Cost to port",
         "lines": {
           "lotPrice": "Lot price",
           "auctionFee": "Auction fee",
           "inlandDelivery": "Delivery to port",
           "freight": "Shipping to Ukraine",
           "customs": "Duty and excise",
-          "vat": "VAT",
-          "companyFee": "Our service fee"
+          "vat": "VAT"
         },
-        "total": "Total turn-key",
+        "total": "Total to port",
         "disclaimer": "Preliminary estimate. The exact amount is fixed in the contract.",
         "cta": "Get an exact quote",
         "phone": "Or call us:"
@@ -308,6 +307,14 @@
             "korea": "Korea",
             "china": "China"
           }
+        },
+        "state": {
+          "label": "State (optional)",
+          "any": "Any, average price"
+        },
+        "city": {
+          "label": "City (optional)",
+          "any": "Any, state average"
         },
         "lotPrice": {
           "label": "Lot price, $",
@@ -371,7 +378,7 @@
         },
         "turnkey": {
           "question": "What is included in the turnkey price?",
-          "answer": "The lot price with the Copart or IAAI auction fee, delivery to the US port, ocean freight with insurance, forwarding, customs clearance with broker fees, car carrier to your city and our $200 fee. No charges beyond the agreed estimate."
+          "answer": "The lot price, the Copart or IAAI auction fee, delivery to the port of Klaipeda (trucking in the US, ocean shipping, forwarding and insurance) and customs clearance: duty, excise and VAT. A manager will quote delivery from the port to your city separately. No charges beyond the agreed estimate."
         },
         "damage": {
           "question": "What if the car is damaged during shipping?",
@@ -552,7 +559,7 @@
         "questions": {
           "turnkey": {
             "question": "What does the turnkey price include?",
-            "answer": "The lot price, the auction fee, delivery to the port, ocean or truck shipping, customs clearance (duty, excise and VAT) and our services. Below you will find a line-by-line example, and for your own car use the <calculator>calculator</calculator>."
+            "answer": "The lot price, the auction fee, delivery (transport to the port, ocean or truck shipping, forwarding and insurance) and customs clearance: duty, excise and VAT. For cars from the USA the estimate runs to the port of Klaipeda, and a manager will quote delivery to your city separately. Below you will find a line-by-line example, and for your own car use the <calculator>calculator</calculator>."
           },
           "duties": {
             "question": "How is customs clearance calculated?",
@@ -685,15 +692,14 @@
       "description": "A {year} sedan, petrol 2.0 L, lot price {lot} at Copart. Here is the total after every payment.",
       "disclaimer": "This estimate is approximate: shipping rates and exchange rates change. The exact amount is fixed in the contract.",
       "cta": "Estimate your car",
-      "total": "Turnkey total",
+      "total": "Total to port",
       "lines": {
         "lotPrice": "The winning bid at auction.",
         "auctionFee": "The auction commission, based on the lot price.",
-        "inlandDelivery": "Truck from the yard to a US port.",
+        "inlandDelivery": "From the yard to the port of Klaipeda: US trucking, ocean shipping, forwarding and insurance.",
         "freight": "Container from the USA to a European port.",
         "customs": "10% duty plus excise based on engine size and age.",
-        "vat": "20% of the customs value, duty and excise.",
-        "companyFee": "Selection, bidding, logistics and deal support."
+        "vat": "20% of the customs value, duty and excise."
       }
     },
     "compare": {

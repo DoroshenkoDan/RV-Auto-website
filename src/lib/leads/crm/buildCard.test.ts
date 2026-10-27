@@ -59,6 +59,8 @@ describe("buildCard with a calculation", () => {
           fuel: "petrol",
           vehicle: "car",
           auction: "copart",
+          state: null,
+          city: null,
           engineVolume: 2000,
           batteryCapacity: null,
           year: 2019,
@@ -82,6 +84,8 @@ describe("buildCard with a calculation", () => {
           fuel: "petrol",
           vehicle: "car",
           auction: "copart",
+          state: null,
+          city: null,
           engineVolume: 2000,
           batteryCapacity: null,
           year: 2019,
@@ -104,6 +108,8 @@ describe("buildCard with a calculation", () => {
           fuel: "electric",
           vehicle: "suv",
           auction: "encar",
+          state: null,
+          city: null,
           engineVolume: null,
           batteryCapacity: 60,
           year: 2021,
@@ -116,5 +122,51 @@ describe("buildCard with a calculation", () => {
     expect(card.manager_comment).toContain(
       "Розрахунок: Encar, Кросовер, 2021, Електро, батарея 60 кВт·год, лот 15000 $",
     );
+  });
+
+  test("names the chosen us state and city next to the auction", () => {
+    const card = buildCard({
+      ...baseLead,
+      calculation: {
+        input: {
+          fuel: "petrol",
+          vehicle: "car",
+          auction: "copart",
+          state: "FL",
+          city: "Ocala",
+          engineVolume: 3000,
+          batteryCapacity: null,
+          year: 2019,
+          lotPrice: 8900,
+        },
+        total: 18486,
+      },
+    });
+
+    expect(card.manager_comment).toContain(
+      "Розрахунок: Copart (FL, Ocala), Легковий, 2019",
+    );
+  });
+
+  test("names only the state when no city was chosen", () => {
+    const card = buildCard({
+      ...baseLead,
+      calculation: {
+        input: {
+          fuel: "petrol",
+          vehicle: "car",
+          auction: "iaai",
+          state: "CA",
+          city: null,
+          engineVolume: 2000,
+          batteryCapacity: null,
+          year: 2019,
+          lotPrice: 8900,
+        },
+        total: 18000,
+      },
+    });
+
+    expect(card.manager_comment).toContain("Розрахунок: IAAI (CA), Легковий");
   });
 });

@@ -27,6 +27,8 @@ export type CalculatorInput = {
   fuel: FuelType;
   vehicle: VehicleType;
   auction: AuctionType;
+  state: string | null;
+  city: string | null;
   engineVolume: number | null;
   batteryCapacity: number | null;
   year: number | null;
@@ -34,13 +36,7 @@ export type CalculatorInput = {
 };
 
 export type EstimateLineKey =
-  | "lotPrice"
-  | "auctionFee"
-  | "inlandDelivery"
-  | "freight"
-  | "customs"
-  | "vat"
-  | "companyFee";
+  "lotPrice" | "auctionFee" | "inlandDelivery" | "freight" | "customs" | "vat";
 
 export type EstimateLine = {
   key: EstimateLineKey;

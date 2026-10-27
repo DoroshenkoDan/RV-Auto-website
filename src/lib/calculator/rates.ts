@@ -110,5 +110,3 @@ export const FREIGHT_USD: Record<AuctionRegion, Record<VehicleType, number>> = {
   korea: { car: 1400, suv: 1550, pickup: 1750, motorcycle: 800 },
   china: { car: 2900, suv: 3200, pickup: 3500, motorcycle: 1200 },
 };
-
-export const COMPANY_FEE_USD = 200;

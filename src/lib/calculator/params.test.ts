@@ -168,4 +168,50 @@ describe("parseCalculatorParams", () => {
 
     expect(parseCalculatorParams(params)).toBeNull();
   });
+
+  it("reads back the us state and city", () => {
+    const located = { ...petrolCar, state: "CA", city: "Los Angeles" };
+
+    expect(parseCalculatorParams(toCalculatorParams(located))).toEqual(located);
+  });
+
+  it("drops a state the auction does not list", () => {
+    const parsed = parseCalculatorParams({
+      ...toCalculatorParams(petrolCar),
+      state: "ZZ",
+      city: "Nowhere",
+    });
+
+    expect(parsed).toMatchObject({ state: null, city: null });
+  });
+
+  it("keeps the state but drops a city it does not list", () => {
+    const parsed = parseCalculatorParams({
+      ...toCalculatorParams(petrolCar),
+      state: "CA",
+      city: "Nowhere",
+    });
+
+    expect(parsed).toMatchObject({ state: "CA", city: null });
+  });
+
+  it("drops the location for auctions outside the us", () => {
+    const parsed = parseCalculatorParams({
+      ...toCalculatorParams({ ...petrolCar, auction: "bca" }),
+      state: "CA",
+    });
+
+    expect(parsed).toMatchObject({ state: null, city: null });
+  });
+
+  it("reads back a manheim location", () => {
+    const located = {
+      ...petrolCar,
+      auction: "manheim",
+      state: "FL",
+      city: "Manheim Tampa",
+    } as const;
+
+    expect(parseCalculatorParams(toCalculatorParams(located))).toEqual(located);
+  });
 });

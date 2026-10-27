@@ -1,7 +1,7 @@
+import pricing from "./data/pricing.json";
 import { getAuctionRegion } from "./options";
 import {
   AUCTION_FEES,
-  COMPANY_FEE_USD,
   DUTY_FREE_REGIONS,
   EXCISE_AGE_LIMIT,
   EXCISE_ELECTRIC_EUR_PER_KWH,
@@ -20,6 +20,7 @@ import type {
   CalculatorInput,
   ExchangeRates,
 } from "./types";
+import { getUsAuctionFee, getUsLocationPrice, isUsAuction } from "./usAuctions";
 
 function getAuctionFee(auction: AuctionType, lotPrice: number) {
   const rule = AUCTION_FEES[auction];
@@ -77,19 +78,55 @@ function getExciseEur(input: CalculatorInput) {
   return (tier.eurPerLitre * engineVolume * getAgeCoefficient(year)) / 1000;
 }
 
+function getShipping(
+  input: CalculatorInput,
+  lotPrice: number,
+  rates: ExchangeRates,
+) {
+  const { auction, vehicle, state, city } = input;
+
+  if (!isUsAuction(auction)) {
+    const region = getAuctionRegion(auction);
+    const auctionFee = getAuctionFee(auction, lotPrice);
+    const inlandDelivery = INLAND_DELIVERY_USD[region][vehicle];
+    const freight = FREIGHT_USD[region][vehicle];
+
+    return {
+      auctionFee,
+      inlandDelivery,
+      freight,
+      customsValue: lotPrice + auctionFee + inlandDelivery + freight,
+    };
+  }
+
+  const auctionFee =
+    getUsAuctionFee(auction, lotPrice, state) ??
+    getAuctionFee(auction, lotPrice);
+  const lotTotal = lotPrice + auctionFee;
+  const portPrice =
+    getUsLocationPrice(auction, vehicle, state, city) -
+    pricing.caucasusDiscountUsd[vehicle];
+  const forwarding =
+    pricing.forwardingFeeUsd +
+    (pricing.forwardingExtraEur[vehicle] * rates.eur) / rates.usd;
+  const insurance = Math.ceil(lotTotal * pricing.insuranceRate);
+
+  return {
+    auctionFee,
+    inlandDelivery: Math.round(
+      portPrice + pricing.portDeliveryMarkupUsd + forwarding + insurance,
+    ),
+    freight: 0,
+    customsValue: lotTotal + pricing.customsDeliveryBaseUsd[vehicle],
+  };
+}
+
 export function estimate(
   input: CalculatorInput,
   rates: ExchangeRates,
 ): CalculatorEstimate | null {
-  const {
-    fuel,
-    vehicle,
-    auction,
-    engineVolume,
-    batteryCapacity,
-    year,
-    lotPrice,
-  } = input;
+  const { fuel, auction, engineVolume, batteryCapacity, year, lotPrice } =
+    input;
 
   if (year === null || lotPrice === null) {
     return null;
@@ -100,11 +137,11 @@ export function estimate(
   }
 
   const region = getAuctionRegion(auction);
-  const auctionFee = getAuctionFee(auction, lotPrice);
-  const inlandDelivery = INLAND_DELIVERY_USD[region][vehicle];
-  const freight = FREIGHT_USD[region][vehicle];
-
-  const customsValue = lotPrice + auctionFee + inlandDelivery + freight;
+  const { auctionFee, inlandDelivery, freight, customsValue } = getShipping(
+    input,
+    lotPrice,
+    rates,
+  );
 
   const dutyRate = DUTY_FREE_REGIONS.includes(region) ? 0 : IMPORT_DUTY_RATE;
   const duty = customsValue * dutyRate;
@@ -118,7 +155,6 @@ export function estimate(
     { key: "freight", amount: freight },
     { key: "customs", amount: Math.round(duty + excise) },
     { key: "vat", amount: Math.round(vat) },
-    { key: "companyFee", amount: COMPANY_FEE_USD },
   ] as const;
 
   return {

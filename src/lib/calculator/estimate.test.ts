@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import pricing from "./data/pricing.json";
+import usLocations from "./data/us-locations.json";
 import { estimate } from "./estimate";
 import { AUCTION_TYPES, DEFAULT_CALCULATOR_INPUT } from "./options";
 import { FALLBACK_EXCHANGE_RATES as rates } from "./rates";
@@ -125,18 +127,12 @@ describe("estimate", () => {
   });
 
   it("picks the auction fee tier that matches the lot price", () => {
-    const cheap = totalOf({ ...petrolCar, lotPrice: 500 });
-    const dear = totalOf({ ...petrolCar, lotPrice: 501 });
+    const manheim = { ...petrolCar, auction: "manheim" } as const;
+    const cheap = totalOf({ ...manheim, lotPrice: 5000 });
+    const dear = totalOf({ ...manheim, lotPrice: 5001 });
 
-    expect(lineAmount(cheap, "auctionFee")).toBe(150);
-    expect(lineAmount(dear, "auctionFee")).toBe(225);
-  });
-
-  it("charges a higher auction fee on iaai than on copart", () => {
-    const copart = totalOf({ ...petrolCar, auction: "copart" });
-    const iaai = totalOf({ ...petrolCar, auction: "iaai" });
-
-    expect(iaai.total).toBeGreaterThan(copart.total);
+    expect(lineAmount(cheap, "auctionFee")).toBe(400);
+    expect(lineAmount(dear, "auctionFee")).toBe(550);
   });
 
   it("charges iaa canada a capped percentage plus service fees", () => {
@@ -184,5 +180,144 @@ describe("estimate", () => {
     for (const auction of AUCTION_TYPES) {
       expect(estimate({ ...petrolCar, auction }, rates)).not.toBeNull();
     }
+  });
+});
+
+describe("estimate for us auctions", () => {
+  const ocalaCar: CalculatorInput = {
+    ...petrolCar,
+    auction: "copart",
+    engineVolume: 3000,
+    year: new Date().getFullYear() - 7,
+    lotPrice: 8900,
+    state: "FL",
+    city: "Ocala",
+  };
+
+  function medianCarPrice(cities: Record<string, { car: number }>[]) {
+    const prices = cities
+      .flatMap((stateCities) => Object.values(stateCities))
+      .map(({ car }) => car)
+      .sort((a, b) => a - b);
+    const middle = Math.floor(prices.length / 2);
+
+    return prices.length % 2
+      ? prices[middle]
+      : (prices[middle - 1] + prices[middle]) / 2;
+  }
+
+  function portDeliveryFor(guestPrice: number, lotTotal: number) {
+    return Math.round(
+      guestPrice -
+        pricing.caucasusDiscountUsd.car +
+        pricing.portDeliveryMarkupUsd +
+        pricing.forwardingFeeUsd +
+        Math.ceil(lotTotal * pricing.insuranceRate),
+    );
+  }
+
+  it("prices a copart lot by the chosen city", () => {
+    const result = totalOf(ocalaCar);
+
+    expect(result.lines).toEqual([
+      { key: "lotPrice", amount: 8900 },
+      { key: "auctionFee", amount: 1165 },
+      { key: "inlandDelivery", amount: 3079 },
+      { key: "customs", amount: 2341 },
+      { key: "vat", amount: 2801 },
+    ]);
+    expect(result.total).toBe(18286);
+  });
+
+  it("bases the customs value on the lot, fees and a fixed delivery", () => {
+    const result = totalOf(ocalaCar);
+
+    expect(result.customsValue).toBe(8900 + 1165 + 1600);
+  });
+
+  it("uses a 600 dollar customs delivery base for motorcycles", () => {
+    const result = totalOf({
+      ...ocalaCar,
+      vehicle: "motorcycle",
+      engineVolume: 900,
+    });
+
+    expect(result.customsValue).toBe(8900 + 1165 + 600);
+  });
+
+  it("adds the pickup forwarding surcharge in euro", () => {
+    const result = totalOf({ ...ocalaCar, vehicle: "pickup" });
+
+    expect(lineAmount(result, "inlandDelivery")).toBe(4095);
+  });
+
+  it("uses the state median when no city is chosen", () => {
+    const result = totalOf({ ...ocalaCar, city: null });
+
+    expect(lineAmount(result, "inlandDelivery")).toBe(
+      portDeliveryFor(medianCarPrice([usLocations.copart.FL]), 10065),
+    );
+  });
+
+  it("falls back to the state median for an unknown city", () => {
+    const unknown = totalOf({ ...ocalaCar, city: "Atlantis" });
+    const stateOnly = totalOf({ ...ocalaCar, city: null });
+
+    expect(unknown.lines).toEqual(stateOnly.lines);
+  });
+
+  it("uses the auction median when no state is chosen", () => {
+    const result = totalOf({ ...ocalaCar, state: null, city: null });
+
+    expect(lineAmount(result, "inlandDelivery")).toBe(
+      portDeliveryFor(medianCarPrice(Object.values(usLocations.copart)), 10065),
+    );
+  });
+
+  it("uses the iaai locations and fees for iaai lots", () => {
+    const result = totalOf({
+      ...ocalaCar,
+      auction: "iaai",
+      state: "CA",
+      city: "Los Angeles",
+    });
+
+    expect(lineAmount(result, "auctionFee")).toBe(1130);
+    expect(lineAmount(result, "inlandDelivery")).toBe(
+      portDeliveryFor(usLocations.iaai.CA["Los Angeles"].car, 10030),
+    );
+  });
+
+  it("uses the special fee table without the extra fee in special states", () => {
+    const result = totalOf({ ...ocalaCar, state: "AL", city: null });
+
+    expect(lineAmount(result, "auctionFee")).toBe(1235);
+  });
+
+  it("charges a percentage bid fee on expensive lots", () => {
+    const result = totalOf({ ...ocalaCar, lotPrice: 20000 });
+
+    expect(lineAmount(result, "auctionFee")).toBe(1545);
+  });
+
+  it("omits the separate freight line", () => {
+    const result = totalOf(ocalaCar);
+
+    expect(lineAmount(result, "freight")).toBeUndefined();
+  });
+
+  it("prices a manheim lot by its location with the manheim fee tiers", () => {
+    const result = totalOf({
+      ...ocalaCar,
+      auction: "manheim",
+      state: "FL",
+      city: "Manheim Tampa",
+    });
+
+    expect(lineAmount(result, "auctionFee")).toBe(550);
+    expect(lineAmount(result, "inlandDelivery")).toBe(
+      portDeliveryFor(1426, 8900 + 550),
+    );
+    expect(result.customsValue).toBe(8900 + 550 + 1600);
   });
 });

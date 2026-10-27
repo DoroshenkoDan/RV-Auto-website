@@ -32,6 +32,8 @@ export function CostExample({ rates }: { rates: ExchangeRates }) {
       fuel: "petrol",
       vehicle: "car",
       auction: "copart",
+      state: null,
+      city: null,
       engineVolume: 2000,
       batteryCapacity: null,
       year,

@@ -68,6 +68,8 @@ export const DEFAULT_CALCULATOR_INPUT: CalculatorInput = {
   fuel: "petrol",
   vehicle: "car",
   auction: "copart",
+  state: null,
+  city: null,
   engineVolume: null,
   batteryCapacity: null,
   year: null,

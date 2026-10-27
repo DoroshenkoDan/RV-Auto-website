@@ -9,6 +9,7 @@ import {
   VEHICLE_TYPES,
   getYearOptions,
 } from "@/lib/calculator/options";
+import { resolveUsLocation } from "@/lib/calculator/usAuctions";
 import { isOrderCarSlug } from "@/lib/catalog/orderCar";
 
 import {
@@ -28,6 +29,8 @@ const calculatorInputSchema = z
     fuel: z.enum(FUEL_TYPES),
     vehicle: z.enum(VEHICLE_TYPES),
     auction: z.enum(AUCTION_TYPES),
+    state: z.string().max(64).nullable().default(null),
+    city: z.string().max(128).nullable().default(null),
     engineVolume: z.number().int().nullable(),
     batteryCapacity: z.number().int().nullable(),
     year: z.number().int(),
@@ -89,7 +92,11 @@ const calculatorInputSchema = z
         message: "out of range",
       });
     }
-  });
+  })
+  .transform((value) => ({
+    ...value,
+    ...resolveUsLocation(value.auction, value.state, value.city),
+  }));
 
 export const leadSchema = z.object({
   name: z.string().trim().min(NAME_MIN).max(NAME_MAX).regex(NAME_PATTERN),

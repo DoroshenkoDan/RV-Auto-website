@@ -1,0 +1,3386 @@
+{
+  "copart": {
+    "AK": {
+      "Anchorage": {
+        "port": "TX",
+        "car": 5018,
+        "pickup": 7168,
+        "motorcycle": 3496
+      }
+    },
+    "AL": {
+      "Alabama Dothan": {
+        "port": "GA",
+        "car": 1314,
+        "pickup": 2094,
+        "motorcycle": 812
+      },
+      "Birmingham": {
+        "port": "GA",
+        "car": 1711,
+        "pickup": 2521,
+        "motorcycle": 900
+      },
+      "Cusseta": {
+        "port": "GA",
+        "car": 1842,
+        "pickup": 2632,
+        "motorcycle": 1036
+      },
+      "Dothan": {
+        "port": "GA",
+        "car": 1626,
+        "pickup": 2416,
+        "motorcycle": 825
+      },
+      "Mobile": {
+        "port": "GA",
+        "car": 1594,
+        "pickup": 2394,
+        "motorcycle": 910
+      },
+      "Mobile South": {
+        "port": "GA",
+        "car": 1508,
+        "pickup": 2318,
+        "motorcycle": 949
+      },
+      "Montgomery": {
+        "port": "GA",
+        "car": 1742,
+        "pickup": 2532,
+        "motorcycle": 900
+      },
+      "Tanner": {
+        "port": "GA",
+        "car": 1761,
+        "pickup": 2571,
+        "motorcycle": 960
+      }
+    },
+    "AR": {
+      "Fayetteville": {
+        "port": "TX",
+        "car": 1801,
+        "pickup": 2681,
+        "motorcycle": 1044
+      },
+      "Little Rock": {
+        "port": "TX",
+        "car": 1739,
+        "pickup": 2589,
+        "motorcycle": 985
+      }
+    },
+    "AZ": {
+      "Phoenix": {
+        "port": "CA",
+        "car": 2180,
+        "pickup": 3410,
+        "motorcycle": 1150
+      },
+      "Phoenix North": {
+        "port": "CA",
+        "car": 2230,
+        "pickup": 3480,
+        "motorcycle": 1268
+      },
+      "Tucson": {
+        "port": "CA",
+        "car": 2229,
+        "pickup": 3519,
+        "motorcycle": 1220
+      }
+    },
+    "CA": {
+      "Adelanto": {
+        "port": "CA",
+        "car": 1829,
+        "pickup": 3049,
+        "motorcycle": 1129
+      },
+      "Antelope": {
+        "port": "CA",
+        "car": 2225,
+        "pickup": 3495,
+        "motorcycle": 1219
+      },
+      "Bakersfield": {
+        "port": "CA",
+        "car": 2064,
+        "pickup": 3284,
+        "motorcycle": 1110
+      },
+      "CrashedToys Sacramento": {
+        "port": "CA",
+        "car": 2174,
+        "pickup": 3584,
+        "motorcycle": 1235
+      },
+      "Fresno": {
+        "port": "CA",
+        "car": 2137,
+        "pickup": 3377,
+        "motorcycle": 1130
+      },
+      "Hayward": {
+        "port": "CA",
+        "car": 2266,
+        "pickup": 3526,
+        "motorcycle": 1150
+      },
+      "Long Beach": {
+        "port": "CA",
+        "car": 1991,
+        "pickup": 3181,
+        "motorcycle": 1070
+      },
+      "Los Angeles": {
+        "port": "CA",
+        "car": 2029,
+        "pickup": 3229,
+        "motorcycle": 1070
+      },
+      "Martinez": {
+        "port": "CA",
+        "car": 2227,
+        "pickup": 3487,
+        "motorcycle": 1150
+      },
+      "Mentone": {
+        "port": "CA",
+        "car": 1984,
+        "pickup": 3394,
+        "motorcycle": 1121
+      },
+      "Napa": {
+        "port": "CA",
+        "car": 2258,
+        "pickup": 3960,
+        "motorcycle": 1285
+      },
+      "Rancho Cucamonga": {
+        "port": "CA",
+        "car": 2069,
+        "pickup": 3269,
+        "motorcycle": 1060
+      },
+      "Redding": {
+        "port": "CA",
+        "car": 2286,
+        "pickup": 3636,
+        "motorcycle": 1393
+      },
+      "Sacramento": {
+        "port": "CA",
+        "car": 2199,
+        "pickup": 3459,
+        "motorcycle": 1150
+      },
+      "San Bernardino": {
+        "port": "CA",
+        "car": 1978,
+        "pickup": 3178,
+        "motorcycle": 1060
+      },
+      "San Diego": {
+        "port": "CA",
+        "car": 2098,
+        "pickup": 3308,
+        "motorcycle": 1110
+      },
+      "San Jose": {
+        "port": "CA",
+        "car": 2194,
+        "pickup": 3454,
+        "motorcycle": 1150
+      },
+      "South Sacramento": {
+        "port": "CA",
+        "car": 2192,
+        "pickup": 3452,
+        "motorcycle": 1150
+      },
+      "Sun Valley": {
+        "port": "CA",
+        "car": 2025,
+        "pickup": 3225,
+        "motorcycle": 1070
+      },
+      "Vallejo": {
+        "port": "CA",
+        "car": 2108,
+        "pickup": 3368,
+        "motorcycle": 1170
+      },
+      "Van Nuys": {
+        "port": "CA",
+        "car": 2033,
+        "pickup": 3233,
+        "motorcycle": 1060
+      }
+    },
+    "CO": {
+      "Colorado Springs": {
+        "port": "NJ",
+        "car": 2085,
+        "pickup": 3035,
+        "motorcycle": 1180
+      },
+      "Denver": {
+        "port": "NJ",
+        "car": 1989,
+        "pickup": 2919,
+        "motorcycle": 1100
+      },
+      "Denver Central": {
+        "port": "NJ",
+        "car": 1990,
+        "pickup": 2930,
+        "motorcycle": 1100
+      },
+      "Denver South": {
+        "port": "NJ",
+        "car": 2050,
+        "pickup": 2990,
+        "motorcycle": 1186
+      }
+    },
+    "CT": {
+      "Hartford": {
+        "port": "NJ",
+        "car": 1560,
+        "pickup": 2310,
+        "motorcycle": 840
+      },
+      "Hartford Springfield": {
+        "port": "NJ",
+        "car": 1643,
+        "pickup": 2393,
+        "motorcycle": 880
+      }
+    },
+    "DC": {
+      "Washington DC": {
+        "port": "NJ",
+        "car": 1643,
+        "pickup": 2433,
+        "motorcycle": 860
+      }
+    },
+    "DE": {
+      "Seaford": {
+        "port": "NJ",
+        "car": 1703,
+        "pickup": 2503,
+        "motorcycle": 880
+      }
+    },
+    "FL": {
+      "Clewiston": {
+        "port": "FL",
+        "car": 1660,
+        "pickup": 2610,
+        "motorcycle": 926
+      },
+      "Ft. Pierce": {
+        "port": "FL",
+        "car": 1569,
+        "pickup": 2509,
+        "motorcycle": 810
+      },
+      "Jacksonville East": {
+        "port": "FL",
+        "car": 1427,
+        "pickup": 2377,
+        "motorcycle": 830
+      },
+      "Jacksonville North": {
+        "port": "FL",
+        "car": 1600,
+        "pickup": 2550,
+        "motorcycle": 857
+      },
+      "Jacksonville West": {
+        "port": "FL",
+        "car": 1399,
+        "pickup": 2339,
+        "motorcycle": 830
+      },
+      "Miami Central": {
+        "port": "FL",
+        "car": 1601,
+        "pickup": 2511,
+        "motorcycle": 750
+      },
+      "Miami North": {
+        "port": "FL",
+        "car": 1635,
+        "pickup": 2555,
+        "motorcycle": 750
+      },
+      "Miami South": {
+        "port": "FL",
+        "car": 1619,
+        "pickup": 2529,
+        "motorcycle": 780
+      },
+      "Ocala": {
+        "port": "FL",
+        "car": 1552,
+        "pickup": 2512,
+        "motorcycle": 820
+      },
+      "Orlando North": {
+        "port": "FL",
+        "car": 1563,
+        "pickup": 2503,
+        "motorcycle": 810
+      },
+      "Orlando South": {
+        "port": "FL",
+        "car": 1608,
+        "pickup": 2548,
+        "motorcycle": 810
+      },
+      "Punta Gorda": {
+        "port": "FL",
+        "car": 1459,
+        "pickup": 2409,
+        "motorcycle": 810
+      },
+      "Punta Gorda South": {
+        "port": "FL",
+        "car": 1609,
+        "pickup": 2559,
+        "motorcycle": 953
+      },
+      "Tallahassee": {
+        "port": "FL",
+        "car": 1598,
+        "pickup": 2578,
+        "motorcycle": 909
+      },
+      "Tampa North": {
+        "port": "FL",
+        "car": 1610,
+        "pickup": 2560,
+        "motorcycle": 896
+      },
+      "Tampa South": {
+        "port": "FL",
+        "car": 1560,
+        "pickup": 2510,
+        "motorcycle": 880
+      },
+      "West Palm Beach": {
+        "port": "FL",
+        "car": 1646,
+        "pickup": 2566,
+        "motorcycle": 810
+      }
+    },
+    "GA": {
+      "Atlanta East": {
+        "port": "GA",
+        "car": 1544,
+        "pickup": 2314,
+        "motorcycle": 820
+      },
+      "Atlanta North": {
+        "port": "GA",
+        "car": 1564,
+        "pickup": 2334,
+        "motorcycle": 840
+      },
+      "Atlanta South": {
+        "port": "GA",
+        "car": 1550,
+        "pickup": 2320,
+        "motorcycle": 840
+      },
+      "Atlanta West": {
+        "port": "GA",
+        "car": 1600,
+        "pickup": 2370,
+        "motorcycle": 820
+      },
+      "Augusta": {
+        "port": "GA",
+        "car": 1551,
+        "pickup": 2291,
+        "motorcycle": 832
+      },
+      "Cartersville": {
+        "port": "GA",
+        "car": 1652,
+        "pickup": 2432,
+        "motorcycle": 780
+      },
+      "CrashedToys Atlanta": {
+        "port": "GA",
+        "car": 1578,
+        "pickup": 2481,
+        "motorcycle": 877
+      },
+      "Fairburn": {
+        "port": "GA",
+        "car": 1421,
+        "pickup": 2191,
+        "motorcycle": 874
+      },
+      "Macon": {
+        "port": "GA",
+        "car": 1511,
+        "pickup": 2261,
+        "motorcycle": 820
+      },
+      "Savannah": {
+        "port": "GA",
+        "car": 1370,
+        "pickup": 2080,
+        "motorcycle": 750
+      },
+      "Tifton": {
+        "port": "GA",
+        "car": 1500,
+        "pickup": 2250,
+        "motorcycle": 820
+      }
+    },
+    "HI": {
+      "Honolulu": {
+        "port": "CA",
+        "car": 3572,
+        "pickup": 5482,
+        "motorcycle": 2424
+      }
+    },
+    "IA": {
+      "Cedar Rapids": {
+        "port": "NJ",
+        "car": 2013,
+        "pickup": 3107,
+        "motorcycle": 1138
+      },
+      "Davenport": {
+        "port": "NJ",
+        "car": 1664,
+        "pickup": 2564,
+        "motorcycle": 1060
+      },
+      "Des Moines": {
+        "port": "NJ",
+        "car": 1913,
+        "pickup": 2813,
+        "motorcycle": 1100
+      }
+    },
+    "ID": {
+      "Boise": {
+        "port": "CA",
+        "car": 2470,
+        "pickup": 3860,
+        "motorcycle": 1330
+      }
+    },
+    "IL": {
+      "Chicago North": {
+        "port": "NJ",
+        "car": 2037,
+        "pickup": 2887,
+        "motorcycle": 1040
+      },
+      "Chicago South": {
+        "port": "NJ",
+        "car": 1967,
+        "pickup": 2807,
+        "motorcycle": 1060
+      },
+      "Peoria": {
+        "port": "NJ",
+        "car": 1985,
+        "pickup": 2845,
+        "motorcycle": 1100
+      },
+      "Southern Illinois": {
+        "port": "NJ",
+        "car": 1911,
+        "pickup": 2791,
+        "motorcycle": 1050
+      },
+      "St. Louis": {
+        "port": "NJ",
+        "car": 1723,
+        "pickup": 2583,
+        "motorcycle": 1044
+      },
+      "Wheeling": {
+        "port": "NJ",
+        "car": 1724,
+        "pickup": 2574,
+        "motorcycle": 1100
+      }
+    },
+    "IN": {
+      "Cicero": {
+        "port": "NJ",
+        "car": 1872,
+        "pickup": 2742,
+        "motorcycle": 1062
+      },
+      "Dyer": {
+        "port": "NJ",
+        "car": 1964,
+        "pickup": 2844,
+        "motorcycle": 1018
+      },
+      "Fort Wayne": {
+        "port": "NJ",
+        "car": 1750,
+        "pickup": 2640,
+        "motorcycle": 871
+      },
+      "Hammond": {
+        "port": "NJ",
+        "car": 1814,
+        "pickup": 2744,
+        "motorcycle": 1020
+      },
+      "Hartford City": {
+        "port": "NJ",
+        "car": 1594,
+        "pickup": 2474,
+        "motorcycle": 944
+      },
+      "Indianapolis": {
+        "port": "NJ",
+        "car": 1901,
+        "pickup": 2761,
+        "motorcycle": 1020
+      }
+    },
+    "KS": {
+      "Kansas City": {
+        "port": "NJ",
+        "car": 1960,
+        "pickup": 2840,
+        "motorcycle": 1060
+      },
+      "Kansas City East": {
+        "port": "NJ",
+        "car": 1918,
+        "pickup": 2885,
+        "motorcycle": 1081
+      },
+      "Kansas City West": {
+        "port": "NJ",
+        "car": 1918,
+        "pickup": 2885,
+        "motorcycle": 1081
+      },
+      "Wichita": {
+        "port": "TX",
+        "car": 1710,
+        "pickup": 2590,
+        "motorcycle": 1180
+      }
+    },
+    "KY": {
+      "Earlington": {
+        "port": "GA",
+        "car": 1909,
+        "pickup": 2779,
+        "motorcycle": 1072
+      },
+      "Lexington East": {
+        "port": "GA",
+        "car": 1768,
+        "pickup": 2618,
+        "motorcycle": 1020
+      },
+      "Lexington West": {
+        "port": "GA",
+        "car": 1796,
+        "pickup": 2646,
+        "motorcycle": 1020
+      },
+      "Louisville": {
+        "port": "GA",
+        "car": 1959,
+        "pickup": 2819,
+        "motorcycle": 1010
+      },
+      "Walton": {
+        "port": "GA",
+        "car": 1897,
+        "pickup": 2757,
+        "motorcycle": 1020
+      }
+    },
+    "LA": {
+      "Baton Rouge": {
+        "port": "TX",
+        "car": 1830,
+        "pickup": 2640,
+        "motorcycle": 904
+      },
+      "New Orleans": {
+        "port": "TX",
+        "car": 1792,
+        "pickup": 2612,
+        "motorcycle": 940
+      },
+      "Shreveport": {
+        "port": "TX",
+        "car": 1591,
+        "pickup": 2391,
+        "motorcycle": 900
+      },
+      "Vinton": {
+        "port": "TX",
+        "car": 1842,
+        "pickup": 2662,
+        "motorcycle": 1036
+      }
+    },
+    "MA": {
+      "Freetown": {
+        "port": "NJ",
+        "car": 1617,
+        "pickup": 2367,
+        "motorcycle": 832
+      },
+      "North Boston": {
+        "port": "NJ",
+        "car": 1717,
+        "pickup": 2517,
+        "motorcycle": 900
+      },
+      "South Boston": {
+        "port": "NJ",
+        "car": 1746,
+        "pickup": 2546,
+        "motorcycle": 900
+      },
+      "West Warren": {
+        "port": "NJ",
+        "car": 1751,
+        "pickup": 2561,
+        "motorcycle": 900
+      }
+    },
+    "MD": {
+      "Baltimore": {
+        "port": "NJ",
+        "car": 1618,
+        "pickup": 2418,
+        "motorcycle": 860
+      },
+      "Baltimore East": {
+        "port": "NJ",
+        "car": 1663,
+        "pickup": 2413,
+        "motorcycle": 988
+      },
+      "Laurel": {
+        "port": "NJ",
+        "car": 1713,
+        "pickup": 2463,
+        "motorcycle": 958
+      }
+    },
+    "ME": {
+      "Lyman": {
+        "port": "NJ",
+        "car": 1767,
+        "pickup": 2607,
+        "motorcycle": 960
+      },
+      "Windham": {
+        "port": "NJ",
+        "car": 1867,
+        "pickup": 2747,
+        "motorcycle": 1077
+      }
+    },
+    "MI": {
+      "Detroit": {
+        "port": "NJ",
+        "car": 1949,
+        "pickup": 2809,
+        "motorcycle": 1040
+      },
+      "Flint": {
+        "port": "NJ",
+        "car": 1914,
+        "pickup": 2804,
+        "motorcycle": 1060
+      },
+      "Ionia": {
+        "port": "NJ",
+        "car": 1803,
+        "pickup": 2683,
+        "motorcycle": 1040
+      },
+      "Kincheloe": {
+        "port": "NJ",
+        "car": 1958,
+        "pickup": 2988,
+        "motorcycle": 1320
+      },
+      "Lansing": {
+        "port": "NJ",
+        "car": 1952,
+        "pickup": 2832,
+        "motorcycle": 1080
+      },
+      "Wayland": {
+        "port": "NJ",
+        "car": 2053,
+        "pickup": 2953,
+        "motorcycle": 1116
+      }
+    },
+    "MN": {
+      "CrashedToys Minneapolis": {
+        "port": "NJ",
+        "car": 1807,
+        "pickup": 2697,
+        "motorcycle": 1100
+      },
+      "Minneapolis": {
+        "port": "NJ",
+        "car": 2049,
+        "pickup": 2949,
+        "motorcycle": 1100
+      },
+      "Minneapolis North": {
+        "port": "NJ",
+        "car": 2098,
+        "pickup": 2978,
+        "motorcycle": 1100
+      },
+      "St. Cloud": {
+        "port": "NJ",
+        "car": 1824,
+        "pickup": 2744,
+        "motorcycle": 1100
+      }
+    },
+    "MO": {
+      "Columbia": {
+        "port": "GA",
+        "car": 1766,
+        "pickup": 2686,
+        "motorcycle": 1020
+      },
+      "Sikeston": {
+        "port": "GA",
+        "car": 1739,
+        "pickup": 2639,
+        "motorcycle": 1060
+      },
+      "Springfield": {
+        "port": "GA",
+        "car": 1981,
+        "pickup": 2891,
+        "motorcycle": 1140
+      },
+      "St. Louis": {
+        "port": "GA",
+        "car": 1973,
+        "pickup": 2873,
+        "motorcycle": 1060
+      }
+    },
+    "MS": {
+      "Grenada": {
+        "port": "GA",
+        "car": 1720,
+        "pickup": 2610,
+        "motorcycle": 1121
+      },
+      "Jackson": {
+        "port": "GA",
+        "car": 1692,
+        "pickup": 2512,
+        "motorcycle": 970
+      }
+    },
+    "MT": {
+      "Billings": {
+        "port": "NJ",
+        "car": 2349,
+        "pickup": 3529,
+        "motorcycle": 1563
+      },
+      "Helena": {
+        "port": "NJ",
+        "car": 2369,
+        "pickup": 3579,
+        "motorcycle": 1260
+      }
+    },
+    "NC": {
+      "China Grove": {
+        "port": "GA",
+        "car": 1603,
+        "pickup": 2373,
+        "motorcycle": 830
+      },
+      "Concord": {
+        "port": "GA",
+        "car": 1549,
+        "pickup": 2319,
+        "motorcycle": 879
+      },
+      "Gastonia": {
+        "port": "GA",
+        "car": 1529,
+        "pickup": 2269,
+        "motorcycle": 832
+      },
+      "Lagrange": {
+        "port": "GA",
+        "car": 1694,
+        "pickup": 2464,
+        "motorcycle": 947
+      },
+      "Lumberton": {
+        "port": "GA",
+        "car": 1703,
+        "pickup": 2473,
+        "motorcycle": 1002
+      },
+      "Mebane": {
+        "port": "GA",
+        "car": 1668,
+        "pickup": 2448,
+        "motorcycle": 860
+      },
+      "Mocksville": {
+        "port": "GA",
+        "car": 1737,
+        "pickup": 2507,
+        "motorcycle": 879
+      },
+      "Raleigh": {
+        "port": "GA",
+        "car": 1629,
+        "pickup": 2409,
+        "motorcycle": 840
+      },
+      "Raleigh North": {
+        "port": "GA",
+        "car": 1439,
+        "pickup": 2179,
+        "motorcycle": 832
+      }
+    },
+    "ND": {
+      "Bismarck": {
+        "port": "NJ",
+        "car": 2331,
+        "pickup": 3481,
+        "motorcycle": 1604
+      }
+    },
+    "NE": {
+      "Lincoln": {
+        "port": "NJ",
+        "car": 1878,
+        "pickup": 2778,
+        "motorcycle": 1100
+      }
+    },
+    "NH": {
+      "Candia": {
+        "port": "NJ",
+        "car": 1683,
+        "pickup": 2483,
+        "motorcycle": 980
+      }
+    },
+    "NJ": {
+      "Glassboro East": {
+        "port": "NJ",
+        "car": 1448,
+        "pickup": 2198,
+        "motorcycle": 780
+      },
+      "Glassboro West": {
+        "port": "NJ",
+        "car": 1343,
+        "pickup": 2093,
+        "motorcycle": 816
+      },
+      "Somerville": {
+        "port": "NJ",
+        "car": 1480,
+        "pickup": 2220,
+        "motorcycle": 760
+      },
+      "Trenton": {
+        "port": "NJ",
+        "car": 1530,
+        "pickup": 2270,
+        "motorcycle": 760
+      }
+    },
+    "NM": {
+      "Albuquerque": {
+        "port": "TX",
+        "car": 1868,
+        "pickup": 2778,
+        "motorcycle": 1020
+      }
+    },
+    "NV": {
+      "Las Vegas": {
+        "port": "CA",
+        "car": 2095,
+        "pickup": 3335,
+        "motorcycle": 1150
+      },
+      "Las Vegas West": {
+        "port": "CA",
+        "car": 2245,
+        "pickup": 3505,
+        "motorcycle": 1211
+      },
+      "Reno": {
+        "port": "CA",
+        "car": 2265,
+        "pickup": 3585,
+        "motorcycle": 1260
+      }
+    },
+    "NY": {
+      "Albany": {
+        "port": "NJ",
+        "car": 1600,
+        "pickup": 2380,
+        "motorcycle": 880
+      },
+      "Buffalo": {
+        "port": "NJ",
+        "car": 1861,
+        "pickup": 2701,
+        "motorcycle": 980
+      },
+      "Long Island": {
+        "port": "NJ",
+        "car": 1570,
+        "pickup": 2340,
+        "motorcycle": 860
+      },
+      "Newburgh": {
+        "port": "NJ",
+        "car": 1530,
+        "pickup": 2280,
+        "motorcycle": 800
+      },
+      "Rochester": {
+        "port": "NJ",
+        "car": 1760,
+        "pickup": 2590,
+        "motorcycle": 960
+      },
+      "Syracuse": {
+        "port": "NJ",
+        "car": 1550,
+        "pickup": 2350,
+        "motorcycle": 900
+      }
+    },
+    "OH": {
+      "Akron": {
+        "port": "NJ",
+        "car": 1909,
+        "pickup": 2779,
+        "motorcycle": 1076
+      },
+      "Cleveland East": {
+        "port": "NJ",
+        "car": 1745,
+        "pickup": 2605,
+        "motorcycle": 1000
+      },
+      "Cleveland West": {
+        "port": "NJ",
+        "car": 1859,
+        "pickup": 2709,
+        "motorcycle": 1000
+      },
+      "Columbus": {
+        "port": "NJ",
+        "car": 1902,
+        "pickup": 2762,
+        "motorcycle": 980
+      },
+      "Dayton": {
+        "port": "NJ",
+        "car": 1793,
+        "pickup": 2653,
+        "motorcycle": 1020
+      }
+    },
+    "OK": {
+      "Oklahoma City": {
+        "port": "TX",
+        "car": 1878,
+        "pickup": 2728,
+        "motorcycle": 986
+      },
+      "Tulsa": {
+        "port": "TX",
+        "car": 1836,
+        "pickup": 2686,
+        "motorcycle": 985
+      }
+    },
+    "OR": {
+      "Eugene": {
+        "port": "CA",
+        "car": 2366,
+        "pickup": 3736,
+        "motorcycle": 1350
+      },
+      "Portland North": {
+        "port": "CA",
+        "car": 2679,
+        "pickup": 4049,
+        "motorcycle": 1350
+      },
+      "Portland South": {
+        "port": "CA",
+        "car": 2214,
+        "pickup": 3584,
+        "motorcycle": 1330
+      }
+    },
+    "PA": {
+      "Altoona": {
+        "port": "NJ",
+        "car": 1689,
+        "pickup": 2509,
+        "motorcycle": 940
+      },
+      "Chambersburg": {
+        "port": "NJ",
+        "car": 1668,
+        "pickup": 2478,
+        "motorcycle": 920
+      },
+      "Harrisburg": {
+        "port": "NJ",
+        "car": 1603,
+        "pickup": 2383,
+        "motorcycle": 860
+      },
+      "Philadelphia": {
+        "port": "NJ",
+        "car": 1554,
+        "pickup": 2304,
+        "motorcycle": 790
+      },
+      "Philadelphia East": {
+        "port": "NJ",
+        "car": 1578,
+        "pickup": 2338,
+        "motorcycle": 880
+      },
+      "Pittsburgh East": {
+        "port": "NJ",
+        "car": 1395,
+        "pickup": 2205,
+        "motorcycle": 940
+      },
+      "Pittsburgh North": {
+        "port": "NJ",
+        "car": 1806,
+        "pickup": 2646,
+        "motorcycle": 970
+      },
+      "Pittsburgh South": {
+        "port": "NJ",
+        "car": 1809,
+        "pickup": 2639,
+        "motorcycle": 940
+      },
+      "Pittsburgh West": {
+        "port": "NJ",
+        "car": 1860,
+        "pickup": 2700,
+        "motorcycle": 995
+      },
+      "Scranton": {
+        "port": "NJ",
+        "car": 1659,
+        "pickup": 2429,
+        "motorcycle": 850
+      },
+      "York Haven": {
+        "port": "NJ",
+        "car": 1714,
+        "pickup": 2494,
+        "motorcycle": 860
+      }
+    },
+    "RI": {
+      "Exeter": {
+        "port": "NJ",
+        "car": 1674,
+        "pickup": 2474,
+        "motorcycle": 890
+      }
+    },
+    "SC": {
+      "Columbia": {
+        "port": "GA",
+        "car": 1624,
+        "pickup": 2364,
+        "motorcycle": 1020
+      },
+      "Greer": {
+        "port": "GA",
+        "car": 1518,
+        "pickup": 2318,
+        "motorcycle": 820
+      },
+      "North Charleston": {
+        "port": "GA",
+        "car": 1354,
+        "pickup": 2094,
+        "motorcycle": 788
+      },
+      "Spartanburg": {
+        "port": "GA",
+        "car": 1726,
+        "pickup": 2496,
+        "motorcycle": 985
+      }
+    },
+    "SD": {
+      "Rapid City": {
+        "port": "NJ",
+        "car": 2616,
+        "pickup": 3806,
+        "motorcycle": 1673
+      }
+    },
+    "TN": {
+      "Knoxville": {
+        "port": "GA",
+        "car": 1741,
+        "pickup": 2551,
+        "motorcycle": 900
+      },
+      "Memphis": {
+        "port": "GA",
+        "car": 1655,
+        "pickup": 2485,
+        "motorcycle": 940
+      },
+      "Nashville": {
+        "port": "GA",
+        "car": 1766,
+        "pickup": 2576,
+        "motorcycle": 920
+      }
+    },
+    "TX": {
+      "Abilene": {
+        "port": "TX",
+        "car": 1583,
+        "pickup": 2413,
+        "motorcycle": 920
+      },
+      "Amarillo": {
+        "port": "TX",
+        "car": 1653,
+        "pickup": 2523,
+        "motorcycle": 940
+      },
+      "Andrews": {
+        "port": "TX",
+        "car": 1554,
+        "pickup": 2394,
+        "motorcycle": 960
+      },
+      "Austin": {
+        "port": "TX",
+        "car": 1434,
+        "pickup": 2214,
+        "motorcycle": 830
+      },
+      "Corpus Christi": {
+        "port": "TX",
+        "car": 1406,
+        "pickup": 2196,
+        "motorcycle": 840
+      },
+      "CrashedToys Dallas": {
+        "port": "TX",
+        "car": 1407,
+        "pickup": 2197,
+        "motorcycle": 850
+      },
+      "Dallas": {
+        "port": "TX",
+        "car": 1680,
+        "pickup": 2460,
+        "motorcycle": 820
+      },
+      "Dallas South": {
+        "port": "TX",
+        "car": 1717,
+        "pickup": 2497,
+        "motorcycle": 840
+      },
+      "DRIVE Dallas": {
+        "port": "TX",
+        "car": 1716,
+        "pickup": 2506,
+        "motorcycle": 850
+      },
+      "El Paso": {
+        "port": "TX",
+        "car": 1613,
+        "pickup": 2463,
+        "motorcycle": 940
+      },
+      "Ft. Worth": {
+        "port": "TX",
+        "car": 1654,
+        "pickup": 2434,
+        "motorcycle": 860
+      },
+      "Houston": {
+        "port": "TX",
+        "car": 1598,
+        "pickup": 2338,
+        "motorcycle": 750
+      },
+      "Houston East": {
+        "port": "TX",
+        "car": 1658,
+        "pickup": 2408,
+        "motorcycle": 777
+      },
+      "Longview": {
+        "port": "TX",
+        "car": 1437,
+        "pickup": 2227,
+        "motorcycle": 840
+      },
+      "Lufkin": {
+        "port": "TX",
+        "car": 1340,
+        "pickup": 2130,
+        "motorcycle": 820
+      },
+      "McAllen": {
+        "port": "TX",
+        "car": 1538,
+        "pickup": 2328,
+        "motorcycle": 850
+      },
+      "North Austin": {
+        "port": "TX",
+        "car": 1484,
+        "pickup": 2264,
+        "motorcycle": 821
+      },
+      "San Antonio": {
+        "port": "TX",
+        "car": 1659,
+        "pickup": 2429,
+        "motorcycle": 820
+      },
+      "Waco": {
+        "port": "TX",
+        "car": 1681,
+        "pickup": 2461,
+        "motorcycle": 900
+      }
+    },
+    "UT": {
+      "Ogden": {
+        "port": "CA",
+        "car": 2208,
+        "pickup": 3488,
+        "motorcycle": 1310
+      },
+      "Salt Lake City": {
+        "port": "CA",
+        "car": 2356,
+        "pickup": 3636,
+        "motorcycle": 1270
+      },
+      "Salt Lake City North": {
+        "port": "CA",
+        "car": 2159,
+        "pickup": 3569,
+        "motorcycle": 1226
+      }
+    },
+    "VA": {
+      "Danville": {
+        "port": "NJ",
+        "car": 1716,
+        "pickup": 2566,
+        "motorcycle": 980
+      },
+      "Fredericksburg": {
+        "port": "NJ",
+        "car": 1765,
+        "pickup": 2555,
+        "motorcycle": 940
+      },
+      "Hampton": {
+        "port": "NJ",
+        "car": 1684,
+        "pickup": 2474,
+        "motorcycle": 900
+      },
+      "Richmond": {
+        "port": "NJ",
+        "car": 1778,
+        "pickup": 2568,
+        "motorcycle": 940
+      },
+      "Richmond East": {
+        "port": "NJ",
+        "car": 1425,
+        "pickup": 2215,
+        "motorcycle": 909
+      }
+    },
+    "VT": {
+      "Rutland": {
+        "port": "NJ",
+        "car": 2001,
+        "pickup": 2911,
+        "motorcycle": 1100
+      }
+    },
+    "WA": {
+      "Graham": {
+        "port": "TX",
+        "car": 2580,
+        "pickup": 3810,
+        "motorcycle": 1585
+      },
+      "North Seattle": {
+        "port": "TX",
+        "car": 2600,
+        "pickup": 3830,
+        "motorcycle": 1598
+      },
+      "Pasco": {
+        "port": "TX",
+        "car": 2500,
+        "pickup": 3750,
+        "motorcycle": 1598
+      },
+      "Spanaway": {
+        "port": "TX",
+        "car": 2630,
+        "pickup": 3860,
+        "motorcycle": 1508
+      },
+      "Spokane": {
+        "port": "TX",
+        "car": 2435,
+        "pickup": 3675,
+        "motorcycle": 1620
+      }
+    },
+    "WI": {
+      "Appleton": {
+        "port": "NJ",
+        "car": 2049,
+        "pickup": 2929,
+        "motorcycle": 1220
+      },
+      "Madison": {
+        "port": "NJ",
+        "car": 1854,
+        "pickup": 2724,
+        "motorcycle": 1060
+      },
+      "Madison South": {
+        "port": "NJ",
+        "car": 2004,
+        "pickup": 2754,
+        "motorcycle": 832
+      },
+      "Milwaukee": {
+        "port": "NJ",
+        "car": 2014,
+        "pickup": 2894,
+        "motorcycle": 1080
+      },
+      "Milwaukee North": {
+        "port": "NJ",
+        "car": 2014,
+        "pickup": 2914,
+        "motorcycle": 1112
+      },
+      "Milwaukee South": {
+        "port": "NJ",
+        "car": 1918,
+        "pickup": 2885,
+        "motorcycle": 1081
+      }
+    },
+    "WV": {
+      "Charleston": {
+        "port": "NJ",
+        "car": 1747,
+        "pickup": 2617,
+        "motorcycle": 1060
+      }
+    },
+    "WY": {
+      "Casper": {
+        "port": "NJ",
+        "car": 2284,
+        "pickup": 3434,
+        "motorcycle": 1460
+      }
+    }
+  },
+  "iaai": {
+    "AK": {
+      "Anchorage": {
+        "port": "TX",
+        "car": 5218,
+        "pickup": 7368,
+        "motorcycle": 3496
+      }
+    },
+    "AL": {
+      "ADESA Birmingham": {
+        "port": "GA",
+        "car": 1575,
+        "pickup": 2385,
+        "motorcycle": 920
+      },
+      "Birmingham": {
+        "port": "GA",
+        "car": 1531,
+        "pickup": 2331,
+        "motorcycle": 900
+      },
+      "Dothan": {
+        "port": "GA",
+        "car": 1470,
+        "pickup": 2260,
+        "motorcycle": 920
+      },
+      "Huntsville": {
+        "port": "GA",
+        "car": 1521,
+        "pickup": 2331,
+        "motorcycle": 980
+      },
+      "Mobile": {
+        "port": "GA",
+        "car": 1520,
+        "pickup": 2310,
+        "motorcycle": 842
+      }
+    },
+    "AR": {
+      "Fayetteville": {
+        "port": "TX",
+        "car": 1651,
+        "pickup": 2521,
+        "motorcycle": 1021
+      },
+      "Little Rock": {
+        "port": "TX",
+        "car": 1609,
+        "pickup": 2469,
+        "motorcycle": 1003
+      }
+    },
+    "AZ": {
+      "Phoenix": {
+        "port": "CA",
+        "car": 2162,
+        "pickup": 3392,
+        "motorcycle": 1150
+      },
+      "Tucson": {
+        "port": "CA",
+        "car": 2029,
+        "pickup": 3319,
+        "motorcycle": 1220
+      }
+    },
+    "CA": {
+      "ACE Carson": {
+        "port": "CA",
+        "car": 1950,
+        "pickup": 3160,
+        "motorcycle": 1122
+      },
+      "ACE Perris": {
+        "port": "CA",
+        "car": 2103,
+        "pickup": 3333,
+        "motorcycle": 1145
+      },
+      "ACE Perris 2": {
+        "port": "CA",
+        "car": 1861,
+        "pickup": 3071,
+        "motorcycle": 1122
+      },
+      "Anaheim": {
+        "port": "CA",
+        "car": 1834,
+        "pickup": 3034,
+        "motorcycle": 1100
+      },
+      "Colton": {
+        "port": "CA",
+        "car": 1886,
+        "pickup": 3076,
+        "motorcycle": 1070
+      },
+      "East Bay": {
+        "port": "CA",
+        "car": 2125,
+        "pickup": 3395,
+        "motorcycle": 1190
+      },
+      "Fontana": {
+        "port": "CA",
+        "car": 2072,
+        "pickup": 3282,
+        "motorcycle": 1090
+      },
+      "Fremont": {
+        "port": "CA",
+        "car": 2118,
+        "pickup": 3378,
+        "motorcycle": 1180
+      },
+      "Fresno": {
+        "port": "CA",
+        "car": 1952,
+        "pickup": 3202,
+        "motorcycle": 1130
+      },
+      "High Desert": {
+        "port": "CA",
+        "car": 1802,
+        "pickup": 3042,
+        "motorcycle": 1100
+      },
+      "Los Angeles": {
+        "port": "CA",
+        "car": 1968,
+        "pickup": 3168,
+        "motorcycle": 1070
+      },
+      "Los Angeles South": {
+        "port": "CA",
+        "car": 1970,
+        "pickup": 3170,
+        "motorcycle": 1085
+      },
+      "North Hollywood": {
+        "port": "CA",
+        "car": 2074,
+        "pickup": 3274,
+        "motorcycle": 1060
+      },
+      "Riverside": {
+        "port": "CA",
+        "car": 2072,
+        "pickup": 3282,
+        "motorcycle": 1174
+      },
+      "Sacramento": {
+        "port": "CA",
+        "car": 2103,
+        "pickup": 3363,
+        "motorcycle": 1150
+      },
+      "Sacramento West": {
+        "port": "CA",
+        "car": 2153,
+        "pickup": 3413,
+        "motorcycle": 1222
+      },
+      "San Bernardino": {
+        "port": "CA",
+        "car": 1959,
+        "pickup": 3369,
+        "motorcycle": 1106
+      },
+      "San Diego": {
+        "port": "CA",
+        "car": 1987,
+        "pickup": 3197,
+        "motorcycle": 1110
+      },
+      "Santa Clarita": {
+        "port": "CA",
+        "car": 2149,
+        "pickup": 3379,
+        "motorcycle": 1142
+      },
+      "Stockton": {
+        "port": "CA",
+        "car": 2053,
+        "pickup": 3313,
+        "motorcycle": 1162
+      }
+    },
+    "CO": {
+      "Colorado Springs": {
+        "port": "NJ",
+        "car": 1952,
+        "pickup": 2942,
+        "motorcycle": 832
+      },
+      "Denver": {
+        "port": "NJ",
+        "car": 1859,
+        "pickup": 2849,
+        "motorcycle": 1100
+      },
+      "Denver East": {
+        "port": "NJ",
+        "car": 1852,
+        "pickup": 2842,
+        "motorcycle": 1140
+      },
+      "Western Colorado": {
+        "port": "NJ",
+        "car": 2107,
+        "pickup": 3337,
+        "motorcycle": 1270
+      }
+    },
+    "CT": {
+      "Hartford": {
+        "port": "NJ",
+        "car": 1439,
+        "pickup": 2189,
+        "motorcycle": 840
+      },
+      "Hartford South": {
+        "port": "NJ",
+        "car": 1325,
+        "pickup": 2075,
+        "motorcycle": 769
+      }
+    },
+    "DE": {
+      "New Castle": {
+        "port": "NJ",
+        "car": 1406,
+        "pickup": 2196,
+        "motorcycle": 900
+      }
+    },
+    "FL": {
+      "Clearwater": {
+        "port": "FL",
+        "car": 1552,
+        "pickup": 2502,
+        "motorcycle": 810
+      },
+      "Fort Myers": {
+        "port": "FL",
+        "car": 1551,
+        "pickup": 2491,
+        "motorcycle": 810
+      },
+      "Fort Pierce": {
+        "port": "FL",
+        "car": 1475,
+        "pickup": 2415,
+        "motorcycle": 810
+      },
+      "Jacksonville": {
+        "port": "FL",
+        "car": 1460,
+        "pickup": 2410,
+        "motorcycle": 820
+      },
+      "Miami": {
+        "port": "FL",
+        "car": 1385,
+        "pickup": 2305,
+        "motorcycle": 750
+      },
+      "Miami North": {
+        "port": "FL",
+        "car": 1588,
+        "pickup": 2498,
+        "motorcycle": 750
+      },
+      "Orlando": {
+        "port": "FL",
+        "car": 1581,
+        "pickup": 2511,
+        "motorcycle": 800
+      },
+      "Orlando North": {
+        "port": "FL",
+        "car": 1557,
+        "pickup": 2487,
+        "motorcycle": 810
+      },
+      "Pensacola": {
+        "port": "FL",
+        "car": 1497,
+        "pickup": 2497,
+        "motorcycle": 860
+      },
+      "Tampa": {
+        "port": "FL",
+        "car": 1554,
+        "pickup": 2504,
+        "motorcycle": 810
+      },
+      "Tampa North": {
+        "port": "FL",
+        "car": 1551,
+        "pickup": 2501,
+        "motorcycle": 851
+      },
+      "West Palm Beach": {
+        "port": "FL",
+        "car": 1655,
+        "pickup": 2575,
+        "motorcycle": 779
+      }
+    },
+    "GA": {
+      "Atlanta": {
+        "port": "GA",
+        "car": 1633,
+        "pickup": 2393,
+        "motorcycle": 820
+      },
+      "Atlanta East": {
+        "port": "GA",
+        "car": 1544,
+        "pickup": 2314,
+        "motorcycle": 820
+      },
+      "Atlanta North": {
+        "port": "GA",
+        "car": 1545,
+        "pickup": 2315,
+        "motorcycle": 840
+      },
+      "Atlanta South": {
+        "port": "GA",
+        "car": 1558,
+        "pickup": 2328,
+        "motorcycle": 840
+      },
+      "Atlanta West": {
+        "port": "GA",
+        "car": 1608,
+        "pickup": 2378,
+        "motorcycle": 895
+      },
+      "Lake City": {
+        "port": "GA",
+        "car": 1558,
+        "pickup": 2328,
+        "motorcycle": 865
+      },
+      "Macon": {
+        "port": "GA",
+        "car": 1329,
+        "pickup": 2079,
+        "motorcycle": 820
+      },
+      "Savannah": {
+        "port": "GA",
+        "car": 1232,
+        "pickup": 1942,
+        "motorcycle": 750
+      },
+      "Tifton": {
+        "port": "GA",
+        "car": 1400,
+        "pickup": 2150,
+        "motorcycle": 820
+      }
+    },
+    "HI": {
+      "Honolulu": {
+        "port": "CA",
+        "car": 3515,
+        "pickup": 5425,
+        "motorcycle": 2322
+      }
+    },
+    "IA": {
+      "Davenport": {
+        "port": "NJ",
+        "car": 1640,
+        "pickup": 2540,
+        "motorcycle": 1060
+      },
+      "Des Moines": {
+        "port": "NJ",
+        "car": 1988,
+        "pickup": 2888,
+        "motorcycle": 1100
+      }
+    },
+    "ID": {
+      "Boise": {
+        "port": "CA",
+        "car": 2427,
+        "pickup": 3827,
+        "motorcycle": 1477
+      }
+    },
+    "IL": {
+      "Chicago North": {
+        "port": "NJ",
+        "car": 1778,
+        "pickup": 2648,
+        "motorcycle": 1060
+      },
+      "Chicago South": {
+        "port": "NJ",
+        "car": 1819,
+        "pickup": 2699,
+        "motorcycle": 1100
+      },
+      "Chicago West": {
+        "port": "NJ",
+        "car": 1642,
+        "pickup": 2512,
+        "motorcycle": 1100
+      },
+      "Lincoln": {
+        "port": "NJ",
+        "car": 1878,
+        "pickup": 2778,
+        "motorcycle": 1100
+      },
+      "Specialty Division": {
+        "port": "NJ",
+        "car": 1918,
+        "pickup": 2885,
+        "motorcycle": 1081
+      },
+      "St. Louis": {
+        "port": "NJ",
+        "car": 1813,
+        "pickup": 2683,
+        "motorcycle": 1060
+      }
+    },
+    "IN": {
+      "Fort Wayne": {
+        "port": "NJ",
+        "car": 1970,
+        "pickup": 2880,
+        "motorcycle": 1141
+      },
+      "Indianapolis": {
+        "port": "NJ",
+        "car": 1881,
+        "pickup": 2741,
+        "motorcycle": 1020
+      },
+      "Indianapolis South": {
+        "port": "NJ",
+        "car": 1631,
+        "pickup": 2381,
+        "motorcycle": 832
+      },
+      "South Bend": {
+        "port": "NJ",
+        "car": 1904,
+        "pickup": 2804,
+        "motorcycle": 1060
+      }
+    },
+    "KS": {
+      "Kansas City": {
+        "port": "NJ",
+        "car": 1918,
+        "pickup": 2798,
+        "motorcycle": 1060
+      },
+      "Wichita": {
+        "port": "TX",
+        "car": 1675,
+        "pickup": 2555,
+        "motorcycle": 1040
+      }
+    },
+    "KY": {
+      "Ashland": {
+        "port": "GA",
+        "car": 1514,
+        "pickup": 2374,
+        "motorcycle": 1064
+      },
+      "Bowling Green": {
+        "port": "GA",
+        "car": 1531,
+        "pickup": 2391,
+        "motorcycle": 1000
+      },
+      "Lexington": {
+        "port": "GA",
+        "car": 1503,
+        "pickup": 2383,
+        "motorcycle": 884
+      },
+      "Louisville": {
+        "port": "GA",
+        "car": 1766,
+        "pickup": 2626,
+        "motorcycle": 1010
+      },
+      "Louisville North": {
+        "port": "GA",
+        "car": 1614,
+        "pickup": 2474,
+        "motorcycle": 1060
+      },
+      "Paducah": {
+        "port": "GA",
+        "car": 1580,
+        "pickup": 2460,
+        "motorcycle": 1060
+      }
+    },
+    "LA": {
+      "Baton Rouge": {
+        "port": "TX",
+        "car": 1508,
+        "pickup": 2318,
+        "motorcycle": 892
+      },
+      "Lafayette": {
+        "port": "TX",
+        "car": 1457,
+        "pickup": 2257,
+        "motorcycle": 885
+      },
+      "New Orleans": {
+        "port": "TX",
+        "car": 1642,
+        "pickup": 2492,
+        "motorcycle": 986
+      },
+      "New Orleans East": {
+        "port": "TX",
+        "car": 1411,
+        "pickup": 2221,
+        "motorcycle": 825
+      },
+      "Shreveport": {
+        "port": "TX",
+        "car": 1488,
+        "pickup": 2338,
+        "motorcycle": 986
+      }
+    },
+    "MA": {
+      "Boston - Shirley": {
+        "port": "NJ",
+        "car": 1751,
+        "pickup": 2561,
+        "motorcycle": 920
+      },
+      "Taunton": {
+        "port": "NJ",
+        "car": 1693,
+        "pickup": 2493,
+        "motorcycle": 900
+      },
+      "Templeton": {
+        "port": "NJ",
+        "car": 1787,
+        "pickup": 2587,
+        "motorcycle": 927
+      }
+    },
+    "MD": {
+      "Baltimore": {
+        "port": "NJ",
+        "car": 1583,
+        "pickup": 2383,
+        "motorcycle": 860
+      },
+      "Dundalk": {
+        "port": "NJ",
+        "car": 1613,
+        "pickup": 2393,
+        "motorcycle": 890
+      },
+      "Elkton": {
+        "port": "NJ",
+        "car": 1596,
+        "pickup": 2346,
+        "motorcycle": 832
+      },
+      "Laurel": {
+        "port": "NJ",
+        "car": 1539,
+        "pickup": 2329,
+        "motorcycle": 860
+      },
+      "Metro DC": {
+        "port": "NJ",
+        "car": 1596,
+        "pickup": 2396,
+        "motorcycle": 880
+      },
+      "Rosedale": {
+        "port": "NJ",
+        "car": 1439,
+        "pickup": 2219,
+        "motorcycle": 880
+      }
+    },
+    "ME": {
+      "Portland - Gorham": {
+        "port": "NJ",
+        "car": 1752,
+        "pickup": 2582,
+        "motorcycle": 980
+      },
+      "Rental Rides": {
+        "port": "NJ",
+        "car": 1793,
+        "pickup": 2760,
+        "motorcycle": 1006
+      }
+    },
+    "MI": {
+      "Detroit": {
+        "port": "NJ",
+        "car": 1934,
+        "pickup": 2804,
+        "motorcycle": 1040
+      },
+      "Flint": {
+        "port": "NJ",
+        "car": 1885,
+        "pickup": 2775,
+        "motorcycle": 1060
+      },
+      "Grand Rapids": {
+        "port": "NJ",
+        "car": 1980,
+        "pickup": 2880,
+        "motorcycle": 1120
+      },
+      "Great Lakes": {
+        "port": "NJ",
+        "car": 1809,
+        "pickup": 2719,
+        "motorcycle": 1140
+      }
+    },
+    "MN": {
+      "Minneapolis South": {
+        "port": "NJ",
+        "car": 2090,
+        "pickup": 3030,
+        "motorcycle": 1190
+      },
+      "Minneapolis/St. Paul": {
+        "port": "NJ",
+        "car": 1942,
+        "pickup": 2862,
+        "motorcycle": 1140
+      },
+      "St. Cloud": {
+        "port": "NJ",
+        "car": 1992,
+        "pickup": 2992,
+        "motorcycle": 1126
+      },
+      "St. Paul North": {
+        "port": "NJ",
+        "car": 1992,
+        "pickup": 2912,
+        "motorcycle": 1126
+      }
+    },
+    "MO": {
+      "Kansas City East": {
+        "port": "GA",
+        "car": 1518,
+        "pickup": 2258,
+        "motorcycle": 832
+      },
+      "Springfield": {
+        "port": "GA",
+        "car": 1568,
+        "pickup": 2478,
+        "motorcycle": 1057
+      }
+    },
+    "MS": {
+      "Grenada": {
+        "port": "GA",
+        "car": 1567,
+        "pickup": 2407,
+        "motorcycle": 1020
+      },
+      "Gulf Coast": {
+        "port": "GA",
+        "car": 1469,
+        "pickup": 2289,
+        "motorcycle": 927
+      },
+      "Jackson": {
+        "port": "GA",
+        "car": 1444,
+        "pickup": 2254,
+        "motorcycle": 970
+      }
+    },
+    "MT": {
+      "Billings": {
+        "port": "CA",
+        "car": 2547,
+        "pickup": 4157,
+        "motorcycle": 1750
+      },
+      "Missoula": {
+        "port": "CA",
+        "car": 2502,
+        "pickup": 4162,
+        "motorcycle": 1534
+      }
+    },
+    "NC": {
+      "Asheville": {
+        "port": "GA",
+        "car": 1595,
+        "pickup": 2395,
+        "motorcycle": 880
+      },
+      "Charlotte": {
+        "port": "GA",
+        "car": 1397,
+        "pickup": 2157,
+        "motorcycle": 840
+      },
+      "Concord": {
+        "port": "GA",
+        "car": 1589,
+        "pickup": 2359,
+        "motorcycle": 860
+      },
+      "Greensboro": {
+        "port": "GA",
+        "car": 1803,
+        "pickup": 2583,
+        "motorcycle": 916
+      },
+      "High Point": {
+        "port": "GA",
+        "car": 1478,
+        "pickup": 2278,
+        "motorcycle": 935
+      },
+      "Raleigh": {
+        "port": "GA",
+        "car": 1553,
+        "pickup": 2333,
+        "motorcycle": 840
+      },
+      "Wilmington": {
+        "port": "GA",
+        "car": 1476,
+        "pickup": 2256,
+        "motorcycle": 880
+      }
+    },
+    "ND": {
+      "Bismarck": {
+        "port": "NJ",
+        "car": 2618,
+        "pickup": 3585,
+        "motorcycle": 1501
+      },
+      "Fargo": {
+        "port": "NJ",
+        "car": 2201,
+        "pickup": 3371,
+        "motorcycle": 1380
+      }
+    },
+    "NE": {
+      "Omaha": {
+        "port": "NJ",
+        "car": 1873,
+        "pickup": 2773,
+        "motorcycle": 1100
+      },
+      "Omaha South": {
+        "port": "NJ",
+        "car": 1923,
+        "pickup": 2873,
+        "motorcycle": 1084
+      }
+    },
+    "NH": {
+      "Manchester": {
+        "port": "NJ",
+        "car": 1640,
+        "pickup": 2460,
+        "motorcycle": 940
+      }
+    },
+    "NJ": {
+      "Avenel New Jersey": {
+        "port": "NJ",
+        "car": 1419,
+        "pickup": 2149,
+        "motorcycle": 760
+      },
+      "Central New Jersey": {
+        "port": "NJ",
+        "car": 1434,
+        "pickup": 2164,
+        "motorcycle": 760
+      },
+      "Englishtown": {
+        "port": "NJ",
+        "car": 1490,
+        "pickup": 2230,
+        "motorcycle": 802
+      },
+      "Northern New Jersey": {
+        "port": "NJ",
+        "car": 1208,
+        "pickup": 1958,
+        "motorcycle": 760
+      },
+      "Port Murray": {
+        "port": "NJ",
+        "car": 1553,
+        "pickup": 2303,
+        "motorcycle": 832
+      },
+      "Sayreville": {
+        "port": "NJ",
+        "car": 1450,
+        "pickup": 2210,
+        "motorcycle": 833
+      },
+      "Southern New Jersey": {
+        "port": "NJ",
+        "car": 1397,
+        "pickup": 2147,
+        "motorcycle": 760
+      }
+    },
+    "NM": {
+      "Albuquerque": {
+        "port": "TX",
+        "car": 1768,
+        "pickup": 2668,
+        "motorcycle": 1020
+      }
+    },
+    "NV": {
+      "Las Vegas": {
+        "port": "CA",
+        "car": 1923,
+        "pickup": 3163,
+        "motorcycle": 1150
+      },
+      "Reno": {
+        "port": "CA",
+        "car": 2049,
+        "pickup": 3359,
+        "motorcycle": 1260
+      }
+    },
+    "NY": {
+      "Albany": {
+        "port": "NJ",
+        "car": 1567,
+        "pickup": 2347,
+        "motorcycle": 880
+      },
+      "Buffalo": {
+        "port": "NJ",
+        "car": 1716,
+        "pickup": 2556,
+        "motorcycle": 980
+      },
+      "Long Island": {
+        "port": "NJ",
+        "car": 1688,
+        "pickup": 2458,
+        "motorcycle": 860
+      },
+      "Monticello": {
+        "port": "NJ",
+        "car": 1578,
+        "pickup": 2338,
+        "motorcycle": 877
+      },
+      "Newburgh": {
+        "port": "NJ",
+        "car": 1530,
+        "pickup": 2290,
+        "motorcycle": 800
+      },
+      "Rochester": {
+        "port": "NJ",
+        "car": 1810,
+        "pickup": 2640,
+        "motorcycle": 960
+      },
+      "Staten Island": {
+        "port": "NJ",
+        "car": 1739,
+        "pickup": 2509,
+        "motorcycle": 974
+      },
+      "Syracuse": {
+        "port": "NJ",
+        "car": 1550,
+        "pickup": 2350,
+        "motorcycle": 900
+      }
+    },
+    "OH": {
+      "Akron-Canton": {
+        "port": "NJ",
+        "car": 1773,
+        "pickup": 2633,
+        "motorcycle": 1020
+      },
+      "Cincinnati": {
+        "port": "NJ",
+        "car": 1798,
+        "pickup": 2658,
+        "motorcycle": 1020
+      },
+      "Cincinnati South": {
+        "port": "NJ",
+        "car": 1648,
+        "pickup": 2398,
+        "motorcycle": 832
+      },
+      "Cleveland": {
+        "port": "NJ",
+        "car": 1693,
+        "pickup": 2553,
+        "motorcycle": 1020
+      },
+      "Columbus": {
+        "port": "NJ",
+        "car": 1707,
+        "pickup": 2567,
+        "motorcycle": 980
+      },
+      "Dayton": {
+        "port": "NJ",
+        "car": 1690,
+        "pickup": 2520,
+        "motorcycle": 1020
+      }
+    },
+    "OK": {
+      "Oklahoma City": {
+        "port": "TX",
+        "car": 1878,
+        "pickup": 2728,
+        "motorcycle": 1140
+      },
+      "Tulsa": {
+        "port": "TX",
+        "car": 1719,
+        "pickup": 2569,
+        "motorcycle": 983
+      }
+    },
+    "OR": {
+      "Eugene": {
+        "port": "CA",
+        "car": 2391,
+        "pickup": 3761,
+        "motorcycle": 1350
+      },
+      "Portland": {
+        "port": "CA",
+        "car": 2535,
+        "pickup": 3915,
+        "motorcycle": 1350
+      },
+      "Portland South": {
+        "port": "CA",
+        "car": 2264,
+        "pickup": 3634,
+        "motorcycle": 1415
+      },
+      "Portland West": {
+        "port": "CA",
+        "car": 1978,
+        "pickup": 3368,
+        "motorcycle": 1310
+      }
+    },
+    "PA": {
+      "Altoona": {
+        "port": "NJ",
+        "car": 1605,
+        "pickup": 2425,
+        "motorcycle": 940
+      },
+      "Bridgeport": {
+        "port": "NJ",
+        "car": 1645,
+        "pickup": 2395,
+        "motorcycle": 820
+      },
+      "Erie": {
+        "port": "NJ",
+        "car": 1933,
+        "pickup": 2793,
+        "motorcycle": 1040
+      },
+      "Philadelphia": {
+        "port": "NJ",
+        "car": 1591,
+        "pickup": 2341,
+        "motorcycle": 790
+      },
+      "Philadelphia East": {
+        "port": "NJ",
+        "car": 1478,
+        "pickup": 2248,
+        "motorcycle": 880
+      },
+      "Pittsburgh": {
+        "port": "NJ",
+        "car": 1719,
+        "pickup": 2559,
+        "motorcycle": 960
+      },
+      "Pittsburgh North": {
+        "port": "NJ",
+        "car": 1710,
+        "pickup": 2550,
+        "motorcycle": 970
+      },
+      "Scranton": {
+        "port": "NJ",
+        "car": 1517,
+        "pickup": 2287,
+        "motorcycle": 850
+      },
+      "York Springs": {
+        "port": "NJ",
+        "car": 1417,
+        "pickup": 2197,
+        "motorcycle": 860
+      }
+    },
+    "RI": {
+      "Providence": {
+        "port": "NJ",
+        "car": 1517,
+        "pickup": 2307,
+        "motorcycle": 900
+      }
+    },
+    "SC": {
+      "Charleston": {
+        "port": "GA",
+        "car": 1382,
+        "pickup": 2122,
+        "motorcycle": 921
+      },
+      "Columbia": {
+        "port": "GA",
+        "car": 1281,
+        "pickup": 2011,
+        "motorcycle": 874
+      },
+      "Greenville": {
+        "port": "GA",
+        "car": 1359,
+        "pickup": 2119,
+        "motorcycle": 840
+      },
+      "Lexington": {
+        "port": "GA",
+        "car": 1928,
+        "pickup": 2668,
+        "motorcycle": 821
+      }
+    },
+    "SD": {
+      "Sioux Falls": {
+        "port": "NJ",
+        "car": 1864,
+        "pickup": 2874,
+        "motorcycle": 1330
+      }
+    },
+    "TN": {
+      "Chattanooga": {
+        "port": "GA",
+        "car": 1490,
+        "pickup": 2300,
+        "motorcycle": 967
+      },
+      "Knoxville": {
+        "port": "GA",
+        "car": 1444,
+        "pickup": 2254,
+        "motorcycle": 962
+      },
+      "Memphis": {
+        "port": "GA",
+        "car": 1438,
+        "pickup": 2258,
+        "motorcycle": 940
+      },
+      "Nashville": {
+        "port": "GA",
+        "car": 1556,
+        "pickup": 2376,
+        "motorcycle": 920
+      }
+    },
+    "TX": {
+      "Abilene": {
+        "port": "TX",
+        "car": 1517,
+        "pickup": 2347,
+        "motorcycle": 920
+      },
+      "Amarillo": {
+        "port": "TX",
+        "car": 1544,
+        "pickup": 2414,
+        "motorcycle": 940
+      },
+      "Austin": {
+        "port": "TX",
+        "car": 1587,
+        "pickup": 2367,
+        "motorcycle": 830
+      },
+      "Austin North": {
+        "port": "TX",
+        "car": 1639,
+        "pickup": 2419,
+        "motorcycle": 914
+      },
+      "Corpus Christi": {
+        "port": "TX",
+        "car": 1369,
+        "pickup": 2159,
+        "motorcycle": 840
+      },
+      "Dallas": {
+        "port": "TX",
+        "car": 1607,
+        "pickup": 2387,
+        "motorcycle": 820
+      },
+      "Dallas/Ft. Worth": {
+        "port": "TX",
+        "car": 1371,
+        "pickup": 2151,
+        "motorcycle": 820
+      },
+      "El Paso": {
+        "port": "TX",
+        "car": 1548,
+        "pickup": 2398,
+        "motorcycle": 940
+      },
+      "Fort Worth North": {
+        "port": "TX",
+        "car": 1680,
+        "pickup": 2470,
+        "motorcycle": 820
+      },
+      "Houston": {
+        "port": "TX",
+        "car": 1424,
+        "pickup": 2174,
+        "motorcycle": 750
+      },
+      "Houston North": {
+        "port": "TX",
+        "car": 1596,
+        "pickup": 2336,
+        "motorcycle": 760
+      },
+      "Houston South": {
+        "port": "TX",
+        "car": 1419,
+        "pickup": 2169,
+        "motorcycle": 800
+      },
+      "Longview": {
+        "port": "TX",
+        "car": 1519,
+        "pickup": 2309,
+        "motorcycle": 840
+      },
+      "Lubbock": {
+        "port": "TX",
+        "car": 1527,
+        "pickup": 2377,
+        "motorcycle": 940
+      },
+      "McAllen": {
+        "port": "TX",
+        "car": 1416,
+        "pickup": 2206,
+        "motorcycle": 850
+      },
+      "Permian Basin": {
+        "port": "TX",
+        "car": 1540,
+        "pickup": 2390,
+        "motorcycle": 940
+      },
+      "San Antonio": {
+        "port": "TX",
+        "car": 1589,
+        "pickup": 2369,
+        "motorcycle": 820
+      },
+      "San Antonio South": {
+        "port": "TX",
+        "car": 1631,
+        "pickup": 2401,
+        "motorcycle": 850
+      }
+    },
+    "UT": {
+      "Provo": {
+        "port": "CA",
+        "car": 2345,
+        "pickup": 3645,
+        "motorcycle": 1337
+      },
+      "Salt Lake City": {
+        "port": "CA",
+        "car": 2295,
+        "pickup": 3575,
+        "motorcycle": 1270
+      }
+    },
+    "VA": {
+      "Culpeper": {
+        "port": "NJ",
+        "car": 1713,
+        "pickup": 2503,
+        "motorcycle": 940
+      },
+      "Fredericksburg South": {
+        "port": "NJ",
+        "car": 1516,
+        "pickup": 2306,
+        "motorcycle": 900
+      },
+      "Northern Virginia": {
+        "port": "NJ",
+        "car": 1672,
+        "pickup": 2462,
+        "motorcycle": 900
+      },
+      "Pulaski": {
+        "port": "NJ",
+        "car": 1466,
+        "pickup": 2336,
+        "motorcycle": 900
+      },
+      "Richmond": {
+        "port": "NJ",
+        "car": 1728,
+        "pickup": 2518,
+        "motorcycle": 940
+      },
+      "Roanoke": {
+        "port": "NJ",
+        "car": 1426,
+        "pickup": 2176,
+        "motorcycle": 832
+      },
+      "Suffolk": {
+        "port": "NJ",
+        "car": 1602,
+        "pickup": 2392,
+        "motorcycle": 900
+      },
+      "Tidewater": {
+        "port": "NJ",
+        "car": 1713,
+        "pickup": 2503,
+        "motorcycle": 900
+      }
+    },
+    "VT": {
+      "Burlington": {
+        "port": "NJ",
+        "car": 1638,
+        "pickup": 2498,
+        "motorcycle": 1020
+      }
+    },
+    "WA": {
+      "Puyallup": {
+        "port": "TX",
+        "car": 2800,
+        "pickup": 3610,
+        "motorcycle": 1720
+      },
+      "Seattle": {
+        "port": "TX",
+        "car": 2650,
+        "pickup": 3880,
+        "motorcycle": 1720
+      },
+      "Spokane": {
+        "port": "TX",
+        "car": 2556,
+        "pickup": 3796,
+        "motorcycle": 1735
+      }
+    },
+    "WI": {
+      "Appleton": {
+        "port": "NJ",
+        "car": 2059,
+        "pickup": 2959,
+        "motorcycle": 1220
+      },
+      "IAA Ignite Auction Portage": {
+        "port": "NJ",
+        "car": 1872,
+        "pickup": 2802,
+        "motorcycle": 1100
+      },
+      "Milwaukee": {
+        "port": "NJ",
+        "car": 1912,
+        "pickup": 2812,
+        "motorcycle": 1080
+      },
+      "Portage": {
+        "port": "NJ",
+        "car": 1946,
+        "pickup": 2876,
+        "motorcycle": 1100
+      }
+    },
+    "WV": {
+      "Buckhannon": {
+        "port": "NJ",
+        "car": 1669,
+        "pickup": 2539,
+        "motorcycle": 1100
+      },
+      "Shady Spring": {
+        "port": "NJ",
+        "car": 1874,
+        "pickup": 2774,
+        "motorcycle": 1100
+      }
+    },
+    "WY": {
+      "Casper": {
+        "port": "NJ",
+        "car": 2352,
+        "pickup": 3482,
+        "motorcycle": 1460
+      }
+    }
+  },
+  "manheim": {
+    "AL": {
+      "Manheim Birmingham": {
+        "port": "GA",
+        "car": 1606,
+        "pickup": 2446,
+        "motorcycle": 920
+      }
+    },
+    "AR": {
+      "Manheim Little Rock": {
+        "port": "TX",
+        "car": 1754,
+        "pickup": 2624,
+        "motorcycle": 1020
+      }
+    },
+    "AZ": {
+      "Manheim Arizona": {
+        "port": "CA",
+        "car": 2108,
+        "pickup": 3338,
+        "motorcycle": 1150
+      },
+      "Manheim Phoenix": {
+        "port": "CA",
+        "car": 2323,
+        "pickup": 3643,
+        "motorcycle": 1220
+      },
+      "Manheim Tucson": {
+        "port": "CA",
+        "car": 2419,
+        "pickup": 3869,
+        "motorcycle": 1240
+      }
+    },
+    "CA": {
+      "Fresno": {
+        "port": "CA",
+        "car": 2077,
+        "pickup": 3337,
+        "motorcycle": 1219
+      },
+      "Manheim California": {
+        "port": "CA",
+        "car": 2067,
+        "pickup": 3297,
+        "motorcycle": 1110
+      },
+      "Manheim Central California": {
+        "port": "CA",
+        "car": 2123,
+        "pickup": 3353,
+        "motorcycle": 1150
+      },
+      "Manheim Riverside": {
+        "port": "CA",
+        "car": 2046,
+        "pickup": 3276,
+        "motorcycle": 1080
+      },
+      "Manheim Riverside (Fremont)": {
+        "port": "CA",
+        "car": 2194,
+        "pickup": 3604,
+        "motorcycle": 1247
+      },
+      "Manheim Riverside (Industrial)": {
+        "port": "CA",
+        "car": 1959,
+        "pickup": 3369,
+        "motorcycle": 1106
+      },
+      "Manheim Riverside (Jurupa)": {
+        "port": "CA",
+        "car": 1959,
+        "pickup": 3369,
+        "motorcycle": 1106
+      },
+      "Manheim San Diego": {
+        "port": "CA",
+        "car": 2114,
+        "pickup": 3364,
+        "motorcycle": 1130
+      },
+      "Manheim San Francisco Bay": {
+        "port": "CA",
+        "car": 2241,
+        "pickup": 3521,
+        "motorcycle": 1250
+      },
+      "Manheim Southern California": {
+        "port": "CA",
+        "car": 2029,
+        "pickup": 3269,
+        "motorcycle": 1090
+      }
+    },
+    "CO": {
+      "Manheim Denver": {
+        "port": "NJ",
+        "car": 2079,
+        "pickup": 3089,
+        "motorcycle": 1180
+      }
+    },
+    "FL": {
+      "Manheim Central Florida": {
+        "port": "FL",
+        "car": 1457,
+        "pickup": 2417,
+        "motorcycle": 810
+      },
+      "Manheim Daytona Beach": {
+        "port": "FL",
+        "car": 1488,
+        "pickup": 2478,
+        "motorcycle": 810
+      },
+      "Manheim Fort Lauderdale": {
+        "port": "FL",
+        "car": 1420,
+        "pickup": 2350,
+        "motorcycle": 760
+      },
+      "Manheim Fort Myers": {
+        "port": "FL",
+        "car": 1502,
+        "pickup": 2482,
+        "motorcycle": 820
+      },
+      "Manheim Jacksonville": {
+        "port": "GA",
+        "car": 1546,
+        "pickup": 2326,
+        "motorcycle": 820
+      },
+      "Manheim Lakeland": {
+        "port": "FL",
+        "car": 1538,
+        "pickup": 2508,
+        "motorcycle": 820
+      },
+      "Manheim Orlando": {
+        "port": "FL",
+        "car": 1521,
+        "pickup": 2491,
+        "motorcycle": 820
+      },
+      "Manheim Palm Beach": {
+        "port": "FL",
+        "car": 1497,
+        "pickup": 2447,
+        "motorcycle": 780
+      },
+      "Manheim Pensacola": {
+        "port": "FL",
+        "car": 1617,
+        "pickup": 2617,
+        "motorcycle": 940
+      },
+      "Manheim St Pete": {
+        "port": "FL",
+        "car": 1539,
+        "pickup": 2519,
+        "motorcycle": 880
+      },
+      "Manheim Tampa": {
+        "port": "FL",
+        "car": 1426,
+        "pickup": 2366,
+        "motorcycle": 820
+      }
+    },
+    "GA": {
+      "Manheim Atlanta": {
+        "port": "GA",
+        "car": 1545,
+        "pickup": 2345,
+        "motorcycle": 880
+      },
+      "Manheim Georgia": {
+        "port": "GA",
+        "car": 1549,
+        "pickup": 2319,
+        "motorcycle": 860
+      },
+      "Manheim Metro Atlanta": {
+        "port": "GA",
+        "car": 1601,
+        "pickup": 2381,
+        "motorcycle": 890
+      }
+    },
+    "IL": {
+      "Manheim Arena Illinois": {
+        "port": "NJ",
+        "car": 1819,
+        "pickup": 2729,
+        "motorcycle": 1140
+      },
+      "Manheim Chicago": {
+        "port": "NJ",
+        "car": 1917,
+        "pickup": 2827,
+        "motorcycle": 1140
+      }
+    },
+    "IN": {
+      "Manheim Indianapolis": {
+        "port": "NJ",
+        "car": 1831,
+        "pickup": 2741,
+        "motorcycle": 1140
+      },
+      "Manheim Louisville": {
+        "port": "GA",
+        "car": 1800,
+        "pickup": 2670,
+        "motorcycle": 1080
+      }
+    },
+    "LA": {
+      "Manheim Lafayette": {
+        "port": "TX",
+        "car": 1549,
+        "pickup": 2399,
+        "motorcycle": 986
+      },
+      "Manheim New Orleans": {
+        "port": "TX",
+        "car": 1665,
+        "pickup": 2495,
+        "motorcycle": 947
+      }
+    },
+    "MA": {
+      "Manheim New England": {
+        "port": "NJ",
+        "car": 1644,
+        "pickup": 2494,
+        "motorcycle": 980
+      }
+    },
+    "MD": {
+      "Manheim Baltimore-Washington": {
+        "port": "NJ",
+        "car": 1538,
+        "pickup": 2348,
+        "motorcycle": 900
+      }
+    },
+    "MI": {
+      "Grand Rapids": {
+        "port": "NJ",
+        "car": 1710,
+        "pickup": 2640,
+        "motorcycle": 1019
+      },
+      "Manheim Detroit": {
+        "port": "NJ",
+        "car": 1674,
+        "pickup": 2554,
+        "motorcycle": 1020
+      },
+      "Manheim Flint": {
+        "port": "NJ",
+        "car": 1729,
+        "pickup": 2609,
+        "motorcycle": 1060
+      }
+    },
+    "MN": {
+      "Manheim Minneapolis": {
+        "port": "NJ",
+        "car": 1867,
+        "pickup": 2757,
+        "motorcycle": 1100
+      },
+      "Manheim Northstar Minnesota": {
+        "port": "NJ",
+        "car": 1871,
+        "pickup": 2781,
+        "motorcycle": 1120
+      }
+    },
+    "MO": {
+      "Manheim Kansas City": {
+        "port": "NJ",
+        "car": 1825,
+        "pickup": 2735,
+        "motorcycle": 1100
+      },
+      "Manheim St. Louis": {
+        "port": "NJ",
+        "car": 1942,
+        "pickup": 2852,
+        "motorcycle": 1140
+      }
+    },
+    "MS": {
+      "Manheim Mississippi": {
+        "port": "GA",
+        "car": 1826,
+        "pickup": 2716,
+        "motorcycle": 1000
+      }
+    },
+    "NC": {
+      "Manheim Charlotte": {
+        "port": "GA",
+        "car": 1658,
+        "pickup": 2428,
+        "motorcycle": 880
+      },
+      "Manheim North Carolina": {
+        "port": "GA",
+        "car": 1737,
+        "pickup": 2577,
+        "motorcycle": 870
+      },
+      "Manheim Statesville": {
+        "port": "GA",
+        "car": 1804,
+        "pickup": 2614,
+        "motorcycle": 900
+      },
+      "Manheim Wilmington": {
+        "port": "GA",
+        "car": 1576,
+        "pickup": 2406,
+        "motorcycle": 900
+      }
+    },
+    "NE": {
+      "Manheim Omaha": {
+        "port": "NJ",
+        "car": 1968,
+        "pickup": 3018,
+        "motorcycle": 1140
+      }
+    },
+    "NH": {
+      "Auto Auction of New England": {
+        "port": "NJ",
+        "car": 1743,
+        "pickup": 2710,
+        "motorcycle": 976
+      }
+    },
+    "NJ": {
+      "Manheim New Jersey": {
+        "port": "NJ",
+        "car": 1482,
+        "pickup": 2232,
+        "motorcycle": 820
+      },
+      "Manheim NY Metro Skyline": {
+        "port": "NJ",
+        "car": 1470,
+        "pickup": 2230,
+        "motorcycle": 820
+      }
+    },
+    "NM": {
+      "Manheim New Mexico": {
+        "port": "TX",
+        "car": 1842,
+        "pickup": 2772,
+        "motorcycle": 1141
+      }
+    },
+    "NV": {
+      "Manheim Nevada": {
+        "port": "CA",
+        "car": 1983,
+        "pickup": 3233,
+        "motorcycle": 1170
+      }
+    },
+    "NY": {
+      "Manheim Albany": {
+        "port": "NJ",
+        "car": 1527,
+        "pickup": 2337,
+        "motorcycle": 900
+      },
+      "Manheim New York": {
+        "port": "NJ",
+        "car": 1661,
+        "pickup": 2571,
+        "motorcycle": 850
+      }
+    },
+    "OH": {
+      "Manheim Cincinnati": {
+        "port": "NJ",
+        "car": 1921,
+        "pickup": 2841,
+        "motorcycle": 1060
+      },
+      "Manheim Cleveland": {
+        "port": "NJ",
+        "car": 1778,
+        "pickup": 2638,
+        "motorcycle": 1040
+      },
+      "Manheim Ohio": {
+        "port": "NJ",
+        "car": 1954,
+        "pickup": 2874,
+        "motorcycle": 1060
+      }
+    },
+    "OK": {
+      "Manheim Tulsa": {
+        "port": "TX",
+        "car": 1791,
+        "pickup": 2661,
+        "motorcycle": 960
+      }
+    },
+    "OR": {
+      "Manheim Portland": {
+        "port": "CA",
+        "car": 2353,
+        "pickup": 3703,
+        "motorcycle": 1390
+      }
+    },
+    "PA": {
+      "Manheim Keystone Pennsylvania": {
+        "port": "NJ",
+        "car": 1569,
+        "pickup": 2349,
+        "motorcycle": 880
+      },
+      "Manheim Pennsylvania": {
+        "port": "NJ",
+        "car": 1526,
+        "pickup": 2306,
+        "motorcycle": 860
+      },
+      "Manheim Philadelphia": {
+        "port": "NJ",
+        "car": 1515,
+        "pickup": 2305,
+        "motorcycle": 820
+      },
+      "Manheim Pittsburgh": {
+        "port": "NJ",
+        "car": 1804,
+        "pickup": 2674,
+        "motorcycle": 1060
+      }
+    },
+    "SC": {
+      "Manheim Darlington": {
+        "port": "GA",
+        "car": 1576,
+        "pickup": 2336,
+        "motorcycle": 860
+      },
+      "Manheim Greer": {
+        "port": "GA",
+        "car": 1535,
+        "pickup": 2295,
+        "motorcycle": 850
+      }
+    },
+    "TN": {
+      "Manheim Nashville": {
+        "port": "GA",
+        "car": 1739,
+        "pickup": 2589,
+        "motorcycle": 960
+      }
+    },
+    "TX": {
+      "Manheim Dallas": {
+        "port": "TX",
+        "car": 1640,
+        "pickup": 2450,
+        "motorcycle": 860
+      },
+      "Manheim Dallas-Fort Worth": {
+        "port": "TX",
+        "car": 1645,
+        "pickup": 2455,
+        "motorcycle": 860
+      },
+      "Manheim El Paso": {
+        "port": "TX",
+        "car": 1865,
+        "pickup": 2755,
+        "motorcycle": 1060
+      },
+      "Manheim Houston": {
+        "port": "TX",
+        "car": 1533,
+        "pickup": 2293,
+        "motorcycle": 800
+      },
+      "Manheim San Antonio": {
+        "port": "TX",
+        "car": 1626,
+        "pickup": 2426,
+        "motorcycle": 900
+      },
+      "Manheim Texas Hobby": {
+        "port": "TX",
+        "car": 1519,
+        "pickup": 2289,
+        "motorcycle": 780
+      }
+    },
+    "UT": {
+      "Manheim Utah": {
+        "port": "CA",
+        "car": 2420,
+        "pickup": 3750,
+        "motorcycle": 1350
+      }
+    },
+    "VA": {
+      "Manheim Fredericksburg": {
+        "port": "NJ",
+        "car": 1805,
+        "pickup": 2675,
+        "motorcycle": 960
+      },
+      "Manheim Harrisonburg": {
+        "port": "NJ",
+        "car": 1743,
+        "pickup": 2583,
+        "motorcycle": 1000
+      }
+    },
+    "WA": {
+      "Manheim Seattle": {
+        "port": "CA",
+        "car": 2815,
+        "pickup": 4285,
+        "motorcycle": 1380
+      },
+      "Spokane": {
+        "port": "CA",
+        "car": 2765,
+        "pickup": 4275,
+        "motorcycle": 1701
+      }
+    },
+    "WI": {
+      "Manheim Milwaukee": {
+        "port": "NJ",
+        "car": 1864,
+        "pickup": 2754,
+        "motorcycle": 1100
+      }
+    }
+  }
+}
