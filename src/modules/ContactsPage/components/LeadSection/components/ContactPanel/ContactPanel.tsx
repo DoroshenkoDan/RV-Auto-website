@@ -80,8 +80,13 @@ export function ContactPanel({
   }
 
   return (
-    <div className="relative isolate overflow-hidden bg-ink p-block text-sand">
-      <div className="flex h-full flex-col justify-center text-center">
+    <div className="relative isolate flex flex-col overflow-clip bg-ink p-block text-sand">
+      <div
+        className={cn(
+          "flex flex-col text-center lg:sticky lg:top-[calc(var(--header-h)+var(--spacing-block))]",
+          !detailed && "my-auto",
+        )}
+      >
         <span className="relative block aspect-square w-52 self-center sm:w-64">
           <Image
             src="/images/shared/logo-1088.webp"

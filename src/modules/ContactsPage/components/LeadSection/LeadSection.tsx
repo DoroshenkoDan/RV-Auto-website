@@ -170,7 +170,7 @@ export function LeadSection({
         )}
       </div>
 
-      <div className="grid overflow-hidden rounded-md border border-line lg:grid-cols-[3fr_2fr]">
+      <div className="grid overflow-clip rounded-md border border-line lg:grid-cols-[3fr_2fr]">
         <Form
           key={formKey}
           onFormSubmit={handleSubmit}
