@@ -256,17 +256,22 @@
         "label": "Fill out the form to get the final turn-key price for your car."
       },
       "result": {
-        "label": "Cost to port",
+        "label": "Cost with delivery to Kyiv",
         "lines": {
           "lotPrice": "Lot price",
           "auctionFee": "Auction fee",
           "inlandDelivery": "Delivery to port",
           "freight": "Shipping to Ukraine",
-          "customs": "Duty and excise",
-          "vat": "VAT"
+          "klaipedaParking": "Parking in Klaipeda",
+          "broker": "Customs broker",
+          "klaipedaTruck": "Car carrier from Klaipeda",
+          "customs": "Customs clearance",
+          "ukraineTruck": "Car carrier within Ukraine",
+          "certification": "Certification",
+          "service": "Company services"
         },
-        "total": "Total to port",
-        "disclaimer": "Preliminary estimate. The exact amount is fixed in the contract.",
+        "total": "Total to Kyiv",
+        "disclaimer": "Preliminary estimate with delivery to Kyiv. We can deliver to another city too, but the price may change. The exact amount is fixed in the contract.",
         "cta": "Get an exact quote",
         "phone": "Or call us:"
       },
@@ -378,7 +383,7 @@
         },
         "turnkey": {
           "question": "What is included in the turnkey price?",
-          "answer": "The lot price, the Copart or IAAI auction fee, delivery to the port of Klaipeda (trucking in the US, ocean shipping, forwarding and insurance) and customs clearance: duty, excise and VAT. A manager will quote delivery from the port to your city separately. No charges beyond the agreed estimate."
+          "answer": "The lot price, the Copart, IAAI or Manheim auction fee, our services, delivery to the port of Klaipeda (trucking in the US, ocean shipping and insurance), parking in Klaipeda, a customs broker, a car carrier to Ukraine, customs clearance (duty, excise and VAT), delivery to Kyiv and certification. We deliver to other cities too, but the price may change. No charges beyond the agreed estimate."
         },
         "damage": {
           "question": "What if the car is damaged during shipping?",
@@ -559,7 +564,7 @@
         "questions": {
           "turnkey": {
             "question": "What does the turnkey price include?",
-            "answer": "The lot price, the auction fee, delivery (transport to the port, ocean or truck shipping, forwarding and insurance) and customs clearance: duty, excise and VAT. For cars from the USA the estimate runs to the port of Klaipeda, and a manager will quote delivery to your city separately. Below you will find a line-by-line example, and for your own car use the <calculator>calculator</calculator>."
+            "answer": "The lot price, the auction fee, delivery (transport to the port, ocean shipping or a car carrier and insurance) and customs clearance: duty, excise and VAT. For cars from the USA the estimate also covers parking in Klaipeda, a customs broker, a car carrier to Kyiv, certification and our services. We deliver to other cities too, but the price may change. Below is an example broken down by item, and for your own car use the <calculator>calculator</calculator>."
           },
           "duties": {
             "question": "How is customs clearance calculated?",
@@ -633,7 +638,7 @@
         "questions": {
           "electric": {
             "question": "How are electric cars cleared through customs?",
-            "answer": "For EVs the excise is based on battery capacity: 1 euro per kWh. Duty and VAT are charged the same way as for other cars. The <calculator>calculator</calculator> shows the exact amount for a specific model."
+            "answer": "EVs pay no import duty or excise, only 20% VAT on the lot price plus the auction fee. The <calculator>calculator</calculator> shows the exact amount."
           },
           "certification": {
             "question": "Why is certification needed?",
@@ -690,16 +695,21 @@
       "eyebrow": "Example estimate",
       "title": "What the turnkey price is made of",
       "description": "A {year} sedan, petrol 2.0 L, lot price {lot} at Copart. Here is the total after every payment.",
-      "disclaimer": "This estimate is approximate: shipping rates and exchange rates change. The exact amount is fixed in the contract.",
+      "disclaimer": "The estimate is approximate: shipping rates and exchange rates change. The price includes delivery to Kyiv and may change for another city. The exact amount is fixed in the contract.",
       "cta": "Estimate your car",
-      "total": "Total to port",
+      "total": "Total to Kyiv",
       "lines": {
         "lotPrice": "The winning bid at auction.",
         "auctionFee": "The auction commission, based on the lot price.",
-        "inlandDelivery": "From the yard to the port of Klaipeda: US trucking, ocean shipping, forwarding and insurance.",
+        "inlandDelivery": "From the yard to the port of Klaipeda: US trucking, ocean shipping and insurance.",
         "freight": "Container from the USA to a European port.",
-        "customs": "10% duty plus excise based on engine size and age.",
-        "vat": "20% of the customs value, duty and excise."
+        "klaipedaParking": "Storage at the port of Klaipeda until dispatch.",
+        "broker": "Customs broker and forwarder: declaration and clearance support.",
+        "klaipedaTruck": "Car carrier from the port of Klaipeda to the Ukrainian border.",
+        "customs": "10% duty, excise based on engine volume and age, and 20% VAT on the customs value, duty and excise. EVs pay only 20% VAT on the lot price plus the auction fee.",
+        "ukraineTruck": "Delivery to Kyiv. We deliver to other cities too, but the price may change.",
+        "certification": "Certificate of conformity, required to register the car.",
+        "service": "Car selection, bidding, logistics and deal support."
       }
     },
     "compare": {

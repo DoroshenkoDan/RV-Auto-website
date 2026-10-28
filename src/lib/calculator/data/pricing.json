@@ -1,17 +1,17 @@
 {
   "portDeliveryMarkupUsd": 1500,
+  "serviceFeeUsd": 500,
   "caucasusDiscountUsd": {
     "car": 400,
     "suv": 400,
     "pickup": 400,
     "motorcycle": 150
   },
-  "forwardingFeeUsd": 336,
-  "forwardingExtraEur": {
-    "car": 0,
-    "suv": 0,
-    "pickup": 50,
-    "motorcycle": 0
+  "caucasusDiscountExceptionsUsd": {
+    "copart:FL:Clewiston": {
+      "car": 390,
+      "suv": 390
+    }
   },
   "insuranceRate": 0.009,
   "customsDeliveryBaseUsd": {
@@ -19,5 +19,12 @@
     "suv": 1600,
     "pickup": 1600,
     "motorcycle": 600
+  },
+  "kyivDeliveryUsd": {
+    "klaipedaParking": 150,
+    "broker": 650,
+    "klaipedaTruck": 750,
+    "ukraineTruck": 450,
+    "certification": 150
   }
 }

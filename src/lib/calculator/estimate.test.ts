@@ -118,12 +118,54 @@ describe("estimate", () => {
     expect(strongEuro.excise / parity.excise).toBeCloseTo(1.25, 2);
   });
 
+  it("counts only full calendar years after the model year", () => {
+    const currentYear = new Date().getFullYear();
+    const lastYear = totalOf({ ...petrolCar, year: currentYear - 1 });
+    const sevenYearsOld = totalOf({ ...petrolCar, year: currentYear - 7 });
+
+    expect(sevenYearsOld.excise / lastYear.excise).toBeCloseTo(6, 1);
+  });
+
   it("caps the excise age coefficient at 15 years", () => {
     const currentYear = new Date().getFullYear();
-    const atCap = totalOf({ ...petrolCar, year: currentYear - 15 });
+    const atCap = totalOf({ ...petrolCar, year: currentYear - 16 });
     const pastCap = totalOf({ ...petrolCar, year: currentYear - 30 });
 
     expect(pastCap.excise).toBe(atCap.excise);
+  });
+
+  it("clears an electric car at 20 percent of the lot and auction fee", () => {
+    const result = totalOf({
+      ...petrolCar,
+      fuel: "electric",
+      engineVolume: null,
+      batteryCapacity: 60,
+    });
+    const lotTotal = 9400 + (lineAmount(result, "auctionFee") ?? 0);
+
+    expect(result.customsValue).toBe(lotTotal);
+    expect(result.duty).toBe(0);
+    expect(result.excise).toBe(0);
+    expect(lineAmount(result, "customs")).toBe(Math.round(lotTotal * 0.2));
+  });
+
+  it("merges duty, excise and vat into one customs line", () => {
+    const result = totalOf(petrolCar);
+
+    expect(result.lines.map((line) => line.key)).not.toContain("vat");
+    expect(
+      Math.abs(
+        (lineAmount(result, "customs") ?? 0) -
+          (result.duty + result.excise + result.vat),
+      ),
+    ).toBeLessThanOrEqual(1);
+  });
+
+  it("clears a hybrid like a petrol car with the same engine", () => {
+    const petrol = totalOf(petrolCar);
+    const hybrid = totalOf({ ...petrolCar, fuel: "hybrid" });
+
+    expect(hybrid.lines).toEqual(petrol.lines);
   });
 
   it("picks the auction fee tier that matches the lot price", () => {
@@ -176,6 +218,16 @@ describe("estimate", () => {
     expect(lineAmount(result, "freight")).toBeGreaterThan(0);
   });
 
+  it("adds no klaipeda or ukraine delivery lines outside the us", () => {
+    const keys = totalOf({ ...petrolCar, auction: "bca" }).lines.map(
+      (line) => line.key,
+    );
+
+    expect(keys).not.toContain("klaipedaParking");
+    expect(keys).not.toContain("ukraineTruck");
+    expect(keys).not.toContain("service");
+  });
+
   it("estimates every listed auction", () => {
     for (const auction of AUCTION_TYPES) {
       expect(estimate({ ...petrolCar, auction }, rates)).not.toBeNull();
@@ -211,7 +263,6 @@ describe("estimate for us auctions", () => {
       guestPrice -
         pricing.caucasusDiscountUsd.car +
         pricing.portDeliveryMarkupUsd +
-        pricing.forwardingFeeUsd +
         Math.ceil(lotTotal * pricing.insuranceRate),
     );
   }
@@ -222,11 +273,42 @@ describe("estimate for us auctions", () => {
     expect(result.lines).toEqual([
       { key: "lotPrice", amount: 8900 },
       { key: "auctionFee", amount: 1165 },
-      { key: "inlandDelivery", amount: 3079 },
-      { key: "customs", amount: 2341 },
-      { key: "vat", amount: 2801 },
+      { key: "service", amount: 500 },
+      { key: "inlandDelivery", amount: 2743 },
+      { key: "klaipedaParking", amount: 150 },
+      { key: "broker", amount: 650 },
+      { key: "klaipedaTruck", amount: 750 },
+      { key: "customs", amount: 4941 },
+      { key: "ukraineTruck", amount: 450 },
+      { key: "certification", amount: 150 },
     ]);
-    expect(result.total).toBe(18286);
+    expect(result.total).toBe(20399);
+  });
+
+  it("matches the clewiston reference sheet apart from customs", () => {
+    const result = totalOf({
+      ...ocalaCar,
+      engineVolume: 2500,
+      year: 2019,
+      lotPrice: 7150,
+      city: "Clewiston",
+    });
+    const { customs, ...lines } = Object.fromEntries(
+      result.lines.map((line) => [line.key, line.amount]),
+    );
+
+    expect(customs).toBeGreaterThan(0);
+    expect(lines).toEqual({
+      lotPrice: 7150,
+      auctionFee: 1085,
+      service: 500,
+      inlandDelivery: 2845,
+      klaipedaParking: 150,
+      broker: 650,
+      klaipedaTruck: 750,
+      ukraineTruck: 450,
+      certification: 150,
+    });
   });
 
   it("bases the customs value on the lot, fees and a fixed delivery", () => {
@@ -245,10 +327,13 @@ describe("estimate for us auctions", () => {
     expect(result.customsValue).toBe(8900 + 1165 + 600);
   });
 
-  it("adds the pickup forwarding surcharge in euro", () => {
+  it("uses the pickup rate without a forwarding surcharge", () => {
     const result = totalOf({ ...ocalaCar, vehicle: "pickup" });
+    const ocala = usLocations.copart.FL.Ocala;
 
-    expect(lineAmount(result, "inlandDelivery")).toBe(4095);
+    expect(lineAmount(result, "inlandDelivery")).toBe(
+      portDeliveryFor(ocala.pickup, 8900 + 1165),
+    );
   });
 
   it("uses the state median when no city is chosen", () => {

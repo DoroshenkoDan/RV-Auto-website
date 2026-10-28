@@ -30,10 +30,6 @@ export const EXCISE_TIERS: Record<"petrol" | "diesel", ExciseTier[]> = {
   diesel: [{ maxVolume: 3500, eurPerLitre: 75 }, { eurPerLitre: 150 }],
 };
 
-export const EXCISE_HYBRID_EUR = 100;
-
-export const EXCISE_ELECTRIC_EUR_PER_KWH = 1;
-
 export const EXCISE_MOTORCYCLE_EUR_PER_CC = 0.2;
 
 export const EXCISE_MOTORCYCLE_FREE_VOLUME = 800;

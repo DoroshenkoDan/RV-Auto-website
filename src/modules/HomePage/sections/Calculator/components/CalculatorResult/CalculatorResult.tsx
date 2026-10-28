@@ -12,12 +12,16 @@ import { buttonVariants } from "@/ui/button";
 
 const LINE_TONES = [
   "bg-brand",
-  "bg-brand/85",
+  "bg-brand/90",
+  "bg-brand/80",
   "bg-brand/70",
-  "bg-brand/55",
+  "bg-brand/60",
+  "bg-brand/50",
   "bg-brand/45",
-  "bg-brand/35",
+  "bg-brand/40",
+  "bg-brand/30",
   "bg-brand/25",
+  "bg-brand/20",
 ];
 
 export function CalculatorResult({

@@ -36,7 +36,17 @@ export type CalculatorInput = {
 };
 
 export type EstimateLineKey =
-  "lotPrice" | "auctionFee" | "inlandDelivery" | "freight" | "customs" | "vat";
+  | "lotPrice"
+  | "auctionFee"
+  | "service"
+  | "inlandDelivery"
+  | "freight"
+  | "klaipedaParking"
+  | "broker"
+  | "klaipedaTruck"
+  | "customs"
+  | "ukraineTruck"
+  | "certification";
 
 export type EstimateLine = {
   key: EstimateLineKey;
@@ -49,4 +59,5 @@ export type CalculatorEstimate = {
   customsValue: number;
   duty: number;
   excise: number;
+  vat: number;
 };

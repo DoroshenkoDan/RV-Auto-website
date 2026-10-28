@@ -4,8 +4,6 @@ import {
   AUCTION_FEES,
   DUTY_FREE_REGIONS,
   EXCISE_AGE_LIMIT,
-  EXCISE_ELECTRIC_EUR_PER_KWH,
-  EXCISE_HYBRID_EUR,
   EXCISE_MOTORCYCLE_EUR_PER_CC,
   EXCISE_MOTORCYCLE_FREE_VOLUME,
   EXCISE_TIERS,
@@ -19,6 +17,7 @@ import type {
   CalculatorEstimate,
   CalculatorInput,
   ExchangeRates,
+  VehicleType,
 } from "./types";
 import { getUsAuctionFee, getUsLocationPrice, isUsAuction } from "./usAuctions";
 
@@ -41,19 +40,15 @@ function getAuctionFee(auction: AuctionType, lotPrice: number) {
 }
 
 function getAgeCoefficient(year: number) {
-  const age = new Date().getFullYear() - year;
+  const age = new Date().getFullYear() - year - 1;
 
   return Math.min(Math.max(age, 1), EXCISE_AGE_LIMIT);
 }
 
 function getExciseEur(input: CalculatorInput) {
-  const { fuel, vehicle, engineVolume, batteryCapacity, year } = input;
+  const { fuel, vehicle, engineVolume, year } = input;
 
-  if (fuel === "electric") {
-    return (batteryCapacity ?? 0) * EXCISE_ELECTRIC_EUR_PER_KWH;
-  }
-
-  if (engineVolume === null || year === null) {
+  if (fuel === "electric" || engineVolume === null || year === null) {
     return 0;
   }
 
@@ -63,11 +58,7 @@ function getExciseEur(input: CalculatorInput) {
       : 0;
   }
 
-  if (fuel === "hybrid") {
-    return EXCISE_HYBRID_EUR;
-  }
-
-  const tier = EXCISE_TIERS[fuel].find(
+  const tier = EXCISE_TIERS[fuel === "diesel" ? "diesel" : "petrol"].find(
     ({ maxVolume }) => maxVolume === undefined || engineVolume <= maxVolume,
   );
 
@@ -78,11 +69,23 @@ function getExciseEur(input: CalculatorInput) {
   return (tier.eurPerLitre * engineVolume * getAgeCoefficient(year)) / 1000;
 }
 
-function getShipping(
-  input: CalculatorInput,
-  lotPrice: number,
-  rates: ExchangeRates,
-) {
+const DISCOUNT_EXCEPTIONS: Record<
+  string,
+  Partial<Record<VehicleType, number>>
+> = pricing.caucasusDiscountExceptionsUsd;
+
+function getCaucasusDiscount({
+  auction,
+  vehicle,
+  state,
+  city,
+}: CalculatorInput) {
+  const exception = DISCOUNT_EXCEPTIONS[`${auction}:${state}:${city}`];
+
+  return exception?.[vehicle] ?? pricing.caucasusDiscountUsd[vehicle];
+}
+
+function getShipping(input: CalculatorInput, lotPrice: number) {
   const { auction, vehicle, state, city } = input;
 
   if (!isUsAuction(auction)) {
@@ -105,16 +108,13 @@ function getShipping(
   const lotTotal = lotPrice + auctionFee;
   const portPrice =
     getUsLocationPrice(auction, vehicle, state, city) -
-    pricing.caucasusDiscountUsd[vehicle];
-  const forwarding =
-    pricing.forwardingFeeUsd +
-    (pricing.forwardingExtraEur[vehicle] * rates.eur) / rates.usd;
+    getCaucasusDiscount(input);
   const insurance = Math.ceil(lotTotal * pricing.insuranceRate);
 
   return {
     auctionFee,
     inlandDelivery: Math.round(
-      portPrice + pricing.portDeliveryMarkupUsd + forwarding + insurance,
+      portPrice + pricing.portDeliveryMarkupUsd + insurance,
     ),
     freight: 0,
     customsValue: lotTotal + pricing.customsDeliveryBaseUsd[vehicle],
@@ -137,24 +137,31 @@ export function estimate(
   }
 
   const region = getAuctionRegion(auction);
-  const { auctionFee, inlandDelivery, freight, customsValue } = getShipping(
-    input,
-    lotPrice,
-    rates,
-  );
+  const shipping = getShipping(input, lotPrice);
+  const { auctionFee, inlandDelivery, freight } = shipping;
+  const electric = fuel === "electric";
+  const customsValue = electric ? lotPrice + auctionFee : shipping.customsValue;
 
-  const dutyRate = DUTY_FREE_REGIONS.includes(region) ? 0 : IMPORT_DUTY_RATE;
+  const dutyRate =
+    electric || DUTY_FREE_REGIONS.includes(region) ? 0 : IMPORT_DUTY_RATE;
   const duty = customsValue * dutyRate;
   const excise = (getExciseEur(input) * rates.eur) / rates.usd;
   const vat = (customsValue + duty + excise) * VAT_RATE;
+  const us = isUsAuction(auction);
+  const kyiv = us ? pricing.kyivDeliveryUsd : null;
 
   const lines = [
     { key: "lotPrice", amount: lotPrice },
     { key: "auctionFee", amount: auctionFee },
+    { key: "service", amount: us ? pricing.serviceFeeUsd : 0 },
     { key: "inlandDelivery", amount: inlandDelivery },
     { key: "freight", amount: freight },
-    { key: "customs", amount: Math.round(duty + excise) },
-    { key: "vat", amount: Math.round(vat) },
+    { key: "klaipedaParking", amount: kyiv?.klaipedaParking ?? 0 },
+    { key: "broker", amount: kyiv?.broker ?? 0 },
+    { key: "klaipedaTruck", amount: kyiv?.klaipedaTruck ?? 0 },
+    { key: "customs", amount: Math.round(duty + excise + vat) },
+    { key: "ukraineTruck", amount: kyiv?.ukraineTruck ?? 0 },
+    { key: "certification", amount: kyiv?.certification ?? 0 },
   ] as const;
 
   return {
@@ -163,5 +170,6 @@ export function estimate(
     customsValue: Math.round(customsValue),
     duty: Math.round(duty),
     excise: Math.round(excise),
+    vat: Math.round(vat),
   };
 }
