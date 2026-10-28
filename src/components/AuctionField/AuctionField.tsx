@@ -58,7 +58,11 @@ export function AuctionField({
         </div>
 
         <Select.Portal>
-          <Select.Positioner sideOffset={4} className="z-40 outline-none">
+          <Select.Positioner
+            sideOffset={4}
+            alignItemWithTrigger={false}
+            className="z-40 outline-none"
+          >
             <Select.Popup className="max-h-[min(22rem,var(--available-height))] w-(--anchor-width) origin-(--transform-origin) overflow-hidden rounded-sm border border-line bg-white py-1 shadow-[0_12px_32px_--alpha(var(--color-night)/12%)] transition-[opacity,scale] duration-150 ease-out data-ending-style:scale-98 data-ending-style:opacity-0 data-starting-style:scale-98 data-starting-style:opacity-0 motion-reduce:transition-none">
               <Select.List className="max-h-[inherit] overflow-y-auto">
                 {AUCTION_GROUPS.map(({ region, auctions }) => (
